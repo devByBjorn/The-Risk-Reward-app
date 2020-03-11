@@ -1,0 +1,13 @@
+.nav {
+  display: flex;
+  width: 100vw;
+
+  .n-link {
+    text-decoration: none;
+    padding: 1rem;
+  }
+
+  .current {
+    font-weight: bold;
+  }
+}
