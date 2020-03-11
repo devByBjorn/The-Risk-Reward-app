@@ -1,9 +1,9 @@
 import React from 'react'
 
-const TradeEdit = () => (
+const TradeEditPage = () => (
   <div>
     Trade Edit Page
   </div>
 )
 
-export default TradeEdit
+export default TradeEditPage

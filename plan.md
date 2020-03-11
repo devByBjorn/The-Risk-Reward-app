@@ -55,6 +55,7 @@
                 target: '',
                 open: moment,
                 closed: moment,
+                id: uuid()
               }
 
             - Render the intput values set by the user to th TradeTable 
