@@ -23,9 +23,10 @@ export const addTrade = ({
 })
 
 
-export const editTrade = ({ id }) => ({
+export const editTrade = ({ id, updates }) => ({
   type: 'EDIT_TRADE',
-  id
+  id,
+  updates
 })
 
 export const deleteTrade = ({ id }) => ({

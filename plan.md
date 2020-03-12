@@ -4,7 +4,7 @@
   2. TradeTablePage - A table of all trades 
       Components: 
         //TradeTable 
-          - (th) Market  Direction   R/R   Outcome  Open          Closed      Edit/delete
+          - (th) Market  Direction   R/R   Outcome  Holding period(open date - close date)    Edit/delete
             (tr)  DAX      SHORT     2.1     W      2020-02-28    201-03-07
 
           - Initial state  
