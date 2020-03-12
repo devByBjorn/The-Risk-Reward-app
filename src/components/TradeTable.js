@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import moment from 'moment'
+import TradeTableRow from './TradeTableRow'
+import marketSearcher from '../market-searcher/marketSearcher'
 
 const TradeTable = (props) => (
   <div>
@@ -17,24 +18,12 @@ const TradeTable = (props) => (
         </tr>
       </thead>
       <tbody>
-
-        {/* TABLE ROW Format*/}
-
-        {props.trades.map((trade) => {
-          return (
-
-            <tr key={trade.id}>
-              <td>{trade.market.toUpperCase()}</td>
-              <td>{trade.direction}</td>
-              <td>{moment(trade.startDate).format('YYYY-MM-DD')}</td>
-              <td>{moment(trade.endDate).format('YYYY-MM-DD')}</td>
-              <td>{trade.period}</td>
-              <td>{trade.outcome}</td>
-              <td>{trade.riskReward}</td>
-            </tr>
-
-          )
-        })}
+        {props.trades.map((trade) => (
+          <TradeTableRow
+            {...trade}
+            key={trade.id}
+          />
+        ))}
       </tbody>
     </table>
   </div>
@@ -42,7 +31,7 @@ const TradeTable = (props) => (
 
 const mapStateToProps = (state) => {
   return {
-    trades: state.trades
+    trades: marketSearcher(state.trades, state.filters)
   }
 }
 
