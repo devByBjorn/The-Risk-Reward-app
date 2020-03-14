@@ -1,8 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { addTrade } from '../actions/tradeActions'
+import TradeTableForm from './TradeTableForm'
 
 const TradeAddPage = () => (
   <div>
-    <h1>Add Trade Page</h1>
+    <TradeTableForm />
   </div>
 )
 

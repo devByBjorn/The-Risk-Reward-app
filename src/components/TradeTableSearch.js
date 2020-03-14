@@ -1,3 +1,5 @@
+// This component will probably not be needed!! 
+
 import React from 'react'
 // ERROR: wrote import React from 'React' first...upper case on 'React' caused the error: 
 

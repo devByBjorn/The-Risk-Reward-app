@@ -16,6 +16,8 @@ const marketSearcher = (trades, { searchText, sortBy, sorted }) =>
           return b.opened > a.opened ? 1 : -1
         case 'closed':
           return b.closed > a.closed ? 1 : -1
+        case 'period':
+          return b.period > a.period ? 1 : -1
         case 'r':
           return b.riskReward > a.riskReward ? 1 : - 1
       }
@@ -33,6 +35,8 @@ const marketSearcher = (trades, { searchText, sortBy, sorted }) =>
           return a.opened > b.opened ? 1 : -1
         case 'closed':
           return a.closed > b.closed ? 1 : -1
+        case 'period':
+          return a.period > b.period ? 1 : -1
         case 'r':
           return a.riskReward > b.riskReward ? 1 : - 1
       }

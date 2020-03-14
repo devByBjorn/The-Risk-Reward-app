@@ -37,3 +37,6 @@ export const sortByOpened = () => ({
 export const sortByClosed = () => ({
   type: 'SORT_BY_CLOSED'
 })
+export const sortByPeriod = () => ({
+  type: 'SORT_BY_PERIOD'
+})

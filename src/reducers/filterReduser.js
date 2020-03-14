@@ -66,6 +66,12 @@ const filterReducer = (state = initFilterState, action) => {
         sortBy: 'close',
         sorted: !state.sorted
       }
+    case 'SORT_BY_PERIOD':
+      return {
+        ...state,
+        sortBy: 'period',
+        sorted: !state.sorted
+      }
   }
 }
 
