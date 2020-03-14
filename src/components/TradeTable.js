@@ -21,18 +21,14 @@ const TradeTable = (props) => (
             <button
               className="th-btn"
               value={props.filters.sortBy}
-              onClick={(e) => {
-                props.dispatch(sortByMarket(e.target.textContent))
-              }}
+              onClick={(e) => props.dispatch(sortByMarket(e.target.textContent))}
             >Market</button>
           </th>
           <th>
             <button
               className="th-btn"
               value={props.filters.sortBy}
-              onClick={(e) => {
-                props.dispatch(sortByDirection(e.target.textContent))
-              }}
+              onClick={(e) => props.dispatch(sortByDirection(e.target.textContent))}
             >Direction</button>
           </th>
           <th>Opened</th>
@@ -42,18 +38,14 @@ const TradeTable = (props) => (
             <button
               className="th-btn"
               value={props.filters.sortBy}
-              onClick={(e) => {
-                props.dispatch(sortByOutcome(e.target.textContent))
-              }}
+              onClick={(e) => props.dispatch(sortByOutcome(e.target.textContent))}
             >OutCome</button>
           </th>
           <th>
             <button
               className="th-btn"
               value={props.filters.sortBy}
-              onClick={(e) => {
-                props.dispatch(sortByR(e.target.textContent))
-              }}
+              onClick={(e) => props.dispatch(sortByR(e.target.textContent))}
             >R</button>
           </th>
         </tr>

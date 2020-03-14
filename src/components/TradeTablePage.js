@@ -7,7 +7,7 @@ const TradeTablePage = () => (
   <div>
     <h1>Trade Table Page</h1>
 
-    <TradeTableTwo />
+    <TradeTable />
   </div>
 )
 

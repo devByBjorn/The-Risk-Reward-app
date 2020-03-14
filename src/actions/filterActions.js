@@ -1,7 +1,3 @@
-// Use tablesort library instead of manually
-// Set up a text sorting possibility
-
-
 // SET CALENDER SPAN
 export const setStartDate = (startDate = null) => ({
   type: 'SET_START_DATE',
