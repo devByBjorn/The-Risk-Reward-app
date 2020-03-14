@@ -1,5 +1,4 @@
 import React from 'react'
-import moment from 'moment'
 
 const TradeTableRow = (
   {
@@ -7,6 +6,8 @@ const TradeTableRow = (
     direction,
     startDate,
     endDate,
+    opened,
+    closed,
     period,
     outcome,
     riskReward }) => (
@@ -14,8 +15,8 @@ const TradeTableRow = (
     <tr>
       <td>{market.toUpperCase()}</td>
       <td>{direction}</td>
-      <td>{moment(startDate).format('YYYY-MM-DD')}</td>
-      <td>{moment(endDate).format('YYYY-MM-DD')}</td>
+      <td>{opened}</td>
+      <td>{closed}</td>
       <td>{period}</td>
       <td>{outcome}</td>
       <td>{riskReward}</td>

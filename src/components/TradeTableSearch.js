@@ -13,9 +13,7 @@ const TradeTableSearch = (props) => (
     <input type="text"
       value={props.filters.searchText}
       placeholder="search market"
-      onChange={(e) => {
-        return props.dispatch(searchByMarket(e.target.value))
-      }}
+      onChange={(e) => props.dispatch(searchByMarket(e.target.value))}
     />
   </div>
 )

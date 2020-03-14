@@ -14,7 +14,6 @@ const tradeReducer = (state = initTradeState, action) => {
       )
     case 'DELETE_TRADE':
       return state.filter(({ id }) => id !== action.id)
-
     default:
       return state
   }

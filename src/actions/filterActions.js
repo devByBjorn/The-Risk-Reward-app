@@ -18,26 +18,26 @@ export const searchByMarket = (searchText = '') => ({
   searchText
 })
 
-// export const sortByMarket = () => ({
-//   type: 'SORT_BY_MARKET',
-// })
+export const sortByMarket = () => ({
+  type: 'SORT_BY_MARKET',
+})
 
-// export const sortByDirection = () => ({
-//   type: 'SORT_BY_DIRECTION'
-// })
+export const sortByDirection = () => ({
+  type: 'SORT_BY_DIRECTION'
+})
 
-// export const sortByR = () => ({
-//   type: 'SORT_BY_R'
-// })
+export const sortByR = () => ({
+  type: 'SORT_BY_R'
+})
 
-// export const sortByOutcome = () => ({
-//   type: 'SORT_BY_OUTCOME'
-// })
+export const sortByOutcome = () => ({
+  type: 'SORT_BY_OUTCOME'
+})
 
-// export const sortByOpen = () => ({
-//   type: 'SORT_BY_OPEN'
-// })
+export const sortByOpened = () => ({
+  type: 'SORT_BY_OPENED'
+})
 
-// export const sortByClose = () => ({
-//   type: 'SORT_BY_CLOSE'
-// })
+export const sortByClosed = () => ({
+  type: 'SORT_BY_CLOSED'
+})

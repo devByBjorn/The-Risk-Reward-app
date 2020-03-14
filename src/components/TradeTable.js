@@ -2,19 +2,60 @@ import React from 'react'
 import { connect } from 'react-redux'
 import TradeTableRow from './TradeTableRow'
 import marketSearcher from '../market-searcher/marketSearcher'
+import { searchByMarket, sortByMarket, sortByDirection, sortByR, sortByOpened, sortByClosed, sortByOutcome } from '../actions/filterActions'
 
 const TradeTable = (props) => (
   <div>
+    <input
+      type="text"
+      placeholder="search market"
+      value={props.filters.searchText}
+      onChange={(e) => {
+        props.dispatch(searchByMarket(e.target.value))
+      }}
+    />
     <table>
       <thead>
         <tr>
-          <th>Market</th>
-          <th>Direction</th>
+          <th>
+            <button
+              className="th-btn"
+              value={props.filters.sortBy}
+              onClick={(e) => {
+                props.dispatch(sortByMarket(e.target.textContent))
+              }}
+            >Market</button>
+          </th>
+          <th>
+            <button
+              className="th-btn"
+              value={props.filters.sortBy}
+              onClick={(e) => {
+                props.dispatch(sortByDirection(e.target.textContent))
+              }}
+            >Direction</button>
+          </th>
           <th>Opened</th>
           <th>Closed</th>
           <th>Period</th>
-          <th>Outcome</th>
-          <th>R</th>
+          <th>
+            <button
+              className="th-btn"
+              value={props.filters.sortBy}
+              onClick={(e) => {
+                props.dispatch(sortByOutcome(e.target.textContent))
+              }}
+            >OutCome</button>
+          </th>
+          <th>
+            <button
+              className="th-btn"
+              value={props.filters.sortBy}
+              onClick={(e) => {
+                props.dispatch(sortByR(e.target.textContent))
+              }}
+            >R</button>
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -31,7 +72,8 @@ const TradeTable = (props) => (
 
 const mapStateToProps = (state) => {
   return {
-    trades: marketSearcher(state.trades, state.filters)
+    trades: marketSearcher(state.trades, state.filters),
+    filters: state.filters
   }
 }
 

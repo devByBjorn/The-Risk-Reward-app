@@ -6,8 +6,11 @@ export const addTrade = ({
   entry = '',
   stop = '',
   target = '',
-  open = 0,
+  opened = 0,
   closed = 0,
+  period = 0, // period = closed - opened, set up calculation in tradeForm ? 
+  outcome = '',
+  riskReward = 0, // entry, strop, target propertues to calcualte, set up calculation in tradeForm ? 
 } = {}) => ({
   type: 'ADD_TRADE',
   trade: {
@@ -16,8 +19,11 @@ export const addTrade = ({
     entry,
     stop,
     target,
-    open,
+    opened,
     closed,
+    period,
+    outcome,
+    riskReward,
     id: uuid()
   }
 })

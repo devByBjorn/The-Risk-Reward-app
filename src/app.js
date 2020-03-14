@@ -6,7 +6,6 @@ import store from './store/store'
 import { addTrade, deleteTrade } from './actions/tradeActions'
 import './style/style.scss'
 import marketSearcher from './market-searcher/marketSearcher'
-import { searchByMarket } from './actions/filterActions'
 
 store.subscribe(() => {
   const state = store.getState()
@@ -17,11 +16,12 @@ store.subscribe(() => {
 const unsubscribe = store.subscribe(() => console.log(store.getState()))
 
 
-store.dispatch(addTrade({ direction: 'long', market: 'dax', entry: 12800, stop: 12700, target: 13000 }))
-store.dispatch(addTrade({ direction: 'short', market: 'DOW', entry: 11500, stop: 11700, target: 9000 }))
-store.dispatch(searchByMarket('dax'))
-store.dispatch(searchByMarket('d'))
-store.dispatch(searchByMarket('do'))
+store.dispatch(addTrade({ direction: 'short', market: 'JMX', entry: 1500, stop: 1700, target: 900, outcome: 'loser', riskReward: 2 }))
+store.dispatch(addTrade({ direction: 'long', market: 'Bax', entry: 12800, stop: 12700, target: 13000, outcome: 'Winner', riskReward: 8 }))
+store.dispatch(addTrade({ direction: 'short', market: 'AMX', entry: 1500, stop: 1700, target: 900, outcome: 'loser', riskReward: 1 }))
+store.dispatch(addTrade({ direction: 'long', market: 'Bax', entry: 12800, stop: 12700, target: 13000, outcome: 'winner', riskReward: 4 }))
+
+
 
 unsubscribe()
 
