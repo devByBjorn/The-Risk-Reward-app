@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import TradeTableRow from './TradeTableRow'
 import marketSearcher from '../market-searcher/marketSearcher'
-import { searchByMarket, sortByMarket, sortByDirection, sortByR, sortByOpened, sortByClosed, sortByOutcome } from '../actions/filterActions'
+import { searchByMarket, sortByMarket, sortByDirection, sortByR, sortByOpened, sortByClosed, sortByOutcome, sortByPeriod } from '../actions/filterActions'
 
 const TradeTable = (props) => (
   <div>

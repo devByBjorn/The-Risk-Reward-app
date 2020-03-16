@@ -1,6 +1,5 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { trashcanIcon, editIcon } from '../icons/icons'
+import TradeTableIcons from './TradeTableIcons'
 
 const TradeTableRow = (
   {
@@ -23,8 +22,7 @@ const TradeTableRow = (
       <td>{outcome}</td>
       <td>{riskReward}</td>
       <td>
-        <button><FontAwesomeIcon icon={trashcanIcon} /></button>
-        <button><FontAwesomeIcon icon={editIcon} /></button>
+        <TradeTableIcons />
       </td>
     </tr>
   )

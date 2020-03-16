@@ -1,6 +1,11 @@
 import React from 'react'
+import moment from 'moment'
+import { SingleDatePicker } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { questionIcon } from '../icons/icons'
+
+const setOutSideDateRange = () => false
 
 class TradeTableForm extends React.Component {
   state = {
@@ -10,14 +15,17 @@ class TradeTableForm extends React.Component {
     stop: '',
     target: '',
     outcome: '',
+    opened: '',
+    closed: '',
+    openedFocused: false,
+    closedFocused: false,
+    dateError: ''
   }
 
+
   onClickDirection = (e) => {
-    if (e.target.value === 'long') {
-      this.setState(() => ({ direction: 'long' }))
-    } else {
-      this.setState(() => ({ direction: 'short' }))
-    }
+    const direction = e.target.value
+    this.setState(() => ({ direction }))
   }
 
   onChangeMarket = (e) => {
@@ -29,22 +37,40 @@ class TradeTableForm extends React.Component {
     const value = e.target.value
     const name = e.target.name
 
-    if (name === 'entry'
-      || name === 'stop'
-      || name === 'target'
-    ) {
-      value.match(/^\d*(\.\d*)?$/)
-        ? this.setState(() => ({ [name]: value }))
-        : ''
-    }
+    value.match(/^\d*(\.\d*)?$/)
+      ? this.setState(() => ({ [name]: value }))
+      : ''
   }
+
   onClickOutcome = (e) => {
-    if (e.target.value === 'win') {
-      this.setState(() => ({ outcome: 'win' }))
+    const outcome = e.target.value
+    this.setState(() => ({ outcome }))
+  }
+
+  onOpenedChange = (e) => {
+    const opened = moment(e)
+    this.setState(() => ({ opened }))
+  }
+
+  onClosedChange = (e) => {
+    const closed = moment(e)
+    if (closed < this.state.opened) {
+      this.setState(() => ({ dateError: 'closing date must be after opening date' }))
     } else {
-      this.setState(() => ({ outcome: 'loss' }))
+      this.setState(() => ({ closed }))
     }
   }
+
+  onOpenedFocusChange = () => {
+    const openedFocused = !this.state.openedFocused
+    this.setState(() => ({ openedFocused }))
+  }
+  onClosedFocusChange = () => {
+    const closedFocused = !this.state.closedFocused
+    this.setState(() => ({ closedFocused }))
+  }
+
+
   render() {
     return (
       <form>
@@ -93,17 +119,42 @@ class TradeTableForm extends React.Component {
         <input
           type="radio"
           name="outcome"
-          value="winner"
+          value="win"
           onClick={this.onClickOutcome}
         />
         <label>Win</label>
         <input
           type="radio"
           name="outcome"
-          value="loser"
+          value="loss"
           onClick={this.onClickOutcome}
         />
         <label>Loss</label>
+        <div>
+          <label>Trade opened</label>
+          <SingleDatePicker
+            date={this.state.opened}
+            onDateChange={this.onOpenedChange}
+            focused={this.state.openedFocused}
+            onFocusChange={this.onOpenedFocusChange}
+            numberOfMonths={1}
+            isOutsideRange={setOutSideDateRange}
+          />
+        </div>
+        <div>
+          {this.state.dateError && <p>{this.state.dateError}</p>}
+          <label>Trade closed</label>
+          <SingleDatePicker
+            date={this.state.closed}
+            onDateChange={this.onClosedChange}
+            focused={this.state.closedFocused}
+            onFocusChange={this.onClosedFocusChange}
+            numberOfMonths={1}
+            isOutsideRange={setOutSideDateRange}
+          />
+        </div>
+
+
         <br />
         <div>
           <textarea
