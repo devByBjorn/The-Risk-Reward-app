@@ -58,6 +58,7 @@ class TradeTableForm extends React.Component {
       this.setState(() => ({ dateError: 'closing date must be after opening date' }))
     } else {
       this.setState(() => ({ closed }))
+      this.setState(() => ({ dateError: '' }))
     }
   }
 
