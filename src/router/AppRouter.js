@@ -21,7 +21,7 @@ const AppRouter = () => (
         <Route exact path="/" component={IndexPage} />
         <Route path="/trades" component={TradeTablePage} />
         <Route path="/add" component={TradeAddPage} />
-        <Route path="/edit:id" component={TradeEditPage} />
+        <Route path="/edit/:id" component={TradeEditPage} />
         <Route path="/what" component={WhatIsR} />
         <Route component={Page404} />
       </Switch>

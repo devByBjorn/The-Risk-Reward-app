@@ -3,10 +3,14 @@ import { connect } from 'react-redux'
 import { addTrade } from '../actions/tradeActions'
 import TradeTableForm from './TradeTableForm'
 
-const TradeAddPage = () => (
+const TradeAddPage = (props) => (
   <div>
-    <TradeTableForm />
+    <TradeTableForm
+      handleSubmit={(trade) => {
+        return props.dispatch(addTrade(trade))
+      }}
+    />
   </div>
 )
 
-export default TradeAddPage
+export default connect()(TradeAddPage)

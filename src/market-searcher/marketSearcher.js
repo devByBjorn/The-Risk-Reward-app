@@ -19,7 +19,7 @@ const marketSearcher = (trades, { searchText, sortBy, sorted }) =>
         case 'period':
           return b.period > a.period ? 1 : -1
         case 'r':
-          return b.riskReward > a.riskReward ? 1 : - 1
+          return b.rewardToRisk > a.rewardToRisk ? 1 : - 1
       }
     } else {
       switch (sortBy) {
@@ -38,7 +38,7 @@ const marketSearcher = (trades, { searchText, sortBy, sorted }) =>
         case 'period':
           return a.period > b.period ? 1 : -1
         case 'r':
-          return a.riskReward > b.riskReward ? 1 : - 1
+          return a.rewardToRisk > b.rewardToRisk ? 1 : - 1
       }
     }
   })

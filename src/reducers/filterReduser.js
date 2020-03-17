@@ -57,13 +57,13 @@ const filterReducer = (state = initFilterState, action) => {
     case 'SORT_BY_OPENED':
       return {
         ...state,
-        sortBy: 'open',
+        sortBy: 'opened',
         sorted: !state.sorted
       }
     case 'SORT_BY_CLOSED':
       return {
         ...state,
-        sortBy: 'close',
+        sortBy: 'closed',
         sorted: !state.sorted
       }
     case 'SORT_BY_PERIOD':

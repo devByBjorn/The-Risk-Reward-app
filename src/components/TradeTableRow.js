@@ -1,28 +1,30 @@
 import React from 'react'
-import TradeTableIcons from './TradeTableIcons'
+import { Link } from 'react-router-dom'
+import TradeTableEditIcon from './TradeTableIcons'
 
 const TradeTableRow = (
   {
     market,
     direction,
-    startDate,
-    endDate,
     opened,
     closed,
     period,
     outcome,
-    riskReward }) => (
+    rewardToRisk,
+    id }) => (
 
     <tr>
-      <td>{market.toUpperCase()}</td>
+      <td>{market}</td>
       <td>{direction}</td>
       <td>{opened}</td>
       <td>{closed}</td>
       <td>{period}</td>
       <td>{outcome}</td>
-      <td>{riskReward}</td>
+      <td>{rewardToRisk}</td>
       <td>
-        <TradeTableIcons />
+        <Link to={`/edit/${id}`}>
+          <TradeTableEditIcon />
+        </Link>
       </td>
     </tr>
   )
