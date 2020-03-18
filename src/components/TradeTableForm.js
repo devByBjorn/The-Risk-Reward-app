@@ -21,7 +21,7 @@ class TradeTableForm extends React.Component {
     openedFocused: false,
     closedFocused: false,
     dateError: '',
-    thoughts: '',
+    conclusion: '',
   }
 
 
@@ -115,10 +115,12 @@ class TradeTableForm extends React.Component {
     const closedFocused = !this.state.closedFocused
     this.setState(() => ({ closedFocused }))
   }
-  onChangeThoughts = (e) => {
-    const thoughts = e.target.value
-    this.setState(() => ({ thoughts }))
+
+  onChangeConclusion = (e) => {
+    const conclusion = e.target.value
+    this.setState(() => ({ conclusion }))
   }
+
   handleSubmit = (e) => {
     e.preventDefault()
 
@@ -144,6 +146,8 @@ class TradeTableForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         {<p>{this.state.inputError}</p>}
+
+        <h4>Direction</h4>
         <input
           type="radio"
           name="direction"
@@ -159,7 +163,7 @@ class TradeTableForm extends React.Component {
         />
         <label>Short</label>
         <br />
-        <label>Market</label>
+        <label>Market/ Equity</label>
         <input
           type="text"
           value={this.state.market}
@@ -226,10 +230,29 @@ class TradeTableForm extends React.Component {
 
         <br />
         <div>
+          <h4>Conclusion</h4>
+          <label>Did well</label>
+          <input
+            type="radio"
+            name="performance"
+            value="well"
+          ></input>
+          <label>Did poprly</label>
+          <input
+            type="radio"
+            name="performance"
+            value="poorly"
+          ></input>
           <textarea
-            placeholder="Trade thoughts"
+            placeholder="Why"
             type="text"
-            value={this.state.note}
+            value={this.state.conclusion}
+            onChange={this.onChangeThoughts}
+          />
+          <textarea
+            placeholder="How to improve?"
+            type="text"
+            value={this.state.conclusion}
             onChange={this.onChangeThoughts}
           />
           <button><FontAwesomeIcon icon={questionIcon} /></button>

@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import TradeTableEditIcon from './TradeTableIcons'
+import { connect } from 'react-redux'
+import { TradeTableEditIcon, TradeTableTrashIcon } from './TradeTableIcons'
+import { deleteTrade } from '../actions/tradeActions'
 
 const TradeTableRow = (
   {
+    dispatch,
     market,
     direction,
     opened,
@@ -22,11 +25,19 @@ const TradeTableRow = (
       <td>{outcome}</td>
       <td>{rewardToRisk}</td>
       <td>
-        <Link to={`/edit/${id}`}>
-          <TradeTableEditIcon />
-        </Link>
+        <div>
+          <Link to={`/edit/${id}`}>
+            <TradeTableEditIcon />
+          </Link>
+          <button
+            onClick={() => {
+              dispatch(deleteTrade({ id }))
+            }}
+          ><TradeTableTrashIcon />
+          </button>
+        </div>
       </td>
     </tr>
   )
 
-export default TradeTableRow
+export default connect()(TradeTableRow)

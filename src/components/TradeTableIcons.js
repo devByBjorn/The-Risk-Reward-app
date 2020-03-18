@@ -15,11 +15,16 @@ import { Link } from 'react-router-dom'
     ><FontAwesomeIcon icon={trashcanIcon} /></button>
 */
 
-const TradeTableEditIcon = () => (
+export const TradeTableTrashIcon = () => (
+  <div>
+    <FontAwesomeIcon icon={trashcanIcon} />
+  </div>
+)
+
+export const TradeTableEditIcon = () => (
   <div>
     <FontAwesomeIcon icon={editIcon} />
   </div>
 )
 
 
-export default TradeTableEditIcon
