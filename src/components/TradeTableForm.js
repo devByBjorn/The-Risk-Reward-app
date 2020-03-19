@@ -1,11 +1,10 @@
 import React from 'react'
 import moment from 'moment'
-import { SingleDatePicker } from 'react-dates';
+import 'react-dates/initialize'
 import 'react-dates/lib/css/_datepicker.css'
+import { SingleDatePicker, isInclusivelyBeforeDay } from 'react-dates'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { questionIcon } from '../icons/icons'
-
-const setOutSideDateRange = () => false
 
 class TradeTableForm extends React.Component {
   state = {
@@ -15,6 +14,8 @@ class TradeTableForm extends React.Component {
     stop: '',
     target: '',
     outcome: '',
+    outcomeInfo: '',
+    toggleInfo: false,
     inputError: '',
     opened: moment(),
     closed: moment(),
@@ -48,24 +49,32 @@ class TradeTableForm extends React.Component {
     const entry = this.state.entry
     const stop = this.state.stop
     const target = this.state.target
-    const direction = this.state.direction
     const outcome = this.state.outcome
+
+    let rewardToRisk
+    const long = this.state.direction === 'long'
+    const short = this.state.direction === 'short'
+    const win = outcome === 'win'
+    const loss = outcome === 'loss'
 
     const longWin = (target - entry) / (entry - stop)
     const longLoss = (entry - stop) / (target - entry)
     const shortWin = (entry - target) / (stop - entry)
     const shortLoss = (stop - entry) / (entry - target)
 
-    let rewardToRisk
 
-    if (direction === 'long' && outcome === 'win') {
+    if (long && win) {
       rewardToRisk = Math.abs(longWin)
-    } else if (direction === 'long' && outcome === 'loss') {
+    } else if (long && loss) {
       rewardToRisk = -Math.abs(longLoss)
-    } else if (direction === 'short' && outcome === 'win') {
+    } else if (long && !outcome) {
+      rewardToRisk = Math.abs(longWin)
+    } else if (short && win) {
       rewardToRisk = Math.abs(shortWin)
-    } else if (direction === 'short' && outcome === 'loss') {
+    } else if (short && loss) {
       rewardToRisk = -Math.abs(shortLoss)
+    } else if (short && !outcome) {
+      rewardToRisk = Math.abs(shortWin)
     }
 
     return rewardToRisk.toFixed(2)
@@ -74,6 +83,22 @@ class TradeTableForm extends React.Component {
   onClickOutcome = (e) => {
     const outcome = e.target.value
     this.setState(() => ({ outcome }))
+  }
+
+  onClickQuestion = () => {
+    let toggleInfo = !this.state.toggleInfo
+
+    if (toggleInfo) {
+      this.setState(() => ({
+        outcomeInfo: 'If no outcome is given, the calcualtion for R will be as if the trade was a winner. You can always edit this afterwards',
+        toggleInfo
+      }))
+    } else {
+      this.setState(() => ({
+        outcomeInfo: '',
+        toggleInfo
+      }))
+    }
   }
 
   // Opening date must have a value
@@ -124,8 +149,8 @@ class TradeTableForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
 
-    if (!this.state.entry || !this.state.stop
-      || !this.state.target || !this.state.direction) {
+    if (!this.state.entry || !this.state.stop || !this.state.target
+      || !this.state.direction) {
       this.setState(() => ({ inputError: 'Values for direction, entry, stop, and target must be given' }))
     } else {
       this.setState(() => ({ inputError: '' }))
@@ -137,7 +162,7 @@ class TradeTableForm extends React.Component {
         period: (this.state.closed - this.state.opened).valueOf(),
         outcome: this.state.outcome,
         rewardToRisk: parseFloat(this.calculateRewardToRisk()),
-        thoughts: this.state.thoughts
+        conclusion: this.state.conclusion
       })
     }
   }
@@ -204,6 +229,12 @@ class TradeTableForm extends React.Component {
           onClick={this.onClickOutcome}
         />
         <label>Loss</label>
+        {this.state.outcomeInfo && <p>{this.state.outcomeInfo}</p>}
+        <button
+          type="button"
+          onClick={this.onClickQuestion}
+        ><FontAwesomeIcon icon={questionIcon} />
+        </button>
         <div>
           <label>Trade opened</label>
           <SingleDatePicker
@@ -212,7 +243,7 @@ class TradeTableForm extends React.Component {
             focused={this.state.openedFocused}
             onFocusChange={this.onOpenedFocusChange}
             numberOfMonths={1}
-            isOutsideRange={setOutSideDateRange}
+            isOutsideRange={day => !isInclusivelyBeforeDay(day, moment())} // User only able to reister trades from todays date and back. 
           />
         </div>
         <div>
@@ -224,7 +255,7 @@ class TradeTableForm extends React.Component {
             focused={this.state.closedFocused}
             onFocusChange={this.onClosedFocusChange}
             numberOfMonths={1}
-            isOutsideRange={setOutSideDateRange}
+            isOutsideRange={day => !isInclusivelyBeforeDay(day, moment())}
           />
         </div>
 
@@ -247,15 +278,14 @@ class TradeTableForm extends React.Component {
             placeholder="Why"
             type="text"
             value={this.state.conclusion}
-            onChange={this.onChangeThoughts}
+            onChange={this.onChangeConclusion}
           />
           <textarea
             placeholder="How to improve?"
             type="text"
             value={this.state.conclusion}
-            onChange={this.onChangeThoughts}
+            onChange={this.onChangeConclusion}
           />
-          <button><FontAwesomeIcon icon={questionIcon} /></button>
         </div>
         <button
           onSubmit={this.onSubmit}

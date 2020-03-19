@@ -1,8 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import TradeTable from './TradeTable'
-import TradeAddPage from './TradeAddPage'
-import TradeTableTwo from './TradeTableTwo'
+
+
 
 const TradeTablePage = () => (
   <div>

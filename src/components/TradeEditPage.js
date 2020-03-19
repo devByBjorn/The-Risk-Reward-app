@@ -1,9 +1,14 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-const TradeEditPage = () => (
-  <div>
-    Trade Edit Page
-  </div>
-)
+const TradeEditPage = (props) => {
+  console.log(props)
+  return (
+    <div>
+      Trade Edit Page
+    </div>
+  )
+}
 
-export default TradeEditPage
+
+export default connect()(TradeEditPage)
