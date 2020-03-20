@@ -4,27 +4,33 @@ import 'react-dates/initialize'
 import 'react-dates/lib/css/_datepicker.css'
 import { SingleDatePicker, isInclusivelyBeforeDay } from 'react-dates'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { questionIcon } from '../icons/icons'
+import { questionIcon } from '../../icons/icons'
 
 class TradeTableForm extends React.Component {
-  state = {
-    direction: '',
-    market: '',
-    entry: '',
-    stop: '',
-    target: '',
-    outcome: '',
-    outcomeInfo: '',
-    toggleInfo: false,
-    inputError: '',
-    opened: moment(),
-    closed: moment(),
-    openedFocused: false,
-    closedFocused: false,
-    dateError: '',
-    conclusion: '',
+  constructor(props) {
+    super(props)
+    this.state = {
+      direction: props.trade ? props.trade.direction : '',
+      market: props.trade ? props.trade.market : '',
+      entry: props.trade ? props.trade.entry : '',
+      stop: props.trade ? props.trade.stop : '',
+      target: props.trade ? props.trade.target : '',
+      outcome: props.trade ? props.trade.outcome : '',
+      outcomeInfo: '',
+      toggleInfo: false,
+      inputError: '',
+      opened: props.trade ? moment(props.trade.opened) : moment(),
+      closed: props.trade ? moment(props.trade.closed) : moment(),
+      openedFocused: false,
+      closedFocused: false,
+      dateError: '',
+      conclusion: props.trade ? props.trade.conclusion : {
+        execution: '',
+        whyNote: '',
+        improveNote: '',
+      }
+    }
   }
-
 
   onClickDirection = (e) => {
     const direction = e.target.value
@@ -59,22 +65,23 @@ class TradeTableForm extends React.Component {
 
     const longWin = (target - entry) / (entry - stop)
     const longLoss = (entry - stop) / (target - entry)
+
     const shortWin = (entry - target) / (stop - entry)
     const shortLoss = (stop - entry) / (entry - target)
 
 
     if (long && win) {
-      rewardToRisk = Math.abs(longWin)
+      rewardToRisk = longWin
     } else if (long && loss) {
       rewardToRisk = -Math.abs(longLoss)
     } else if (long && !outcome) {
-      rewardToRisk = Math.abs(longWin)
+      rewardToRisk = longWin
     } else if (short && win) {
-      rewardToRisk = Math.abs(shortWin)
+      rewardToRisk = shortWin
     } else if (short && loss) {
       rewardToRisk = -Math.abs(shortLoss)
     } else if (short && !outcome) {
-      rewardToRisk = Math.abs(shortWin)
+      rewardToRisk = shortWin
     }
 
     return rewardToRisk.toFixed(2)
@@ -111,8 +118,10 @@ class TradeTableForm extends React.Component {
       this.setState(() =>
         ({ dateError: 'opening date must come before closing date' }))
     } else if (!closed && opened || opened < closed) {
-      this.setState(() => ({ opened }))
-      this.setState(() => ({ dateError: '' }))
+      this.setState(() => ({
+        opened,
+        dateError: ''
+      }))
     }
   }
 
@@ -126,8 +135,10 @@ class TradeTableForm extends React.Component {
       this.setState(() =>
         ({ dateError: 'closing date must come after opening date' }))
     } else if (!closed || closed > opened) {
-      this.setState(() => ({ closed }))
-      this.setState(() => ({ dateError: '' }))
+      this.setState(() => ({
+        closed,
+        dateError: ''
+      }))
     }
   }
 
@@ -141,26 +152,35 @@ class TradeTableForm extends React.Component {
     this.setState(() => ({ closedFocused }))
   }
 
-  onChangeConclusion = (e) => {
-    const conclusion = e.target.value
-    this.setState(() => ({ conclusion }))
+  onConclusionChange = (e) => {
+    const name = e.target.name
+    const value = e.target.value
+
+    this.setState(prevState => ({
+      conclusion: {
+        ...prevState.conclusion,
+        [name]: value
+      }
+    }))
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
-
     if (!this.state.entry || !this.state.stop || !this.state.target
       || !this.state.direction) {
       this.setState(() => ({ inputError: 'Values for direction, entry, stop, and target must be given' }))
     } else {
       this.setState(() => ({ inputError: '' }))
       this.props.handleSubmit({
-        market: this.state.market.toUpperCase(),
         direction: this.state.direction,
+        market: this.state.market.toUpperCase(),
+        entry: this.state.entry,
+        stop: this.state.stop,
+        target: this.state.target,
+        outcome: this.state.outcome,
         opened: this.state.opened.valueOf(),
         closed: this.state.closed.valueOf(),
         period: (this.state.closed - this.state.opened).valueOf(),
-        outcome: this.state.outcome,
         rewardToRisk: parseFloat(this.calculateRewardToRisk()),
         conclusion: this.state.conclusion
       })
@@ -169,14 +189,17 @@ class TradeTableForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        {<p>{this.state.inputError}</p>}
+      <form onSubmit={e => {
+        this.handleSubmit(e)
+      }}>
+        {this.state.inputError && <p>{this.state.inputError}</p>}
 
         <h4>Direction</h4>
         <input
           type="radio"
           name="direction"
           value="long"
+          checked={this.state.direction === 'long' ? true : false}
           onClick={this.onClickDirection}
         />
         <label>Long</label>
@@ -184,6 +207,7 @@ class TradeTableForm extends React.Component {
           type="radio"
           name="direction"
           value="short"
+          checked={this.state.direction === 'short' ? true : false}
           onClick={this.onClickDirection}
         />
         <label>Short</label>
@@ -216,16 +240,18 @@ class TradeTableForm extends React.Component {
           onChange={this.onChangeValue}
         /> <br />
         <input
-          type="radio"
+          type="checkbox"
           name="outcome"
           value="win"
+          checked={this.state.outcome === 'win' ? true : false}
           onClick={this.onClickOutcome}
         />
         <label>Win</label>
         <input
-          type="radio"
+          type="checkbox"
           name="outcome"
           value="loss"
+          checked={this.state.outcome === 'loss' ? true : false}
           onClick={this.onClickOutcome}
         />
         <label>Loss</label>
@@ -265,26 +291,32 @@ class TradeTableForm extends React.Component {
           <label>Did well</label>
           <input
             type="radio"
-            name="performance"
+            name="execution"
             value="well"
+            checked={this.state.conclusion.execution === 'well' ? true : false}
+            onClick={this.onConclusionChange}
           ></input>
-          <label>Did poprly</label>
+          <label>Did poorly</label>
           <input
             type="radio"
-            name="performance"
+            name="execution"
             value="poorly"
+            checked={this.state.conclusion.execution === 'poorly' ? true : false}
+            onClick={this.onConclusionChange}
           ></input>
           <textarea
-            placeholder="Why"
+            placeholder="Why?"
             type="text"
-            value={this.state.conclusion}
-            onChange={this.onChangeConclusion}
+            name="whyNote"
+            value={this.state.conclusion.whyNote}
+            onChange={this.onConclusionChange}
           />
           <textarea
             placeholder="How to improve?"
             type="text"
-            value={this.state.conclusion}
-            onChange={this.onChangeConclusion}
+            name="improveNote"
+            value={this.state.conclusion.improveNote}
+            onChange={this.onConclusionChange}
           />
         </div>
         <button

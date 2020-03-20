@@ -1,8 +1,8 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { connect } from 'react-redux'
-import { editTrade, deleteTrade } from '../actions/tradeActions'
-import { trashcanIcon, editIcon } from '../icons/icons'
+import { editTrade, deleteTrade } from '../../actions/tradeActions'
+import { trashcanIcon, editIcon } from '../../icons/icons'
 import { Link } from 'react-router-dom'
 
 /*

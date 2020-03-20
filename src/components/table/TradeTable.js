@@ -2,8 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import TableHead from './TradeTableHead'
 import TradeTableRow from './TradeTableRow'
-import marketSearcher from '../market-searcher/marketSearcher'
-import { searchByMarket, sortByMarket, sortByDirection, sortByR, sortByOpened, sortByClosed, sortByOutcome, sortByPeriod } from '../actions/filterActions'
+import marketSearcher from '../../market-searcher/marketSearcher'
+import { searchByMarket, sortByMarket, sortByDirection, sortByR, sortByOpened, sortByClosed, sortByOutcome, sortByPeriod } from '../../actions/filterActions'
 
 // Make button into one component here
 

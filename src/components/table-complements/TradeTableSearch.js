@@ -7,7 +7,7 @@ import React from 'react'
 This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
 */
 import { connect } from 'react-redux'
-import { searchByMarket } from '../actions/filterActions'
+import { searchByMarket } from '../../actions/filterActions'
 
 const TradeTableSearch = (props) => (
   <div>
@@ -26,4 +26,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(TradeTableSearch)
+// export default connect(mapStateToProps)(TradeTableSearch)
