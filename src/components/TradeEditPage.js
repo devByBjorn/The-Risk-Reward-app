@@ -11,12 +11,14 @@ const TradeEditPage = (props) => {
         trade={props.trade}
         onSubmit={(trade) => {
           props.dispatch(editTrade(props.trade.id, trade))
+          props.history.push('/trades')
         }}
       />
       <button
         onClick={() => {
           const { id } = props.trade
           props.dispatch(deleteTrade({ id }))
+          props.history.push('/trades')
         }}>
         <TradeTableTrashIcon /> Trash trade</button>
     </div>

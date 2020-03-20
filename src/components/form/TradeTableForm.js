@@ -295,7 +295,7 @@ class TradeTableForm extends React.Component {
             value="well"
             checked={this.state.conclusion.execution === 'well' ? true : false}
             onClick={this.onConclusionChange}
-          ></input>
+          />
           <label>Did poorly</label>
           <input
             type="radio"
@@ -303,7 +303,15 @@ class TradeTableForm extends React.Component {
             value="poorly"
             checked={this.state.conclusion.execution === 'poorly' ? true : false}
             onClick={this.onConclusionChange}
-          ></input>
+          />
+          <label>A bit of both</label>
+          <input
+            type="radio"
+            name="execution"
+            value="both"
+            checked={this.state.conclusion.execution === 'both' ? true : false}
+            onClick={this.onConclusionChange}
+          />
           <textarea
             placeholder="Why?"
             type="text"
