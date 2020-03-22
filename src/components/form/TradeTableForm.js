@@ -117,7 +117,7 @@ class TradeTableForm extends React.Component {
     if (closed && opened > closed) {
       this.setState(() =>
         ({ dateError: 'opening date must come before closing date' }))
-    } else if (!closed && opened || opened < closed) {
+    } else if (!closed && opened || opened <= closed) {
       this.setState(() => ({
         opened,
         dateError: ''
@@ -134,7 +134,7 @@ class TradeTableForm extends React.Component {
     if (closed && closed < opened) {
       this.setState(() =>
         ({ dateError: 'closing date must come after opening date' }))
-    } else if (!closed || closed > opened) {
+    } else if (!closed || closed >= opened) {
       this.setState(() => ({
         closed,
         dateError: ''
