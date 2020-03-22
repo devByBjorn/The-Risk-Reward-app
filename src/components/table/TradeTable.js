@@ -3,7 +3,18 @@ import { connect } from 'react-redux'
 import TableHead from './TradeTableHead'
 import TradeTableRow from './TradeTableRow'
 import marketSearcher from '../../market-searcher/marketSearcher'
-import { searchByMarket, sortByMarket, sortByDirection, sortByR, sortByOpened, sortByClosed, sortByOutcome, sortByPeriod } from '../../actions/filterActions'
+import {
+  searchByMarket,
+  sortByMarket,
+  sortByDirection,
+  sortByR,
+  sortByOpened,
+  sortByClosed,
+  sortByOutcome,
+  sortByPeriod,
+  sortByExecution,
+  sortByManagement
+} from '../../actions/filterActions'
 
 // Make button into one component here
 
@@ -46,6 +57,16 @@ const TradeTable = (props) => (
             value={props.filters.sortBy}
             onClick={(e) => props.dispatch(sortByPeriod(e.target.textContent))}
             heading='Period'
+          />
+          <TableHead
+            value={props.filters.sortBy}
+            onClick={(e) => props.dispatch(sortByExecution(e.target.textContent))}
+            heading='Execution'
+          />
+          <TableHead
+            value={props.filters.sortBy}
+            onClick={(e) => props.dispatch(sortByManagement(e.target.textContent))}
+            heading='Management'
           />
           <TableHead
             value={props.filters.sortBy}

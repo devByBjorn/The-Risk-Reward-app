@@ -19,23 +19,17 @@ class TradeTableStats extends React.Component {
   render() {
     return (
       <div>
-        <div>Total Trades: {this.props.trades.length > 0 ? <p>{this.props.trades.length} </p> : 0}</div>
-        <div>
-          Total R:
-          {this.getTotalR(this.props.trades)}
-        </div>
-        <div>
-          Avarage R:
-          {this.props.trades.length ? this.getAvarageR(this.props.trades) : 0}
-        </div>
-        <div>
-          Highest R:
-          {this.props.trades.length ? this.getHighestR(this.props.trades) : 0}
-        </div>
-        <div>
-          Lowest R:
-          {this.props.trades.length ? this.getLowestR(this.props.trades) : 0}
-        </div>
+        <h4>Total Trades:{this.props.trades.length}</h4>
+        <ul>
+          <li>Total R:
+          {this.getTotalR(this.props.trades)}</li>
+          <li> Avarage R:
+          {this.props.trades.length ? this.getAvarageR(this.props.trades) : 0}</li>
+          <li>Highest R:
+          {this.props.trades.length ? this.getHighestR(this.props.trades) : 0}</li>
+          <li> Lowest R:
+          {this.props.trades.length ? this.getLowestR(this.props.trades) : 0}</li>
+        </ul>
       </div>
     )
   }

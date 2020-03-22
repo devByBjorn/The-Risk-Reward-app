@@ -14,6 +14,7 @@ const TradeTableRow = (
     period,
     outcome,
     rewardToRisk,
+    conclusion,
     id }) => (
 
     <tr>
@@ -22,6 +23,8 @@ const TradeTableRow = (
       <td>{opened}</td>
       <td>{closed}</td>
       <td>{period}</td>
+      <td>{conclusion.execution}</td>
+      <td>{conclusion.management}</td>
       <td>{outcome}</td>
       <td>{rewardToRisk}</td>
       <td>

@@ -10,6 +10,10 @@ const marketSearcher = (trades, { searchText, sortBy, sorted }) =>
           return a.direction.toLowerCase() > b.direction.toLowerCase() ? 1 : -1
         case 'outcome':
           return a.outcome.toLowerCase() > b.outcome.toLowerCase() ? 1 : -1
+        case 'execution':
+          return a.conclusion.execution.toLowerCase() > b.conclusion.execution.toLowerCase() ? 1 : - 1
+        case 'management':
+          return a.conclusion.management.toLowerCase() > b.conclusion.management.toLowerCase() ? 1 : - 1
 
         // first click for numbers results in biggest first, rising order
         case 'opened':
@@ -29,7 +33,10 @@ const marketSearcher = (trades, { searchText, sortBy, sorted }) =>
           return b.direction.toLowerCase() > a.direction.toLowerCase() ? 1 : -1
         case 'outcome':
           return b.outcome.toLowerCase() > a.outcome.toLowerCase() ? 1 : -1
-
+        case 'execution':
+          return b.conclusion.execution.toLowerCase() > a.conclusion.execution.toLowerCase() ? 1 : - 1
+        case 'management':
+          return b.conclusion.management.toLowerCase() > a.conclusion.management.toLowerCase() ? 1 : - 1
         // second click for numbers results in smallest first, falling order
         case 'opened':
           return a.opened > b.opened ? 1 : -1

@@ -40,3 +40,9 @@ export const sortByClosed = () => ({
 export const sortByPeriod = () => ({
   type: 'SORT_BY_PERIOD'
 })
+export const sortByExecution = () => ({
+  type: 'SORT_BY_EXECUTION'
+})
+export const sortByManagement = () => ({
+  type: 'SORT_BY_MANAGEMENT'
+})

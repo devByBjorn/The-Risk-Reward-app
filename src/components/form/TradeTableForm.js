@@ -6,6 +6,8 @@ import { SingleDatePicker, isInclusivelyBeforeDay } from 'react-dates'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { questionIcon } from '../../icons/icons'
 
+// Look into using a third party library for forms
+
 class TradeTableForm extends React.Component {
   constructor(props) {
     super(props)
@@ -26,6 +28,7 @@ class TradeTableForm extends React.Component {
       dateError: '',
       conclusion: props.trade ? props.trade.conclusion : {
         execution: '',
+        management: '',
         whyNote: '',
         improveNote: '',
       }
@@ -288,44 +291,77 @@ class TradeTableForm extends React.Component {
         <br />
         <div>
           <h4>Conclusion</h4>
-          <label>Did well</label>
-          <input
-            type="radio"
-            name="execution"
-            value="well"
-            checked={this.state.conclusion.execution === 'well' ? true : false}
-            onClick={this.onConclusionChange}
-          />
-          <label>Did poorly</label>
-          <input
-            type="radio"
-            name="execution"
-            value="poorly"
-            checked={this.state.conclusion.execution === 'poorly' ? true : false}
-            onClick={this.onConclusionChange}
-          />
-          <label>A bit of both</label>
-          <input
-            type="radio"
-            name="execution"
-            value="both"
-            checked={this.state.conclusion.execution === 'both' ? true : false}
-            onClick={this.onConclusionChange}
-          />
-          <textarea
-            placeholder="Why?"
-            type="text"
-            name="whyNote"
-            value={this.state.conclusion.whyNote}
-            onChange={this.onConclusionChange}
-          />
-          <textarea
-            placeholder="How to improve?"
-            type="text"
-            name="improveNote"
-            value={this.state.conclusion.improveNote}
-            onChange={this.onConclusionChange}
-          />
+          <div>
+            <label>Execution: </label>
+            <label>Good</label>
+            <input
+              type="radio"
+              name="execution"
+              value="good"
+              checked={this.state.conclusion.execution === 'good' ? true : false}
+              onClick={this.onConclusionChange}
+            />
+            <label>Poor</label>
+            <input
+              type="radio"
+              name="execution"
+              value="poor"
+              checked={this.state.conclusion.execution === 'poor' ? true : false}
+              onClick={this.onConclusionChange}
+            />
+            <label>Both</label>
+            <input
+              type="radio"
+              name="execution"
+              value="both"
+              checked={this.state.conclusion.execution === 'both' ? true : false}
+              onClick={this.onConclusionChange}
+            />
+          </div>
+
+          <div>
+            <label>Trade management: </label>
+            <label>Good</label>
+            <input
+              type="radio"
+              name="management"
+              value="good"
+              checked={this.state.conclusion.management === 'good' ? true : false}
+              onClick={this.onConclusionChange}
+            />
+            <label>Poor</label>
+            <input
+              type="radio"
+              name="management"
+              value="poor"
+              checked={this.state.conclusion.management === 'poor' ? true : false}
+              onClick={this.onConclusionChange}
+            />
+            <label>Both</label>
+            <input
+              type="radio"
+              name="management"
+              value="both"
+              checked={this.state.conclusion.management === 'both' ? true : false}
+              onClick={this.onConclusionChange}
+            />
+          </div>
+          <div>
+            <textarea
+              placeholder="Why?"
+              type="text"
+              name="whyNote"
+              value={this.state.conclusion.whyNote}
+              onChange={this.onConclusionChange}
+            />
+            <textarea
+              placeholder="How to improve?"
+              type="text"
+              name="improveNote"
+              value={this.state.conclusion.improveNote}
+              onChange={this.onConclusionChange}
+            />
+          </div>
         </div>
         <button
           onSubmit={this.onSubmit}
@@ -336,3 +372,4 @@ class TradeTableForm extends React.Component {
 }
 
 export default TradeTableForm
+
