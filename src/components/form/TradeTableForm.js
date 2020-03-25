@@ -21,8 +21,8 @@ class TradeTableForm extends React.Component {
       outcomeInfo: '',
       toggleInfo: false,
       inputError: '',
-      opened: props.trade ? moment(props.trade.opened) : moment(),
-      closed: props.trade ? moment(props.trade.closed) : moment(),
+      opened: props.trade ? moment(props.trade.opened) : '',
+      closed: props.trade ? moment(props.trade.closed) : '',
       openedFocused: false,
       closedFocused: false,
       dateError: '',
@@ -145,6 +145,10 @@ class TradeTableForm extends React.Component {
     }
   }
 
+  onClearDate = () => {
+
+  }
+
   onOpenedFocusChange = () => {
     const openedFocused = !this.state.openedFocused
     this.setState(() => ({ openedFocused }))
@@ -167,6 +171,7 @@ class TradeTableForm extends React.Component {
     }))
   }
 
+
   handleSubmit = (e) => {
     e.preventDefault()
     if (!this.state.entry || !this.state.stop || !this.state.target
@@ -183,7 +188,7 @@ class TradeTableForm extends React.Component {
         outcome: this.state.outcome,
         opened: this.state.opened.valueOf(),
         closed: this.state.closed.valueOf(),
-        period: (this.state.closed - this.state.opened).valueOf(),
+        period: this.state.closed && this.state.opened ? (this.state.closed - this.state.opened).valueOf() : '',
         rewardToRisk: parseFloat(this.calculateRewardToRisk()),
         conclusion: this.state.conclusion
       })
@@ -258,26 +263,31 @@ class TradeTableForm extends React.Component {
           onClick={this.onClickOutcome}
         />
         <label>Loss</label>
-        {this.state.outcomeInfo && <p>{this.state.outcomeInfo}</p>}
+        {this.state.outcomeInfo && <p>{this.state.outcomeInfo}</p>} {/* info about win/loss*/}
         <button
           type="button"
           onClick={this.onClickQuestion}
         ><FontAwesomeIcon icon={questionIcon} />
         </button>
         <div>
-          <label>Trade opened</label>
+          <label>Opened</label>
           <SingleDatePicker
             date={this.state.opened}
             onDateChange={this.onOpenedChange}
             focused={this.state.openedFocused}
             onFocusChange={this.onOpenedFocusChange}
             numberOfMonths={1}
-            isOutsideRange={day => !isInclusivelyBeforeDay(day, moment())} // User only able to reister trades from todays date and back. 
+            isOutsideRange={day => !isInclusivelyBeforeDay(day, moment())}
           />
+          <button
+            type="button"
+            onClick={() => this.setState(() => ({ opened: '' }))}
+          > X</button> { /*clear date*/}
         </div>
         <div>
-          {this.state.dateError && <p>{this.state.dateError}</p>}
-          <label>Trade closed</label>
+
+          {this.state.dateError && <p>{this.state.dateError}</p> /* Date error message*/}
+          <label>Closed</label>
           <SingleDatePicker
             date={this.state.closed}
             onDateChange={this.onClosedChange}
@@ -286,6 +296,10 @@ class TradeTableForm extends React.Component {
             numberOfMonths={1}
             isOutsideRange={day => !isInclusivelyBeforeDay(day, moment())}
           />
+          <button
+            type="button"
+            onClick={() => this.setState(() => ({ closed: '' }))}
+          >X</button> { /*clear date*/}
         </div>
 
         <br />
