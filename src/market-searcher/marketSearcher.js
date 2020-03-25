@@ -1,6 +1,13 @@
-const marketSearcher = (trades, { searchText, sortBy, sorted }) =>
+import moment from 'moment'
+
+const marketSearcher = (trades, { searchText, sortBy, sorted, startDate, endDate }) =>
   trades.filter((trade) => {
-    return trade.market.toLowerCase().includes(searchText.toLowerCase())
+    const openDate = moment(trade.opened)
+    const atStartDate = startDate ? startDate.isSameOrBefore(openDate, 'day') : true
+    const atEndDate = endDate ? endDate.isSameOrAfter(openDate, 'day') : true
+    const userSearch = trade.market.toLowerCase().includes(searchText.toLowerCase())
+
+    return atStartDate && atEndDate && userSearch
   }).sort((a, b) => {
     if (sorted) {
       switch (sortBy) {

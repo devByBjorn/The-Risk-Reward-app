@@ -10,7 +10,6 @@ store.subscribe(() => {
   const state = store.getState()
   // const getSearchedMarket = marketSearcher(state.trades, state.filters)
   // console.log('search result:', getSearchedMarket)
-  console.log('sort', state.trades.sort((a, b) => b.rewardToRisk > a.rewardToRisk ? 1 : -1)[0].rewardToRisk)
 })
 
 const unsubscribe = store.subscribe(() => console.log(store.getState()))

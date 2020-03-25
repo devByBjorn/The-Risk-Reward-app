@@ -4,7 +4,7 @@ export const setStartDate = (startDate = null) => ({
   startDate
 })
 
-export const setCloseDate = (endDate = null) => ({
+export const setEndDate = (endDate = null) => ({
   type: 'SET_END_DATE',
   endDate
 })
