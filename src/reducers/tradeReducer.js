@@ -8,8 +8,8 @@ const tradeReducer = (state = initTradeState, action) => {
         action.trade
       ]
     case 'EDIT_TRADE':
-      return state.filter(({ id }) => id === action.id
-        ? { ...state, ...action.updates }
+      return state.map((trade) => trade.id === action.id
+        ? { ...trade, ...action.updates }
         : trade
       )
     case 'DELETE_TRADE':

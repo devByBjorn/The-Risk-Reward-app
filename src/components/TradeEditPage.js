@@ -9,7 +9,7 @@ const TradeEditPage = (props) => {
     <div>
       <TradeTableForm
         trade={props.trade}
-        onSubmit={(trade) => {
+        handleSubmit={(trade) => {
           props.dispatch(editTrade(props.trade.id, trade))
           props.history.push('/trades')
         }}

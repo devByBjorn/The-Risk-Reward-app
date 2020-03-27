@@ -190,7 +190,12 @@ class TradeTableForm extends React.Component {
         closed: this.state.closed.valueOf(),
         period: this.state.closed && this.state.opened ? (this.state.closed - this.state.opened).valueOf() : '',
         rewardToRisk: parseFloat(this.calculateRewardToRisk()),
-        conclusion: this.state.conclusion
+        conclusion: this.state.conclusion && {
+          execution: this.state.conclusion.execution,
+          management: this.state.conclusion.management,
+          whyNote: this.state.conclusion.whyNote,
+          improveNote: this.state.conclusion.whyNote
+        },
       })
     }
   }
