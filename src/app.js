@@ -8,6 +8,7 @@ import marketSearcher from './market-searcher/marketSearcher'
 
 store.subscribe(() => {
   const state = store.getState()
+  console.log(state)
   // const getSearchedMarket = marketSearcher(state.trades, state.filters)
   // console.log('search result:', getSearchedMarket)
 })
