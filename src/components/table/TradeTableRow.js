@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { TradeTableEditIcon, TradeTableTrashIcon } from './TradeTableIcons'
+import { EditIcon, TrashIcon } from './TradeTableIcons'
 import { deleteTrade } from '../../actions/tradeActions'
 
 const TradeTableRow = (
@@ -29,14 +29,14 @@ const TradeTableRow = (
       <td>{rewardToRisk}</td>
       <td>
         <div>
-          <Link to={`/edit/${id}`}>
-            <TradeTableEditIcon />
+          <Link to={`/edit-trade/${id}`}>
+            <EditIcon />
           </Link>
           <button
             onClick={() => {
               dispatch(deleteTrade({ id }))
             }}
-          ><TradeTableTrashIcon />
+          ><TrashIcon />
           </button>
         </div>
       </td>

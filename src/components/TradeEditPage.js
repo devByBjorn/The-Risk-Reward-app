@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import TradeTableForm from './form/TradeTableForm'
 import { editTrade, deleteTrade } from '../actions/tradeActions'
-import { TradeTableTrashIcon } from './table/TradeTableIcons'
+import { TrashIcon } from './table/TradeTableIcons'
 
 const TradeEditPage = (props) => {
   return (
@@ -20,7 +20,7 @@ const TradeEditPage = (props) => {
           props.dispatch(deleteTrade({ id }))
           props.history.push('/trades')
         }}>
-        <TradeTableTrashIcon /> Trash trade</button>
+        <TrashIcon /> Trash trade</button>
     </div>
   )
 }

@@ -383,7 +383,6 @@ class TradeTableForm extends React.Component {
           </div>
         </div>
         <button
-          onSubmit={this.onSubmit}
         >Add</button>
       </form>
     )

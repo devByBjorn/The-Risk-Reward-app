@@ -7,7 +7,7 @@ import SetDateRange from './table-complements/TradeTableDatePick'
 const TradeTablePage = () => (
   <div>
     <h1>Trade Table Page</h1>
-    <NavLink to="/add">Add Trade</NavLink>
+    <NavLink to="/add-trade">Add Trade</NavLink>
     <SetDateRange />
     <TradeTable />
     <TradeTableStats />
