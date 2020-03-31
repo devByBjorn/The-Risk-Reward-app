@@ -21,8 +21,8 @@ class TradeTableForm extends React.Component {
       outcomeInfo: '',
       toggleInfo: false,
       inputError: '',
-      opened: props.trade ? moment(props.trade.opened) : '',
-      closed: props.trade ? moment(props.trade.closed) : '',
+      opened: props.trade ? moment(props.trade.opened) : moment(),
+      closed: props.trade ? moment(props.trade.closed) : moment(),
       openedFocused: false,
       closedFocused: false,
       dateError: '',
@@ -65,6 +65,7 @@ class TradeTableForm extends React.Component {
     const short = this.state.direction === 'short'
     const win = outcome === 'win'
     const loss = outcome === 'loss'
+    const scratch = outcome === 'scratch'
 
     const longWin = (target - entry) / (entry - stop)
     const longLoss = (entry - stop) / (target - entry)
@@ -85,6 +86,8 @@ class TradeTableForm extends React.Component {
       rewardToRisk = -Math.abs(shortLoss)
     } else if (short && !outcome) {
       rewardToRisk = shortWin
+    } else if (scratch) {
+      rewardToRisk = 0
     }
 
     return rewardToRisk.toFixed(2)
@@ -268,6 +271,14 @@ class TradeTableForm extends React.Component {
           onClick={this.onClickOutcome}
         />
         <label>Loss</label>
+        <input
+          type="checkbox"
+          name="outcome"
+          value="scratch"
+          checked={this.state.outcome === 'scratch' ? true : false}
+          onClick={this.onClickOutcome}
+        />
+        <label>Scratch</label>
         {this.state.outcomeInfo && <p>{this.state.outcomeInfo}</p>} {/* info about win/loss*/}
         <button
           type="button"

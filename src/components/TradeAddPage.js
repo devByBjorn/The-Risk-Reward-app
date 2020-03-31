@@ -4,16 +4,25 @@ import { NavLink } from 'react-router-dom'
 import { addTrade } from '../actions/tradeActions'
 import TradeTableForm from './form/TradeTableForm'
 
-const TradeAddPage = (props) => (
-  <div>
-    <NavLink to="/trades">Back to trade table</NavLink>
-    <TradeTableForm
-      handleSubmit={(trade) => {
-        props.dispatch(addTrade(trade))
-        props.history.push('/trades')
-      }}
-    />
-  </div>
-)
+class TradeAddPage extends React.Component {
+  handleAddTrade = (trade) => {
+    this.props.addTrade(trade)
+    this.props.history.push('/trades')
+  }
+  render() {
+    return (
+      <div>
+        <NavLink to="/trades">Back to trade table</NavLink>
+        <TradeTableForm
+          handleSubmit={this.handleAddTrade}
+        />
+      </div>
+    )
+  }
+}
 
-export default connect()(TradeAddPage)
+const mapDispatchToProps = (dispatch) => ({
+  addTrade: (trade) => dispatch(addTrade(trade))
+})
+
+export default connect(null, mapDispatchToProps)(TradeAddPage)

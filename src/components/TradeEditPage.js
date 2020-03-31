@@ -4,25 +4,29 @@ import TradeTableForm from './form/TradeTableForm'
 import { editTrade, deleteTrade } from '../actions/tradeActions'
 import { TrashIcon } from './table/TradeTableIcons'
 
-const TradeEditPage = (props) => {
-  return (
-    <div>
-      <TradeTableForm
-        trade={props.trade}
-        handleSubmit={(trade) => {
-          props.dispatch(editTrade(props.trade.id, trade))
-          props.history.push('/trades')
-        }}
-      />
-      <button
-        onClick={() => {
-          const { id } = props.trade
-          props.dispatch(deleteTrade({ id }))
-          props.history.push('/trades')
-        }}>
-        <TrashIcon /> Trash trade</button>
-    </div>
-  )
+class TradeEditPage extends React.Component {
+  handleEditOnAdd = (trade) => {
+    this.props.editTrade(this.props.trade.id, trade)
+    this.props.history.push('/trades')
+  }
+  handleDeletOnTrash = () => {
+    const { id } = this.props.trade
+    this.props.deleteTrade({ id })
+    this.props.history.push('/trades')
+  }
+  render() {
+    return (
+      <div>
+        <TradeTableForm
+          trade={this.props.trade}
+          handleSubmit={this.handleEditOnAdd}
+        />
+        <button
+          onClick={this.handleDeletOnTrash}>
+          <TrashIcon /> Trash trade</button>
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = (state, props) => {
@@ -31,4 +35,9 @@ const mapStateToProps = (state, props) => {
   }
 }
 
-export default connect(mapStateToProps)(TradeEditPage)
+const mapDispatchToProps = (dispatch) => ({
+  editTrade: (id, trade) => dispatch(editTrade(id, trade)),
+  deletTrade: (trade) => dispatch(deleteTrade(trade))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(TradeEditPage)

@@ -16,81 +16,91 @@ import {
   sortByManagement
 } from '../../actions/filterActions'
 
-// Make button into one component here
-
-const TradeTable = (props) => (
-  <div>
-    <div>
-      <input
-        type="text"
-        placeholder="search market"
-        value={props.filters.searchText}
-        onChange={(e) => {
-          props.dispatch(searchByMarket(e.target.value))
-        }}
-      />
-    </div>
-    <table>
-      <thead>
-        <tr>
-          <TableHead
-            value={props.filters.sortBy}
-            onClick={(e) => props.dispatch(sortByMarket(e.target.textContent))}
-            heading='Market'
+class TradeTable extends React.Component {
+  handleSearch = (e) => this.props.searchByMarket(e.target.value)
+  handleSortByMarket = (e) => this.props.sortByMarket(e.target.textContent)
+  handleSortByDirection = (e) => this.props.sortByDirection(e.target.textContent)
+  handleSortByOpened = (e) => this.props.sortByOpened(e.target.textContent)
+  handleSortByClosed = (e) => this.props.sortByClosed(e.target.textContent)
+  handleSortByPeriod = (e) => this.props.sortByPeriod(e.target.textContent)
+  handleSortByExecution = (e) => this.props.sortByExecution(e.target.textContent)
+  handleSortByManagement = (e) => this.props.sortByManagement(e.target.textContent)
+  handleSortByOutcome = (e) => this.props.sortByOutcome(e.target.textContent)
+  handleSortByR = (e) => this.props.sortByR(e.target.textContent)
+  render() {
+    return (
+      <div>
+        <div>
+          <input
+            type="text"
+            placeholder="search market"
+            value={this.props.filters.searchText}
+            onChange={this.handleSearch}
           />
-          <TableHead
-            value={props.filters.sortBy}
-            onClick={(e) => props.dispatch(sortByDirection(e.target.textContent))}
-            heading='Direction'
-          />
-          <TableHead
-            value={props.filters.sortBy}
-            onClick={(e) => props.dispatch(sortByOpened(e.target.textContent))}
-            heading='Opened'
-          />
-          <TableHead
-            value={props.filters.sortBy}
-            onClick={(e) => props.dispatch(sortByClosed(e.target.textContent))}
-            heading='Closed'
-          />
-          <TableHead
-            value={props.filters.sortBy}
-            onClick={(e) => props.dispatch(sortByPeriod(e.target.textContent))}
-            heading='Period'
-          />
-          <TableHead
-            value={props.filters.sortBy}
-            onClick={(e) => props.dispatch(sortByExecution(e.target.textContent))}
-            heading='Execution'
-          />
-          <TableHead
-            value={props.filters.sortBy}
-            onClick={(e) => props.dispatch(sortByManagement(e.target.textContent))}
-            heading='Management'
-          />
-          <TableHead
-            value={props.filters.sortBy}
-            onClick={(e) => props.dispatch(sortByOutcome(e.target.textContent))}
-            heading='Outcome'
-          />
-          <TableHead
-            value={props.filters.sortBy}
-            onClick={(e) => props.dispatch(sortByR(e.target.textContent))}
-            heading='R'
-          />
-        </tr>
-      </thead>
-      <tbody>
-        {props.trades.map((trade) => (
-          <TradeTableRow
-            {...trade}
-            key={trade.id}
-          />
-        ))}
-      </tbody>
-    </table>
-  </div>
-)
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <TableHead
+                value={this.props.filters.sortBy}
+                onClick={this.handleSortByMarket}
+                heading='Market'
+              />
+              <TableHead
+                value={this.props.filters.sortBy}
+                onClick={this.handleSortByDirection}
+                heading='Direction'
+              />
+              <TableHead
+                value={this.props.filters.sortBy}
+                onClick={this.handleSortByOpened}
+                heading='Opened'
+              />
+              <TableHead
+                value={this.props.filters.sortBy}
+                onClick={this.handleSortByClosed}
+                heading='Closed'
+              />
+              <TableHead
+                value={this.props.filters.sortBy}
+                onClick={this.handleSortByPeriod}
+                heading='Period'
+              />
+              <TableHead
+                value={this.props.filters.sortBy}
+                onClick={this.handleSortByExecution}
+                heading='Execution'
+              />
+              <TableHead
+                value={this.props.filters.sortBy}
+                onClick={this.handleSortByManagement}
+                heading='Management'
+              />
+              <TableHead
+                value={this.props.filters.sortBy}
+                onClick={this.handleSortByOutcome}
+                heading='Outcome'
+              />
+              <TableHead
+                value={this.props.filters.sortBy}
+                onClick={this.handleSortByR}
+                heading='R'
+              />
+            </tr>
+          </thead>
+          <tbody>
+            {this.props.trades.map((trade) => (
+              <TradeTableRow
+                {...trade}
+                key={trade.id}
+              />
+            ))}
+          </tbody>
+        </table>
+      </div>
+    )
+  }
+}
 
 const mapStateToProps = (state) => {
   return {
@@ -99,6 +109,18 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(TradeTable)
+const mapDispatchToProps = (dispatch) => ({
+  searchByMarket: (searchText) => dispatch(searchByMarket(searchText)),
+  sortByMarket: (textContent) => dispatch(sortByMarket(textContent)),
+  sortByDirection: (textContent) => dispatch(sortByDirection(textContent)),
+  sortByOpened: (textContent) => dispatch(sortByOpened(textContent)),
+  sortByClosed: (textContent) => dispatch(sortByClosed(textContent)),
+  sortByOutcome: (textContent) => dispatch(sortByOutcome(textContent)),
+  sortByPeriod: (textContent) => dispatch(sortByPeriod(textContent)),
+  sortByExecution: (textContent) => dispatch(sortByExecution(textContent)),
+  sortByManagement: (textContent) => dispatch(sortByManagement(textContent)),
+  sortByR: (textContent) => dispatch(sortByR(textContent)),
+})
 
+export default connect(mapStateToProps, mapDispatchToProps)(TradeTable)
 
