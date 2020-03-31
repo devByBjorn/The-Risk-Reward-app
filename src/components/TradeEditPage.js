@@ -9,9 +9,8 @@ class TradeEditPage extends React.Component {
     this.props.editTrade(this.props.trade.id, trade)
     this.props.history.push('/trades')
   }
-  handleDeletOnTrash = () => {
-    const { id } = this.props.trade
-    this.props.deleteTrade({ id })
+  handleDeleteOnTrash = () => {
+    this.props.deleteTrade({ id: this.props.trade.id })
     this.props.history.push('/trades')
   }
   render() {
@@ -22,7 +21,7 @@ class TradeEditPage extends React.Component {
           handleSubmit={this.handleEditOnAdd}
         />
         <button
-          onClick={this.handleDeletOnTrash}>
+          onClick={this.handleDeleteOnTrash}>
           <TrashIcon /> Trash trade</button>
       </div>
     )
@@ -37,7 +36,7 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = (dispatch) => ({
   editTrade: (id, trade) => dispatch(editTrade(id, trade)),
-  deletTrade: (trade) => dispatch(deleteTrade(trade))
+  deleteTrade: (id) => dispatch(deleteTrade(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TradeEditPage)

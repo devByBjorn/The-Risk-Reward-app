@@ -1,0 +1,2680 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render TradeTableForm 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <label>
+    Direction
+  </label>
+  <input
+    checked={false}
+    name="direction"
+    onClick={[Function]}
+    type="radio"
+    value="long"
+  />
+  <label>
+    Long
+  </label>
+  <input
+    checked={false}
+    name="direction"
+    onClick={[Function]}
+    type="radio"
+    value="short"
+  />
+  <label>
+    Short
+  </label>
+  <br />
+  <label>
+    Market/ Equity
+  </label>
+  <input
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <label>
+    Entry
+  </label>
+  <input
+    name="entry"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <label>
+    Stop
+  </label>
+  <input
+    name="stop"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <label>
+    Target
+  </label>
+  <input
+    name="target"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+   
+  <br />
+  <input
+    checked={false}
+    name="outcome"
+    onClick={[Function]}
+    type="checkbox"
+    value="win"
+  />
+  <label>
+    Win
+  </label>
+  <input
+    checked={false}
+    name="outcome"
+    onClick={[Function]}
+    type="checkbox"
+    value="loss"
+  />
+  <label>
+    Loss
+  </label>
+  <input
+    checked={false}
+    name="outcome"
+    onClick={[Function]}
+    type="checkbox"
+    value="scratch"
+  />
+  <label>
+    Scratch
+  </label>
+   
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    <FontAwesomeIcon
+      border={false}
+      className=""
+      fixedWidth={false}
+      flip={null}
+      icon={
+        Object {
+          "icon": Array [
+            512,
+            512,
+            Array [],
+            "f059",
+            "M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 448c-110.532 0-200-89.431-200-200 0-110.495 89.472-200 200-200 110.491 0 200 89.471 200 200 0 110.53-89.431 200-200 200zm107.244-255.2c0 67.052-72.421 68.084-72.421 92.863V300c0 6.627-5.373 12-12 12h-45.647c-6.627 0-12-5.373-12-12v-8.659c0-35.745 27.1-50.034 47.579-61.516 17.561-9.845 28.324-16.541 28.324-29.579 0-17.246-21.999-28.693-39.784-28.693-23.189 0-33.894 10.977-48.942 29.969-4.057 5.12-11.46 6.071-16.666 2.124l-27.824-21.098c-5.107-3.872-6.251-11.066-2.644-16.363C184.846 131.491 214.94 112 261.794 112c49.071 0 101.45 38.304 101.45 88.8zM298 368c0 23.159-18.841 42-42 42s-42-18.841-42-42 18.841-42 42-42 42 18.841 42 42z",
+          ],
+          "iconName": "question-circle",
+          "prefix": "far",
+          "type": "icon",
+        }
+      }
+      inverse={false}
+      listItem={false}
+      mask={null}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size={null}
+      spin={false}
+      swapOpacity={false}
+      symbol={false}
+      title=""
+      transform={null}
+    />
+  </button>
+  <div>
+    <label>
+      Opened
+    </label>
+    <withStyles(SingleDatePicker)
+      anchorDirection="left"
+      appendToBody={false}
+      block={false}
+      calendarInfoPosition="bottom"
+      customCloseIcon={null}
+      customInputIcon={null}
+      date={"1970-01-01T00:00:00.000Z"}
+      dayPickerNavigationInlineStyles={null}
+      daySize={39}
+      disableScroll={false}
+      disabled={false}
+      displayFormat={[Function]}
+      enableOutsideDays={false}
+      firstDayOfWeek={null}
+      focused={false}
+      hideKeyboardShortcutsPanel={false}
+      horizontalMargin={0}
+      horizontalMonthPadding={13}
+      id="date"
+      initialVisibleMonth={null}
+      inputIconPosition="before"
+      isDayBlocked={[Function]}
+      isDayHighlighted={[Function]}
+      isOutsideRange={[Function]}
+      isRTL={false}
+      keepFocusOnInput={false}
+      keepOpenOnDateSelect={false}
+      monthFormat="MMMM YYYY"
+      navNext={null}
+      navPosition="navPositionTop"
+      navPrev={null}
+      noBorder={false}
+      numberOfMonths={1}
+      onClose={[Function]}
+      onDateChange={[Function]}
+      onFocusChange={[Function]}
+      onNextMonthClick={[Function]}
+      onPrevMonthClick={[Function]}
+      openDirection="down"
+      orientation="horizontal"
+      phrases={
+        Object {
+          "calendarLabel": "Calendar",
+          "chooseAvailableDate": [Function],
+          "clearDate": "Clear Date",
+          "closeDatePicker": "Close",
+          "dateIsSelected": [Function],
+          "dateIsUnavailable": [Function],
+          "enterKey": "Enter key",
+          "escape": "Escape key",
+          "hideKeyboardShortcutsPanel": "Close the shortcuts panel.",
+          "homeEnd": "Home and end keys",
+          "jumpToNextMonth": "Move forward to switch to the next month.",
+          "jumpToPrevMonth": "Move backward to switch to the previous month.",
+          "keyboardBackwardNavigationInstructions": "Navigate backward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardForwardNavigationInstructions": "Navigate forward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardShortcuts": "Keyboard Shortcuts",
+          "leftArrowRightArrow": "Right and left arrow keys",
+          "moveFocusByOneDay": "Move backward (left) and forward (right) by one day.",
+          "moveFocusByOneMonth": "Switch months.",
+          "moveFocusByOneWeek": "Move backward (up) and forward (down) by one week.",
+          "moveFocustoStartAndEndOfWeek": "Go to the first or last day of a week.",
+          "openThisPanel": "Open this panel.",
+          "pageUpPageDown": "page up and page down keys",
+          "questionMark": "Question mark",
+          "returnFocusToInput": "Return to the date input field.",
+          "roleDescription": "datepicker",
+          "selectFocusedDate": "Select the date in focus.",
+          "showKeyboardShortcutsPanel": "Open the keyboard shortcuts panel.",
+          "upArrowDownArrow": "up and down arrow keys",
+        }
+      }
+      placeholder="Date"
+      readOnly={false}
+      regular={false}
+      renderCalendarInfo={null}
+      renderDayContents={null}
+      renderMonthElement={null}
+      renderMonthText={null}
+      renderNavNextButton={null}
+      renderNavPrevButton={null}
+      renderWeekHeaderElement={null}
+      reopenPickerOnClearDate={false}
+      required={false}
+      screenReaderInputMessage=""
+      showClearDate={false}
+      showDefaultInputIcon={false}
+      small={false}
+      verticalHeight={null}
+      verticalSpacing={22}
+      weekDayFormat="dd"
+      withFullScreenPortal={false}
+      withPortal={false}
+    />
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+       X
+    </button>
+     
+  </div>
+  <div>
+    <label>
+      Closed
+    </label>
+    <withStyles(SingleDatePicker)
+      anchorDirection="left"
+      appendToBody={false}
+      block={false}
+      calendarInfoPosition="bottom"
+      customCloseIcon={null}
+      customInputIcon={null}
+      date={"1970-01-01T00:00:00.000Z"}
+      dayPickerNavigationInlineStyles={null}
+      daySize={39}
+      disableScroll={false}
+      disabled={false}
+      displayFormat={[Function]}
+      enableOutsideDays={false}
+      firstDayOfWeek={null}
+      focused={false}
+      hideKeyboardShortcutsPanel={false}
+      horizontalMargin={0}
+      horizontalMonthPadding={13}
+      id="date"
+      initialVisibleMonth={null}
+      inputIconPosition="before"
+      isDayBlocked={[Function]}
+      isDayHighlighted={[Function]}
+      isOutsideRange={[Function]}
+      isRTL={false}
+      keepFocusOnInput={false}
+      keepOpenOnDateSelect={false}
+      monthFormat="MMMM YYYY"
+      navNext={null}
+      navPosition="navPositionTop"
+      navPrev={null}
+      noBorder={false}
+      numberOfMonths={1}
+      onClose={[Function]}
+      onDateChange={[Function]}
+      onFocusChange={[Function]}
+      onNextMonthClick={[Function]}
+      onPrevMonthClick={[Function]}
+      openDirection="down"
+      orientation="horizontal"
+      phrases={
+        Object {
+          "calendarLabel": "Calendar",
+          "chooseAvailableDate": [Function],
+          "clearDate": "Clear Date",
+          "closeDatePicker": "Close",
+          "dateIsSelected": [Function],
+          "dateIsUnavailable": [Function],
+          "enterKey": "Enter key",
+          "escape": "Escape key",
+          "hideKeyboardShortcutsPanel": "Close the shortcuts panel.",
+          "homeEnd": "Home and end keys",
+          "jumpToNextMonth": "Move forward to switch to the next month.",
+          "jumpToPrevMonth": "Move backward to switch to the previous month.",
+          "keyboardBackwardNavigationInstructions": "Navigate backward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardForwardNavigationInstructions": "Navigate forward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardShortcuts": "Keyboard Shortcuts",
+          "leftArrowRightArrow": "Right and left arrow keys",
+          "moveFocusByOneDay": "Move backward (left) and forward (right) by one day.",
+          "moveFocusByOneMonth": "Switch months.",
+          "moveFocusByOneWeek": "Move backward (up) and forward (down) by one week.",
+          "moveFocustoStartAndEndOfWeek": "Go to the first or last day of a week.",
+          "openThisPanel": "Open this panel.",
+          "pageUpPageDown": "page up and page down keys",
+          "questionMark": "Question mark",
+          "returnFocusToInput": "Return to the date input field.",
+          "roleDescription": "datepicker",
+          "selectFocusedDate": "Select the date in focus.",
+          "showKeyboardShortcutsPanel": "Open the keyboard shortcuts panel.",
+          "upArrowDownArrow": "up and down arrow keys",
+        }
+      }
+      placeholder="Date"
+      readOnly={false}
+      regular={false}
+      renderCalendarInfo={null}
+      renderDayContents={null}
+      renderMonthElement={null}
+      renderMonthText={null}
+      renderNavNextButton={null}
+      renderNavPrevButton={null}
+      renderWeekHeaderElement={null}
+      reopenPickerOnClearDate={false}
+      required={false}
+      screenReaderInputMessage=""
+      showClearDate={false}
+      showDefaultInputIcon={false}
+      small={false}
+      verticalHeight={null}
+      verticalSpacing={22}
+      weekDayFormat="dd"
+      withFullScreenPortal={false}
+      withPortal={false}
+    />
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      X
+    </button>
+     
+  </div>
+  <br />
+  <div>
+    <h4>
+      Conclusion
+    </h4>
+    <div>
+      <label>
+        Execution: 
+      </label>
+      <label>
+        Good
+      </label>
+      <input
+        checked={false}
+        name="execution"
+        onClick={[Function]}
+        type="radio"
+        value="good"
+      />
+      <label>
+        Poor
+      </label>
+      <input
+        checked={false}
+        name="execution"
+        onClick={[Function]}
+        type="radio"
+        value="poor"
+      />
+      <label>
+        Both
+      </label>
+      <input
+        checked={false}
+        name="execution"
+        onClick={[Function]}
+        type="radio"
+        value="both"
+      />
+    </div>
+    <div>
+      <label>
+        Trade management: 
+      </label>
+      <label>
+        Good
+      </label>
+      <input
+        checked={false}
+        name="management"
+        onClick={[Function]}
+        type="radio"
+        value="good"
+      />
+      <label>
+        Poor
+      </label>
+      <input
+        checked={false}
+        name="management"
+        onClick={[Function]}
+        type="radio"
+        value="poor"
+      />
+      <label>
+        Both
+      </label>
+      <input
+        checked={false}
+        name="management"
+        onClick={[Function]}
+        type="radio"
+        value="both"
+      />
+    </div>
+    <div>
+      <textarea
+        name="whyNote"
+        onChange={[Function]}
+        placeholder="Why?"
+        type="text"
+        value=""
+      />
+      <textarea
+        name="improveNote"
+        onChange={[Function]}
+        placeholder="How to improve?"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <button>
+    Add
+  </button>
+</form>
+`;
+
+exports[`should render TradeTableForm with date error message 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <label>
+    Direction
+  </label>
+  <input
+    checked={true}
+    name="direction"
+    onClick={[Function]}
+    type="radio"
+    value="long"
+  />
+  <label>
+    Long
+  </label>
+  <input
+    checked={false}
+    name="direction"
+    onClick={[Function]}
+    type="radio"
+    value="short"
+  />
+  <label>
+    Short
+  </label>
+  <br />
+  <label>
+    Market/ Equity
+  </label>
+  <input
+    onChange={[Function]}
+    type="text"
+    value="GOLD"
+  />
+  <label>
+    Entry
+  </label>
+  <input
+    name="entry"
+    onChange={[Function]}
+    type="text"
+    value="1455"
+  />
+  <label>
+    Stop
+  </label>
+  <input
+    name="stop"
+    onChange={[Function]}
+    type="text"
+    value="1450"
+  />
+  <label>
+    Target
+  </label>
+  <input
+    name="target"
+    onChange={[Function]}
+    type="text"
+    value="1468"
+  />
+   
+  <br />
+  <input
+    checked={false}
+    name="outcome"
+    onClick={[Function]}
+    type="checkbox"
+    value="win"
+  />
+  <label>
+    Win
+  </label>
+  <input
+    checked={true}
+    name="outcome"
+    onClick={[Function]}
+    type="checkbox"
+    value="loss"
+  />
+  <label>
+    Loss
+  </label>
+  <input
+    checked={false}
+    name="outcome"
+    onClick={[Function]}
+    type="checkbox"
+    value="scratch"
+  />
+  <label>
+    Scratch
+  </label>
+   
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    <FontAwesomeIcon
+      border={false}
+      className=""
+      fixedWidth={false}
+      flip={null}
+      icon={
+        Object {
+          "icon": Array [
+            512,
+            512,
+            Array [],
+            "f059",
+            "M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 448c-110.532 0-200-89.431-200-200 0-110.495 89.472-200 200-200 110.491 0 200 89.471 200 200 0 110.53-89.431 200-200 200zm107.244-255.2c0 67.052-72.421 68.084-72.421 92.863V300c0 6.627-5.373 12-12 12h-45.647c-6.627 0-12-5.373-12-12v-8.659c0-35.745 27.1-50.034 47.579-61.516 17.561-9.845 28.324-16.541 28.324-29.579 0-17.246-21.999-28.693-39.784-28.693-23.189 0-33.894 10.977-48.942 29.969-4.057 5.12-11.46 6.071-16.666 2.124l-27.824-21.098c-5.107-3.872-6.251-11.066-2.644-16.363C184.846 131.491 214.94 112 261.794 112c49.071 0 101.45 38.304 101.45 88.8zM298 368c0 23.159-18.841 42-42 42s-42-18.841-42-42 18.841-42 42-42 42 18.841 42 42z",
+          ],
+          "iconName": "question-circle",
+          "prefix": "far",
+          "type": "icon",
+        }
+      }
+      inverse={false}
+      listItem={false}
+      mask={null}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size={null}
+      spin={false}
+      swapOpacity={false}
+      symbol={false}
+      title=""
+      transform={null}
+    />
+  </button>
+  <div>
+    <label>
+      Opened
+    </label>
+    <withStyles(SingleDatePicker)
+      anchorDirection="left"
+      appendToBody={false}
+      block={false}
+      calendarInfoPosition="bottom"
+      customCloseIcon={null}
+      customInputIcon={null}
+      date={"1970-01-01T00:00:00.000Z"}
+      dayPickerNavigationInlineStyles={null}
+      daySize={39}
+      disableScroll={false}
+      disabled={false}
+      displayFormat={[Function]}
+      enableOutsideDays={false}
+      firstDayOfWeek={null}
+      focused={false}
+      hideKeyboardShortcutsPanel={false}
+      horizontalMargin={0}
+      horizontalMonthPadding={13}
+      id="date"
+      initialVisibleMonth={null}
+      inputIconPosition="before"
+      isDayBlocked={[Function]}
+      isDayHighlighted={[Function]}
+      isOutsideRange={[Function]}
+      isRTL={false}
+      keepFocusOnInput={false}
+      keepOpenOnDateSelect={false}
+      monthFormat="MMMM YYYY"
+      navNext={null}
+      navPosition="navPositionTop"
+      navPrev={null}
+      noBorder={false}
+      numberOfMonths={1}
+      onClose={[Function]}
+      onDateChange={[Function]}
+      onFocusChange={[Function]}
+      onNextMonthClick={[Function]}
+      onPrevMonthClick={[Function]}
+      openDirection="down"
+      orientation="horizontal"
+      phrases={
+        Object {
+          "calendarLabel": "Calendar",
+          "chooseAvailableDate": [Function],
+          "clearDate": "Clear Date",
+          "closeDatePicker": "Close",
+          "dateIsSelected": [Function],
+          "dateIsUnavailable": [Function],
+          "enterKey": "Enter key",
+          "escape": "Escape key",
+          "hideKeyboardShortcutsPanel": "Close the shortcuts panel.",
+          "homeEnd": "Home and end keys",
+          "jumpToNextMonth": "Move forward to switch to the next month.",
+          "jumpToPrevMonth": "Move backward to switch to the previous month.",
+          "keyboardBackwardNavigationInstructions": "Navigate backward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardForwardNavigationInstructions": "Navigate forward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardShortcuts": "Keyboard Shortcuts",
+          "leftArrowRightArrow": "Right and left arrow keys",
+          "moveFocusByOneDay": "Move backward (left) and forward (right) by one day.",
+          "moveFocusByOneMonth": "Switch months.",
+          "moveFocusByOneWeek": "Move backward (up) and forward (down) by one week.",
+          "moveFocustoStartAndEndOfWeek": "Go to the first or last day of a week.",
+          "openThisPanel": "Open this panel.",
+          "pageUpPageDown": "page up and page down keys",
+          "questionMark": "Question mark",
+          "returnFocusToInput": "Return to the date input field.",
+          "roleDescription": "datepicker",
+          "selectFocusedDate": "Select the date in focus.",
+          "showKeyboardShortcutsPanel": "Open the keyboard shortcuts panel.",
+          "upArrowDownArrow": "up and down arrow keys",
+        }
+      }
+      placeholder="Date"
+      readOnly={false}
+      regular={false}
+      renderCalendarInfo={null}
+      renderDayContents={null}
+      renderMonthElement={null}
+      renderMonthText={null}
+      renderNavNextButton={null}
+      renderNavPrevButton={null}
+      renderWeekHeaderElement={null}
+      reopenPickerOnClearDate={false}
+      required={false}
+      screenReaderInputMessage=""
+      showClearDate={false}
+      showDefaultInputIcon={false}
+      small={false}
+      verticalHeight={null}
+      verticalSpacing={22}
+      weekDayFormat="dd"
+      withFullScreenPortal={false}
+      withPortal={false}
+    />
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+       X
+    </button>
+     
+  </div>
+  <div>
+    <p>
+      opening date must come before closing date
+    </p>
+    <label>
+      Closed
+    </label>
+    <withStyles(SingleDatePicker)
+      anchorDirection="left"
+      appendToBody={false}
+      block={false}
+      calendarInfoPosition="bottom"
+      customCloseIcon={null}
+      customInputIcon={null}
+      date={"1970-01-03T00:00:00.000Z"}
+      dayPickerNavigationInlineStyles={null}
+      daySize={39}
+      disableScroll={false}
+      disabled={false}
+      displayFormat={[Function]}
+      enableOutsideDays={false}
+      firstDayOfWeek={null}
+      focused={false}
+      hideKeyboardShortcutsPanel={false}
+      horizontalMargin={0}
+      horizontalMonthPadding={13}
+      id="date"
+      initialVisibleMonth={null}
+      inputIconPosition="before"
+      isDayBlocked={[Function]}
+      isDayHighlighted={[Function]}
+      isOutsideRange={[Function]}
+      isRTL={false}
+      keepFocusOnInput={false}
+      keepOpenOnDateSelect={false}
+      monthFormat="MMMM YYYY"
+      navNext={null}
+      navPosition="navPositionTop"
+      navPrev={null}
+      noBorder={false}
+      numberOfMonths={1}
+      onClose={[Function]}
+      onDateChange={[Function]}
+      onFocusChange={[Function]}
+      onNextMonthClick={[Function]}
+      onPrevMonthClick={[Function]}
+      openDirection="down"
+      orientation="horizontal"
+      phrases={
+        Object {
+          "calendarLabel": "Calendar",
+          "chooseAvailableDate": [Function],
+          "clearDate": "Clear Date",
+          "closeDatePicker": "Close",
+          "dateIsSelected": [Function],
+          "dateIsUnavailable": [Function],
+          "enterKey": "Enter key",
+          "escape": "Escape key",
+          "hideKeyboardShortcutsPanel": "Close the shortcuts panel.",
+          "homeEnd": "Home and end keys",
+          "jumpToNextMonth": "Move forward to switch to the next month.",
+          "jumpToPrevMonth": "Move backward to switch to the previous month.",
+          "keyboardBackwardNavigationInstructions": "Navigate backward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardForwardNavigationInstructions": "Navigate forward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardShortcuts": "Keyboard Shortcuts",
+          "leftArrowRightArrow": "Right and left arrow keys",
+          "moveFocusByOneDay": "Move backward (left) and forward (right) by one day.",
+          "moveFocusByOneMonth": "Switch months.",
+          "moveFocusByOneWeek": "Move backward (up) and forward (down) by one week.",
+          "moveFocustoStartAndEndOfWeek": "Go to the first or last day of a week.",
+          "openThisPanel": "Open this panel.",
+          "pageUpPageDown": "page up and page down keys",
+          "questionMark": "Question mark",
+          "returnFocusToInput": "Return to the date input field.",
+          "roleDescription": "datepicker",
+          "selectFocusedDate": "Select the date in focus.",
+          "showKeyboardShortcutsPanel": "Open the keyboard shortcuts panel.",
+          "upArrowDownArrow": "up and down arrow keys",
+        }
+      }
+      placeholder="Date"
+      readOnly={false}
+      regular={false}
+      renderCalendarInfo={null}
+      renderDayContents={null}
+      renderMonthElement={null}
+      renderMonthText={null}
+      renderNavNextButton={null}
+      renderNavPrevButton={null}
+      renderWeekHeaderElement={null}
+      reopenPickerOnClearDate={false}
+      required={false}
+      screenReaderInputMessage=""
+      showClearDate={false}
+      showDefaultInputIcon={false}
+      small={false}
+      verticalHeight={null}
+      verticalSpacing={22}
+      weekDayFormat="dd"
+      withFullScreenPortal={false}
+      withPortal={false}
+    />
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      X
+    </button>
+     
+  </div>
+  <br />
+  <div>
+    <h4>
+      Conclusion
+    </h4>
+    <div>
+      <label>
+        Execution: 
+      </label>
+      <label>
+        Good
+      </label>
+      <input
+        checked={false}
+        name="execution"
+        onClick={[Function]}
+        type="radio"
+        value="good"
+      />
+      <label>
+        Poor
+      </label>
+      <input
+        checked={false}
+        name="execution"
+        onClick={[Function]}
+        type="radio"
+        value="poor"
+      />
+      <label>
+        Both
+      </label>
+      <input
+        checked={true}
+        name="execution"
+        onClick={[Function]}
+        type="radio"
+        value="both"
+      />
+    </div>
+    <div>
+      <label>
+        Trade management: 
+      </label>
+      <label>
+        Good
+      </label>
+      <input
+        checked={false}
+        name="management"
+        onClick={[Function]}
+        type="radio"
+        value="good"
+      />
+      <label>
+        Poor
+      </label>
+      <input
+        checked={true}
+        name="management"
+        onClick={[Function]}
+        type="radio"
+        value="poor"
+      />
+      <label>
+        Both
+      </label>
+      <input
+        checked={false}
+        name="management"
+        onClick={[Function]}
+        type="radio"
+        value="both"
+      />
+    </div>
+    <div>
+      <textarea
+        name="whyNote"
+        onChange={[Function]}
+        placeholder="Why?"
+        type="text"
+        value="note"
+      />
+      <textarea
+        name="improveNote"
+        onChange={[Function]}
+        placeholder="How to improve?"
+        type="text"
+        value="note"
+      />
+    </div>
+  </div>
+  <button>
+    Add
+  </button>
+</form>
+`;
+
+exports[`should render TradeTableForm with date error message 2`] = `
+<form
+  onSubmit={[Function]}
+>
+  <label>
+    Direction
+  </label>
+  <input
+    checked={true}
+    name="direction"
+    onClick={[Function]}
+    type="radio"
+    value="long"
+  />
+  <label>
+    Long
+  </label>
+  <input
+    checked={false}
+    name="direction"
+    onClick={[Function]}
+    type="radio"
+    value="short"
+  />
+  <label>
+    Short
+  </label>
+  <br />
+  <label>
+    Market/ Equity
+  </label>
+  <input
+    onChange={[Function]}
+    type="text"
+    value="GOLD"
+  />
+  <label>
+    Entry
+  </label>
+  <input
+    name="entry"
+    onChange={[Function]}
+    type="text"
+    value="1455"
+  />
+  <label>
+    Stop
+  </label>
+  <input
+    name="stop"
+    onChange={[Function]}
+    type="text"
+    value="1450"
+  />
+  <label>
+    Target
+  </label>
+  <input
+    name="target"
+    onChange={[Function]}
+    type="text"
+    value="1468"
+  />
+   
+  <br />
+  <input
+    checked={false}
+    name="outcome"
+    onClick={[Function]}
+    type="checkbox"
+    value="win"
+  />
+  <label>
+    Win
+  </label>
+  <input
+    checked={true}
+    name="outcome"
+    onClick={[Function]}
+    type="checkbox"
+    value="loss"
+  />
+  <label>
+    Loss
+  </label>
+  <input
+    checked={false}
+    name="outcome"
+    onClick={[Function]}
+    type="checkbox"
+    value="scratch"
+  />
+  <label>
+    Scratch
+  </label>
+   
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    <FontAwesomeIcon
+      border={false}
+      className=""
+      fixedWidth={false}
+      flip={null}
+      icon={
+        Object {
+          "icon": Array [
+            512,
+            512,
+            Array [],
+            "f059",
+            "M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 448c-110.532 0-200-89.431-200-200 0-110.495 89.472-200 200-200 110.491 0 200 89.471 200 200 0 110.53-89.431 200-200 200zm107.244-255.2c0 67.052-72.421 68.084-72.421 92.863V300c0 6.627-5.373 12-12 12h-45.647c-6.627 0-12-5.373-12-12v-8.659c0-35.745 27.1-50.034 47.579-61.516 17.561-9.845 28.324-16.541 28.324-29.579 0-17.246-21.999-28.693-39.784-28.693-23.189 0-33.894 10.977-48.942 29.969-4.057 5.12-11.46 6.071-16.666 2.124l-27.824-21.098c-5.107-3.872-6.251-11.066-2.644-16.363C184.846 131.491 214.94 112 261.794 112c49.071 0 101.45 38.304 101.45 88.8zM298 368c0 23.159-18.841 42-42 42s-42-18.841-42-42 18.841-42 42-42 42 18.841 42 42z",
+          ],
+          "iconName": "question-circle",
+          "prefix": "far",
+          "type": "icon",
+        }
+      }
+      inverse={false}
+      listItem={false}
+      mask={null}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size={null}
+      spin={false}
+      swapOpacity={false}
+      symbol={false}
+      title=""
+      transform={null}
+    />
+  </button>
+  <div>
+    <label>
+      Opened
+    </label>
+    <withStyles(SingleDatePicker)
+      anchorDirection="left"
+      appendToBody={false}
+      block={false}
+      calendarInfoPosition="bottom"
+      customCloseIcon={null}
+      customInputIcon={null}
+      date={"1970-01-01T00:00:00.000Z"}
+      dayPickerNavigationInlineStyles={null}
+      daySize={39}
+      disableScroll={false}
+      disabled={false}
+      displayFormat={[Function]}
+      enableOutsideDays={false}
+      firstDayOfWeek={null}
+      focused={false}
+      hideKeyboardShortcutsPanel={false}
+      horizontalMargin={0}
+      horizontalMonthPadding={13}
+      id="date"
+      initialVisibleMonth={null}
+      inputIconPosition="before"
+      isDayBlocked={[Function]}
+      isDayHighlighted={[Function]}
+      isOutsideRange={[Function]}
+      isRTL={false}
+      keepFocusOnInput={false}
+      keepOpenOnDateSelect={false}
+      monthFormat="MMMM YYYY"
+      navNext={null}
+      navPosition="navPositionTop"
+      navPrev={null}
+      noBorder={false}
+      numberOfMonths={1}
+      onClose={[Function]}
+      onDateChange={[Function]}
+      onFocusChange={[Function]}
+      onNextMonthClick={[Function]}
+      onPrevMonthClick={[Function]}
+      openDirection="down"
+      orientation="horizontal"
+      phrases={
+        Object {
+          "calendarLabel": "Calendar",
+          "chooseAvailableDate": [Function],
+          "clearDate": "Clear Date",
+          "closeDatePicker": "Close",
+          "dateIsSelected": [Function],
+          "dateIsUnavailable": [Function],
+          "enterKey": "Enter key",
+          "escape": "Escape key",
+          "hideKeyboardShortcutsPanel": "Close the shortcuts panel.",
+          "homeEnd": "Home and end keys",
+          "jumpToNextMonth": "Move forward to switch to the next month.",
+          "jumpToPrevMonth": "Move backward to switch to the previous month.",
+          "keyboardBackwardNavigationInstructions": "Navigate backward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardForwardNavigationInstructions": "Navigate forward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardShortcuts": "Keyboard Shortcuts",
+          "leftArrowRightArrow": "Right and left arrow keys",
+          "moveFocusByOneDay": "Move backward (left) and forward (right) by one day.",
+          "moveFocusByOneMonth": "Switch months.",
+          "moveFocusByOneWeek": "Move backward (up) and forward (down) by one week.",
+          "moveFocustoStartAndEndOfWeek": "Go to the first or last day of a week.",
+          "openThisPanel": "Open this panel.",
+          "pageUpPageDown": "page up and page down keys",
+          "questionMark": "Question mark",
+          "returnFocusToInput": "Return to the date input field.",
+          "roleDescription": "datepicker",
+          "selectFocusedDate": "Select the date in focus.",
+          "showKeyboardShortcutsPanel": "Open the keyboard shortcuts panel.",
+          "upArrowDownArrow": "up and down arrow keys",
+        }
+      }
+      placeholder="Date"
+      readOnly={false}
+      regular={false}
+      renderCalendarInfo={null}
+      renderDayContents={null}
+      renderMonthElement={null}
+      renderMonthText={null}
+      renderNavNextButton={null}
+      renderNavPrevButton={null}
+      renderWeekHeaderElement={null}
+      reopenPickerOnClearDate={false}
+      required={false}
+      screenReaderInputMessage=""
+      showClearDate={false}
+      showDefaultInputIcon={false}
+      small={false}
+      verticalHeight={null}
+      verticalSpacing={22}
+      weekDayFormat="dd"
+      withFullScreenPortal={false}
+      withPortal={false}
+    />
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+       X
+    </button>
+     
+  </div>
+  <div>
+    <p>
+      closing date must come after opening date
+    </p>
+    <label>
+      Closed
+    </label>
+    <withStyles(SingleDatePicker)
+      anchorDirection="left"
+      appendToBody={false}
+      block={false}
+      calendarInfoPosition="bottom"
+      customCloseIcon={null}
+      customInputIcon={null}
+      date={"1970-01-03T00:00:00.000Z"}
+      dayPickerNavigationInlineStyles={null}
+      daySize={39}
+      disableScroll={false}
+      disabled={false}
+      displayFormat={[Function]}
+      enableOutsideDays={false}
+      firstDayOfWeek={null}
+      focused={false}
+      hideKeyboardShortcutsPanel={false}
+      horizontalMargin={0}
+      horizontalMonthPadding={13}
+      id="date"
+      initialVisibleMonth={null}
+      inputIconPosition="before"
+      isDayBlocked={[Function]}
+      isDayHighlighted={[Function]}
+      isOutsideRange={[Function]}
+      isRTL={false}
+      keepFocusOnInput={false}
+      keepOpenOnDateSelect={false}
+      monthFormat="MMMM YYYY"
+      navNext={null}
+      navPosition="navPositionTop"
+      navPrev={null}
+      noBorder={false}
+      numberOfMonths={1}
+      onClose={[Function]}
+      onDateChange={[Function]}
+      onFocusChange={[Function]}
+      onNextMonthClick={[Function]}
+      onPrevMonthClick={[Function]}
+      openDirection="down"
+      orientation="horizontal"
+      phrases={
+        Object {
+          "calendarLabel": "Calendar",
+          "chooseAvailableDate": [Function],
+          "clearDate": "Clear Date",
+          "closeDatePicker": "Close",
+          "dateIsSelected": [Function],
+          "dateIsUnavailable": [Function],
+          "enterKey": "Enter key",
+          "escape": "Escape key",
+          "hideKeyboardShortcutsPanel": "Close the shortcuts panel.",
+          "homeEnd": "Home and end keys",
+          "jumpToNextMonth": "Move forward to switch to the next month.",
+          "jumpToPrevMonth": "Move backward to switch to the previous month.",
+          "keyboardBackwardNavigationInstructions": "Navigate backward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardForwardNavigationInstructions": "Navigate forward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardShortcuts": "Keyboard Shortcuts",
+          "leftArrowRightArrow": "Right and left arrow keys",
+          "moveFocusByOneDay": "Move backward (left) and forward (right) by one day.",
+          "moveFocusByOneMonth": "Switch months.",
+          "moveFocusByOneWeek": "Move backward (up) and forward (down) by one week.",
+          "moveFocustoStartAndEndOfWeek": "Go to the first or last day of a week.",
+          "openThisPanel": "Open this panel.",
+          "pageUpPageDown": "page up and page down keys",
+          "questionMark": "Question mark",
+          "returnFocusToInput": "Return to the date input field.",
+          "roleDescription": "datepicker",
+          "selectFocusedDate": "Select the date in focus.",
+          "showKeyboardShortcutsPanel": "Open the keyboard shortcuts panel.",
+          "upArrowDownArrow": "up and down arrow keys",
+        }
+      }
+      placeholder="Date"
+      readOnly={false}
+      regular={false}
+      renderCalendarInfo={null}
+      renderDayContents={null}
+      renderMonthElement={null}
+      renderMonthText={null}
+      renderNavNextButton={null}
+      renderNavPrevButton={null}
+      renderWeekHeaderElement={null}
+      reopenPickerOnClearDate={false}
+      required={false}
+      screenReaderInputMessage=""
+      showClearDate={false}
+      showDefaultInputIcon={false}
+      small={false}
+      verticalHeight={null}
+      verticalSpacing={22}
+      weekDayFormat="dd"
+      withFullScreenPortal={false}
+      withPortal={false}
+    />
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      X
+    </button>
+     
+  </div>
+  <br />
+  <div>
+    <h4>
+      Conclusion
+    </h4>
+    <div>
+      <label>
+        Execution: 
+      </label>
+      <label>
+        Good
+      </label>
+      <input
+        checked={false}
+        name="execution"
+        onClick={[Function]}
+        type="radio"
+        value="good"
+      />
+      <label>
+        Poor
+      </label>
+      <input
+        checked={false}
+        name="execution"
+        onClick={[Function]}
+        type="radio"
+        value="poor"
+      />
+      <label>
+        Both
+      </label>
+      <input
+        checked={true}
+        name="execution"
+        onClick={[Function]}
+        type="radio"
+        value="both"
+      />
+    </div>
+    <div>
+      <label>
+        Trade management: 
+      </label>
+      <label>
+        Good
+      </label>
+      <input
+        checked={false}
+        name="management"
+        onClick={[Function]}
+        type="radio"
+        value="good"
+      />
+      <label>
+        Poor
+      </label>
+      <input
+        checked={true}
+        name="management"
+        onClick={[Function]}
+        type="radio"
+        value="poor"
+      />
+      <label>
+        Both
+      </label>
+      <input
+        checked={false}
+        name="management"
+        onClick={[Function]}
+        type="radio"
+        value="both"
+      />
+    </div>
+    <div>
+      <textarea
+        name="whyNote"
+        onChange={[Function]}
+        placeholder="Why?"
+        type="text"
+        value="note"
+      />
+      <textarea
+        name="improveNote"
+        onChange={[Function]}
+        placeholder="How to improve?"
+        type="text"
+        value="note"
+      />
+    </div>
+  </div>
+  <button>
+    Add
+  </button>
+</form>
+`;
+
+exports[`should render TradeTableForm with input error message 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <label>
+    Direction
+  </label>
+  <input
+    checked={false}
+    name="direction"
+    onClick={[Function]}
+    type="radio"
+    value="long"
+  />
+  <label>
+    Long
+  </label>
+  <input
+    checked={false}
+    name="direction"
+    onClick={[Function]}
+    type="radio"
+    value="short"
+  />
+  <label>
+    Short
+  </label>
+  <br />
+  <label>
+    Market/ Equity
+  </label>
+  <input
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <label>
+    Entry
+  </label>
+  <input
+    name="entry"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <label>
+    Stop
+  </label>
+  <input
+    name="stop"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <label>
+    Target
+  </label>
+  <input
+    name="target"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+   
+  <br />
+  <input
+    checked={false}
+    name="outcome"
+    onClick={[Function]}
+    type="checkbox"
+    value="win"
+  />
+  <label>
+    Win
+  </label>
+  <input
+    checked={false}
+    name="outcome"
+    onClick={[Function]}
+    type="checkbox"
+    value="loss"
+  />
+  <label>
+    Loss
+  </label>
+  <input
+    checked={false}
+    name="outcome"
+    onClick={[Function]}
+    type="checkbox"
+    value="scratch"
+  />
+  <label>
+    Scratch
+  </label>
+   
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    <FontAwesomeIcon
+      border={false}
+      className=""
+      fixedWidth={false}
+      flip={null}
+      icon={
+        Object {
+          "icon": Array [
+            512,
+            512,
+            Array [],
+            "f059",
+            "M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 448c-110.532 0-200-89.431-200-200 0-110.495 89.472-200 200-200 110.491 0 200 89.471 200 200 0 110.53-89.431 200-200 200zm107.244-255.2c0 67.052-72.421 68.084-72.421 92.863V300c0 6.627-5.373 12-12 12h-45.647c-6.627 0-12-5.373-12-12v-8.659c0-35.745 27.1-50.034 47.579-61.516 17.561-9.845 28.324-16.541 28.324-29.579 0-17.246-21.999-28.693-39.784-28.693-23.189 0-33.894 10.977-48.942 29.969-4.057 5.12-11.46 6.071-16.666 2.124l-27.824-21.098c-5.107-3.872-6.251-11.066-2.644-16.363C184.846 131.491 214.94 112 261.794 112c49.071 0 101.45 38.304 101.45 88.8zM298 368c0 23.159-18.841 42-42 42s-42-18.841-42-42 18.841-42 42-42 42 18.841 42 42z",
+          ],
+          "iconName": "question-circle",
+          "prefix": "far",
+          "type": "icon",
+        }
+      }
+      inverse={false}
+      listItem={false}
+      mask={null}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size={null}
+      spin={false}
+      swapOpacity={false}
+      symbol={false}
+      title=""
+      transform={null}
+    />
+  </button>
+  <div>
+    <label>
+      Opened
+    </label>
+    <withStyles(SingleDatePicker)
+      anchorDirection="left"
+      appendToBody={false}
+      block={false}
+      calendarInfoPosition="bottom"
+      customCloseIcon={null}
+      customInputIcon={null}
+      date={"1970-01-01T00:00:00.000Z"}
+      dayPickerNavigationInlineStyles={null}
+      daySize={39}
+      disableScroll={false}
+      disabled={false}
+      displayFormat={[Function]}
+      enableOutsideDays={false}
+      firstDayOfWeek={null}
+      focused={false}
+      hideKeyboardShortcutsPanel={false}
+      horizontalMargin={0}
+      horizontalMonthPadding={13}
+      id="date"
+      initialVisibleMonth={null}
+      inputIconPosition="before"
+      isDayBlocked={[Function]}
+      isDayHighlighted={[Function]}
+      isOutsideRange={[Function]}
+      isRTL={false}
+      keepFocusOnInput={false}
+      keepOpenOnDateSelect={false}
+      monthFormat="MMMM YYYY"
+      navNext={null}
+      navPosition="navPositionTop"
+      navPrev={null}
+      noBorder={false}
+      numberOfMonths={1}
+      onClose={[Function]}
+      onDateChange={[Function]}
+      onFocusChange={[Function]}
+      onNextMonthClick={[Function]}
+      onPrevMonthClick={[Function]}
+      openDirection="down"
+      orientation="horizontal"
+      phrases={
+        Object {
+          "calendarLabel": "Calendar",
+          "chooseAvailableDate": [Function],
+          "clearDate": "Clear Date",
+          "closeDatePicker": "Close",
+          "dateIsSelected": [Function],
+          "dateIsUnavailable": [Function],
+          "enterKey": "Enter key",
+          "escape": "Escape key",
+          "hideKeyboardShortcutsPanel": "Close the shortcuts panel.",
+          "homeEnd": "Home and end keys",
+          "jumpToNextMonth": "Move forward to switch to the next month.",
+          "jumpToPrevMonth": "Move backward to switch to the previous month.",
+          "keyboardBackwardNavigationInstructions": "Navigate backward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardForwardNavigationInstructions": "Navigate forward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardShortcuts": "Keyboard Shortcuts",
+          "leftArrowRightArrow": "Right and left arrow keys",
+          "moveFocusByOneDay": "Move backward (left) and forward (right) by one day.",
+          "moveFocusByOneMonth": "Switch months.",
+          "moveFocusByOneWeek": "Move backward (up) and forward (down) by one week.",
+          "moveFocustoStartAndEndOfWeek": "Go to the first or last day of a week.",
+          "openThisPanel": "Open this panel.",
+          "pageUpPageDown": "page up and page down keys",
+          "questionMark": "Question mark",
+          "returnFocusToInput": "Return to the date input field.",
+          "roleDescription": "datepicker",
+          "selectFocusedDate": "Select the date in focus.",
+          "showKeyboardShortcutsPanel": "Open the keyboard shortcuts panel.",
+          "upArrowDownArrow": "up and down arrow keys",
+        }
+      }
+      placeholder="Date"
+      readOnly={false}
+      regular={false}
+      renderCalendarInfo={null}
+      renderDayContents={null}
+      renderMonthElement={null}
+      renderMonthText={null}
+      renderNavNextButton={null}
+      renderNavPrevButton={null}
+      renderWeekHeaderElement={null}
+      reopenPickerOnClearDate={false}
+      required={false}
+      screenReaderInputMessage=""
+      showClearDate={false}
+      showDefaultInputIcon={false}
+      small={false}
+      verticalHeight={null}
+      verticalSpacing={22}
+      weekDayFormat="dd"
+      withFullScreenPortal={false}
+      withPortal={false}
+    />
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+       X
+    </button>
+     
+  </div>
+  <div>
+    <label>
+      Closed
+    </label>
+    <withStyles(SingleDatePicker)
+      anchorDirection="left"
+      appendToBody={false}
+      block={false}
+      calendarInfoPosition="bottom"
+      customCloseIcon={null}
+      customInputIcon={null}
+      date={"1970-01-01T00:00:00.000Z"}
+      dayPickerNavigationInlineStyles={null}
+      daySize={39}
+      disableScroll={false}
+      disabled={false}
+      displayFormat={[Function]}
+      enableOutsideDays={false}
+      firstDayOfWeek={null}
+      focused={false}
+      hideKeyboardShortcutsPanel={false}
+      horizontalMargin={0}
+      horizontalMonthPadding={13}
+      id="date"
+      initialVisibleMonth={null}
+      inputIconPosition="before"
+      isDayBlocked={[Function]}
+      isDayHighlighted={[Function]}
+      isOutsideRange={[Function]}
+      isRTL={false}
+      keepFocusOnInput={false}
+      keepOpenOnDateSelect={false}
+      monthFormat="MMMM YYYY"
+      navNext={null}
+      navPosition="navPositionTop"
+      navPrev={null}
+      noBorder={false}
+      numberOfMonths={1}
+      onClose={[Function]}
+      onDateChange={[Function]}
+      onFocusChange={[Function]}
+      onNextMonthClick={[Function]}
+      onPrevMonthClick={[Function]}
+      openDirection="down"
+      orientation="horizontal"
+      phrases={
+        Object {
+          "calendarLabel": "Calendar",
+          "chooseAvailableDate": [Function],
+          "clearDate": "Clear Date",
+          "closeDatePicker": "Close",
+          "dateIsSelected": [Function],
+          "dateIsUnavailable": [Function],
+          "enterKey": "Enter key",
+          "escape": "Escape key",
+          "hideKeyboardShortcutsPanel": "Close the shortcuts panel.",
+          "homeEnd": "Home and end keys",
+          "jumpToNextMonth": "Move forward to switch to the next month.",
+          "jumpToPrevMonth": "Move backward to switch to the previous month.",
+          "keyboardBackwardNavigationInstructions": "Navigate backward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardForwardNavigationInstructions": "Navigate forward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardShortcuts": "Keyboard Shortcuts",
+          "leftArrowRightArrow": "Right and left arrow keys",
+          "moveFocusByOneDay": "Move backward (left) and forward (right) by one day.",
+          "moveFocusByOneMonth": "Switch months.",
+          "moveFocusByOneWeek": "Move backward (up) and forward (down) by one week.",
+          "moveFocustoStartAndEndOfWeek": "Go to the first or last day of a week.",
+          "openThisPanel": "Open this panel.",
+          "pageUpPageDown": "page up and page down keys",
+          "questionMark": "Question mark",
+          "returnFocusToInput": "Return to the date input field.",
+          "roleDescription": "datepicker",
+          "selectFocusedDate": "Select the date in focus.",
+          "showKeyboardShortcutsPanel": "Open the keyboard shortcuts panel.",
+          "upArrowDownArrow": "up and down arrow keys",
+        }
+      }
+      placeholder="Date"
+      readOnly={false}
+      regular={false}
+      renderCalendarInfo={null}
+      renderDayContents={null}
+      renderMonthElement={null}
+      renderMonthText={null}
+      renderNavNextButton={null}
+      renderNavPrevButton={null}
+      renderWeekHeaderElement={null}
+      reopenPickerOnClearDate={false}
+      required={false}
+      screenReaderInputMessage=""
+      showClearDate={false}
+      showDefaultInputIcon={false}
+      small={false}
+      verticalHeight={null}
+      verticalSpacing={22}
+      weekDayFormat="dd"
+      withFullScreenPortal={false}
+      withPortal={false}
+    />
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      X
+    </button>
+     
+  </div>
+  <br />
+  <div>
+    <h4>
+      Conclusion
+    </h4>
+    <div>
+      <label>
+        Execution: 
+      </label>
+      <label>
+        Good
+      </label>
+      <input
+        checked={false}
+        name="execution"
+        onClick={[Function]}
+        type="radio"
+        value="good"
+      />
+      <label>
+        Poor
+      </label>
+      <input
+        checked={false}
+        name="execution"
+        onClick={[Function]}
+        type="radio"
+        value="poor"
+      />
+      <label>
+        Both
+      </label>
+      <input
+        checked={false}
+        name="execution"
+        onClick={[Function]}
+        type="radio"
+        value="both"
+      />
+    </div>
+    <div>
+      <label>
+        Trade management: 
+      </label>
+      <label>
+        Good
+      </label>
+      <input
+        checked={false}
+        name="management"
+        onClick={[Function]}
+        type="radio"
+        value="good"
+      />
+      <label>
+        Poor
+      </label>
+      <input
+        checked={false}
+        name="management"
+        onClick={[Function]}
+        type="radio"
+        value="poor"
+      />
+      <label>
+        Both
+      </label>
+      <input
+        checked={false}
+        name="management"
+        onClick={[Function]}
+        type="radio"
+        value="both"
+      />
+    </div>
+    <div>
+      <textarea
+        name="whyNote"
+        onChange={[Function]}
+        placeholder="Why?"
+        type="text"
+        value=""
+      />
+      <textarea
+        name="improveNote"
+        onChange={[Function]}
+        placeholder="How to improve?"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <button>
+    Add
+  </button>
+</form>
+`;
+
+exports[`should render TradeTableForm with input error message 2`] = `
+<form
+  onSubmit={[Function]}
+>
+  <p>
+    Values for direction, entry, stop, and target must be given
+  </p>
+  <label>
+    Direction
+  </label>
+  <input
+    checked={false}
+    name="direction"
+    onClick={[Function]}
+    type="radio"
+    value="long"
+  />
+  <label>
+    Long
+  </label>
+  <input
+    checked={false}
+    name="direction"
+    onClick={[Function]}
+    type="radio"
+    value="short"
+  />
+  <label>
+    Short
+  </label>
+  <br />
+  <label>
+    Market/ Equity
+  </label>
+  <input
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <label>
+    Entry
+  </label>
+  <input
+    name="entry"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <label>
+    Stop
+  </label>
+  <input
+    name="stop"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+  <label>
+    Target
+  </label>
+  <input
+    name="target"
+    onChange={[Function]}
+    type="text"
+    value=""
+  />
+   
+  <br />
+  <input
+    checked={false}
+    name="outcome"
+    onClick={[Function]}
+    type="checkbox"
+    value="win"
+  />
+  <label>
+    Win
+  </label>
+  <input
+    checked={false}
+    name="outcome"
+    onClick={[Function]}
+    type="checkbox"
+    value="loss"
+  />
+  <label>
+    Loss
+  </label>
+  <input
+    checked={false}
+    name="outcome"
+    onClick={[Function]}
+    type="checkbox"
+    value="scratch"
+  />
+  <label>
+    Scratch
+  </label>
+   
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    <FontAwesomeIcon
+      border={false}
+      className=""
+      fixedWidth={false}
+      flip={null}
+      icon={
+        Object {
+          "icon": Array [
+            512,
+            512,
+            Array [],
+            "f059",
+            "M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 448c-110.532 0-200-89.431-200-200 0-110.495 89.472-200 200-200 110.491 0 200 89.471 200 200 0 110.53-89.431 200-200 200zm107.244-255.2c0 67.052-72.421 68.084-72.421 92.863V300c0 6.627-5.373 12-12 12h-45.647c-6.627 0-12-5.373-12-12v-8.659c0-35.745 27.1-50.034 47.579-61.516 17.561-9.845 28.324-16.541 28.324-29.579 0-17.246-21.999-28.693-39.784-28.693-23.189 0-33.894 10.977-48.942 29.969-4.057 5.12-11.46 6.071-16.666 2.124l-27.824-21.098c-5.107-3.872-6.251-11.066-2.644-16.363C184.846 131.491 214.94 112 261.794 112c49.071 0 101.45 38.304 101.45 88.8zM298 368c0 23.159-18.841 42-42 42s-42-18.841-42-42 18.841-42 42-42 42 18.841 42 42z",
+          ],
+          "iconName": "question-circle",
+          "prefix": "far",
+          "type": "icon",
+        }
+      }
+      inverse={false}
+      listItem={false}
+      mask={null}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size={null}
+      spin={false}
+      swapOpacity={false}
+      symbol={false}
+      title=""
+      transform={null}
+    />
+  </button>
+  <div>
+    <label>
+      Opened
+    </label>
+    <withStyles(SingleDatePicker)
+      anchorDirection="left"
+      appendToBody={false}
+      block={false}
+      calendarInfoPosition="bottom"
+      customCloseIcon={null}
+      customInputIcon={null}
+      date={"1970-01-01T00:00:00.000Z"}
+      dayPickerNavigationInlineStyles={null}
+      daySize={39}
+      disableScroll={false}
+      disabled={false}
+      displayFormat={[Function]}
+      enableOutsideDays={false}
+      firstDayOfWeek={null}
+      focused={false}
+      hideKeyboardShortcutsPanel={false}
+      horizontalMargin={0}
+      horizontalMonthPadding={13}
+      id="date"
+      initialVisibleMonth={null}
+      inputIconPosition="before"
+      isDayBlocked={[Function]}
+      isDayHighlighted={[Function]}
+      isOutsideRange={[Function]}
+      isRTL={false}
+      keepFocusOnInput={false}
+      keepOpenOnDateSelect={false}
+      monthFormat="MMMM YYYY"
+      navNext={null}
+      navPosition="navPositionTop"
+      navPrev={null}
+      noBorder={false}
+      numberOfMonths={1}
+      onClose={[Function]}
+      onDateChange={[Function]}
+      onFocusChange={[Function]}
+      onNextMonthClick={[Function]}
+      onPrevMonthClick={[Function]}
+      openDirection="down"
+      orientation="horizontal"
+      phrases={
+        Object {
+          "calendarLabel": "Calendar",
+          "chooseAvailableDate": [Function],
+          "clearDate": "Clear Date",
+          "closeDatePicker": "Close",
+          "dateIsSelected": [Function],
+          "dateIsUnavailable": [Function],
+          "enterKey": "Enter key",
+          "escape": "Escape key",
+          "hideKeyboardShortcutsPanel": "Close the shortcuts panel.",
+          "homeEnd": "Home and end keys",
+          "jumpToNextMonth": "Move forward to switch to the next month.",
+          "jumpToPrevMonth": "Move backward to switch to the previous month.",
+          "keyboardBackwardNavigationInstructions": "Navigate backward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardForwardNavigationInstructions": "Navigate forward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardShortcuts": "Keyboard Shortcuts",
+          "leftArrowRightArrow": "Right and left arrow keys",
+          "moveFocusByOneDay": "Move backward (left) and forward (right) by one day.",
+          "moveFocusByOneMonth": "Switch months.",
+          "moveFocusByOneWeek": "Move backward (up) and forward (down) by one week.",
+          "moveFocustoStartAndEndOfWeek": "Go to the first or last day of a week.",
+          "openThisPanel": "Open this panel.",
+          "pageUpPageDown": "page up and page down keys",
+          "questionMark": "Question mark",
+          "returnFocusToInput": "Return to the date input field.",
+          "roleDescription": "datepicker",
+          "selectFocusedDate": "Select the date in focus.",
+          "showKeyboardShortcutsPanel": "Open the keyboard shortcuts panel.",
+          "upArrowDownArrow": "up and down arrow keys",
+        }
+      }
+      placeholder="Date"
+      readOnly={false}
+      regular={false}
+      renderCalendarInfo={null}
+      renderDayContents={null}
+      renderMonthElement={null}
+      renderMonthText={null}
+      renderNavNextButton={null}
+      renderNavPrevButton={null}
+      renderWeekHeaderElement={null}
+      reopenPickerOnClearDate={false}
+      required={false}
+      screenReaderInputMessage=""
+      showClearDate={false}
+      showDefaultInputIcon={false}
+      small={false}
+      verticalHeight={null}
+      verticalSpacing={22}
+      weekDayFormat="dd"
+      withFullScreenPortal={false}
+      withPortal={false}
+    />
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+       X
+    </button>
+     
+  </div>
+  <div>
+    <label>
+      Closed
+    </label>
+    <withStyles(SingleDatePicker)
+      anchorDirection="left"
+      appendToBody={false}
+      block={false}
+      calendarInfoPosition="bottom"
+      customCloseIcon={null}
+      customInputIcon={null}
+      date={"1970-01-01T00:00:00.000Z"}
+      dayPickerNavigationInlineStyles={null}
+      daySize={39}
+      disableScroll={false}
+      disabled={false}
+      displayFormat={[Function]}
+      enableOutsideDays={false}
+      firstDayOfWeek={null}
+      focused={false}
+      hideKeyboardShortcutsPanel={false}
+      horizontalMargin={0}
+      horizontalMonthPadding={13}
+      id="date"
+      initialVisibleMonth={null}
+      inputIconPosition="before"
+      isDayBlocked={[Function]}
+      isDayHighlighted={[Function]}
+      isOutsideRange={[Function]}
+      isRTL={false}
+      keepFocusOnInput={false}
+      keepOpenOnDateSelect={false}
+      monthFormat="MMMM YYYY"
+      navNext={null}
+      navPosition="navPositionTop"
+      navPrev={null}
+      noBorder={false}
+      numberOfMonths={1}
+      onClose={[Function]}
+      onDateChange={[Function]}
+      onFocusChange={[Function]}
+      onNextMonthClick={[Function]}
+      onPrevMonthClick={[Function]}
+      openDirection="down"
+      orientation="horizontal"
+      phrases={
+        Object {
+          "calendarLabel": "Calendar",
+          "chooseAvailableDate": [Function],
+          "clearDate": "Clear Date",
+          "closeDatePicker": "Close",
+          "dateIsSelected": [Function],
+          "dateIsUnavailable": [Function],
+          "enterKey": "Enter key",
+          "escape": "Escape key",
+          "hideKeyboardShortcutsPanel": "Close the shortcuts panel.",
+          "homeEnd": "Home and end keys",
+          "jumpToNextMonth": "Move forward to switch to the next month.",
+          "jumpToPrevMonth": "Move backward to switch to the previous month.",
+          "keyboardBackwardNavigationInstructions": "Navigate backward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardForwardNavigationInstructions": "Navigate forward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardShortcuts": "Keyboard Shortcuts",
+          "leftArrowRightArrow": "Right and left arrow keys",
+          "moveFocusByOneDay": "Move backward (left) and forward (right) by one day.",
+          "moveFocusByOneMonth": "Switch months.",
+          "moveFocusByOneWeek": "Move backward (up) and forward (down) by one week.",
+          "moveFocustoStartAndEndOfWeek": "Go to the first or last day of a week.",
+          "openThisPanel": "Open this panel.",
+          "pageUpPageDown": "page up and page down keys",
+          "questionMark": "Question mark",
+          "returnFocusToInput": "Return to the date input field.",
+          "roleDescription": "datepicker",
+          "selectFocusedDate": "Select the date in focus.",
+          "showKeyboardShortcutsPanel": "Open the keyboard shortcuts panel.",
+          "upArrowDownArrow": "up and down arrow keys",
+        }
+      }
+      placeholder="Date"
+      readOnly={false}
+      regular={false}
+      renderCalendarInfo={null}
+      renderDayContents={null}
+      renderMonthElement={null}
+      renderMonthText={null}
+      renderNavNextButton={null}
+      renderNavPrevButton={null}
+      renderWeekHeaderElement={null}
+      reopenPickerOnClearDate={false}
+      required={false}
+      screenReaderInputMessage=""
+      showClearDate={false}
+      showDefaultInputIcon={false}
+      small={false}
+      verticalHeight={null}
+      verticalSpacing={22}
+      weekDayFormat="dd"
+      withFullScreenPortal={false}
+      withPortal={false}
+    />
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      X
+    </button>
+     
+  </div>
+  <br />
+  <div>
+    <h4>
+      Conclusion
+    </h4>
+    <div>
+      <label>
+        Execution: 
+      </label>
+      <label>
+        Good
+      </label>
+      <input
+        checked={false}
+        name="execution"
+        onClick={[Function]}
+        type="radio"
+        value="good"
+      />
+      <label>
+        Poor
+      </label>
+      <input
+        checked={false}
+        name="execution"
+        onClick={[Function]}
+        type="radio"
+        value="poor"
+      />
+      <label>
+        Both
+      </label>
+      <input
+        checked={false}
+        name="execution"
+        onClick={[Function]}
+        type="radio"
+        value="both"
+      />
+    </div>
+    <div>
+      <label>
+        Trade management: 
+      </label>
+      <label>
+        Good
+      </label>
+      <input
+        checked={false}
+        name="management"
+        onClick={[Function]}
+        type="radio"
+        value="good"
+      />
+      <label>
+        Poor
+      </label>
+      <input
+        checked={false}
+        name="management"
+        onClick={[Function]}
+        type="radio"
+        value="poor"
+      />
+      <label>
+        Both
+      </label>
+      <input
+        checked={false}
+        name="management"
+        onClick={[Function]}
+        type="radio"
+        value="both"
+      />
+    </div>
+    <div>
+      <textarea
+        name="whyNote"
+        onChange={[Function]}
+        placeholder="Why?"
+        type="text"
+        value=""
+      />
+      <textarea
+        name="improveNote"
+        onChange={[Function]}
+        placeholder="How to improve?"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <button>
+    Add
+  </button>
+</form>
+`;
+
+exports[`should render TradeTableForm with model data 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <label>
+    Direction
+  </label>
+  <input
+    checked={true}
+    name="direction"
+    onClick={[Function]}
+    type="radio"
+    value="long"
+  />
+  <label>
+    Long
+  </label>
+  <input
+    checked={false}
+    name="direction"
+    onClick={[Function]}
+    type="radio"
+    value="short"
+  />
+  <label>
+    Short
+  </label>
+  <br />
+  <label>
+    Market/ Equity
+  </label>
+  <input
+    onChange={[Function]}
+    type="text"
+    value="GOLD"
+  />
+  <label>
+    Entry
+  </label>
+  <input
+    name="entry"
+    onChange={[Function]}
+    type="text"
+    value="1455"
+  />
+  <label>
+    Stop
+  </label>
+  <input
+    name="stop"
+    onChange={[Function]}
+    type="text"
+    value="1450"
+  />
+  <label>
+    Target
+  </label>
+  <input
+    name="target"
+    onChange={[Function]}
+    type="text"
+    value="1468"
+  />
+   
+  <br />
+  <input
+    checked={false}
+    name="outcome"
+    onClick={[Function]}
+    type="checkbox"
+    value="win"
+  />
+  <label>
+    Win
+  </label>
+  <input
+    checked={true}
+    name="outcome"
+    onClick={[Function]}
+    type="checkbox"
+    value="loss"
+  />
+  <label>
+    Loss
+  </label>
+  <input
+    checked={false}
+    name="outcome"
+    onClick={[Function]}
+    type="checkbox"
+    value="scratch"
+  />
+  <label>
+    Scratch
+  </label>
+   
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    <FontAwesomeIcon
+      border={false}
+      className=""
+      fixedWidth={false}
+      flip={null}
+      icon={
+        Object {
+          "icon": Array [
+            512,
+            512,
+            Array [],
+            "f059",
+            "M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 448c-110.532 0-200-89.431-200-200 0-110.495 89.472-200 200-200 110.491 0 200 89.471 200 200 0 110.53-89.431 200-200 200zm107.244-255.2c0 67.052-72.421 68.084-72.421 92.863V300c0 6.627-5.373 12-12 12h-45.647c-6.627 0-12-5.373-12-12v-8.659c0-35.745 27.1-50.034 47.579-61.516 17.561-9.845 28.324-16.541 28.324-29.579 0-17.246-21.999-28.693-39.784-28.693-23.189 0-33.894 10.977-48.942 29.969-4.057 5.12-11.46 6.071-16.666 2.124l-27.824-21.098c-5.107-3.872-6.251-11.066-2.644-16.363C184.846 131.491 214.94 112 261.794 112c49.071 0 101.45 38.304 101.45 88.8zM298 368c0 23.159-18.841 42-42 42s-42-18.841-42-42 18.841-42 42-42 42 18.841 42 42z",
+          ],
+          "iconName": "question-circle",
+          "prefix": "far",
+          "type": "icon",
+        }
+      }
+      inverse={false}
+      listItem={false}
+      mask={null}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size={null}
+      spin={false}
+      swapOpacity={false}
+      symbol={false}
+      title=""
+      transform={null}
+    />
+  </button>
+  <div>
+    <label>
+      Opened
+    </label>
+    <withStyles(SingleDatePicker)
+      anchorDirection="left"
+      appendToBody={false}
+      block={false}
+      calendarInfoPosition="bottom"
+      customCloseIcon={null}
+      customInputIcon={null}
+      date={"1970-01-01T00:00:00.000Z"}
+      dayPickerNavigationInlineStyles={null}
+      daySize={39}
+      disableScroll={false}
+      disabled={false}
+      displayFormat={[Function]}
+      enableOutsideDays={false}
+      firstDayOfWeek={null}
+      focused={false}
+      hideKeyboardShortcutsPanel={false}
+      horizontalMargin={0}
+      horizontalMonthPadding={13}
+      id="date"
+      initialVisibleMonth={null}
+      inputIconPosition="before"
+      isDayBlocked={[Function]}
+      isDayHighlighted={[Function]}
+      isOutsideRange={[Function]}
+      isRTL={false}
+      keepFocusOnInput={false}
+      keepOpenOnDateSelect={false}
+      monthFormat="MMMM YYYY"
+      navNext={null}
+      navPosition="navPositionTop"
+      navPrev={null}
+      noBorder={false}
+      numberOfMonths={1}
+      onClose={[Function]}
+      onDateChange={[Function]}
+      onFocusChange={[Function]}
+      onNextMonthClick={[Function]}
+      onPrevMonthClick={[Function]}
+      openDirection="down"
+      orientation="horizontal"
+      phrases={
+        Object {
+          "calendarLabel": "Calendar",
+          "chooseAvailableDate": [Function],
+          "clearDate": "Clear Date",
+          "closeDatePicker": "Close",
+          "dateIsSelected": [Function],
+          "dateIsUnavailable": [Function],
+          "enterKey": "Enter key",
+          "escape": "Escape key",
+          "hideKeyboardShortcutsPanel": "Close the shortcuts panel.",
+          "homeEnd": "Home and end keys",
+          "jumpToNextMonth": "Move forward to switch to the next month.",
+          "jumpToPrevMonth": "Move backward to switch to the previous month.",
+          "keyboardBackwardNavigationInstructions": "Navigate backward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardForwardNavigationInstructions": "Navigate forward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardShortcuts": "Keyboard Shortcuts",
+          "leftArrowRightArrow": "Right and left arrow keys",
+          "moveFocusByOneDay": "Move backward (left) and forward (right) by one day.",
+          "moveFocusByOneMonth": "Switch months.",
+          "moveFocusByOneWeek": "Move backward (up) and forward (down) by one week.",
+          "moveFocustoStartAndEndOfWeek": "Go to the first or last day of a week.",
+          "openThisPanel": "Open this panel.",
+          "pageUpPageDown": "page up and page down keys",
+          "questionMark": "Question mark",
+          "returnFocusToInput": "Return to the date input field.",
+          "roleDescription": "datepicker",
+          "selectFocusedDate": "Select the date in focus.",
+          "showKeyboardShortcutsPanel": "Open the keyboard shortcuts panel.",
+          "upArrowDownArrow": "up and down arrow keys",
+        }
+      }
+      placeholder="Date"
+      readOnly={false}
+      regular={false}
+      renderCalendarInfo={null}
+      renderDayContents={null}
+      renderMonthElement={null}
+      renderMonthText={null}
+      renderNavNextButton={null}
+      renderNavPrevButton={null}
+      renderWeekHeaderElement={null}
+      reopenPickerOnClearDate={false}
+      required={false}
+      screenReaderInputMessage=""
+      showClearDate={false}
+      showDefaultInputIcon={false}
+      small={false}
+      verticalHeight={null}
+      verticalSpacing={22}
+      weekDayFormat="dd"
+      withFullScreenPortal={false}
+      withPortal={false}
+    />
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+       X
+    </button>
+     
+  </div>
+  <div>
+    <label>
+      Closed
+    </label>
+    <withStyles(SingleDatePicker)
+      anchorDirection="left"
+      appendToBody={false}
+      block={false}
+      calendarInfoPosition="bottom"
+      customCloseIcon={null}
+      customInputIcon={null}
+      date={"1970-01-03T00:00:00.000Z"}
+      dayPickerNavigationInlineStyles={null}
+      daySize={39}
+      disableScroll={false}
+      disabled={false}
+      displayFormat={[Function]}
+      enableOutsideDays={false}
+      firstDayOfWeek={null}
+      focused={false}
+      hideKeyboardShortcutsPanel={false}
+      horizontalMargin={0}
+      horizontalMonthPadding={13}
+      id="date"
+      initialVisibleMonth={null}
+      inputIconPosition="before"
+      isDayBlocked={[Function]}
+      isDayHighlighted={[Function]}
+      isOutsideRange={[Function]}
+      isRTL={false}
+      keepFocusOnInput={false}
+      keepOpenOnDateSelect={false}
+      monthFormat="MMMM YYYY"
+      navNext={null}
+      navPosition="navPositionTop"
+      navPrev={null}
+      noBorder={false}
+      numberOfMonths={1}
+      onClose={[Function]}
+      onDateChange={[Function]}
+      onFocusChange={[Function]}
+      onNextMonthClick={[Function]}
+      onPrevMonthClick={[Function]}
+      openDirection="down"
+      orientation="horizontal"
+      phrases={
+        Object {
+          "calendarLabel": "Calendar",
+          "chooseAvailableDate": [Function],
+          "clearDate": "Clear Date",
+          "closeDatePicker": "Close",
+          "dateIsSelected": [Function],
+          "dateIsUnavailable": [Function],
+          "enterKey": "Enter key",
+          "escape": "Escape key",
+          "hideKeyboardShortcutsPanel": "Close the shortcuts panel.",
+          "homeEnd": "Home and end keys",
+          "jumpToNextMonth": "Move forward to switch to the next month.",
+          "jumpToPrevMonth": "Move backward to switch to the previous month.",
+          "keyboardBackwardNavigationInstructions": "Navigate backward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardForwardNavigationInstructions": "Navigate forward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.",
+          "keyboardShortcuts": "Keyboard Shortcuts",
+          "leftArrowRightArrow": "Right and left arrow keys",
+          "moveFocusByOneDay": "Move backward (left) and forward (right) by one day.",
+          "moveFocusByOneMonth": "Switch months.",
+          "moveFocusByOneWeek": "Move backward (up) and forward (down) by one week.",
+          "moveFocustoStartAndEndOfWeek": "Go to the first or last day of a week.",
+          "openThisPanel": "Open this panel.",
+          "pageUpPageDown": "page up and page down keys",
+          "questionMark": "Question mark",
+          "returnFocusToInput": "Return to the date input field.",
+          "roleDescription": "datepicker",
+          "selectFocusedDate": "Select the date in focus.",
+          "showKeyboardShortcutsPanel": "Open the keyboard shortcuts panel.",
+          "upArrowDownArrow": "up and down arrow keys",
+        }
+      }
+      placeholder="Date"
+      readOnly={false}
+      regular={false}
+      renderCalendarInfo={null}
+      renderDayContents={null}
+      renderMonthElement={null}
+      renderMonthText={null}
+      renderNavNextButton={null}
+      renderNavPrevButton={null}
+      renderWeekHeaderElement={null}
+      reopenPickerOnClearDate={false}
+      required={false}
+      screenReaderInputMessage=""
+      showClearDate={false}
+      showDefaultInputIcon={false}
+      small={false}
+      verticalHeight={null}
+      verticalSpacing={22}
+      weekDayFormat="dd"
+      withFullScreenPortal={false}
+      withPortal={false}
+    />
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      X
+    </button>
+     
+  </div>
+  <br />
+  <div>
+    <h4>
+      Conclusion
+    </h4>
+    <div>
+      <label>
+        Execution: 
+      </label>
+      <label>
+        Good
+      </label>
+      <input
+        checked={false}
+        name="execution"
+        onClick={[Function]}
+        type="radio"
+        value="good"
+      />
+      <label>
+        Poor
+      </label>
+      <input
+        checked={false}
+        name="execution"
+        onClick={[Function]}
+        type="radio"
+        value="poor"
+      />
+      <label>
+        Both
+      </label>
+      <input
+        checked={true}
+        name="execution"
+        onClick={[Function]}
+        type="radio"
+        value="both"
+      />
+    </div>
+    <div>
+      <label>
+        Trade management: 
+      </label>
+      <label>
+        Good
+      </label>
+      <input
+        checked={false}
+        name="management"
+        onClick={[Function]}
+        type="radio"
+        value="good"
+      />
+      <label>
+        Poor
+      </label>
+      <input
+        checked={true}
+        name="management"
+        onClick={[Function]}
+        type="radio"
+        value="poor"
+      />
+      <label>
+        Both
+      </label>
+      <input
+        checked={false}
+        name="management"
+        onClick={[Function]}
+        type="radio"
+        value="both"
+      />
+    </div>
+    <div>
+      <textarea
+        name="whyNote"
+        onChange={[Function]}
+        placeholder="Why?"
+        type="text"
+        value="note"
+      />
+      <textarea
+        name="improveNote"
+        onChange={[Function]}
+        placeholder="How to improve?"
+        type="text"
+        value="note"
+      />
+    </div>
+  </div>
+  <button>
+    Add
+  </button>
+</form>
+`;

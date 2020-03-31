@@ -7,8 +7,8 @@ const initFilterState = {
   searchText: '',
   sortBy: 'date',
   sorted: false,
-  startDate: moment().startOf('month'),
-  endDate: moment().endOf('month')
+  startDate: moment().startOf('year'),
+  endDate: moment()
 }
 
 const filterReducer = (state = initFilterState, action) => {
