@@ -1,11 +1,6 @@
 import React from 'react'
 import moment from 'moment'
 import { SingleDatePicker, isInclusivelyBeforeDay } from 'react-dates'
-import {
-  CheckboxBtn,
-  RadioBtn,
-  Textarea
-} from './inputs'
 
 class ActiveTradeForm extends React.Component {
   constructor(props) {

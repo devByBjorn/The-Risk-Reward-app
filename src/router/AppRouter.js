@@ -7,7 +7,10 @@ import {
 
 import Header from '../components/Header'
 import IndexPage from '../components/IndexPage'
-import TradeAddPage from '../components/TradeAddPage'
+
+import TradeAddPage from '../components/TradeAddFirstPage'
+import TradeAddActivePage from '../components/TradeAddActivePage'
+import TradeAddClosedPage from '../components/TradeAddClosedPage'
 import TradeEditPage from '../components/TradeEditPage'
 import TradeTablePage from '../components/TradeTablePage'
 import DemonFinderPage from '../components/DemonFinderPage'
@@ -24,6 +27,8 @@ const AppRouter = () => (
         <Route exact path="/" component={IndexPage} />
         <Route path="/trades" component={TradeTablePage} />
         <Route path="/add-trade" component={TradeAddPage} />
+        <Route path="/add-active-trade" component={TradeAddActivePage} />
+        <Route path="/add-closed-trade" component={TradeAddClosedPage} />
         <Route path="/edit-trade/:id" component={TradeEditPage} />
         <Route path="/demons" component={DemonFinderPage} />
         <Route path="/add-demon" component={DemonAddPage} />

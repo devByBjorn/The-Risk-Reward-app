@@ -32,7 +32,6 @@ export const addTrade = ({
   }
 })
 
-
 export const editTrade = (id, updates) => ({
   type: 'EDIT_TRADE',
   id,

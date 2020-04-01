@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { EditIcon, TrashIcon } from '../../icons/Icons'
 import { deleteTrade } from '../../actions/tradeActions'
 
-const TradeTableRow = (
+const ClosedTradeTableRow = (
   {
     dispatch,
     market,
@@ -45,4 +45,4 @@ const TradeTableRow = (
     </tr>
   )
 
-export default connect()(TradeTableRow)
+export default connect()(ClosedTradeTableRow)

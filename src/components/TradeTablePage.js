@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import TradeTable from './tables/TradeTable'
+import ClosedTradeTable from './tables/ClosedTradeTable'
 import ActiveTradeTable from './tables/ActiveTradeTable'
 import PendingTradeTable from './tables/PendingTradeTabel'
 import TradeTableStats from './table-complements/TradeTableStats'
@@ -12,10 +12,10 @@ const TradeTablePage = () => (
     <NavLink to="/add-trade">Add Trade</NavLink>
     <SetDateRange />
     <h3>Closed trades</h3>
-    <TradeTable />
+    <ClosedTradeTable />
     <br />
     <h3>Stats closed trades</h3>
-    <TradeTableStats />
+    {/*<TradeTableStats />*/}
     <br />
     <h3>Active trades</h3>
     <ActiveTradeTable />

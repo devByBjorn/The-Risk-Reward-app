@@ -42,22 +42,30 @@ class FirstAddForm extends React.Component {
     const status = e.target.value
     this.setState(() => ({ status }))
   }
+
   handleSubmit = (e) => {
     e.preventDefault()
-    this.setState(() => ({ inputError: '' }))
-    this.props.handleSubmit({
-      direction: this.state.direction,
-      market: this.state.market.toUpperCase(),
-      entry: this.state.entry,
-      stop: this.state.stop,
-      target: this.state.target,
-      status: this.state.status,
-    })
+    if (!this.state.entry || !this.state.stop || !this.state.target
+      || !this.state.direction) {
+      this.setState(() => ({ inputError: 'Values for direction, entry, stop, and target must be given' }))
+    } else {
+      this.setState(() => ({ inputError: '' }))
+      this.props.handleSubmit({
+        direction: this.state.direction,
+        market: this.state.market.toUpperCase(),
+        entry: this.state.entry,
+        stop: this.state.stop,
+        target: this.state.target,
+        status: this.state.status,
+      })
+    }
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
+        <label>Direction</label>
+        <br />
         <RadioBtn
           name="direction"
           value="long"
@@ -73,6 +81,7 @@ class FirstAddForm extends React.Component {
           onClick={this.onClickDirection}
         />
         <label>Short</label>
+        <br />
         <br />
 
         <label>Market/ Equity</label>
@@ -101,9 +110,11 @@ class FirstAddForm extends React.Component {
           name="target"
           value={this.state.target}
           onChange={this.onChangeValue}
-        /> <br />
-
+        />
+        <br />
+        <br />
         <label>Status</label>
+        <br />
         <label>Closed</label>
         <RadioBtn
           name="status"
@@ -122,8 +133,10 @@ class FirstAddForm extends React.Component {
           value="pending"
           onClick={this.onClickStatus}
         />
+        {this.state.inputError && <p>{this.state.inputError}</p>}
         <button
-        >Add</button>
+          onClick={this.props.onClick}
+        >Continue</button>
       </form>
     )
   }

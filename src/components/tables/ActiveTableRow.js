@@ -7,6 +7,7 @@ import { deleteTrade } from '../../actions/tradeActions'
 
 const ActiveTableRow = (
   {
+    dispatch,
     market,
     direction,
     entry,

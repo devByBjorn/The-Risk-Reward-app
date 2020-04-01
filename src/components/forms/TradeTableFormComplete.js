@@ -1,8 +1,6 @@
 import React from 'react'
 import moment from 'moment'
 import { SingleDatePicker, isInclusivelyBeforeDay } from 'react-dates'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { QuestionIcon } from '../../icons/Icons'
 import {
   CheckboxBtn,
   RadioBtn,
@@ -111,22 +109,6 @@ class TradeTableForm extends React.Component {
   onClickOutcome = (e) => {
     const outcome = e.target.value
     this.setState(() => ({ outcome }))
-  }
-
-  onClickQuestion = () => {
-    let toggleInfo = !this.state.toggleInfo
-
-    if (toggleInfo) {
-      this.setState(() => ({
-        outcomeInfo: 'If trade is still active, the calcualtion for R will be as if the trade was a winner. You can always edit this afterwards',
-        toggleInfo
-      }))
-    } else {
-      this.setState(() => ({
-        outcomeInfo: '',
-        toggleInfo
-      }))
-    }
   }
 
   // Opening date must have a value and be less than closed
@@ -312,13 +294,6 @@ class TradeTableForm extends React.Component {
           onClick={this.onClickOutcome}
         />
         <label>Active</label>
-
-        {this.state.outcomeInfo && <p>{this.state.outcomeInfo}</p>} {/* info about win/loss*/}
-        <button
-          type="button"
-          onClick={this.onClickQuestion}
-        ><QuestionIcon />
-        </button>
         <div>
 
           <label>Opened</label>

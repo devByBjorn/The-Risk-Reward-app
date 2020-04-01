@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import TableHead from './TradeTableHead'
-import TradeTableRow from './TradeTableRow'
+import ClosedTradeTableRow from './ClosedTradeTableRow'
 import marketSearcher from '../../market-searcher/marketSearcher'
 import {
   searchByMarket,
@@ -16,7 +16,7 @@ import {
   sortByManagement
 } from '../../actions/filterActions'
 
-class TradeTable extends React.Component {
+class ClosedTradeTable extends React.Component {
   handleSearch = (e) => this.props.searchByMarket(e.target.value)
   handleSortByMarket = (e) => this.props.sortByMarket(e.target.textContent)
   handleSortByDirection = (e) => this.props.sortByDirection(e.target.textContent)
@@ -90,7 +90,7 @@ class TradeTable extends React.Component {
           </thead>
           <tbody>
             {this.props.trades.map((trade) => (
-              <TradeTableRow
+              <ClosedTradeTableRow
                 {...trade}
                 key={trade.id}
               />
@@ -124,5 +124,5 @@ const mapDispatchToProps = (dispatch) => ({
   sortByR: (textContent) => dispatch(sortByR(textContent)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(TradeTable)
+export default connect(mapStateToProps, mapDispatchToProps)(ClosedTradeTable)
 
