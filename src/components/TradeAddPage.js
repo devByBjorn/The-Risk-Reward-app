@@ -2,7 +2,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { addTrade } from '../actions/tradeActions'
-import TradeTableForm from './form/TradeTableForm'
+import TradeTableForm from './forms/TradeTableForm'
+import FirstAddForm from './forms/FirstAddForm'
+import ClosedTradeForm from './forms/ClosedTradeForm'
+import ActiveTradeForm from './forms/ActiveTradeForm'
 
 class TradeAddPage extends React.Component {
   handleAddTrade = (trade) => {
@@ -13,7 +16,7 @@ class TradeAddPage extends React.Component {
     return (
       <div>
         <NavLink to="/trades">Back to trade table</NavLink>
-        <TradeTableForm
+        <FirstAddForm
           handleSubmit={this.handleAddTrade}
         />
       </div>

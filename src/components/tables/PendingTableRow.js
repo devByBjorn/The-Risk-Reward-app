@@ -1,32 +1,30 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { EditIcon, TrashIcon } from './TradeTableIcons'
+import { calculatePositiveR, calculateNegativeR } from '../../calculate-r/riskRewardCalculation'
+import { EditIcon, TrashIcon } from '../../icons/Icons'
 import { deleteTrade } from '../../actions/tradeActions'
 
-const TradeTableRow = (
+const PendingTableRow = (
   {
     dispatch,
     market,
     direction,
-    opened,
-    closed,
-    period,
-    outcome,
-    rewardToRisk,
-    conclusion,
+    entry,
+    stop,
+    target,
+    status,
     id }) => (
 
+    status === 'pending' &&
     <tr>
       <td>{market}</td>
       <td>{direction}</td>
-      <td>{opened}</td>
-      <td>{closed}</td>
-      <td>{period}</td>
-      <td>{conclusion.execution}</td>
-      <td>{conclusion.management}</td>
-      <td>{outcome}</td>
-      <td>{rewardToRisk}</td>
+      <td>{entry}</td>
+      <td>{stop}</td>
+      <td>{target}</td>
+      <td>{calculateNegativeR(entry, stop, target, direction)}</td> {/* loss -R*/}
+      <td>{calculatePositiveR(entry, stop, target, direction)}</td> {/* win +R*/}
       <td>
         <div>
           <Link to={`/edit-trade/${id}`}>
@@ -43,4 +41,4 @@ const TradeTableRow = (
     </tr>
   )
 
-export default connect()(TradeTableRow)
+export default connect()(PendingTableRow)

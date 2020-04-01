@@ -8,15 +8,15 @@ import './style/style.scss'
 import 'react-dates/initialize'
 import 'react-dates/lib/css/_datepicker.css'
 
-// store.subscribe(() => {
-//   const state = store.getState()
-//   console.log(state)
-// })
+store.subscribe(() => {
+  const state = store.getState()
+  console.log(state)
+})
 
-// const unsubscribe = store.subscribe(() => console.log(store.getState()))
+const unsubscribe = store.subscribe(() => console.log(store.getState()))
 
 
-// unsubscribe()
+unsubscribe()
 
 const app = (
   <Provider store={store}>

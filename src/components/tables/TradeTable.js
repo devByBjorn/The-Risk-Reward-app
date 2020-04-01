@@ -102,9 +102,11 @@ class TradeTable extends React.Component {
   }
 }
 
+// Kan inte använda marketSearcher som den ser ut nu för FirstAddForm
 const mapStateToProps = (state) => {
   return {
-    trades: marketSearcher(state.trades, state.filters),
+    // trades: marketSearcher(state.trades, state.filters),
+    trades: state.trades,
     filters: state.filters
   }
 }

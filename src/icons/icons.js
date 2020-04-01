@@ -1,9 +1,23 @@
-import { library, icon } from '@fortawesome/fontawesome-svg-core'
-import { faTrashAlt, faEdit, faQuestionCircle } from '@fortawesome/free-regular-svg-icons'
+import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { trashcanIcon, editIcon, questionIcon } from './iconsCreate'
 
-library.add(faTrashAlt, faEdit, faQuestionCircle)
+export const TrashIcon = () => (
+  <div>
+    <FontAwesomeIcon icon={trashcanIcon} />
+  </div>
+)
 
-export const trashcanIcon = icon(faTrashAlt)
-export const editIcon = icon(faEdit)
-export const questionIcon = icon(faQuestionCircle)
+export const EditIcon = () => (
+  <div>
+    <FontAwesomeIcon icon={editIcon} />
+  </div>
+)
+
+export const QuestionIcon = () => (
+  <div>
+    <FontAwesomeIcon icon={questionIcon} />
+  </div>
+)
+
 
