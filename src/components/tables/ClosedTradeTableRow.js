@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { EditIcon, TrashIcon } from '../../icons/Icons'
+import { EditIcon, TrashIcon } from '../../icons/IconsComponents'
 import { deleteTrade } from '../../actions/tradeActions'
 
 const ClosedTradeTableRow = (

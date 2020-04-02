@@ -1,12 +1,14 @@
 import React from 'react'
 import moment from 'moment'
-import FirstAddForm from './FirstAddForm'
-import ClosedTradeForm from './ClosedTradeForm'
+import { calculatePositiveR, calculateNegativeR } from '../../calculate-r/riskRewardCalculation'
 
 import MarketAndDirection from './init-trade-steps/MarketAndDirection'
 import StopEntryTarget from './init-trade-steps/StopEntryTarget'
 import TradeStatus from './init-trade-steps/TradeStatus'
 
+import OutComeAndDates from './closed-trade-steps/OutcomeAndDates'
+import Execution from './closed-trade-steps/Execution'
+import Management from './closed-trade-steps/Management'
 
 class MainParentForm extends React.Component {
   constructor(props) {
@@ -31,15 +33,19 @@ class MainParentForm extends React.Component {
       conclusion: props.trade
         ? ({
           execution: props.trade.conclusion.execution,
+          whyExecution: props.trade.conclusion.whyManagement,
+          improveExecution: props.trade.conclusion.improveManagement,
           management: props.trade.conclusion.management,
-          whyNote: props.trade.conclusion.whyNote,
-          improveNote: props.trade.conclusion.improveNote,
+          whyManagement: props.trade.conclusion.whyManagement,
+          improveManagement: props.trade.conclusion.improveManagement,
         })
         : ({
           execution: '',
+          whyExecution: '',
+          improveExecution: '',
           management: '',
-          whyNote: '',
-          improveNote: '',
+          whyManagement: '',
+          improveManagement: '',
         })
     }
   }
@@ -81,40 +87,19 @@ class MainParentForm extends React.Component {
   }
 
   calculateRewardToRisk = () => {
-    const entry = this.state.entry
-    const stop = this.state.stop
-    const target = this.state.target
-    const outcome = this.state.outcome
+    const { entry, stop, target, outcome, direction } = this.state
 
     let rewardToRisk
-    const long = this.state.direction === 'long'
-    const short = this.state.direction === 'short'
-    const win = outcome === 'win'
-    const loss = outcome === 'loss'
-    const scratch = outcome === 'scratch'
-    const active = outcome === 'active'
-
-    const longWin = (target - entry) / (entry - stop)
-    const longLoss = (entry - stop) / (target - entry)
-    const shortWin = (entry - target) / (stop - entry)
-    const shortLoss = (stop - entry) / (entry - target)
-
-    if (long && win) {
-      rewardToRisk = longWin
-    } else if (long && loss) {
-      rewardToRisk = -Math.abs(longLoss)
-    } else if (long && active) {
-      rewardToRisk = longWin
-    } else if (short && win) {
-      rewardToRisk = shortWin
-    } else if (short && loss) {
-      rewardToRisk = -Math.abs(shortLoss)
-    } else if (short && active) {
-      rewardToRisk = shortWin
-    } else if (scratch) {
-      rewardToRisk = 0
+    switch (outcome) {
+      case 'win':
+        return rewardToRisk = calculatePositiveR(entry, stop, target, direction)
+      case 'loss':
+        return rewardToRisk = calculateNegativeR(entry, stop, target, direction)
+      case 'scratch':
+        return rewardToRisk = 0.00
     }
-    return rewardToRisk.toFixed(2)
+
+    return rewardToRisk
   }
 
   onClickOutcome = (e) => {
@@ -175,43 +160,53 @@ class MainParentForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    if (!this.state.entry || !this.state.stop || !this.state.target
-      || !this.state.direction) {
-      this.setState(() => ({ inputError: 'Values for direction, entry, stop, and target must be given' }))
-    } else {
-      this.setState(() => ({ inputError: '' }))
-      this.props.handleSubmit({
-        direction: this.state.direction,
-        market: this.state.market.toUpperCase(),
-        entry: this.state.entry,
-        stop: this.state.stop,
-        target: this.state.target,
-        status: this.state.status,
-        outcome: this.state.outcome,
-        opened: this.state.opened ? this.state.opened.valueOf() : '',
-        closed: this.state.closed ? this.state.closed.valueOf() : '',
-        period: this.state.closed && this.state.opened ? (this.state.closed - this.state.opened).valueOf() : '',
-        rewardToRisk: parseFloat(this.calculateRewardToRisk()),
-        conclusion: this.state.conclusion && {
-          execution: this.state.conclusion.execution,
-          management: this.state.conclusion.management,
-          whyNote: this.state.conclusion.whyNote,
-          improveNote: this.state.conclusion.improveNote
-        },
-      })
-      // switch status depending on active, pending, closed?? 
-    }
+    this.props.handleSubmit({
+      direction: this.state.direction,
+      market: this.state.market.toUpperCase(),
+      entry: this.state.entry,
+      stop: this.state.stop,
+      target: this.state.target,
+      status: this.state.status,
+      outcome: this.state.outcome,
+      opened: this.state.opened ? this.state.opened.valueOf() : '',
+      closed: this.state.closed ? this.state.closed.valueOf() : '',
+      period: this.state.closed && this.state.opened ? (this.state.closed - this.state.opened).valueOf() : '',
+      rewardToRisk: parseFloat(this.calculateRewardToRisk()),
+      conclusion: this.state.conclusion && {
+        execution: this.state.conclusion.execution,
+        whyExecution: this.state.conclusion.whyExecution,
+        improveExecution: this.state.conclusion.improveExecution,
+        management: this.state.conclusion.management,
+        whyManagement: this.state.conclusion.whyManagement,
+        improveManagement: this.state.conclusion.improveManagement
+      },
+    })
   }
 
   render() {
     const { step } = this.state
-    const { direction, market, entry, stop,
-      target, outcome, rewardToRisk, opened, closed, period, inputError } = this.state
-    const { execution, management, whyNote, improveNote } = this.state.conclusion
+
+    const {
+      direction, market, entry, stop,
+      target, outcome, rewardToRisk, status,
+      opened, closed, period, inputError
+    } = this.state
+
+    const {
+      execution, management,
+      whyExecution, improveExecution,
+      whyManagement, improveManagement
+    } = this.state.conclusion
 
     const values = {
-      direction, market, entry, stop, target, outcome, rewardToRisk,
-      opened, closed, period, execution, management, whyNote, improveNote, inputError
+      direction, market,
+      entry, stop, target,
+      outcome, rewardToRisk,
+      opened, closed, period,
+      execution, management,
+      whyExecution, improveExecution,
+      whyManagement, improveManagement,
+      inputError,
     }
 
     switch (step) {
@@ -235,24 +230,57 @@ class MainParentForm extends React.Component {
       case 3:
         return (
           <TradeStatus
+            prevStep={this.prevStep}
+            nextStep={this.nextStep}
             values={values}
             onClickStatus={this.onClickStatus}
           />
         )
-      case 4:
-        return (
-          <h1>step 4</h1>
-        )
     }
 
-
-    if (step === 3) {
-      <button onClick={this.handleSubmit}>Add Trade</button>
+    if (step === 4 && status === 'closed') {
+      return (
+        <OutComeAndDates
+          values={values}
+          prevStep={this.prevStep}
+          nextStep={this.nextStep}
+          onClickOutcome={this.onClickOutcome}
+          onClosedChange={this.onClosedChange}
+          onOpenedChange={this.onOpenedChange}
+          onOpenedFocusChange={this.onOpenedFocusChange}
+          onClosedFocusChange={this.onClosedFocusChange}
+        />
+      )
     }
+
+    if (step === 5 && status === 'closed') {
+      return (
+        <Execution
+          values={values}
+          prevStep={this.prevStep}
+          nextStep={this.nextStep}
+          onConclusionChange={this.onConclusionChange}
+        />
+      )
+    }
+
+    if (step === 6 && status === 'closed') {
+      return (
+        <Management
+          values={values}
+          prevStep={this.prevStep}
+          handleSubmit={this.handleSubmit}
+          onConclusionChange={this.onConclusionChange}
+        />
+      )
+    }
+
+    // <button onClick={this.handleSubmit}>Add Trade</button>
+
 
 
     return (
-      <div>Form process</div>
+      <div>Back to table - Add another trade</div>
     )
   }
 }

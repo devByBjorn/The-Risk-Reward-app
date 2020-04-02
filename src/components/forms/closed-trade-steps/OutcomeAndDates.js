@@ -6,7 +6,7 @@ import {
   CheckboxBtn,
   RadioBtn,
   Textarea
-} from './inputs'
+} from '../inputs'
 
 class ClosedTradeForm extends React.Component {
   continue = e => {
@@ -22,6 +22,16 @@ class ClosedTradeForm extends React.Component {
 
     return (
       <React.Fragment>
+        <div>
+          <ul>
+            <li>Market: {values.market}</li>
+            <li>Direction: {values.direction}</li>
+            <li>Entry: {values.entry}</li>
+            <li>Stop: {values.stop}</li>
+            <li>Target: {values.target}</li>
+            <li>Status: {values.status}</li>
+          </ul>
+        </div>
         <CheckboxBtn
           name="outcome"
           value="win"
@@ -67,6 +77,12 @@ class ClosedTradeForm extends React.Component {
           numberOfMonths={1}
           isOutsideRange={day => !isInclusivelyBeforeDay(day, moment())}
         />
+        <button
+          onClick={this.back}
+        >Back</button>
+        <button
+          onClick={this.continue}
+        >Continue</button>
       </React.Fragment>
     )
   }

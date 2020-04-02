@@ -4,7 +4,7 @@ import {
   CheckboxBtn,
   RadioBtn,
   Textarea
-} from './inputs'
+} from '../inputs'
 
 class ClosedTradeForm extends React.Component {
   continue = e => {
@@ -20,7 +20,15 @@ class ClosedTradeForm extends React.Component {
 
     return (
       <React.Fragment>
-
+        <ul>
+          <li>Market: {values.market}</li>
+          <li>Direction: {values.direction}</li>
+          <li>Entry: {values.entry}</li>
+          <li>Stop: {values.stop}</li>
+          <li>Target: {values.target}</li>
+          <li>Status: {values.status}</li>
+          <li>Outcome: {values.outcome}</li>
+        </ul>
         <h4>Conclusion 1/2: Execution</h4>
         <label>Good</label>
         <RadioBtn
@@ -45,16 +53,22 @@ class ClosedTradeForm extends React.Component {
         />
         <Textarea
           placeholder="Why?"
-          name="whyNote"
-          value={values.whyNote}
+          name="whyExecution"
+          value={values.whyExecution}
           onChange={onConclusionChange}
         />
         <Textarea
           placeholder="How to improve?"
-          name="improveNote"
-          value={values.improveNote}
+          name="improveExecution"
+          value={values.improveExecution}
           onChange={onConclusionChange}
         />
+        <button
+          onClick={this.back}
+        >Back</button>
+        <button
+          onClick={this.continue}
+        >Continue</button>
       </React.Fragment>
     )
   }

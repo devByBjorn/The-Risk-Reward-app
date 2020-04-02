@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import TradeTableFormComplete from './forms/TradeTableFormComplete'
 import { editTrade, deleteTrade } from '../actions/tradeActions'
-import { TrashIcon } from './../icons/Icons'
+import { TrashIcon } from './../icons/IconsComponents'
 
 class TradeEditPage extends React.Component {
   handleEditOnAdd = (trade) => {

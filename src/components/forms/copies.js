@@ -5,7 +5,7 @@ import ClosedTradeForm from './ClosedTradeForm'
 
 import { SingleDatePicker, isInclusivelyBeforeDay } from 'react-dates'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { questionIcon } from '../../icons/icons'
+import { questionIcon } from '../../icons/IconsComponents'
 import {
   CheckboxBtn,
   RadioBtn,

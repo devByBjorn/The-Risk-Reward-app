@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { calculatePositiveR, calculateNegativeR } from '../../calculate-r/riskRewardCalculation'
-import { EditIcon, TrashIcon } from '../../icons/Icons'
+import { EditIcon, TrashIcon } from '../../icons/IconsComponents'
 import { deleteTrade } from '../../actions/tradeActions'
 
 const ActiveTableRow = (
