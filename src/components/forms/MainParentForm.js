@@ -1,5 +1,6 @@
 import React from 'react'
 import moment from 'moment'
+import { SingleDatePicker, isInclusivelyBeforeDay } from 'react-dates'
 import { calculatePositiveR, calculateNegativeR } from '../../calculate-r/riskRewardCalculation'
 
 import MarketAndDirection from './init-trade-steps/MarketAndDirection'
@@ -240,16 +241,20 @@ class MainParentForm extends React.Component {
 
     if (step === 4 && status === 'closed') {
       return (
-        <OutComeAndDates
-          values={values}
-          prevStep={this.prevStep}
-          nextStep={this.nextStep}
-          onClickOutcome={this.onClickOutcome}
-          onClosedChange={this.onClosedChange}
-          onOpenedChange={this.onOpenedChange}
-          onOpenedFocusChange={this.onOpenedFocusChange}
-          onClosedFocusChange={this.onClosedFocusChange}
-        />
+        <div>
+          <OutComeAndDates
+            values={values}
+            prevStep={this.prevStep}
+            nextStep={this.nextStep}
+            onDatesChange={this.onOpenedChange}
+            onFocusChange={this.onOpenedFocusChange}
+            onClickOutcome={this.onClickOutcome}
+            onClosedChange={this.onClosedChange}
+            onOpenedChange={this.onOpenedChange}
+            onOpenedFocusChange={this.onOpenedFocusChange}
+            onClosedFocusChange={this.onClosedFocusChange}
+          />
+        </div>
       )
     }
 
