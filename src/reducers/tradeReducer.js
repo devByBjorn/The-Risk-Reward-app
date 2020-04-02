@@ -1,3 +1,4 @@
+// const initTradeState = [[],[],[]]
 const initTradeState = []
 
 const tradeReducer = (state = initTradeState, action) => {
@@ -6,6 +7,11 @@ const tradeReducer = (state = initTradeState, action) => {
       return [
         ...state,
         action.trade
+      ]
+    case 'ADD_ACTIVE_TRADE':
+      return [
+        ...state[1],
+        action.active
       ]
     case 'EDIT_TRADE':
       return state.map((trade) => trade.id === action.id

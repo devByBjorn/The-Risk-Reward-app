@@ -8,7 +8,10 @@ import {
 import Header from '../components/Header'
 import IndexPage from '../components/IndexPage'
 
+import TradeChoseStatusPage from '../components/TradeChoseStatusPage'
+
 import TradeAddPage from '../components/TradeAddFirstPage'
+import TradeAddPendingPage from '../components/TradeAddPendingPage'
 import TradeAddActivePage from '../components/TradeAddActivePage'
 import TradeAddClosedPage from '../components/TradeAddClosedPage'
 import TradeEditPage from '../components/TradeEditPage'
@@ -26,7 +29,9 @@ const AppRouter = () => (
       <Switch>
         <Route exact path="/" component={IndexPage} />
         <Route path="/trades" component={TradeTablePage} />
+        <Route path="/chose-trade-status" component={TradeChoseStatusPage} />
         <Route path="/add-trade" component={TradeAddPage} />
+        <Route path="/add-pending-trade" component={TradeAddPendingPage} />
         <Route path="/add-active-trade" component={TradeAddActivePage} />
         <Route path="/add-closed-trade" component={TradeAddClosedPage} />
         <Route path="/edit-trade/:id" component={TradeEditPage} />

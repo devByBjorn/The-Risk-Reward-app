@@ -13,3 +13,12 @@ body {
   font-family: "Century Gothic", Futura, sans-serif;;
   font-size: 2rem;
   }
+
+  ul {
+    list-style-type: none;
+    display: flex;
+  }
+
+  li {
+    padding: 0 1rem;
+  }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import ClosedTradeTable from './tables/ClosedTradeTable'
 import ActiveTradeTable from './tables/ActiveTradeTable'
 import PendingTradeTable from './tables/PendingTradeTabel'
@@ -9,7 +9,7 @@ import SetDateRange from './table-complements/TradeTableDatePick'
 const TradeTablePage = () => (
   <div>
     <h1>Trade Table Page</h1>
-    <NavLink to="/add-trade">Add Trade</NavLink>
+    <Link to="/add-trade">Add Trade</Link>
     <SetDateRange />
     <h3>Closed trades</h3>
     <ClosedTradeTable />

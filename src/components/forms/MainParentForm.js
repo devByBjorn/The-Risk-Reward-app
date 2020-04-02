@@ -3,19 +3,12 @@ import moment from 'moment'
 import FirstAddForm from './FirstAddForm'
 import ClosedTradeForm from './ClosedTradeForm'
 
-import { SingleDatePicker, isInclusivelyBeforeDay } from 'react-dates'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { questionIcon } from '../../icons/icons'
-import {
-  CheckboxBtn,
-  RadioBtn,
-  TextInput,
-  Textarea
-} from './inputs'
+import MarketAndDirection from './init-trade-steps/MarketAndDirection'
+import StopEntryTarget from './init-trade-steps/StopEntryTarget'
+import TradeStatus from './init-trade-steps/TradeStatus'
 
-// Look into using a third party library for forms
 
-class TradeTableFormMain extends React.Component {
+class MainParentForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -223,7 +216,7 @@ class TradeTableFormMain extends React.Component {
 
     switch (step) {
       case 1:
-        return (<FirstAddForm
+        return (<MarketAndDirection
           nextStep={this.nextStep}
           values={values}
           onClickDirection={this.onClickDirection}
@@ -232,22 +225,19 @@ class TradeTableFormMain extends React.Component {
           onClickStatus={this.onClickStatus}
         />)
       case 2:
-        return (<ClosedTradeForm
+        return (<StopEntryTarget
           prevStep={this.prevStep}
+          nextStep={this.nextStep}
           values={values}
-          onClickOutcome={this.onClickOutcome}
-          onClosedChange={this.onClosedChange}
-          onOpenedChange={this.onOpenedChange}
-          onOpenedFocusChange={this.onOpenedFocusChange}
-          onClosedFocusChange={this.onClosedFocusChange}
-          onConclusionChange={this.onConclusionChange}
-          prevStep={this.prevStep}
-          handleSubmit={this.handleSubmit}
+          onChangeValue={this.onChangeValue}
         />)
 
       case 3:
         return (
-          <h1>step 3</h1>
+          <TradeStatus
+            values={values}
+            onClickStatus={this.onClickStatus}
+          />
         )
       case 4:
         return (
@@ -267,5 +257,4 @@ class TradeTableFormMain extends React.Component {
   }
 }
 
-export default TradeTableFormMain
-
+export default MainParentForm
