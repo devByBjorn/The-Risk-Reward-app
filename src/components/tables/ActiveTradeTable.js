@@ -38,14 +38,12 @@ class ActiveTradeTable extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.trades.map((trade) => (
-              trade.status === 'active'
-                ? (<ActiveTableRow
-                  {...trade}
-                  key={trade.id}
-                />)
-                : false
-            ))}
+            {this.props.trades.map((trade) =>
+              (<ActiveTableRow
+                {...trade}
+                key={trade.id}
+              />)
+            )}
           </tbody>
         </table>
       </div>
@@ -53,7 +51,6 @@ class ActiveTradeTable extends React.Component {
   }
 }
 
-// Kan inte använda marketSearcher som den ser ut nu för FirstAddForm
 const mapStateToProps = (state) => {
   return {
     trades: state.trades,

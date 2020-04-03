@@ -48,7 +48,6 @@ class PendingTradeTable extends React.Component {
   }
 }
 
-// Kan inte använda marketSearcher som den ser ut nu för FirstAddForm
 const mapStateToProps = (state) => {
   return {
     trades: state.trades,
