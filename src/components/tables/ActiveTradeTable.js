@@ -39,10 +39,12 @@ class ActiveTradeTable extends React.Component {
           </thead>
           <tbody>
             {this.props.trades.map((trade) => (
-              <ActiveTableRow
-                {...trade}
-                key={trade.id}
-              />
+              trade.status === 'active'
+                ? (<ActiveTableRow
+                  {...trade}
+                  key={trade.id}
+                />)
+                : false
             ))}
           </tbody>
         </table>

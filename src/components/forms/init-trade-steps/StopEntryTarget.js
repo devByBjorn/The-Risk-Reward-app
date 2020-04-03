@@ -8,9 +8,19 @@ import {
 } from '../inputs'
 
 class StopEntryTarget extends React.Component {
+  state = {
+    errorMsg: ''
+  }
   continue = e => {
+    const { values } = this.props
     e.preventDefault()
-    this.props.nextStep()
+
+    if (!values.entry || !values.stop || !values.target) {
+      this.setState(() => ({ errorMsg: 'Make sure to give entry, stop and target a value' }))
+    } else {
+      this.setState(() => ({ errorMsg: '' }))
+      this.props.nextStep()
+    }
   }
   back = e => {
     e.preventDefault();
@@ -20,12 +30,15 @@ class StopEntryTarget extends React.Component {
     const { values, onChangeValue } = this.props
     return (
       <React.Fragment>
-        <div className="history">
+        {/*<div className="history">
           <ul>
             <li>Market: {values.market}</li>
             <li>Direction: {values.direction}</li>
+            <li>Entry: {values.entry}</li>
+            <li>Stop: {values.stop}</li>
+            <li>Target: {values.target}</li>
           </ul>
-        </div>
+        </div>*/}
 
         <label>Entry</label>
         <TextInput
@@ -48,7 +61,7 @@ class StopEntryTarget extends React.Component {
           onChange={onChangeValue}
         />
         <br />
-        {values.inputError && <p>{values.inputError}</p>}
+        {this.state.errorMsg && <p>{this.state.errorMsg}</p>}
         <button
           onClick={this.back}
         >Back</button>

@@ -8,28 +8,29 @@ import {
 
 class MarketAndDirection extends React.Component {
   state = {
-    error: ''
+    errorMsg: ''
   }
   continue = e => {
+    const { values } = this.props
     e.preventDefault()
-    this.setState(() => ({ error: '' }))
-    this.props.nextStep()
+
+    if (!values.direction) {
+      this.setState(() => ({ errorMsg: 'Make sure to chose a direction of trade' }))
+    } else {
+      this.setState(() => ({ errorMsg: '' }))
+      this.props.nextStep()
+    }
   }
-
-  // solve error message if values are missing
-
-  // if (!this.props.market || !this.props.direction) {
-  //   this.setState(() => ({ error: 'fill out both fields' }))
-  // } else {
-  //   this.setState(() => ({ error: '' }))
-  //   this.props.nextStep()
-  // }
-  //}
   render() {
     const { values, onClickDirection, onChangeMarket } = this.props
     return (
       <React.Fragment>
-
+        {/*<div className="history">
+          <ul>
+            <li>Market: {values.market}</li>
+            <li>Direction: {values.direction}</li>
+          </ul>
+        </div>*/}
         <label>Market/ Equity</label>
         <br />
         <TextInput
@@ -56,9 +57,8 @@ class MarketAndDirection extends React.Component {
         />
         <label>Short</label>
         <br />
-        <br />
 
-        {this.state.er && <p>{this.state.er}</p>}
+        {this.state.errorMsg && <p>{this.state.errorMsg}</p>}
         <button
           onClick={this.continue}
         >Continue</button>

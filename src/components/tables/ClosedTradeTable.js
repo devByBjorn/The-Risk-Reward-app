@@ -105,8 +105,8 @@ class ClosedTradeTable extends React.Component {
 // Kan inte använda marketSearcher som den ser ut nu för FirstAddForm
 const mapStateToProps = (state) => {
   return {
-    // trades: marketSearcher(state.trades, state.filters),
-    trades: state.trades,
+    trades: marketSearcher(state.trades, state.filters),
+    // trades: state.trades,
     filters: state.filters
   }
 }

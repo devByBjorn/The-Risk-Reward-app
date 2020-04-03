@@ -20,7 +20,7 @@ class ClosedTradeForm extends React.Component {
 
     return (
       <React.Fragment>
-        <ul>
+        {/*<ul>
           <li>Market: {values.market}</li>
           <li>Direction: {values.direction}</li>
           <li>Entry: {values.entry}</li>
@@ -28,7 +28,7 @@ class ClosedTradeForm extends React.Component {
           <li>Target: {values.target}</li>
           <li>Status: {values.status}</li>
           <li>Outcome: {values.outcome}</li>
-        </ul>
+          </ul>*/}
         <h4>Conclusion 1/2: Execution</h4>
         <label>Good</label>
         <RadioBtn

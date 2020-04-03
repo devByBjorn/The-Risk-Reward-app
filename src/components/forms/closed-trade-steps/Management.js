@@ -6,7 +6,7 @@ import {
   Textarea
 } from '../inputs'
 
-class ClosedTradeForm extends React.Component {
+class ManagementAndSubmit extends React.Component {
   continue = e => {
     e.preventDefault()
     this.props.nextStep()
@@ -16,11 +16,11 @@ class ClosedTradeForm extends React.Component {
     this.props.prevStep();
   };
   render() {
-    const { values, onConclusionChange, handleSubmit } = this.props
+    const { values, onConclusionChange } = this.props
 
     return (
       <React.Fragment>
-        <ul>
+        {/*<ul>
           <li>Market: {values.market}</li>
           <li>Direction: {values.direction}</li>
           <li>Entry: {values.entry}</li>
@@ -29,7 +29,8 @@ class ClosedTradeForm extends React.Component {
           <li>Status: {values.status}</li>
           <li>Outcome: {values.outcome}</li>
           <li>Execution: {values.execution}</li>
-        </ul>
+          <li>Management: {values.management}</li>
+        </ul>*/}
         <h4>Conclusion 2/2: Management</h4>
         <label>Good</label>
         <RadioBtn
@@ -69,11 +70,11 @@ class ClosedTradeForm extends React.Component {
           onClick={this.back}
         >Back</button>
         <button
-          onClick={handleSubmit}
+          onClick={this.continue}
         >Add Trade</button>
       </React.Fragment>
     )
   }
 }
 
-export default ClosedTradeForm
+export default ManagementAndSubmit
