@@ -8,7 +8,7 @@ import {
   Textarea
 } from '../inputs'
 
-class ClosedTradeForm extends React.Component {
+class OutcomeAndDates extends React.Component {
   state = {
     focusedInput: null,
     errorMsg: ''
@@ -96,4 +96,4 @@ class ClosedTradeForm extends React.Component {
   }
 }
 
-export default ClosedTradeForm
+export default OutcomeAndDates
