@@ -33,19 +33,8 @@ class OutcomeAndDates extends React.Component {
   }
   render() {
     const { values, onClickOutcome, onDatesChange } = this.props
-
     return (
       <React.Fragment>
-        { /*   <div>
-          <ul>
-            <li>Market: {values.market}</li>
-            <li>Direction: {values.direction}</li>
-            <li>Entry: {values.entry}</li>
-            <li>Stop: {values.stop}</li>
-            <li>Target: {values.target}</li>
-            <li>Status: {values.status}</li>
-          </ul>
-    </div>*/}
         <CheckboxBtn
           name="outcome"
           value="win"

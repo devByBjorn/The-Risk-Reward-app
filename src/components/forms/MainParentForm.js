@@ -12,6 +12,9 @@ import SetOpenDate from './active-trade-steps/SetOpenDate'
 import InspectAndSubmitActive from './active-trade-steps/InspectAndSubmitAcitve'
 import InspectAndSubmitPending from './pending-trade-steps/InspectAndSubmitPending'
 
+import StepBtn from './StepBtn'
+
+import MainParentFormHeading from '../forms/MainParentFormHeading'
 class MainParentForm extends React.Component {
   constructor(props) {
     super(props)
@@ -46,15 +49,24 @@ class MainParentForm extends React.Component {
     }
   }
 
-  nextStep = () => {
+  incrementStepOnNavButtonClick = (e) => {
+    const value = e.target.value
+    this.setState(() => ({ step: value }))
+  }
+
+  // KOlla StepBtn i första steget - funkar 
+  // gör om prevStep till samma function
+  // hur ordna med error meddelande? Flytta tillbaka till denna component??
+  nextStep = (e) => {
+    e.preventDefault()
     const { step } = this.state
     this.setState(() => ({ step: step + 1 }))
-  };
+  }
 
   prevStep = () => {
     const { step } = this.state
     this.setState(() => ({ step: step - 1 }))
-  };
+  }
 
   onClickDirection = (e) => {
     const direction = e.target.value
@@ -163,20 +175,35 @@ class MainParentForm extends React.Component {
 
     switch (step) {
       case 1:
-        return (<MarketAndDirection
-          values={values}
-          nextStep={this.nextStep}
-          onClickDirection={this.onClickDirection}
-          onChangeMarket={this.onChangeMarket}
-          onChangeValue={this.onChangeValue}
-        />)
+        return (
+          <div>
+            <MarketAndDirection
+              values={values}
+              // nextStep={this.nextStep}
+              onClickDirection={this.onClickDirection}
+              onChangeMarket={this.onChangeMarket}
+              onChangeValue={this.onChangeValue}
+            />
+            <StepBtn
+              text="Next"
+              onClick={this.nextStep}
+            />
+          </div>
+        )
       case 2:
-        return (<StopEntryTarget
-          values={values}
-          prevStep={this.prevStep}
-          nextStep={this.nextStep}
-          onChangeValue={this.onChangeValue}
-        />)
+        return (
+          <div>
+            <MainParentFormHeading
+              onClick={this.incrementStepOnNavButtonClick}
+            />
+            <StopEntryTarget
+              values={values}
+              prevStep={this.prevStep}
+              nextStep={this.nextStep}
+              onChangeValue={this.onChangeValue}
+            />
+          </div>
+        )
 
       case 3:
         return (
@@ -259,10 +286,6 @@ class MainParentForm extends React.Component {
         />
       )
     }
-
-    return (
-      <div>Back to table - Add another trade</div>
-    )
   }
 }
 

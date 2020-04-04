@@ -25,12 +25,6 @@ class MarketAndDirection extends React.Component {
     const { values, onClickDirection, onChangeMarket } = this.props
     return (
       <React.Fragment>
-        {/*<div className="history">
-          <ul>
-            <li>Market: {values.market}</li>
-            <li>Direction: {values.direction}</li>
-          </ul>
-        </div>*/}
         <label>Market/ Equity</label>
         <br />
         <TextInput
@@ -58,10 +52,10 @@ class MarketAndDirection extends React.Component {
         <label>Short</label>
         <br />
 
-        {this.state.errorMsg && <p>{this.state.errorMsg}</p>}
+        { /*    {this.state.errorMsg && <p>{this.state.errorMsg}</p>}
         <button
           onClick={this.continue}
-        >Continue</button>
+    >Continue</button> */}
       </React.Fragment>
     )
   }

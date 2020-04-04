@@ -20,17 +20,6 @@ class ManagementAndSubmit extends React.Component {
 
     return (
       <React.Fragment>
-        {/*<ul>
-          <li>Market: {values.market}</li>
-          <li>Direction: {values.direction}</li>
-          <li>Entry: {values.entry}</li>
-          <li>Stop: {values.stop}</li>
-          <li>Target: {values.target}</li>
-          <li>Status: {values.status}</li>
-          <li>Outcome: {values.outcome}</li>
-          <li>Execution: {values.execution}</li>
-          <li>Management: {values.management}</li>
-        </ul>*/}
         <h4>Conclusion 2/2: Management</h4>
         <label>Good</label>
         <RadioBtn
@@ -71,7 +60,7 @@ class ManagementAndSubmit extends React.Component {
         >Back</button>
         <button
           onClick={this.continue}
-        >Add Trade</button>
+        >Continue</button>
       </React.Fragment>
     )
   }

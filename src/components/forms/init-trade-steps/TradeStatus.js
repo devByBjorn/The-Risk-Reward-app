@@ -30,16 +30,6 @@ class TradeStatus extends React.Component {
     const { values, onClickStatus, handleSubmit } = this.props
     return (
       <React.Fragment>
-        {/*  <div className="history">
-          <ul>
-            <li>Market: {values.market}</li>
-            <li>Direction: {values.direction}</li>
-            <li>Entry: {values.entry}</li>
-            <li>Stop: {values.stop}</li>
-            <li>Target: {values.target}</li>
-            <li>Status: {values.status}</li>
-          </ul>
-          </div>*/}
         <label>Status</label>
         <br />
         <label>Closed</label>

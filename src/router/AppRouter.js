@@ -9,6 +9,7 @@ import Header from '../components/Header'
 import IndexPage from '../components/pages/IndexPage'
 import TradeAddPage from '../components/pages/TradeAddPage'
 import TradeEditPage from '../components/pages/TradeEditPage'
+
 import TradeTablePage from '../components/pages/TradeTablePage'
 import DemonFinderPage from '../components/pages/DemonFinderPage'
 import DemonAddPage from '../components/pages/DemonAddPage'

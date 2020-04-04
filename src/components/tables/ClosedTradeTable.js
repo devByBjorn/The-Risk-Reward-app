@@ -27,14 +27,16 @@ class ClosedTradeTable extends React.Component {
   handleSortByManagement = (e) => this.props.sortByManagement(e.target.textContent)
   handleSortByOutcome = (e) => this.props.sortByOutcome(e.target.textContent)
   handleSortByR = (e) => this.props.sortByR(e.target.textContent)
+
   render() {
+    const { searchText, sortBy } = this.props.filters
     return (
       <div>
         <div>
           <input
             type="text"
             placeholder="search market"
-            value={this.props.filters.searchText}
+            value={searchText}
             onChange={this.handleSearch}
           />
         </div>
@@ -42,47 +44,47 @@ class ClosedTradeTable extends React.Component {
           <thead>
             <tr>
               <TableHead
-                value={this.props.filters.sortBy}
+                value={sortBy}
                 onClick={this.handleSortByMarket}
                 heading='Market'
               />
               <TableHead
-                value={this.props.filters.sortBy}
+                value={sortBy}
                 onClick={this.handleSortByDirection}
                 heading='Direction'
               />
               <TableHead
-                value={this.props.filters.sortBy}
+                value={sortBy}
                 onClick={this.handleSortByOpened}
                 heading='Opened'
               />
               <TableHead
-                value={this.props.filters.sortBy}
+                value={sortBy}
                 onClick={this.handleSortByClosed}
                 heading='Closed'
               />
               <TableHead
-                value={this.props.filters.sortBy}
+                value={sortBy}
                 onClick={this.handleSortByPeriod}
                 heading='Period'
               />
               <TableHead
-                value={this.props.filters.sortBy}
+                value={sortBy}
                 onClick={this.handleSortByExecution}
                 heading='Execution'
               />
               <TableHead
-                value={this.props.filters.sortBy}
+                value={sortBy}
                 onClick={this.handleSortByManagement}
                 heading='Management'
               />
               <TableHead
-                value={this.props.filters.sortBy}
+                value={sortBy}
                 onClick={this.handleSortByOutcome}
                 heading='Outcome'
               />
               <TableHead
-                value={this.props.filters.sortBy}
+                value={sortBy}
                 onClick={this.handleSortByR}
                 heading='R'
               />
@@ -106,7 +108,6 @@ class ClosedTradeTable extends React.Component {
 const mapStateToProps = (state) => {
   return {
     trades: marketSearcher(state.trades, state.filters),
-    // trades: state.trades,
     filters: state.filters
   }
 }

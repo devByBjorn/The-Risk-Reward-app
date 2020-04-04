@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const TableHead = (props) => (
+const TableHeadBtn = (props) => (
   <th>
     <button
       className="th-btn"
@@ -11,4 +11,4 @@ const TableHead = (props) => (
   </th>
 )
 
-export default connect()(TableHead)
+export default connect()(TableHeadBtn)

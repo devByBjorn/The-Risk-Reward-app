@@ -33,7 +33,6 @@ class InspectAndSubmitClosed extends React.Component {
                 <li>Improve: {values.improveManagement}</li>
               </ul>
             </li>
-            {/* ADD WHY AND IMPROVE NOTE ??*/}
           </ul>
         </div>
         <button
