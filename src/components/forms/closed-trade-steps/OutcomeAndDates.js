@@ -6,7 +6,7 @@ import {
   CheckboxBtn,
   RadioBtn,
   Textarea
-} from '../inputs'
+} from '../../utilities/inputs'
 
 class OutcomeAndDates extends React.Component {
   state = {

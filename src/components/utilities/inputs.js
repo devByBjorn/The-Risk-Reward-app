@@ -28,12 +28,3 @@ export const Textarea = (props) => (
   />
 )
 
-
-
-// <input
-// type="radio"
-// name="execution"
-// value="well"
-// checked={this.state.conclusion.execution === 'well' ? true : false}
-// onClick={this.onConclusionChange}
-// />

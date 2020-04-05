@@ -7,7 +7,7 @@ import {
   RadioBtn,
   TextInput,
   Textarea
-} from './inputs'
+} from '../utilities/inputs'
 
 // Look into using a third party library for forms
 

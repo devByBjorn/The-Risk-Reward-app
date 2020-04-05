@@ -19,6 +19,7 @@ class TradeEditPage extends React.Component {
     return (
       <div>
         <MainParentForm
+          pathname={this.props.location.pathname}
           trade={this.props.trade}
           handleSubmit={this.handleEditOnAdd}
         />

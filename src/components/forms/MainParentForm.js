@@ -11,15 +11,16 @@ import InspectAndSubmitClosed from './closed-trade-steps/InscpectAndSubmitClosed
 import SetOpenDate from './active-trade-steps/SetOpenDate'
 import InspectAndSubmitActive from './active-trade-steps/InspectAndSubmitAcitve'
 import InspectAndSubmitPending from './pending-trade-steps/InspectAndSubmitPending'
-
-import StepBtn from './StepBtn'
-
 import MainParentFormHeading from '../forms/MainParentFormHeading'
+
 class MainParentForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       step: 1,
+      errorMsg: '',
+      editMode: false,
+      pathname: props.pathname ? props.pathname : '',
       direction: props.trade ? props.trade.direction : '',
       market: props.trade ? props.trade.market : '',
       entry: props.trade ? props.trade.entry : '',
@@ -49,16 +50,24 @@ class MainParentForm extends React.Component {
     }
   }
 
-  incrementStepOnNavButtonClick = (e) => {
-    const value = e.target.value
-    this.setState(() => ({ step: value }))
+  componentDidMount = () => {
+    const { pathname } = this.state
+    pathname.includes('edit')
+      ? this.isEditMode()
+      : false
   }
 
-  // KOlla StepBtn i första steget - funkar 
-  // gör om prevStep till samma function
-  // hur ordna med error meddelande? Flytta tillbaka till denna component??
-  nextStep = (e) => {
-    e.preventDefault()
+  isEditMode = () => {
+    const editMode = !this.state.editMode
+    this.setState(() => ({ editMode }))
+  }
+
+  navigateByStepValue = (e) => {
+    const step = parseInt(e.target.value, 10)
+    this.setState(() => ({ step }))
+  }
+
+  nextStep = () => {
     const { step } = this.state
     this.setState(() => ({ step: step + 1 }))
   }
@@ -111,12 +120,10 @@ class MainParentForm extends React.Component {
     this.setState(() => ({ outcome }))
   }
 
-  onDatesChange = ({ startDate, endDate }) =>
-    this.setState(() => ({
-      opened: startDate,
-      closed: endDate
-    }))
-
+  onDatesChange = ({ startDate, endDate }) => this.setState(() => ({
+    opened: startDate,
+    closed: endDate
+  }))
 
   onOpenDateChange = (opened) => this.setState(() => ({ opened }))
 
@@ -158,7 +165,7 @@ class MainParentForm extends React.Component {
   render() {
     const { step, direction, market, entry, stop,
       target, status, outcome, rewardToRisk,
-      opened, closed, period, inputError } = this.state
+      opened, closed, period, inputError, editMode } = this.state
 
     const { execution, management,
       whyExecution, improveExecution,
@@ -177,25 +184,32 @@ class MainParentForm extends React.Component {
       case 1:
         return (
           <div>
+            {editMode &&
+              <MainParentFormHeading
+                values={values}
+                prevStep={this.prevStep}
+                navigateByStepValue={this.navigateByStepValue}
+              />
+            }
             <MarketAndDirection
               values={values}
-              // nextStep={this.nextStep}
+              nextStep={this.nextStep}
               onClickDirection={this.onClickDirection}
               onChangeMarket={this.onChangeMarket}
               onChangeValue={this.onChangeValue}
-            />
-            <StepBtn
-              text="Next"
-              onClick={this.nextStep}
             />
           </div>
         )
       case 2:
         return (
           <div>
-            <MainParentFormHeading
-              onClick={this.incrementStepOnNavButtonClick}
-            />
+            {editMode &&
+              <MainParentFormHeading
+                values={values}
+                prevStep={this.prevStep}
+                navigateByStepValue={this.navigateByStepValue}
+              />
+            }
             <StopEntryTarget
               values={values}
               prevStep={this.prevStep}
@@ -207,83 +221,157 @@ class MainParentForm extends React.Component {
 
       case 3:
         return (
-          <TradeStatus
-            values={values}
-            prevStep={this.prevStep}
-            nextStep={this.nextStep}
-            onClickStatus={this.onClickStatus}
-            handleSubmit={this.handleSubmit}
-          />
+          <div>
+            {editMode &&
+              <MainParentFormHeading
+                values={values}
+                prevStep={this.prevStep}
+                navigateByStepValue={this.navigateByStepValue}
+              />
+            }
+            <TradeStatus
+              values={values}
+              prevStep={this.prevStep}
+              nextStep={this.nextStep}
+              onClickStatus={this.onClickStatus}
+              handleSubmit={this.handleSubmit}
+            />
+          </div>
         )
     }
 
     if (step === 4 && status === 'closed') {
       return (
-        <OutComeAndDates
-          values={values}
-          prevStep={this.prevStep}
-          nextStep={this.nextStep}
-          onClickOutcome={this.onClickOutcome}
-          onDatesChange={this.onDatesChange}
-        />
+        <div>
+          {editMode &&
+            <MainParentFormHeading
+              values={values}
+              prevStep={this.prevStep}
+              navigateByStepValue={this.navigateByStepValue}
+            />
+          }
+          <OutComeAndDates
+            values={values}
+            prevStep={this.prevStep}
+            nextStep={this.nextStep}
+            onClickOutcome={this.onClickOutcome}
+            onDatesChange={this.onDatesChange}
+          />
+        </div>
       )
     } else if (step === 4 && status === 'active') {
       return (
-        <SetOpenDate
-          values={values}
-          nextStep={this.nextStep}
-          prevStep={this.prevStep}
-          onOpenDateChange={this.onOpenDateChange}
-          handleSubmit={this.handleSubmit}
-        />
+        <div>
+          {editMode &&
+            <MainParentFormHeading
+              values={values}
+              prevStep={this.prevStep}
+              navigateByStepValue={this.navigateByStepValue}
+            />
+          }
+          <SetOpenDate
+            values={values}
+            nextStep={this.nextStep}
+            prevStep={this.prevStep}
+            onOpenDateChange={this.onOpenDateChange}
+            handleSubmit={this.handleSubmit}
+          />
+        </div>
+
       )
     } else if (step === 4 && status === 'pending') {
       return (
-        <InspectAndSubmitPending
-          values={values}
-          prevStep={this.prevStep}
-          handleSubmit={this.handleSubmit}
-        />
+        <div>
+
+          {editMode &&
+            <MainParentFormHeading
+              values={values}
+              prevStep={this.prevStep}
+              navigateByStepValue={this.navigateByStepValue}
+            />
+          }
+          <InspectAndSubmitPending
+            values={values}
+            prevStep={this.prevStep}
+            handleSubmit={this.handleSubmit}
+          />
+        </div>
       )
     }
 
     if (step === 5 && status === 'closed') {
       return (
-        <Execution
-          values={values}
-          prevStep={this.prevStep}
-          nextStep={this.nextStep}
-          onConclusionChange={this.onConclusionChange}
-        />
+        <div>
+          {editMode &&
+            <MainParentFormHeading
+              values={values}
+              prevStep={this.prevStep}
+              navigateByStepValue={this.navigateByStepValue}
+            />
+          }
+          <Execution
+            values={values}
+            prevStep={this.prevStep}
+            nextStep={this.nextStep}
+            onConclusionChange={this.onConclusionChange}
+          />
+        </div>
       )
     } else if (step === 5 && status === 'active') {
       return (
-        <InspectAndSubmitActive
-          values={values}
-          prevStep={this.prevStep}
-          handleSubmit={this.handleSubmit}
-        />
+        <div>
+          {editMode &&
+            <MainParentFormHeading
+              values={values}
+              prevStep={this.prevStep}
+              navigateByStepValue={this.navigateByStepValue}
+            />
+          }
+          <InspectAndSubmitActive
+            values={values}
+            prevStep={this.prevStep}
+            handleSubmit={this.handleSubmit}
+          />
+        </div>
       )
     }
 
     if (step === 6 && status === 'closed') {
       return (
-        <Management
-          values={values}
-          prevStep={this.prevStep}
-          nextStep={this.nextStep}
-          onConclusionChange={this.onConclusionChange}
-        />
+        <div>
+          {editMode &&
+            <MainParentFormHeading
+              values={values}
+              prevStep={this.prevStep}
+              navigateByStepValue={this.navigateByStepValue}
+            />
+          }
+          <Management
+            values={values}
+            prevStep={this.prevStep}
+            nextStep={this.nextStep}
+            onConclusionChange={this.onConclusionChange}
+          />
+        </div>
       )
     }
 
     if (step === 7 && status === 'closed') {
       return (
-        <InspectAndSubmitClosed
-          values={values}
-          prevStep={this.prevStep}
-          handleSubmit={this.handleSubmit}
-        />
+        <div>
+          {editMode &&
+            <MainParentFormHeading
+              values={values}
+              prevStep={this.prevStep}
+              navigateByStepValue={this.navigateByStepValue}
+            />
+          }
+          <InspectAndSubmitClosed
+            values={values}
+            prevStep={this.prevStep}
+            handleSubmit={this.handleSubmit}
+          />
+        </div>
       )
     }
   }

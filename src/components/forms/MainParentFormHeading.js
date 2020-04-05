@@ -1,113 +1,69 @@
 import React, { Component } from 'react'
+import Btn from '../utilities/Btn'
 
 const MainParentFormHeading = (props) => {
+  const { values, navigateByStepValue } = props
   return (
-
-    <nav>
+    <nav className="edit-trade-nav">
       <ul>
-        <div className="init-nav">
+        <div>
           <li>
-            <button
-              name=''
+            <Btn
               value={1}
-              onClick={props.onClick}
-            >Market and Direction</button>
+              text="Market & Direction"
+              onClick={navigateByStepValue}
+            />
           </li>
           <li>
-            <button
-              name=''
+            <Btn
               value={2}
-              onClick={props.onClick}
-            >Stop, Entry, Target</button>
+              text="Entry, Stop, Target"
+              onClick={navigateByStepValue}
+            />
           </li>
           <li>
-            <button
-              name=''
+            <Btn
               value={3}
-              onClick={props.onClick}
-            >Status</button>
+              text="Trade Status"
+              onClick={navigateByStepValue}
+            />
           </li>
         </div>
-        {
-          props.status === 'closed' &&
-          <div className="trade-closed-nav">
+
+        {values.status === 'closed' &&
+          <div>
             <li>
-              <button
-                name="closed"
+              <Btn
                 value={4}
-                onClick={props.onClick}
-              >Outcome and Dates</button>
+                text="Outcome & Dates"
+                onClick={navigateByStepValue}
+              />
             </li>
             <li>
-              <button
-                name="closed"
+              <Btn
                 value={5}
-                onClick={props.onClick}
-              >Execution</button>
+                text="Conclusion: Execution"
+                onClick={navigateByStepValue}
+              />
             </li>
             <li>
-              <button
-                name="closed"
+              <Btn
                 value={6}
-                onClick={props.onClick}
-              >Management</button></li>
+                text="Conclusion: Managemnet"
+                onClick={navigateByStepValue}
+              />
+            </li>
             <li>
-              <button
-                name="closed"
+              <Btn
                 value={7}
-                onClick={props.onClick}
-              >Add Trade</button>
+                text="Inspect & Submit"
+                onClick={navigateByStepValue}
+              />
             </li>
           </div>
         }
-        {/*
-            props.status === 'active' &&
-            <div className="trade-active-nav">
-              <li>
-                <button
-                  value={}
-                  onClick={props.onClick}
-                >Market and Direction</button>
-              </li>
-              <li>
-                <button
-                  value={}
-                  onClick={props.onClick}
-                >Stop, Entry, Target</button>
-              </li>
-              <li>
-                <button
-                  value={}
-                  onClick={props.onClick}
-                >Status</button>
-              </li>
-            </div>
-          }
-          {props.status === 'pending' &&
-            <div className="trade-pending-nav">
-              <li>
-                <button
-                  value={}
-                  onClick={props.onClick}
-                >Market and Direction</button>
-              </li>
-              <li>
-                <button
-                  value={}
-                  onClick={props.onClick}
-                >Stop, Entry, Target</button>
-              </li>
-              <li>
-                <button
-                  value={}
-                  onClick={props.onClick}
-                >Status</button>
-              </li>
-            </div>
-        */}
       </ul>
     </nav>
-
   )
 }
 

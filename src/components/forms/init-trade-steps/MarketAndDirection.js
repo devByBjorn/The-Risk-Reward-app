@@ -4,7 +4,8 @@ import {
   RadioBtn,
   TextInput,
   Textarea
-} from '../inputs'
+} from '../../utilities/inputs'
+import Btn from '../../utilities/Btn'
 
 class MarketAndDirection extends React.Component {
   state = {
@@ -50,12 +51,14 @@ class MarketAndDirection extends React.Component {
           onClick={onClickDirection}
         />
         <label>Short</label>
-        <br />
-
-        { /*    {this.state.errorMsg && <p>{this.state.errorMsg}</p>}
-        <button
+        <div className="trade-form-error-message">
+          {this.state.errorMsg && <p>{this.state.errorMsg}</p>}
+        </div>
+        <Btn
+          text="Next"
           onClick={this.continue}
-    >Continue</button> */}
+        />
+        <br />
       </React.Fragment>
     )
   }

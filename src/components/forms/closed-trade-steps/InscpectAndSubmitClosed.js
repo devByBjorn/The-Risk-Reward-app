@@ -1,12 +1,13 @@
 import React from 'react'
 import moment from 'moment'
+import Btn from '../../utilities/Btn'
+import { NavLink } from 'react-router-dom'
 
 class InspectAndSubmitClosed extends React.Component {
   back = e => {
     e.preventDefault();
     this.props.prevStep();
   };
-
   render() {
     const { values, handleSubmit } = this.props
     return (

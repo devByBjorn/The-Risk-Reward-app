@@ -5,7 +5,7 @@ import {
   RadioBtn,
   TextInput,
   Textarea
-} from '../inputs'
+} from '../../utilities/inputs'
 
 class TradeStatus extends React.Component {
   state = {

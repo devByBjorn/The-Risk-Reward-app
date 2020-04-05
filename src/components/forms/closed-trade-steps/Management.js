@@ -4,7 +4,7 @@ import {
   CheckboxBtn,
   RadioBtn,
   Textarea
-} from '../inputs'
+} from '../../utilities/inputs'
 
 class ManagementAndSubmit extends React.Component {
   continue = e => {

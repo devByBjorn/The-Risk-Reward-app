@@ -5,7 +5,7 @@ import {
   RadioBtn,
   TextInput,
   Textarea
-} from '../inputs'
+} from '../../utilities/inputs'
 
 class StopEntryTarget extends React.Component {
   state = {
@@ -53,9 +53,11 @@ class StopEntryTarget extends React.Component {
         <br />
         {this.state.errorMsg && <p>{this.state.errorMsg}</p>}
         <button
+          type="button"
           onClick={this.back}
         >Back</button>
         <button
+          type="button"
           onClick={this.continue}
         >Continue</button>
       </React.Fragment>
