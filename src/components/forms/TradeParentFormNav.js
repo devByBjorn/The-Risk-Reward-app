@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Btn from '../utilities/Btn'
 
-const MainParentFormHeading = (props) => {
+const TradeParentFormNav = (props) => {
   const { values, navigateByStepValue } = props
   return (
     <nav className="edit-trade-nav">
@@ -67,4 +67,4 @@ const MainParentFormHeading = (props) => {
   )
 }
 
-export default MainParentFormHeading
+export default TradeParentFormNav

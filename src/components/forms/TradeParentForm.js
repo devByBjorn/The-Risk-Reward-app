@@ -11,7 +11,7 @@ import InspectAndSubmitClosed from './closed-trade-steps/InscpectAndSubmitClosed
 import SetOpenDate from './active-trade-steps/SetOpenDate'
 import InspectAndSubmitActive from './active-trade-steps/InspectAndSubmitAcitve'
 import InspectAndSubmitPending from './pending-trade-steps/InspectAndSubmitPending'
-import MainParentFormHeading from '../forms/MainParentFormHeading'
+import TradeParentFormNav from './TradeParentFormNav'
 
 class MainParentForm extends React.Component {
   constructor(props) {
@@ -185,7 +185,7 @@ class MainParentForm extends React.Component {
         return (
           <div>
             {editMode &&
-              <MainParentFormHeading
+              <TradeParentFormNav
                 values={values}
                 prevStep={this.prevStep}
                 navigateByStepValue={this.navigateByStepValue}
@@ -204,7 +204,7 @@ class MainParentForm extends React.Component {
         return (
           <div>
             {editMode &&
-              <MainParentFormHeading
+              <TradeParentFormNav
                 values={values}
                 prevStep={this.prevStep}
                 navigateByStepValue={this.navigateByStepValue}
@@ -223,7 +223,7 @@ class MainParentForm extends React.Component {
         return (
           <div>
             {editMode &&
-              <MainParentFormHeading
+              <TradeParentFormNav
                 values={values}
                 prevStep={this.prevStep}
                 navigateByStepValue={this.navigateByStepValue}
@@ -244,7 +244,7 @@ class MainParentForm extends React.Component {
       return (
         <div>
           {editMode &&
-            <MainParentFormHeading
+            <TradeParentFormNav
               values={values}
               prevStep={this.prevStep}
               navigateByStepValue={this.navigateByStepValue}
@@ -263,7 +263,7 @@ class MainParentForm extends React.Component {
       return (
         <div>
           {editMode &&
-            <MainParentFormHeading
+            <TradeParentFormNav
               values={values}
               prevStep={this.prevStep}
               navigateByStepValue={this.navigateByStepValue}
@@ -284,7 +284,7 @@ class MainParentForm extends React.Component {
         <div>
 
           {editMode &&
-            <MainParentFormHeading
+            <TradeParentFormNav
               values={values}
               prevStep={this.prevStep}
               navigateByStepValue={this.navigateByStepValue}
@@ -303,7 +303,7 @@ class MainParentForm extends React.Component {
       return (
         <div>
           {editMode &&
-            <MainParentFormHeading
+            <TradeParentFormNav
               values={values}
               prevStep={this.prevStep}
               navigateByStepValue={this.navigateByStepValue}
@@ -321,7 +321,7 @@ class MainParentForm extends React.Component {
       return (
         <div>
           {editMode &&
-            <MainParentFormHeading
+            <TradeParentFormNav
               values={values}
               prevStep={this.prevStep}
               navigateByStepValue={this.navigateByStepValue}
@@ -340,7 +340,7 @@ class MainParentForm extends React.Component {
       return (
         <div>
           {editMode &&
-            <MainParentFormHeading
+            <TradeParentFormNav
               values={values}
               prevStep={this.prevStep}
               navigateByStepValue={this.navigateByStepValue}
@@ -360,7 +360,7 @@ class MainParentForm extends React.Component {
       return (
         <div>
           {editMode &&
-            <MainParentFormHeading
+            <TradeParentFormNav
               values={values}
               prevStep={this.prevStep}
               navigateByStepValue={this.navigateByStepValue}

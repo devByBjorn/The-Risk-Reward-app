@@ -12,6 +12,7 @@ export const addTrade = ({
   period = '',
   outcome = '',
   rewardToRisk = '',
+  setup = '',
   conclusion = {}
 } = {}) => ({
   type: 'ADD_TRADE',
@@ -27,50 +28,9 @@ export const addTrade = ({
     period,
     outcome,
     rewardToRisk,
+    setup,
     conclusion,
     id: uuid()
-  }
-})
-
-export const addActiveTrade = ({
-  direction = '',
-  market = '',
-  entry = 0,
-  stop = 0,
-  target = 0,
-  status = '',
-  opened = 0,
-} = {}) => ({
-  type: 'ADD_ACTIVE_TRADE',
-  active: {
-    direction,
-    market,
-    entry,
-    stop,
-    target,
-    status,
-    opened,
-    id: uuid(),
-  }
-})
-
-export const addPendingTrade = ({
-  direction = '',
-  market = '',
-  entry = 0,
-  stop = 0,
-  target = 0,
-  status = '',
-} = {}) => ({
-  type: 'ADD_PENGING_TRADE',
-  pending: {
-    direction,
-    market,
-    entry,
-    stop,
-    target,
-    status,
-    id: uuid(),
   }
 })
 

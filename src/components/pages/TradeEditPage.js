@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import TradeTableFormComplete from '../forms/TradeTableFormComplete'
 import { editTrade, deleteTrade } from '../../actions/tradeActions'
 import { TrashIcon } from '../../icons/IconsComponents'
-import MainParentForm from '../forms/MainParentForm'
-import MainParentFormHeading from '../forms/MainParentFormHeading'
+import TradeParentForm from '../forms/TradeParentForm'
+
 
 class TradeEditPage extends React.Component {
   handleEditOnAdd = (trade) => {
@@ -18,7 +18,7 @@ class TradeEditPage extends React.Component {
   render() {
     return (
       <div>
-        <MainParentForm
+        <TradeParentForm
           pathname={this.props.location.pathname}
           trade={this.props.trade}
           handleSubmit={this.handleEditOnAdd}

@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { addTrade } from '../../actions/tradeActions'
-import MainParentForm from '../forms/MainParentForm'
+import TradeParentForm from '../forms/TradeParentForm'
 
 
 class TradeAddFirstPage extends React.Component {
@@ -13,7 +13,7 @@ class TradeAddFirstPage extends React.Component {
   render() {
     return (
       <div>
-        <MainParentForm
+        <TradeParentForm
           handleSubmit={this.handleAddTrade}
         />
       </div>
