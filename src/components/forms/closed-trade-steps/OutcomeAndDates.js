@@ -1,12 +1,8 @@
 import React from 'react'
 import moment from 'moment'
-import { SingleDatePicker, isInclusivelyBeforeDay, DateRangePicker } from 'react-dates'
-
-import {
-  CheckboxBtn,
-  RadioBtn,
-  Textarea
-} from '../../utilities/inputs'
+import { isInclusivelyBeforeDay, DateRangePicker } from 'react-dates'
+import { CheckboxBtn } from '../../utilities/inputs'
+import Btn from '../../utilities/Btn'
 
 class OutcomeAndDates extends React.Component {
   state = {
@@ -74,12 +70,14 @@ class OutcomeAndDates extends React.Component {
 
         {this.state.errorMsg && <p>{this.state.errorMsg}</p>}
 
-        <button
+        <Btn
+          text="Back"
           onClick={this.back}
-        >Back</button>
-        <button
+        />
+        <Btn
+          text="Next"
           onClick={this.continue}
-        >Continue</button>
+        />
       </React.Fragment>
     )
   }

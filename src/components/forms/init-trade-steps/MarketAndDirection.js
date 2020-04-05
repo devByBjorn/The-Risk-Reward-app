@@ -1,10 +1,5 @@
 import React from 'react'
-import {
-  CheckboxBtn,
-  RadioBtn,
-  TextInput,
-  Textarea
-} from '../../utilities/inputs'
+import { RadioBtn, TextInput } from '../../utilities/inputs'
 import Btn from '../../utilities/Btn'
 
 class MarketAndDirection extends React.Component {

@@ -1,7 +1,6 @@
 import React from 'react'
 import moment from 'moment'
-import Btn from '../../utilities/Btn'
-import { NavLink } from 'react-router-dom'
+import { Btn, SubmitBtn } from '../../utilities/Btn'
 
 class InspectAndSubmitClosed extends React.Component {
   back = e => {
@@ -36,9 +35,10 @@ class InspectAndSubmitClosed extends React.Component {
             </li>
           </ul>
         </div>
-        <button
+        <Btn
+          text="Back"
           onClick={this.back}
-        >Back</button>
+        />
         <button
           onClick={handleSubmit}
         >Add</button>

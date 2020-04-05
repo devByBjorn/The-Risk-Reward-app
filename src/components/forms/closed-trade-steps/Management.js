@@ -1,10 +1,6 @@
 import React from 'react'
-
-import {
-  CheckboxBtn,
-  RadioBtn,
-  Textarea
-} from '../../utilities/inputs'
+import Btn from '../../utilities/Btn'
+import { RadioBtn, Textarea } from '../../utilities/inputs'
 
 class ManagementAndSubmit extends React.Component {
   continue = e => {
@@ -55,12 +51,14 @@ class ManagementAndSubmit extends React.Component {
           value={values.improveManagement}
           onChange={onConclusionChange}
         />
-        <button
+        <Btn
+          text="Back"
           onClick={this.back}
-        >Back</button>
-        <button
+        />
+        <Btn
+          text="Next"
           onClick={this.continue}
-        >Continue</button>
+        />
       </React.Fragment>
     )
   }

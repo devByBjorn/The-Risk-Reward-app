@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Btn, SubmitBtn } from '../../utilities/Btn'
 class InspectAndSubmitPending extends React.Component {
   back = e => {
     e.preventDefault();
@@ -20,9 +20,10 @@ class InspectAndSubmitPending extends React.Component {
             <li>Status: {values.status}</li>
           </ul>
         </div>
-        <button
+        <Btn
+          text="Back"
           onClick={this.back}
-        >Back</button>
+        />
         <button
           onClick={handleSubmit}
         >Add</button>

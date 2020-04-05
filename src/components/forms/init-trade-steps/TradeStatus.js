@@ -1,11 +1,7 @@
 
 import React from 'react'
-import {
-  CheckboxBtn,
-  RadioBtn,
-  TextInput,
-  Textarea
-} from '../../utilities/inputs'
+import { RadioBtn } from '../../utilities/inputs'
+import Btn from '../../utilities/Btn'
 
 class TradeStatus extends React.Component {
   state = {
@@ -54,12 +50,14 @@ class TradeStatus extends React.Component {
           onClick={onClickStatus}
         />
         {this.state.errorMsg && <p>{this.state.errorMsg}</p>}
-        <button
+        <Btn
+          text="Back"
           onClick={this.back}
-        >Back</button>
-        <button
+        />
+        <Btn
+          text="Next"
           onClick={this.continue}
-        >Continue</button>
+        />
       </React.Fragment>
     )
   }

@@ -2,8 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import TradeTableFormComplete from '../forms/TradeTableFormComplete'
 import { editTrade, deleteTrade } from '../../actions/tradeActions'
-import { TrashIcon } from '../../icons/IconsComponents'
 import TradeParentForm from '../forms/TradeParentForm'
+import Btn from '../../components/utilities/Btn'
+import { TrashIcon } from '../../icons/IconsComponents'
 
 
 class TradeEditPage extends React.Component {
@@ -23,9 +24,10 @@ class TradeEditPage extends React.Component {
           trade={this.props.trade}
           handleSubmit={this.handleEditOnAdd}
         />
-        <button
-          onClick={this.handleDeleteOnTrash}>
-          <TrashIcon /> Trash trade</button>
+        <Btn
+          text={<TrashIcon />}
+          onClick={this.handleDeleteOnTrash}
+        />
       </div>
     )
   }

@@ -1,12 +1,12 @@
 import React from 'react'
 import moment from 'moment'
+import { Btn, SubmitBtn } from '../../utilities/Btn'
 
 class InspectAndSubmitActive extends React.Component {
   back = e => {
     e.preventDefault();
     this.props.prevStep();
   };
-
   render() {
     const { values, handleSubmit } = this.props
     return (
@@ -22,9 +22,10 @@ class InspectAndSubmitActive extends React.Component {
             <li>Status:{moment(values.opened).format('MM/DD/YY')}</li>
           </ul>
         </div>
-        <button
+        <Btn
+          text="Back"
           onClick={this.back}
-        >Back</button>
+        />
         <button
           onClick={handleSubmit}
         >Add</button>

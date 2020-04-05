@@ -23,7 +23,7 @@ export const TextInput = (props) => (
 
 export const Textarea = (props) => (
   <textarea
-    type="test"
+    type="text"
     {...props}
   />
 )

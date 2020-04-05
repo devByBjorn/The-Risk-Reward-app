@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Btn = (props) => (
+export const Btn = (props) => (
   <button
     type="button"
     {...props}
@@ -8,5 +8,8 @@ const Btn = (props) => (
     {props.text}</button>
 )
 
+export const SubmitBtn = (props) => (
+  <button>{props.text}</button>
+)
 
 export default Btn

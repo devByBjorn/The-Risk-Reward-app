@@ -1,4 +1,6 @@
 import React from 'react'
+import { TextInput, Textarea } from '../../components/utilities/inputs'
+import { SubmitBtn } from '../../components/utilities/Btn'
 
 class DemonForm extends React.Component {
   constructor(props) {
@@ -33,30 +35,29 @@ class DemonForm extends React.Component {
       <div>
         {this.state.message && <p>{this.state.message}</p>}
         <form onSubmit={(e) => this.handleSubmit(e)}>
-          <input
-            type="text"
+          <TextInput
             name="title"
             placeholder="title"
             value={this.state.title}
             onChange={this.handleTextChange}
           />
           <div>
-            <textarea
-              type="text"
+            <Textarea
               name="description"
               placeholder="description"
               value={this.state.description}
               onChange={this.handleTextChange}
             />
-            <textarea
-              type="text"
+            <Textarea
               name="management"
               placeholder="management"
               value={this.state.management}
               onChange={this.handleTextChange}
             />
           </div>
-          <button>Add</button>
+          <SubmitBtn
+            text="Add"
+          />
         </form>
       </div>
     )

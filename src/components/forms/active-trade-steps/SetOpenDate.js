@@ -1,6 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 import { SingleDatePicker, isInclusivelyBeforeDay } from 'react-dates'
+import Btn from '../../utilities/Btn'
 
 class SetOpenDateForActive extends React.Component {
   state = {
@@ -22,17 +23,6 @@ class SetOpenDateForActive extends React.Component {
     const { values, onOpenDateChange } = this.props
     return (
       <React.Fragment>
-        {/* <div className="history">
-          <ul>
-            <li>Market: {values.market}</li>
-            <li>Direction: {values.direction}</li>
-            <li>Entry: {values.entry}</li>
-            <li>Stop: {values.stop}</li>
-            <li>Target: {values.target}</li>
-            <li>Status: {values.status}</li>
-            <li>Status: {moment(values.opened).format('MM/DD/YY')}</li>
-          </ul>
-        </div>*/}
         <label>Opened</label>
         <SingleDatePicker
           date={values.opened}
@@ -42,12 +32,14 @@ class SetOpenDateForActive extends React.Component {
           numberOfMonths={1}
           isOutsideRange={day => !isInclusivelyBeforeDay(day, moment())}
         />
-        <button
+        <Btn
+          text="Back"
           onClick={this.back}
-        >Back</button>
-        <button
+        />
+        <Btn
+          text="Next"
           onClick={this.continue}
-        >Continue</button>
+        />
       </React.Fragment>
     )
   }

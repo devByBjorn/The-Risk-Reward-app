@@ -1,12 +1,7 @@
 
 import React from 'react'
-import {
-  CheckboxBtn,
-  RadioBtn,
-  TextInput,
-  Textarea
-} from '../../utilities/inputs'
-
+import { TextInput } from '../../utilities/inputs'
+import Btn from '../../utilities/Btn'
 class StopEntryTarget extends React.Component {
   state = {
     errorMsg: ''
@@ -52,14 +47,14 @@ class StopEntryTarget extends React.Component {
         />
         <br />
         {this.state.errorMsg && <p>{this.state.errorMsg}</p>}
-        <button
-          type="button"
+        <Btn
+          text="Back"
           onClick={this.back}
-        >Back</button>
-        <button
-          type="button"
+        />
+        <Btn
+          text="Next"
           onClick={this.continue}
-        >Continue</button>
+        />
       </React.Fragment>
     )
   }

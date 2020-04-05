@@ -7,6 +7,7 @@
       Gör en navbar för vardera steg,så att man på edit kan 
       hoppa och även se vilka steg som är gjorda - DONE
 
-  6. Bygg WatchList, använd Hooks API    
+  6. Bygg WatchList, använd Hooks API   
   7. starta om -button för alla InspectAndSubmit sidor
+  8. Implementera Material UI för forms
   

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import DemonFinderForm from '../demon-finder/DemonFinderForm'
 import { editDemon, deleteDemon } from '../../actions/demonActions'
+import Btn from '../../components/utilities/Btn'
 import { TrashIcon } from '../../icons/IconsComponents'
 
 class EditDemonPage extends React.Component {
@@ -25,10 +26,10 @@ class EditDemonPage extends React.Component {
           demon={this.props.demon}
           handleSubmit={this.handleAddEdit}
         />
-        <button
+        <Btn
+          text={<TrashIcon />}
           onClick={this.handleDelete}
-        ><TrashIcon />
-        </button>
+        />
       </div>
     )
   }

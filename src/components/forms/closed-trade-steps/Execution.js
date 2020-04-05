@@ -1,4 +1,5 @@
 import React from 'react'
+import Btn from '../../utilities/Btn'
 
 import {
   CheckboxBtn,
@@ -54,12 +55,14 @@ class ClosedTradeForm extends React.Component {
           value={values.improveExecution}
           onChange={onConclusionChange}
         />
-        <button
+        <Btn
+          text="Back"
           onClick={this.back}
-        >Back</button>
-        <button
+        />
+        <Btn
+          text="Next"
           onClick={this.continue}
-        >Continue</button>
+        />
       </React.Fragment>
     )
   }
