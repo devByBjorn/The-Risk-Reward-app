@@ -8,6 +8,6 @@
       hoppa och även se vilka steg som är gjorda - DONE
 
   6. Bygg WatchList, använd Hooks API   
-  7. starta om -button för alla InspectAndSubmit sidor
+  7. Bygg Weekly Scenario
   8. Implementera Material UI för forms
   

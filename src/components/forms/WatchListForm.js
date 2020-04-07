@@ -1,38 +1,57 @@
-import React, { Component } from 'react'
-import moment from 'moment'
-import { TextInput } from '../utilities/inputs'
-
-item = {
-  market: props.item ? props.item.market : '',
-  bias: props.item ? props.item.bias : '',
-  levelsToBuy: props.item ? props.item.levelsToBuy : '',
-  levelsToSell: props.item ? props.item.levelsToSell : '',
-  date: props.item ? props.item.date : moment()
-}
+import React, { useState, useContext } from 'react'
+import WatchListContext from '../contexts/WatchListContext'
+import uuid from 'uuid'
+import { TextInput, Textarea } from '../utilities/inputs'
 
 const WatchListForm = () => {
+  const { dispatch } = useContext(WatchListContext)
+  const [market, setMarket] = useState('')
+  const [context, setContext] = useState('')
+  const [buyAreas, setBuyAreas] = useState('')
+  const [sellAreas, setSellAreas] = useState('')
+
+  const addItem = (e) => {
+    e.preventDefault()
+    dispatch({
+      type: 'ADD_ITEM',
+      market,
+      context,
+      buyAreas,
+      sellAreas,
+    })
+    setMarket('')
+    setContext('')
+    setBuyAreas('')
+    setSellAreas('')
+  }
+
   return (
-    <form>
-      <label>Market</label>
+    <form onSubmit={addItem}>
       <TextInput
-        name="market"
-        onChange={this.onChangeText}
+        value={market}
+        placeholder="market"
+        onChange={(e) => setMarket(e.target.value)}
       />
-      <label>Bias</label>
+      <br />
+      <Textarea
+        value={context}
+        placeholder="context"
+        onChange={(e) => setContext(e.target.value)}
+      />
+      <br />
       <TextInput
-        name="bias"
-        onChange={this.onChangeText}
+        value={buyAreas}
+        placeholder="buy areas"
+        onChange={(e) => setBuyAreas(e.target.value)}
       />
-      <label>Levels to Buy</label>
+
       <TextInput
-        name="levelsToBuy"
-        onChange={this.onChangeValue}
+        value={sellAreas}
+        placeholder="sell areas"
+        onChange={(e) => setSellAreas(e.target.value)}
       />
-      <label>Levels To Sell</label>
-      <TextInput
-        name="levelsToSell"
-        onChange={this.onChangeValue}
-      />
+      <br />
+      <button>Add</button>
     </form>
   )
 }

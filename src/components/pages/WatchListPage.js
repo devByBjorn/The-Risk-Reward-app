@@ -1,9 +1,18 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { deleteWatchListItem, editWatchListItem } from '../../actions/watchListActions'
+import React, { useReducer } from 'react'
+import WatchListForm from '../forms/WatchListForm'
+import WatchListTable from '../tables/WatchListTable'
+import watchListReducer from '../../reducers/watchListReducer'
+import WatchListContext from '../contexts/WatchListContext'
 
-const WatchListPage = () => ({
-
-})
+const WatchListPage = () => {
+  const [items, dispatch] = useReducer(watchListReducer, [])
+  return (
+    <WatchListContext.Provider value={{ items, dispatch }}>
+      <h1>Watchlist</h1>
+      <WatchListForm />
+      <WatchListTable />
+    </WatchListContext.Provider>
+  )
+}
 
 export default WatchListPage
