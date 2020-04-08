@@ -5,21 +5,21 @@ import {
   Route,
 } from "react-router-dom";
 import Header from '../components/Header'
-import IndexPage from '../components/pages/IndexPage'
+import IndexPage from '../components/IndexPage'
 
-import TradeAddPage from '../components/pages/TradeAddPage'
-import TradeEditPage from '../components/pages/TradeEditPage'
-import TradeTablePage from '../components/pages/TradeTablePage'
+import TradeAddPage from '../components/trades/pages/TradeAddPage'
+import TradeEditPage from '../components/trades/pages/TradeEditPage'
+import TradeTablePage from '../components/trades/pages/TradeTablePage'
 
-import DemonFinderPage from '../components/pages/DemonFinderPage'
-import DemonAddPage from '../components/pages/DemonAddPage'
-import DemonEditPage from '../components/pages/DemonEditPage'
+import DemonFinderPage from '../components/demon-finder/pages/DemonFinderPage'
+import DemonAddPage from '../components/demon-finder/pages/DemonAddPage'
+import DemonEditPage from '../components/demon-finder/pages/DemonEditPage'
 
-import WatchListPage from '../components/pages/WatchListPage'
+import WatchListPage from '../components/watchlist/pages/WatchListPage'
 
 
-import Page404 from '../components/pages/Page404'
-import WhatIsR from '../components/pages/WhatIsRPage'
+import Page404 from '../components/Page404'
+import WhatIsR from '../components/WhatIsRPage'
 
 const AppRouter = () => (
   <Router>

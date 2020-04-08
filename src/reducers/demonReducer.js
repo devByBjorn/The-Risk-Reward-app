@@ -1,4 +1,31 @@
-const initDemonState = []
+import uuid from 'uuid'
+
+const initDemonState = [
+  {
+    title: 'Too much risk',
+    description: 'I tend to this when I...',
+    management: 'When I recognise this behaviour I will..',
+    id: uuid()
+  },
+  {
+    title: 'Revange trading',
+    description: 'I tend to this when I...',
+    management: 'When I recognise this behaviour I will..',
+    id: uuid()
+  },
+  {
+    title: 'Trade out of boredom',
+    description: 'I tend to this when I...',
+    management: 'When I recognise this behaviour I will..',
+    id: uuid()
+  },
+  {
+    title: 'Twitter trade',
+    description: 'I tend to this when I...',
+    management: 'When I recognise this behaviour I will..',
+    id: uuid()
+  },
+]
 
 const demonReducer = (state = initDemonState, action) => {
   switch (action.type) {
