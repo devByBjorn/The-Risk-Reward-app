@@ -10,6 +10,7 @@ const ActiveTableRow = (
     dispatch,
     market,
     direction,
+    setup,
     entry,
     stop,
     target,
@@ -21,6 +22,7 @@ const ActiveTableRow = (
     <tr>
       <td>{market}</td>
       <td>{direction}</td>
+      <td>{setup}</td>
       <td>{entry}</td>
       <td>{stop}</td>
       <td>{target}</td>

@@ -9,6 +9,7 @@ const ClosedTradeTableRow = (
     dispatch,
     market,
     direction,
+    setup,
     opened,
     closed,
     status,
@@ -22,11 +23,12 @@ const ClosedTradeTableRow = (
     <tr>
       <td>{market}</td>
       <td>{direction}</td>
+      <td>{setup}</td>
       <td>{opened}</td>
       <td>{closed}</td>
-      <td>{period}</td>
+      { /*    <td>{period}</td>
       <td>{conclusion.execution}</td>
-      <td>{conclusion.management}</td>
+    <td>{conclusion.management}</td> */}
       <td>{outcome}</td>
       <td>{rewardToRisk}</td>
       <td>

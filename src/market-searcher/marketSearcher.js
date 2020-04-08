@@ -15,6 +15,8 @@ const marketSearcher = (trades, { searchText, sortBy, sorted, startDate, endDate
           return a.market.toLowerCase() > b.market.toLowerCase() ? 1 : -1
         case 'direction':
           return a.direction.toLowerCase() > b.direction.toLowerCase() ? 1 : -1
+        case 'setup':
+          return a.setup.toLowerCase() > b.setup.toLowerCase() ? 1 : -1
         case 'outcome':
           return a.outcome.toLowerCase() > b.outcome.toLowerCase() ? 1 : -1
         case 'execution':
@@ -38,6 +40,8 @@ const marketSearcher = (trades, { searchText, sortBy, sorted, startDate, endDate
           return b.market.toLowerCase() > a.market.toLowerCase() ? 1 : -1
         case 'direction':
           return b.direction.toLowerCase() > a.direction.toLowerCase() ? 1 : -1
+        case 'setup':
+          return b.setup.toLowerCase() > a.setup.toLowerCase() ? 1 : -1
         case 'outcome':
           return b.outcome.toLowerCase() > a.outcome.toLowerCase() ? 1 : -1
         case 'execution':

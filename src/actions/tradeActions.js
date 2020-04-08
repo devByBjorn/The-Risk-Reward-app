@@ -7,12 +7,12 @@ export const addTrade = ({
   stop = 0,
   target = 0,
   status = '',
+  setup = '',
   opened = 0,
   closed = 0,
   period = '',
   outcome = '',
   rewardToRisk = '',
-  setup = '',
   conclusion = {}
 } = {}) => ({
   type: 'ADD_TRADE',
@@ -23,12 +23,12 @@ export const addTrade = ({
     stop,
     target,
     status,
+    setup,
     opened,
     closed,
     period,
     outcome,
     rewardToRisk,
-    setup,
     conclusion,
     id: uuid()
   }

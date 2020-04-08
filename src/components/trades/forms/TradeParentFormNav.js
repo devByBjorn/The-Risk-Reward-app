@@ -1,8 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Btn from '../../utilities/Btn'
 
-const TradeParentFormNav = (props) => {
-  const { values, navigateByStepValue } = props
+const TradeParentFormNav = ({ values, navigateByStepValue }) => {
   return (
     <nav className="edit-trade-nav">
       <ul>

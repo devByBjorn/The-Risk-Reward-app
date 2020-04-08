@@ -10,6 +10,7 @@ const PendingTableRow = (
     dispatch,
     market,
     direction,
+    setup,
     entry,
     stop,
     target,
@@ -17,9 +18,11 @@ const PendingTableRow = (
     id }) => (
 
     status === 'pending' &&
+
     <tr>
       <td>{market}</td>
       <td>{direction}</td>
+      <td>{setup}</td>
       <td>{entry}</td>
       <td>{stop}</td>
       <td>{target}</td>

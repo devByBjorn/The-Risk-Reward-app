@@ -22,6 +22,10 @@ export const sortByDirection = () => ({
   type: 'SORT_BY_DIRECTION'
 })
 
+export const sortBySetup = () => ({
+  type: 'SORT_BY_SETUP'
+})
+
 export const sortByR = () => ({
   type: 'SORT_BY_R'
 })

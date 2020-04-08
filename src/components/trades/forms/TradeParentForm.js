@@ -27,6 +27,7 @@ class MainParentForm extends React.Component {
       stop: props.trade ? props.trade.stop : '',
       target: props.trade ? props.trade.target : '',
       status: props.trade ? props.trade.status : '',
+      setup: props.trade ? props.trade.setup : '',
       outcome: props.trade ? props.trade.outcome : '',
       opened: props.trade ? moment(props.trade.opened) : moment(),
       closed: props.trade ? moment(props.trade.closed) : moment(),
@@ -77,14 +78,10 @@ class MainParentForm extends React.Component {
     this.setState(() => ({ step: step - 1 }))
   }
 
-  onClickDirection = (e) => {
-    const direction = e.target.value
-    this.setState(() => ({ direction }))
-  }
-
-  onChangeMarket = (e) => {
-    const market = e.target.value
-    this.setState(() => ({ market }))
+  onChangeByInput = (e) => {
+    const value = e.target.value
+    const name = e.target.name
+    this.setState(() => ({ [name]: value }))
   }
 
   onChangeValue = (e) => {
@@ -94,11 +91,6 @@ class MainParentForm extends React.Component {
     !value || value.match(/^\d*(\.\d*)?$/)
       ? this.setState(() => ({ [name]: value }))
       : ''
-  }
-
-  onClickStatus = (e) => {
-    const status = e.target.value
-    this.setState(() => ({ status }))
   }
 
   calculateRewardToRisk = () => {
@@ -113,11 +105,6 @@ class MainParentForm extends React.Component {
       case 'scratch':
         return rewardToRisk = 0.00
     }
-  }
-
-  onClickOutcome = (e) => {
-    const outcome = e.target.value
-    this.setState(() => ({ outcome }))
   }
 
   onDatesChange = ({ startDate, endDate }) => this.setState(() => ({
@@ -147,6 +134,7 @@ class MainParentForm extends React.Component {
       target: this.state.target,
       status: this.state.status,
       outcome: this.state.outcome,
+      setup: this.state.setup,
       opened: this.state.opened ? this.state.opened.valueOf() : '',
       closed: this.state.closed ? this.state.closed.valueOf() : '',
       period: this.state.closed && this.state.opened ? (this.state.closed - this.state.opened).valueOf() : '',
@@ -194,9 +182,8 @@ class MainParentForm extends React.Component {
             <MarketAndDirection
               values={values}
               nextStep={this.nextStep}
-              onClickDirection={this.onClickDirection}
-              onChangeMarket={this.onChangeMarket}
-              onChangeValue={this.onChangeValue}
+              onClickDirection={this.onChangeByInput}
+              onChangeByInput={this.onChangeByInput}
             />
           </div>
         )
@@ -215,6 +202,7 @@ class MainParentForm extends React.Component {
               prevStep={this.prevStep}
               nextStep={this.nextStep}
               onChangeValue={this.onChangeValue}
+              onChangeByInput={this.onChangeByInput}
             />
           </div>
         )
@@ -233,7 +221,7 @@ class MainParentForm extends React.Component {
               values={values}
               prevStep={this.prevStep}
               nextStep={this.nextStep}
-              onClickStatus={this.onClickStatus}
+              onClickStatus={this.onChangeByInput}
               handleSubmit={this.handleSubmit}
             />
           </div>
@@ -254,7 +242,7 @@ class MainParentForm extends React.Component {
             values={values}
             prevStep={this.prevStep}
             nextStep={this.nextStep}
-            onClickOutcome={this.onClickOutcome}
+            onClickOutcome={this.onChangeByInput}
             onDatesChange={this.onDatesChange}
           />
         </div>
