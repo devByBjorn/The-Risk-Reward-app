@@ -1,39 +1,58 @@
 const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
+module.exports = (env) => {
+  const inProduction = env === 'production'
 
-module.exports = {
-  entry: './src/app.js',
-  output: {
-    path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js'
-  },
-  module: {
-    rules: [{
-      test: /\.m?js$/,
-      exclude: /(node_modules|bower_components)/,
+  return {
+    entry: './src/app.js',
+    output: {
+      path: path.join(__dirname, 'dist'),
+      filename: 'bundle.js'
+    },
+    module: {
+      rules: [{
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
 
-      use: {
-        loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env']
-        }
-      },
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        },
 
-    }, {
-      test: /\.s?css$/,
-      use: [
-        'style-loader',
-        'css-loader',
-        'sass-loader',
+      }, {
+        test: /\.s?css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: true,
+            },
+          }, {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          }, {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ],
+      }
       ]
-    }]
-  },
-  devtool: 'cheap-module-eval-source-map',
-  devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    // gör så att vi kan köra react-router
-    historyApiFallback: true
-  },
-  mode: 'development'
+    },
+    plugins: [new MiniCssExtractPlugin()],
+    devtool: inProduction ? 'source-map' : 'inline-source-map',
+    devServer: {
+      contentBase: path.join(__dirname, 'dist'),
+      // gör så att vi kan köra react-router
+      historyApiFallback: true
+    },
+    mode: 'development'
+  }
 }
 
