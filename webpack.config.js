@@ -7,7 +7,7 @@ module.exports = (env) => {
   return {
     entry: './src/app.js',
     output: {
-      path: path.join(__dirname, 'dist'),
+      path: path.join(__dirname, 'public', 'dist'),
       filename: 'bundle.js'
     },
     module: {
@@ -48,9 +48,10 @@ module.exports = (env) => {
     plugins: [new MiniCssExtractPlugin()],
     devtool: inProduction ? 'source-map' : 'inline-source-map',
     devServer: {
-      contentBase: path.join(__dirname, 'dist'),
+      contentBase: path.join(__dirname, 'public'),
       // gör så att vi kan köra react-router
-      historyApiFallback: true
+      historyApiFallback: true,
+      publicPath: '/dist'
     },
     mode: 'development'
   }
