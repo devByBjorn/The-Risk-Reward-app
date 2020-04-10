@@ -1,11 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {
-  getObjectCountList,
-  objListToArr,
-  getSetupsArray,
-  outcomePerSetup,
-} from './calculations'
+import { getObjectCountList, objListToArr } from './calculations/objLists'
+import { getSetupsArray, outcomePerSetup, getAverageRPerSetup } from './calculations/calcSetups'
+import { getAvarageR } from './calculations/calcR'
 
 const StatsSetups = ({ trades }) => {
   const bestSetup = outcomePerSetup(trades, 'win').mostCountedSetup
@@ -18,20 +15,32 @@ const StatsSetups = ({ trades }) => {
   const listAllSetups = getObjectCountList(allSetups)
   const setupsListArr = objListToArr(listAllSetups)
 
+  const averageRPerSetup = getAverageRPerSetup(trades, allSetups)
+
   return (
     <div>
       <h3>Setups</h3>
       <ul></ul>
       <ul>
-        <li><span className="stat-specific">Most wins: </span>
+        <li><span className="stats-specific">Most wins: </span>
           {bestSetup ? `${bestSetup} (${bestSetupWins.length})` : 'No count'}
         </li>
-        <li><span className="stat-specific">Most losses: </span>
+        <li><span className="stats-specific">Most losses: </span>
           {worstSetup ? `${worstSetup} (${worstSetupLosses.length})` : 'No count'}
         </li>
-        <li><span className="stat-specific">Trades per setup: </span>
-          <ul>
-            {setupsListArr.map((setupItem, i) => <li key={i}>{setupItem}</li>)}
+        <li><span className="stats-specific">Trades per setup: </span>
+          <ul className="disc-list">
+            {allSetups && setupsListArr.map((setupItem, i) => <li key={i}>{setupItem}</li>)}
+          </ul>
+        </li>
+        <li>
+          <span className="stats-specific">Average R per setup: </span>
+          <ul className="disc-list">
+            {allSetups && averageRPerSetup.map((singleArr, i) =>
+              <li
+                key={i}>{`${singleArr[i].setup}: ${getAvarageR(singleArr).toFixed(2)}R`}
+              </li>
+            )}
           </ul>
         </li>
       </ul>

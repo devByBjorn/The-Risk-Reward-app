@@ -1,3 +1,4 @@
+
 /*
   Since {oldest startdate} you have made a total of {total trades}. Of those have {x} been winning trades and {y} have been losing trades. You have also made {z} scratches.
 
@@ -21,3 +22,4 @@
     highest R
     lowest R
 */
+

@@ -1,12 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { filterByStatus } from './calculations/calcStatus'
 
-export const closedTradesFiltered = (props) => props.trades.filter((trade) => trade.status === 'closed')
-
-const ClosedTradesTotal = (props) => {
-  const closedTrades = closedTradesFiltered(props)
+const ClosedTradesTotal = ({ trades }) => {
+  const closedTrades = filterByStatus(trades, 'closed')
   return (
-    <h2>Total Trades:{closedTrades.length}</h2>
+    <h2>Total Closed Trades: {closedTrades.length}</h2>
   )
 }
 

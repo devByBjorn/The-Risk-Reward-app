@@ -19,7 +19,7 @@ const store = configureStore()
 
 // const unsubscribe = store.subscribe(() => console.log(store.getState()))
 
-
+/*
 store.dispatch(addTrade({
   closed: 3,
   direction: "long",
@@ -137,7 +137,7 @@ store.dispatch(addTrade({
   }
 }))
 
-
+*/
 // unsubscribe()
 
 const app = (

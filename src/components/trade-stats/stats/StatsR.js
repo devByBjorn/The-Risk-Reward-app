@@ -1,52 +1,31 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getTotalR, getAvarageR, getSetupsArray, getLowestR, getHighestR } from './calculations'
+import { getTotalR, getAvarageR, getLowestR, getHighestR } from './calculations/calcR'
 
 const StatsR = ({ trades }) => {
   const closedTrades = trades.filter((trade) => trade.status === 'closed')
-  const allSetups = getSetupsArray(trades)
   const lowestR = getLowestR(trades)
+  // trades.length && sortByR(trades)[0].rewardToRis
   const highestR = getHighestR(trades)
-
-  function getAverageRPerSetup(allSetups) {
-    const noDuplicateSetupName = [...new Set(allSetups)]
-    const arrayOfArrays = []
-
-    for (let i = 0; i < noDuplicateSetupName.length; i++) {
-      arrayOfArrays.push(trades.filter((trade) =>
-        trade.setup === noDuplicateSetupName[i] && trade))
-    }
-    return arrayOfArrays
-  }
-  const averageRPerSetup = getAverageRPerSetup(allSetups)
+  //trades.length && tradessortByR(trades)[trades.length - 1].rewardToRisk
 
   return (
     <div>
       <h3>R</h3>
       <ul>
         <li>
-          <span className="stats-specifics">Total R: </span>
-          {closedTrades.length ? getTotalR(closedTrades) : 0}
+          <span className="stats-specific">Total: </span>
+          {closedTrades.length ? `${getTotalR(closedTrades)}R` : 0}
         </li>
         <li>
-          <span className="stats-specifics">Avarage R per trade: </span>
-          {closedTrades.length > 1 ? getAvarageR(closedTrades) : 0}
+          <span className="stats-specific">Avarage: </span>
+          {closedTrades.length > 1 ? `${getAvarageR(closedTrades)}R` : 0}
         </li>
         <li>
-          <span className="stats-specifics">Highest R: </span>{highestR}
+          <span className="stats-specific">Highest: </span>{closedTrades.length ? `${highestR}R` : 0}
         </li>
         <li>
-          <span className="stats-specifics">Lowest R: </span>{lowestR}
-        </li>
-        <li>
-          <span className="stats-specifics">Average R per setup: </span>
-          <ul>
-            {averageRPerSetup.map((singleArr, i) =>
-              <li
-                key={i}>{`${singleArr[i].setup}: ${getAvarageR(singleArr).toFixed(2)}`}
-              </li>
-            )}
-          </ul>
+          <span className="stats-specific">Lowest: </span>{closedTrades.length ? `${lowestR}R` : 0}
         </li>
       </ul>
     </div>
