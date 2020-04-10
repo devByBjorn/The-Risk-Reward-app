@@ -1,10 +1,9 @@
 import React from 'react'
 import Btn from '../../../utilities/Btn'
+import { TextareaAutosize } from '@material-ui/core'
 
 import {
-  CheckboxBtn,
   RadioBtn,
-  Textarea
 } from '../../../utilities/inputs'
 
 const ClosedTradeForm = ({ values, nextStep, prevStep, onConclusionChange }) => {
@@ -26,29 +25,33 @@ const ClosedTradeForm = ({ values, nextStep, prevStep, onConclusionChange }) => 
         name="execution"
         value="good"
         checked={values.execution === 'good' ? true : false}
-        onClick={onConclusionChange}
+        onChange={onConclusionChange}
       />
       <label>Poor</label>
       <RadioBtn
         name="execution"
         value="poor"
         checked={values.execution === 'poor' ? true : false}
-        onClick={onConclusionChange}
+        onChange={onConclusionChange}
       />
       <label>Both</label>
       <RadioBtn
         name="execution"
         value="both"
         checked={values.execution === 'both' ? true : false}
-        onClick={onConclusionChange}
+        onChange={onConclusionChange}
       />
-      <Textarea
+      <TextareaAutosize
+        aria-label="minimum height"
+        rowsMin={8}
         placeholder="Why?"
         name="whyExecution"
         value={values.whyExecution}
         onChange={onConclusionChange}
       />
-      <Textarea
+      <TextareaAutosize
+        aria-label="minimum height"
+        rowsMin={8}
         placeholder="How to improve?"
         name="improveExecution"
         value={values.improveExecution}

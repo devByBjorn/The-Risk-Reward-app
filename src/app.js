@@ -7,12 +7,142 @@ import configureStore from './store/store'
 import './style/style.scss'
 import 'react-dates/initialize'
 import 'react-dates/lib/css/_datepicker.css'
+import CssBaseline from '@material-ui/core/CssBaseline'
+
+import { addTrade } from './actions/tradeActions'
 
 const store = configureStore()
-console.log(store.getState())
+
+// store.subscribe(() => {
+//   const state = store.getState()
+// })
+
+// const unsubscribe = store.subscribe(() => console.log(store.getState()))
+
+
+store.dispatch(addTrade({
+  closed: 3,
+  direction: "long",
+  entry: "11850",
+  id: "978141f3-3cc2-492b-8681-f566eb2b0f22",
+  market: "DAX",
+  opened: 1,
+  outcome: "win",
+  period: 2,
+  rewardToRisk: 8,
+  setup: "ib low and above",
+  status: "closed",
+  stop: "11825",
+  target: "12050",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
+
+store.dispatch(addTrade({
+  closed: 5,
+  direction: "short",
+  entry: "10",
+  id: "978141f3-3cc2-492b-8681-f566eb2b0f22",
+  market: "DAX",
+  opened: 2,
+  outcome: "win",
+  period: 3,
+  rewardToRisk: 1,
+  setup: "ib high and above",
+  status: "closed",
+  stop: "12",
+  target: "8",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
+store.dispatch(addTrade({
+  closed: 9,
+  direction: "short",
+  entry: "10",
+  id: "978141f3-3cc2-492b-8681-f566eb2b0f22",
+  market: "DAX",
+  opened: 8,
+  outcome: "loss",
+  period: 1,
+  rewardToRisk: -1,
+  setup: "ib low and above",
+  status: "closed",
+  stop: "12",
+  target: "8",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
+store.dispatch(addTrade({
+  closed: 12,
+  direction: "long",
+  entry: "10",
+  id: "978141f3-3cc2-492b-8681-f566eb2b0f22",
+  market: "DAX",
+  opened: 5,
+  outcome: "loss",
+  period: 7,
+  rewardToRisk: -0.5,
+  setup: "ib low and above",
+  status: "closed",
+  stop: "11",
+  target: "8",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
+store.dispatch(addTrade({
+  closed: 12,
+  direction: "long",
+  entry: "25",
+  id: "978141f3-3cc2-492b-8681-f566eb2b0f22",
+  market: "DAX",
+  opened: 5,
+  outcome: "loss",
+  period: 7,
+  rewardToRisk: -0.8,
+  setup: "ib high and above",
+  status: "closed",
+  stop: "22",
+  target: "35",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
+
+
+// unsubscribe()
 
 const app = (
   <Provider store={store}>
+    <CssBaseline />
     <AppRouter />
   </Provider>
 )

@@ -8,33 +8,15 @@ const ActiveTradeTable = ({ trades }) => (
     <table>
       <thead>
         <tr>
-          <TableHead
-            heading='Market'
-          />
-          <TableHead
-            heading='Direction'
-          />
-          <TableHead
-            heading='Setup'
-          />
-          <TableHead
-            heading='Entry'
-          />
-          <TableHead
-            heading='Stop'
-          />
-          <TableHead
-            heading='Target'
-          />
-          <TableHead
-            heading='Opened'
-          />
-          <TableHead
-            heading='-R'
-          />
-          <TableHead
-            heading='+R'
-          />
+          <TableHead heading='Market' />
+          <TableHead heading='Direction' />
+          <TableHead heading='Setup' />
+          <TableHead heading='Entry' />
+          <TableHead heading='Stop' />
+          <TableHead heading='Target' />
+          <TableHead heading='Opened' />
+          <TableHead heading='-R' />
+          <TableHead heading='+R' />
         </tr>
       </thead>
       <tbody>

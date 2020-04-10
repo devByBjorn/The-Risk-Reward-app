@@ -85,8 +85,7 @@ class MainParentForm extends React.Component {
   }
 
   onChangeValue = (e) => {
-    const value = e.target.value
-    const name = e.target.name
+    const { value, name } = e.target
 
     !value || value.match(/^\d*(\.\d*)?$/)
       ? this.setState(() => ({ [name]: value }))
@@ -125,34 +124,37 @@ class MainParentForm extends React.Component {
   }
 
   handleSubmit = (e) => {
+    const { direction, market, entry, stop, target,
+      status, outcome, setup, opened, closed, conclusion } = this.state
+
     e.preventDefault()
     this.props.handleSubmit({
-      direction: this.state.direction,
-      market: this.state.market.toUpperCase(),
-      entry: this.state.entry,
-      stop: this.state.stop,
-      target: this.state.target,
-      status: this.state.status,
-      outcome: this.state.outcome,
-      setup: this.state.setup,
-      opened: this.state.opened ? this.state.opened.valueOf() : '',
-      closed: this.state.closed ? this.state.closed.valueOf() : '',
-      period: this.state.closed && this.state.opened ? (this.state.closed - this.state.opened).valueOf() : '',
+      direction: direction,
+      market: market.toUpperCase(),
+      entry: entry,
+      stop: stop,
+      target: target,
+      status: status,
+      outcome: outcome,
+      setup: setup,
+      opened: opened ? opened.valueOf() : '',
+      closed: closed ? closed.valueOf() : '',
+      period: closed && opened ? (closed - opened).valueOf() : '',
       rewardToRisk: parseFloat(this.calculateRewardToRisk()),
-      conclusion: this.state.conclusion && {
-        execution: this.state.conclusion.execution,
-        whyExecution: this.state.conclusion.whyExecution,
-        improveExecution: this.state.conclusion.improveExecution,
-        management: this.state.conclusion.management,
-        whyManagement: this.state.conclusion.whyManagement,
-        improveManagement: this.state.conclusion.improveManagement
+      conclusion: conclusion && {
+        execution: conclusion.execution,
+        whyExecution: conclusion.whyExecution,
+        improveExecution: conclusion.improveExecution,
+        management: conclusion.management,
+        whyManagement: conclusion.whyManagement,
+        improveManagement: conclusion.improveManagement
       },
     })
   }
 
   render() {
     const { step, direction, market, entry, stop,
-      target, status, outcome, rewardToRisk,
+      setup, target, status, outcome, rewardToRisk,
       opened, closed, period, inputError, editMode } = this.state
 
     const { execution, management,
@@ -160,11 +162,9 @@ class MainParentForm extends React.Component {
       whyManagement, improveManagement } = this.state.conclusion
 
     const values = {
-      direction, market, entry, stop,
-      target, status, outcome, rewardToRisk,
-      opened, closed, period, inputError,
-      execution, management,
-      whyExecution, improveExecution,
+      direction, market, entry, stop, target, setup, status,
+      outcome, rewardToRisk, opened, closed, period, inputError,
+      execution, management, whyExecution, improveExecution,
       whyManagement, improveManagement,
     }
 
@@ -182,7 +182,6 @@ class MainParentForm extends React.Component {
             <MarketAndDirection
               values={values}
               nextStep={this.nextStep}
-              onClickDirection={this.onChangeByInput}
               onChangeByInput={this.onChangeByInput}
             />
           </div>
@@ -221,7 +220,7 @@ class MainParentForm extends React.Component {
               values={values}
               prevStep={this.prevStep}
               nextStep={this.nextStep}
-              onClickStatus={this.onChangeByInput}
+              onChangeByInput={this.onChangeByInput}
               handleSubmit={this.handleSubmit}
             />
           </div>
@@ -242,7 +241,7 @@ class MainParentForm extends React.Component {
             values={values}
             prevStep={this.prevStep}
             nextStep={this.nextStep}
-            onClickOutcome={this.onChangeByInput}
+            onChangeByInput={this.onChangeByInput}
             onDatesChange={this.onDatesChange}
           />
         </div>

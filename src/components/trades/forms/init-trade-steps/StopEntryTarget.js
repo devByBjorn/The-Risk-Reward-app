@@ -3,6 +3,89 @@ import React, { useState } from 'react'
 import { TextInput } from '../../../utilities/inputs'
 import Btn from '../../../utilities/Btn'
 
+
+// const StopEntryTarget = ({
+//   tradeStop, tradeEntry, tradeTarget, setup, setSetup, setTarget, setStop, setEntry, nextStep, prevStep, onChangeByInput }) => {
+//   const [errorMsg, setErrorMessage] = useState('')
+
+//   const next = e => {
+//     e.preventDefault()
+//     if (!tradeEntry || !tradeStop || !tradeTarget) {
+//       setErrorMessage('Make sure to give entry, stop and target a value')
+//     } else {
+//       setErrorMessage('')
+//       nextStep()
+//     }
+//   }
+//   const back = e => {
+//     e.preventDefault()
+//     prevStep()
+//   }
+
+//   // måste göra om dessa till switch statements? 
+//   const onChangeValue = (e) => {
+//     const value = e.target.value
+//     const name = e.target.name
+
+//     if (!value || value.match(/^\d*(\.\d*)?$/)) {
+//       switch (name) {
+//         case 'tradeStop':
+//           return setStop(value)
+//         case 'tradeEntry':
+//           return setEntry(value)
+//         case 'tradeTarget':
+//           return setTarget(value)
+//         default:
+//           ''
+//       }
+//     }
+//     !value || value.match(/^\d*(\.\d*)?$/)
+//       ? setState({ [name]: value })
+//       : ''
+//   }
+//   return (
+//     <React.Fragment>
+//       <label>Setup</label>
+//       <TextInput
+//         name="setup"
+//         value={setup}
+//         onChange={(e) => setSetup(e.target.value)}
+//       />
+//       <br />
+//       <label>Entry</label>
+//       <TextInput
+//         name="tradeEntry"
+//         value={tradeEntry}
+//         onChange={onChangeValue}
+//       />
+
+//       <label>Stop</label>
+//       <TextInput
+//         name="tradeStop"
+//         value={tradeStop}
+//         onChange={onChangeValue}
+//       />
+
+//       <label>Target</label>
+//       <TextInput
+//         name="tradeTarget"
+//         value={tradeTarget}
+//         onChange={onChangeValue}
+//       />
+//       <br />
+//       {errorMsg && <p>{errorMsg}</p>}
+//       <Btn
+//         text="Back"
+//         onClick={back}
+//       />
+//       <Btn
+//         text="Next"
+//         onClick={next}
+//       />
+//     </React.Fragment>
+//   )
+// }
+
 const StopEntryTarget = ({ values, nextStep, prevStep, onChangeValue, onChangeByInput }) => {
   const [errorMsg, setErrorMessage] = useState('')
 

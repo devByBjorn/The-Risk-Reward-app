@@ -15,7 +15,6 @@ const ActiveTableRow = (
     stop,
     target,
     status,
-    // rewardToRisk,
     opened,
     id }) => (
     status === 'active' &&
@@ -34,10 +33,9 @@ const ActiveTableRow = (
           <Link to={`/edit-trade/${id}`}>
             <EditIcon />
           </Link>
-          <button
-            onClick={() => {
-              dispatch(deleteTrade({ id }))
-            }}
+          <button onClick={() => {
+            dispatch(deleteTrade({ id }))
+          }}
           ><TrashIcon />
           </button>
         </div>

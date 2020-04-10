@@ -14,7 +14,9 @@ const SetDatePicker = ({ setStartDate, setEndDate, filters }) => {
     <div>
       <DateRangePicker
         startDate={filters.startDate}
+        startDateId={"trade-table-start-date-id"}
         endDate={filters.endDate}
+        endDateId="trade-table-end-date"
         onDatesChange={onDatesChange}
         focusedInput={focused}
         onFocusChange={(focused) => setFocused(focused)}

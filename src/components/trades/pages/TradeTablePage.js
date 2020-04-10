@@ -3,19 +3,15 @@ import { Link } from 'react-router-dom'
 import ClosedTradeTable from '../tables/closed-trades/ClosedTradeTable'
 import ActiveTradeTable from '../tables/active-trades/ActiveTradeTable'
 import PendingTradeTable from '../tables/pending-trades/PendingTradeTabel'
-import TradeTableStats from '../table-complements/TradeTableStats'
 import SetDateRange from '../table-complements/TradeTableDatePick'
 
 const TradeTablePage = () => (
-  <div>
+  <React.Fragment>
     <h1>Trade Table Page</h1>
     <Link to="/add-trade">Add Trade</Link>
     <SetDateRange />
     <h3>Closed trades</h3>
     <ClosedTradeTable />
-    <br />
-    <h3>Stats closed trades</h3>
-    <TradeTableStats />
     <br />
     <h3>Active trades</h3>
     <ActiveTradeTable />
@@ -23,7 +19,7 @@ const TradeTablePage = () => (
     <h3>Pending trades</h3>
     <PendingTradeTable />
     <br />
-  </div>
+  </React.Fragment>
 )
 
 export default TradeTablePage
