@@ -5,12 +5,12 @@ import CountTotalTrades from '../stats/CountTotalTrades'
 import StatsSetups from '../stats/StatsSetups'
 
 const TradeStatsPage = () => (
-  <React.Fragment>
+  <div className="container stats">
     <CountTotalTrades />
     <StatsOutcome />
     <StatsR />
     <StatsSetups />
-  </React.Fragment>
+  </div>
 )
 
 export default TradeStatsPage

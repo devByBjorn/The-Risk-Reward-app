@@ -3,7 +3,9 @@ import { faTrashAlt, faEdit, faQuestionCircle } from '@fortawesome/free-regular-
 
 library.add(faTrashAlt, faEdit, faQuestionCircle)
 
-export const trashcanIcon = icon(faTrashAlt)
-export const editIcon = icon(faEdit)
-export const questionIcon = icon(faQuestionCircle)
+const trashcanIcon = icon(faTrashAlt)
+const editIcon = icon(faEdit)
+const questionIcon = icon(faQuestionCircle)
 
+
+export { trashcanIcon, editIcon, questionIcon, }

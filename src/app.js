@@ -10,21 +10,23 @@ import 'react-dates/lib/css/_datepicker.css'
 import CssBaseline from '@material-ui/core/CssBaseline'
 
 import { addTrade } from './actions/tradeActions'
+import AppTable from '../src/components/trades/tables/table'
+import uuid from 'uuid'
 
 const store = configureStore()
 
-// store.subscribe(() => {
-//   const state = store.getState()
-// })
+store.subscribe(() => {
+  const state = store.getState()
+})
 
-// const unsubscribe = store.subscribe(() => console.log(store.getState()))
+const unsubscribe = store.subscribe(() => console.log(store.getState()))
 
-/*
+
 store.dispatch(addTrade({
   closed: 3,
   direction: "long",
   entry: "11850",
-  id: "978141f3-3cc2-492b-8681-f566eb2b0f22",
+  id: uuid(),
   market: "DAX",
   opened: 1,
   outcome: "win",
@@ -48,7 +50,7 @@ store.dispatch(addTrade({
   closed: 5,
   direction: "short",
   entry: "10",
-  id: "978141f3-3cc2-492b-8681-f566eb2b0f22",
+  id: uuid(),
   market: "DAX",
   opened: 2,
   outcome: "win",
@@ -71,7 +73,7 @@ store.dispatch(addTrade({
   closed: 9,
   direction: "short",
   entry: "10",
-  id: "978141f3-3cc2-492b-8681-f566eb2b0f22",
+  id: uuid(),
   market: "DAX",
   opened: 8,
   outcome: "loss",
@@ -94,7 +96,7 @@ store.dispatch(addTrade({
   closed: 12,
   direction: "long",
   entry: "10",
-  id: "978141f3-3cc2-492b-8681-f566eb2b0f22",
+  id: uuid(),
   market: "DAX",
   opened: 5,
   outcome: "loss",
@@ -117,7 +119,7 @@ store.dispatch(addTrade({
   closed: 12,
   direction: "long",
   entry: "25",
-  id: "978141f3-3cc2-492b-8681-f566eb2b0f22",
+  id: uuid(),
   market: "DAX",
   opened: 5,
   outcome: "loss",
@@ -136,13 +138,495 @@ store.dispatch(addTrade({
     whyManagement: "",
   }
 }))
+store.dispatch(addTrade({
+  closed: 12,
+  direction: "long",
+  entry: "25",
+  id: uuid(),
+  market: "DAX",
+  opened: 5,
+  outcome: "scratch",
+  period: 7,
+  rewardToRisk: 0,
+  setup: "ib high and above",
+  status: "closed",
+  stop: "22",
+  target: "35",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
+store.dispatch(addTrade({
+  closed: 12,
+  direction: "long",
+  entry: "25",
+  id: uuid(),
+  market: "DAX",
+  opened: 5,
+  outcome: "scratch",
+  period: 7,
+  rewardToRisk: 0,
+  setup: "ib high and above",
+  status: "closed",
+  stop: "22",
+  target: "35",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
+store.dispatch(addTrade({
+  closed: 12,
+  direction: "long",
+  entry: "25",
+  id: uuid(),
+  market: "DAX",
+  opened: 5,
+  outcome: "scratch",
+  period: 7,
+  rewardToRisk: 0,
+  setup: "ib high and above",
+  status: "closed",
+  stop: "22",
+  target: "35",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
+store.dispatch(addTrade({
+  closed: 12,
+  direction: "long",
+  entry: "25",
+  id: uuid(),
+  market: "DAX",
+  opened: 5,
+  outcome: "scratch",
+  period: 7,
+  rewardToRisk: 0,
+  setup: "ib high and above",
+  status: "closed",
+  stop: "22",
+  target: "35",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
+store.dispatch(addTrade({
+  closed: 12,
+  direction: "long",
+  entry: "25",
+  id: uuid(),
+  market: "DAX",
+  opened: 5,
+  outcome: "scratch",
+  period: 7,
+  rewardToRisk: 0,
+  setup: "ib high and above",
+  status: "closed",
+  stop: "22",
+  target: "35",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
+store.dispatch(addTrade({
+  closed: 12,
+  direction: "long",
+  entry: "25",
+  id: uuid(),
+  market: "DAX",
+  opened: 5,
+  outcome: "scratch",
+  period: 7,
+  rewardToRisk: 0,
+  setup: "ib high and above",
+  status: "closed",
+  stop: "22",
+  target: "35",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
+store.dispatch(addTrade({
+  closed: 12,
+  direction: "long",
+  entry: "25",
+  id: uuid(),
+  market: "DAX",
+  opened: 5,
+  outcome: "scratch",
+  period: 7,
+  rewardToRisk: 0,
+  setup: "ib high and above",
+  status: "closed",
+  stop: "22",
+  target: "35",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
+store.dispatch(addTrade({
+  closed: 12,
+  direction: "long",
+  entry: "25",
+  id: uuid(),
+  market: "DAX",
+  opened: 5,
+  outcome: "scratch",
+  period: 7,
+  rewardToRisk: 0,
+  setup: "ib high and above",
+  status: "closed",
+  stop: "22",
+  target: "35",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
+store.dispatch(addTrade({
+  closed: 12,
+  direction: "long",
+  entry: "25",
+  id: uuid(),
+  market: "DAX",
+  opened: 5,
+  outcome: "scratch",
+  period: 7,
+  rewardToRisk: 0,
+  setup: "ib high and above",
+  status: "closed",
+  stop: "22",
+  target: "35",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
+store.dispatch(addTrade({
+  closed: 12,
+  direction: "long",
+  entry: "25",
+  id: uuid(),
+  market: "DAX",
+  opened: 5,
+  outcome: "scratch",
+  period: 7,
+  rewardToRisk: 0,
+  setup: "ib high and above",
+  status: "closed",
+  stop: "22",
+  target: "35",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
+store.dispatch(addTrade({
+  closed: 12,
+  direction: "long",
+  entry: "25",
+  id: uuid(),
+  market: "DAX",
+  opened: 5,
+  outcome: "scratch",
+  period: 7,
+  rewardToRisk: 0,
+  setup: "ib high and above",
+  status: "closed",
+  stop: "22",
+  target: "35",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
+store.dispatch(addTrade({
+  closed: 12,
+  direction: "long",
+  entry: "25",
+  id: uuid(),
+  market: "DAX",
+  opened: 5,
+  outcome: "scratch",
+  period: 7,
+  rewardToRisk: 0,
+  setup: "ib high and above",
+  status: "closed",
+  stop: "22",
+  target: "35",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
+store.dispatch(addTrade({
+  closed: 12,
+  direction: "long",
+  entry: "25",
+  id: uuid(),
+  market: "DAX",
+  opened: 5,
+  outcome: "scratch",
+  period: 7,
+  rewardToRisk: 0,
+  setup: "ib high and above",
+  status: "closed",
+  stop: "22",
+  target: "35",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
+store.dispatch(addTrade({
+  closed: 12,
+  direction: "long",
+  entry: "25",
+  id: uuid(),
+  market: "DAX",
+  opened: 5,
+  outcome: "scratch",
+  period: 7,
+  rewardToRisk: 0,
+  setup: "ib high and above",
+  status: "closed",
+  stop: "22",
+  target: "35",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
+store.dispatch(addTrade({
+  closed: 12,
+  direction: "long",
+  entry: "25",
+  id: uuid(),
+  market: "DAX",
+  opened: 5,
+  outcome: "scratch",
+  period: 7,
+  rewardToRisk: 0,
+  setup: "ib high and above",
+  status: "closed",
+  stop: "22",
+  target: "35",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
+store.dispatch(addTrade({
+  closed: 12,
+  direction: "long",
+  entry: "25",
+  id: uuid(),
+  market: "DAX",
+  opened: 5,
+  outcome: "scratch",
+  period: 7,
+  rewardToRisk: 0,
+  setup: "ib high and above",
+  status: "closed",
+  stop: "22",
+  target: "35",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
+store.dispatch(addTrade({
+  closed: 12,
+  direction: "long",
+  entry: "25",
+  id: uuid(),
+  market: "DAX",
+  opened: 5,
+  outcome: "scratch",
+  period: 7,
+  rewardToRisk: 0,
+  setup: "ib high and above",
+  status: "closed",
+  stop: "22",
+  target: "35",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
+store.dispatch(addTrade({
+  closed: 12,
+  direction: "long",
+  entry: "25",
+  id: uuid(),
+  market: "DAX",
+  opened: 5,
+  outcome: "scratch",
+  period: 7,
+  rewardToRisk: 0,
+  setup: "ib high and above",
+  status: "closed",
+  stop: "22",
+  target: "35",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
+store.dispatch(addTrade({
+  closed: 12,
+  direction: "long",
+  entry: "25",
+  id: uuid(),
+  market: "DAX",
+  opened: 5,
+  outcome: "scratch",
+  period: 7,
+  rewardToRisk: 0,
+  setup: "ib high and above",
+  status: "closed",
+  stop: "22",
+  target: "35",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
+store.dispatch(addTrade({
+  closed: 12,
+  direction: "long",
+  entry: "25",
+  id: uuid(),
+  market: "DAX",
+  opened: 5,
+  outcome: "scratch",
+  period: 7,
+  rewardToRisk: 0,
+  setup: "ib high and above",
+  status: "closed",
+  stop: "22",
+  target: "35",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
+store.dispatch(addTrade({
+  closed: 12,
+  direction: "long",
+  entry: "25",
+  id: uuid(),
+  market: "DAX",
+  opened: 5,
+  outcome: "scratch",
+  period: 7,
+  rewardToRisk: 0,
+  setup: "ib high and above",
+  status: "closed",
+  stop: "22",
+  target: "35",
+  conclusion: {
+    execution: "good",
+    improveExecution: "",
+    improveManagement: "",
+    management: "good",
+    whyExecution: "",
+    whyManagement: "",
+  }
+}))
 
-*/
-// unsubscribe()
+unsubscribe()
 
 const app = (
   <Provider store={store}>
-    <CssBaseline />
+    {/*  <CssBaseline />*/}
     <AppRouter />
   </Provider>
 )

@@ -1,0 +1,91 @@
+@import './colors';
+@import './utils';
+
+.table-container {
+  border: lighten($main-color-dark, 10%);
+  margin: 0 auto;
+  width: 80%;
+}
+
+.navigate-tables {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  background-color: lighten($main-color-dark, 10%);
+  margin: 0 auto;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.trade-table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  overflow-x: auto;
+  text-align: left;
+  width: 100%;
+}
+
+thead {
+  border-bottom: $border-s transparent;
+  border-top: $border-s transparent;
+}
+
+caption {
+  background-color: lighten($main-color-dark, 10%);
+  caption-side: top;
+  text-align: left;
+}
+
+th {
+  background-color: lighten($main-color-dark, 25%);
+  color: $main-color-light;
+  font-size: 1.5rem;
+  font-weight: 900;
+  padding: $padding-s;
+}
+
+.th-btn {
+  color: $main-color-light;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 900;
+  padding: $padding-s;
+}
+
+tr {
+  color: $main-color-dark;
+}
+
+td {
+  border-bottom: $border-s lighten($main-color-dark, 25%);
+  font-size: 1.5rem;
+  padding: 1rem;
+}
+
+.handle-th {
+  border-left: $border-s $main-color-darkest;
+  text-align: center;
+}
+.handle-trade-row {
+  background-color: lighten($main-color-dark, 10%);
+  border-left: $border-s $main-color-darkest;
+}
+
+.handle-trade {
+  display: flex;
+  justify-content: space-around;
+
+  background-color: lighten($main-color-dark, 10%);
+}
+
+.table-footer {
+  background-color: lighten($main-color-dark, 10%);
+}
+
+@media(max-width: 500px) {
+  .desktop {
+    background-color: transparent;
+    display: none;
+  }
+}

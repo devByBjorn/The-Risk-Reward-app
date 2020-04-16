@@ -2,21 +2,22 @@ import React from 'react'
 import { connect } from 'react-redux'
 import TableHead from '../TradeTableHead'
 import ActiveTableRow from './ActiveTableRow'
-
+import { ThMobileAndDesktop, ThOnlyDesktop } from '../TradeTableHead'
 const ActiveTradeTable = ({ trades }) => (
   <div>
-    <table>
+    <table className="table-grid active">
+      <caption>Activ Trades</caption>
       <thead>
         <tr>
-          <TableHead heading='Market' />
-          <TableHead heading='Direction' />
-          <TableHead heading='Setup' />
-          <TableHead heading='Entry' />
-          <TableHead heading='Stop' />
-          <TableHead heading='Target' />
-          <TableHead heading='Opened' />
-          <TableHead heading='-R' />
-          <TableHead heading='+R' />
+          <ThMobileAndDesktop heading='Market' />
+          <ThMobileAndDesktop heading='Direction' />
+          <ThMobileAndDesktop heading='Setup' />
+          <ThMobileAndDesktop heading='Entry' />
+          <ThMobileAndDesktop heading='Stop' />
+          <ThMobileAndDesktop heading='Target' />
+          <ThMobileAndDesktop heading='Opened' />
+          <ThMobileAndDesktop heading='-R' />
+          <ThMobileAndDesktop heading='+R' />
         </tr>
       </thead>
       <tbody>

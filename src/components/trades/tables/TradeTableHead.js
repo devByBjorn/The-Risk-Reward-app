@@ -1,14 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-const TableHeadBtn = ({ value, onClick, heading }) => (
-  <th>
+const ThOnlyDesktop = (props) => (
+  <th className="desktop">
     <button
-      className="th-btn"
-      value={value}
-      onClick={onClick}
-    >{heading}</button>
+      {...props}
+    >{props.heading}</button>
+  </th>
+)
+const ThMobileAndDesktop = (props) => (
+  <th className="mobile">
+    <button
+      {...props}
+    >{props.heading}</button>
   </th>
 )
 
-export default connect()(TableHeadBtn)
+export { ThMobileAndDesktop, ThOnlyDesktop }

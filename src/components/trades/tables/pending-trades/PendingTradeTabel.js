@@ -1,36 +1,37 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import TableHead from '../TradeTableHead'
 import PendingTableRow from './PendingTableRow'
+import { ThMobileAndDesktop, ThOnlyDesktop } from '../TradeTableHead'
 
 const PendingTradeTable = ({ trades }) => {
   return (
     <div>
-      <table>
+      <table className="table-grid pending">
+        <caption>Pending Trades</caption>
         <thead>
           <tr>
-            <TableHead
+            <ThMobileAndDesktop
               heading='Market'
             />
-            <TableHead
+            <ThMobileAndDesktop
               heading='Direction'
             />
-            <TableHead
+            <ThMobileAndDesktop
               heading='Setup'
             />
-            <TableHead
+            <ThMobileAndDesktop
               heading='Entry'
             />
-            <TableHead
+            <ThMobileAndDesktop
               heading='Stop'
             />
-            <TableHead
+            <ThMobileAndDesktop
               heading='Target'
             />
-            <TableHead
+            <ThMobileAndDesktop
               heading='-R'
             />
-            <TableHead
+            <ThMobileAndDesktop
               heading='+R'
             />
           </tr>

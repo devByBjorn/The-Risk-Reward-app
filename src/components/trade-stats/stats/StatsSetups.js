@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { getObjectCountList, objListToArr } from './calculations/objLists'
 import { getSetupsArray, outcomePerSetup, getAverageRPerSetup } from './calculations/calcSetups'
-import { getAvarageR } from './calculations/calcR'
+import { getAvarageR, getTotalR } from './calculations/calcR'
 
 const StatsSetups = ({ trades }) => {
   const bestSetup = outcomePerSetup(trades, 'win').mostCountedSetup
@@ -28,17 +28,17 @@ const StatsSetups = ({ trades }) => {
         <li><span className="stats-specific">Most losses: </span>
           {worstSetup ? `${worstSetup} (${worstSetupLosses.length})` : 'No count'}
         </li>
-        <li><span className="stats-specific">Trades per setup: </span>
+        <li><span className="stats-specific">Total trades per setup: </span>
           <ul className="disc-list">
             {allSetups && setupsListArr.map((setupItem, i) => <li key={i}>{setupItem}</li>)}
           </ul>
         </li>
         <li>
-          <span className="stats-specific">Average R per setup: </span>
+          <span className="stats-specific">Total R per Setup: </span>
           <ul className="disc-list">
             {allSetups && averageRPerSetup.map((singleArr, i) =>
               <li
-                key={i}>{`${singleArr[i].setup}: ${getAvarageR(singleArr).toFixed(2)}R`}
+                key={i}>{`${singleArr[i].setup}: ${getTotalR(singleArr).toFixed(2)}R`}
               </li>
             )}
           </ul>

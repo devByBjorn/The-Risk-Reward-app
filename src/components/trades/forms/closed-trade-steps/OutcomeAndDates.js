@@ -11,7 +11,7 @@ const OutcomeAndDates = ({ values, nextStep, prevStep, onChangeByInput, onDatesC
 
   const next = e => {
     e.preventDefault()
-    if (!values.status) {
+    if (!values.outcome) {
       setErrorMessage('Make sure to chose an outcome')
     } else {
       setErrorMessage('')

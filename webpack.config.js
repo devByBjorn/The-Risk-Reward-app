@@ -46,7 +46,8 @@ module.exports = (env) => {
       ]
     },
     plugins: [new MiniCssExtractPlugin()],
-    devtool: inProduction ? 'source-map' : 'inline-source-map',
+    devtool: 'eval-cheap-module-source-map',
+    // devtool: inProduction ? 'source-map' : 'inline-source-map',
     devServer: {
       contentBase: path.join(__dirname, 'public'),
       // gör så att vi kan köra react-router
