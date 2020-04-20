@@ -43,7 +43,7 @@ const startAddTrade = (tradeData = {}) => {
       conclusion
     }
 
-    database.ref('trades')
+    return database.ref('trades')
       .push(trade)
       .then((ref) => {
         dispatch(addTrade({
