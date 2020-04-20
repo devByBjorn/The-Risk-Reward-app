@@ -9,10 +9,8 @@ html {
 }
 
 body {
-  background-color: $main-color-darkest;
-  background-color: $main-color-light;
-  color: $main-color-light;
-  color: $main-color-dark;
+  background: $color-bg;
+  color: $color-txt-dark;
   font-family: "Century Gothic", Futura, sans-serif;
 }
 
@@ -20,11 +18,3 @@ ul {
   list-style-type: none;
 }
 
-li {
-  padding: 0 1rem;
-}
-
-a {
-  color: $main-color-light;
-  color: $main-color-dark;
-}

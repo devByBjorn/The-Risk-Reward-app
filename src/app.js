@@ -8,10 +8,9 @@ import './style/style.scss'
 import 'react-dates/initialize'
 import 'react-dates/lib/css/_datepicker.css'
 import CssBaseline from '@material-ui/core/CssBaseline'
-
 import { addTrade } from './actions/tradeActions'
-import AppTable from '../src/components/trades/tables/table'
 import uuid from 'uuid'
+import './firebase/firebase'
 
 const store = configureStore()
 
