@@ -2,25 +2,6 @@ import React, { useEffect, useState, useRef, Fragment, useMemo, useCallback } fr
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { useTable, usePagination } from 'react-table'
-import { EditIcon, TrashIcon } from '../../icons/IconsComponents'
-import { deleteTrade } from '../../actions/tradeActions'
-import marketSearcher from '../../market-searcher/marketSearcher'
-import SearchField from '../../components/trades/search-field/SearchField'
-import SetDateRange from '../../components/trades/table-complements/TradeTableDatePick'
-import {
-  searchByMarket,
-  sortByMarket,
-  sortByDirection,
-  sortBySetup,
-  sortByR,
-  sortByOpened,
-  sortByClosed,
-  sortByOutcome,
-  sortByPeriod,
-  sortByExecution,
-  sortByManagement
-} from '../../actions/filterActions'
-
 import Pagination from './tablePagination'
 
 const Table = ({
@@ -28,6 +9,7 @@ const Table = ({
   data,
   fetchData,
   loading,
+  skipPageReset,
   pageCount: controlledPageCount,
 }) => {
   const {
@@ -52,6 +34,7 @@ const Table = ({
       initialState: { pageIndex: 0 },
       manualPagination: true,
       pageCount: controlledPageCount,
+      autoResetPage: !skipPageReset,
     },
     usePagination
   )

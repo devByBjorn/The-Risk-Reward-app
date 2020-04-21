@@ -5,7 +5,7 @@ import { ThMobileAndDesktop, ThOnlyDesktop } from './TradeTableHead'
 const ActiveTradeTable = ({ trades }) => (
   <div>
     <table className="table-grid active">
-      <caption>Activ Trades</caption>
+      <caption>Active Trades</caption>
       <thead>
         <tr>
           <ThMobileAndDesktop heading='Market' />
@@ -14,7 +14,7 @@ const ActiveTradeTable = ({ trades }) => (
           <ThMobileAndDesktop heading='Entry' />
           <ThMobileAndDesktop heading='Stop' />
           <ThMobileAndDesktop heading='Target' />
-          <ThMobileAndDesktop heading='Opened' />
+          <ThOnlyDesktop heading='Opened' />
           <ThMobileAndDesktop heading='-R' />
           <ThMobileAndDesktop heading='+R' />
         </tr>

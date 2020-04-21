@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Btn from './Btn'
 import { TextareaAutosize } from '@material-ui/core'
 
@@ -7,11 +7,22 @@ import {
 } from './inputs'
 
 const ClosedTradeForm = ({ values, nextStep, prevStep, onConclusionChange }) => {
+  const [errorMsg, setErrorMsg] = useState('')
+
+  //Create function for error message and set validation length on text area
   const next = e => {
     e.preventDefault()
-    nextStep()
+    if (!values.execution) {
+      setErrorMsg('Make sure to rate your execution')
+    } else if (!values.whyExecution) {
+      setErrorMsg('This is your chance to really improve your edge. Take it!')
+    } else if (!values.improveExecution) {
+      setErrorMsg('For fuck sake, don\'t be a cunt. Fill out the damn field')
+    } else {
+      setErrorMsg('')
+      nextStep()
+    }
   }
-
   const back = e => {
     e.preventDefault()
     prevStep()
@@ -57,6 +68,7 @@ const ClosedTradeForm = ({ values, nextStep, prevStep, onConclusionChange }) => 
         value={values.improveExecution}
         onChange={onConclusionChange}
       />
+      {errorMsg && <p>{errorMsg}</p>}
       <Btn
         text="Back"
         onClick={back}

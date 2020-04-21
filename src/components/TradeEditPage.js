@@ -1,14 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { editTrade, deleteTrade } from '../actions/tradeActions'
+import { editFirebaseTrade, deleteFirebaseTrade } from '../actions/tradeActions'
 import TradeParentForm from './TradeParentForm'
 import Btn from './Btn'
 import { TrashIcon } from '../icons/IconsComponents'
 
-
 class TradeEditPage extends React.Component {
   handleEditOnAdd = (trade) => {
-    this.props.editTrade(this.props.trade.id, trade)
+    this.props.editFirebaseTrade(this.props.trade.id, trade)
     this.props.history.push('/trades')
   }
   handleDeleteOnTrash = () => {
@@ -39,8 +38,37 @@ const mapStateToProps = (state, props) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  editTrade: (id, trade) => dispatch(editTrade(id, trade)),
+  editFirebaseTrade: (id, trade) => dispatch(editFirebaseTrade(id, trade)),
   deleteTrade: (id) => dispatch(deleteTrade(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TradeEditPage)
+
+
+// const TradeEditPage = (props) => {
+//   const { trade, location, editFirebaseTrade, deleteFirebaseTrade } = props
+
+//   const handleEditOnAdd = (trade) => {
+//     editFirebaseTrade(trade.id, trade)
+//     history.push('/trades')
+//   }
+
+//   const handleDeleteOnTrash = () => {
+//     deleteFirebaseTrade({ id: trade.id })
+//     history.push('/trades')
+//   }
+
+//   return (
+//     <div>
+//       <TradeParentForm
+//         pathname={location.pathname}
+//         trade={trade}
+//         handleSubmit={handleEditOnAdd}
+//       />
+//       <Btn
+//         text={<TrashIcon />}
+//         onClick={handleDeleteOnTrash}
+//       />
+//     </div>
+//   )
+// }

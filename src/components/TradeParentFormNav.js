@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import Btn from './Btn'
 
 const TradeParentFormNav = ({ values, navigateByStepValue }) => {
   return (
     <nav className="edit-trade-nav">
       <ul>
-        <div>
+        <Fragment>
           <li>
             <Btn
               value={1}
@@ -27,10 +27,39 @@ const TradeParentFormNav = ({ values, navigateByStepValue }) => {
               onClick={navigateByStepValue}
             />
           </li>
-        </div>
+          {values.status === 'pending' &&
+            <Fragment>
+              <li>
+                <Btn
+                  value={4}
+                  text="Inspect & Submit"
+                  onClick={navigateByStepValue}
+                />
+              </li>
+            </Fragment>
+          }
+          {values.status === 'active' &&
+            <Fragment>
+              <li>
+                <Btn
+                  value={4}
+                  text="Opening date"
+                  onClick={navigateByStepValue}
+                />
+              </li>
+              <li>
+                <Btn
+                  value={5}
+                  text="Inspect & Submit"
+                  onClick={navigateByStepValue}
+                />
+              </li>
+            </Fragment>
+          }
+        </Fragment>
 
         {values.status === 'closed' &&
-          <div>
+          <Fragment>
             <li>
               <Btn
                 value={4}
@@ -59,7 +88,7 @@ const TradeParentFormNav = ({ values, navigateByStepValue }) => {
                 onClick={navigateByStepValue}
               />
             </li>
-          </div>
+          </Fragment>
         }
       </ul>
     </nav>

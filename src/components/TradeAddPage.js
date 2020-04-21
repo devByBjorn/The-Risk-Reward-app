@@ -1,11 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { startAddTrade } from '../actions/tradeActions'
+import { addFirebaseTrade } from '../actions/tradeActions'
 import TradeParentForm from './TradeParentForm'
 
-const TradeAddPage = ({ startAddTrade, history }) => {
+const TradeAddPage = ({ addFirebaseTrade, history }) => {
   const handleAddTrade = (trade) => {
-    startAddTrade(trade)
+    addFirebaseTrade(trade)
     history.push('/trades')
   }
 
@@ -20,7 +20,7 @@ const TradeAddPage = ({ startAddTrade, history }) => {
 
 
 const mapDispatchToProps = (dispatch) => ({
-  startAddTrade: (trade) => dispatch(startAddTrade(trade))
+  addFirebaseTrade: (trade) => dispatch(addFirebaseTrade(trade))
 })
 
 export default connect(null, mapDispatchToProps)(TradeAddPage)

@@ -13,6 +13,10 @@ const OutcomeAndDates = ({ values, nextStep, prevStep, onChangeByInput, onDatesC
     e.preventDefault()
     if (!values.outcome) {
       setErrorMsg('Make sure to chose an outcome')
+    } else if (!values.opened) {
+      setErrorMsg('Make sure you set opening date')
+    } else if (!values.closed) {
+      setErrorMsg('Make Sure you set closing date')
     } else {
       setErrorMsg('')
       nextStep()

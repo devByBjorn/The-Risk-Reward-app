@@ -1,11 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Btn from './Btn'
 import { RadioBtn, Textarea } from './inputs'
 
 const ManagementAndSubmit = ({ values, nextStep, prevStep, onConclusionChange }) => {
+  const [errorMsg, setErrorMsg] = useState('')
+
   const next = e => {
     e.preventDefault()
-    nextStep()
+    if (!values.management) {
+      setErrorMsg('Make sure to chose an outcome')
+    } else if (!values.whyManagement) {
+      setErrorMsg('This is your chance to really improve your edge. Take it!')
+    } else if (!values.improveManagement) {
+      setErrorMsg('For fuck sake, don\'t be a cunt. Fill out the damn field')
+    } else {
+      setErrorMsg('')
+      nextStep()
+    }
   }
 
   const back = e => {
@@ -16,6 +27,7 @@ const ManagementAndSubmit = ({ values, nextStep, prevStep, onConclusionChange })
   return (
     <React.Fragment>
       <h4>Conclusion 2/2: Management</h4>
+      {errorMsg && <p>{errorMsg}</p>}
       <label>Good</label>
       <RadioBtn
         name="management"

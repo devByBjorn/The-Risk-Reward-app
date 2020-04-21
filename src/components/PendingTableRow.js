@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { EditIcon, TrashIcon } from '../icons/IconsComponents'
-import { deleteTrade } from '../actions/tradeActions'
+import { deleteFirebaseTrade } from '../actions/tradeActions'
 
 const PendingTableRow = (
   {
@@ -36,7 +36,7 @@ const PendingTableRow = (
           </NavLink>
           <button
             onClick={() => {
-              dispatch(deleteTrade({ id }))
+              dispatch(deleteFirebaseTrade({ id }))
             }}
           ><TrashIcon />
           </button>

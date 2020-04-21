@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, Fragment, useMemo, useCallback } fr
 import { connect } from 'react-redux'
 import Table from './table'
 import Styles from './tableStyle'
-import { deleteTrade } from '../../actions/tradeActions'
+import { deleteFirebaseTrade } from '../../actions/tradeActions'
 import { TrashIcon, EditIcon } from '../../icons/IconsComponents'
 import { Link } from 'react-router-dom'
 
@@ -12,6 +12,7 @@ const AppTable = ({ trades, dispatch }) => {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(false)
   const [pageCount, setPageCount] = useState(0)
+  const [skipPageReset, setSkipPageReset] = useState(false)
   const fetchIdRef = useRef(0)
 
   const findTradeId = (row) => {
@@ -70,7 +71,7 @@ const AppTable = ({ trades, dispatch }) => {
         <button
           onClick={() => {
             const id = findTradeId(row)
-            dispatch(deleteTrade({ id }))
+            dispatch(deleteFirebaseTrade({ id }))
             const data = row.data.filter((d) => d.id !== id)
             setData(data)
           }}
@@ -84,16 +85,13 @@ const AppTable = ({ trades, dispatch }) => {
   const fetchData = useCallback(({ pageSize, pageIndex }) => {
     const fetchId = ++fetchIdRef.current
     setLoading(true)
-
-    setTimeout(() => {
-      if (fetchId === fetchIdRef.current) {
-        const startRow = pageSize * pageIndex
-        const endRow = startRow + pageSize
-        setData(trades.slice(startRow, endRow))
-        setPageCount(Math.ceil(trades.length / pageSize))
-        setLoading(false)
-      }
-    }, 1000)
+    if (fetchId === fetchIdRef.current) {
+      const startRow = pageSize * pageIndex
+      const endRow = startRow + pageSize
+      setData(trades.slice(startRow, endRow))
+      setPageCount(Math.ceil(trades.length / pageSize))
+      setLoading(false)
+    }
   }, [])
 
   return (
@@ -104,6 +102,7 @@ const AppTable = ({ trades, dispatch }) => {
         fetchData={fetchData}
         loading={loading}
         pageCount={pageCount}
+        skipPageReset={skipPageReset}
       />
     </Styles>
   )

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 // import { calculatePositiveR, calculateNegativeR } from '../calculations/riskRewardCalculation'
 import { EditIcon, TrashIcon } from '../icons/IconsComponents'
-import { deleteTrade } from '../actions/tradeActions'
+import { deleteFirebaseTrade } from '../actions/tradeActions'
 
 const ActiveTableRow = (
   {
@@ -36,7 +36,7 @@ const ActiveTableRow = (
             <EditIcon />
           </Link>
           <button onClick={() => {
-            dispatch(deleteTrade({ id }))
+            dispatch(deleteFirebaseTrade({ id }))
           }}
           ><TrashIcon />
           </button>

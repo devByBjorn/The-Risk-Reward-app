@@ -1,32 +1,33 @@
 
-import React from 'react'
+import React, { Fragment } from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import AppRouter from './router/AppRouter'
 import configureStore from './store/store'
-import './style/style.scss'
+// import './style/style.scss'
 import 'react-dates/initialize'
 import 'react-dates/lib/css/_datepicker.css'
-import CssBaseline from '@material-ui/core/CssBaseline'
-import { addTrade } from './actions/tradeActions'
-import uuid from 'uuid'
+import { setFireBaseTrades } from './actions/tradeActions'
+import Table from './implementation_ideas/tableMUI/Table'
+import AppTable from './implementation_ideas/tables/tableRender'
 import './firebase/firebase'
-
+import CssBaseline from '@material-ui/core/CssBaseline';
 const store = configureStore()
-
-// store.subscribe(() => {
-//   const state = store.getState()
-// })
-
-// const unsubscribe = store.subscribe(() => console.log(store.getState()))
-
-// unsubscribe()
 
 const app = (
   <Provider store={store}>
-    {/*  <CssBaseline />*/}
-    <AppRouter />
+    <Fragment>
+      <CssBaseline />
+      {/*<Table />*/}
+      <AppRouter />
+      {/*<AppTable />*/}
+    </Fragment>
   </Provider>
 )
 
-ReactDOM.render(app, document.getElementById('app'))
+ReactDOM.render(<p>Loading...</p>, document.getElementById('app'))
+
+store.dispatch(setFireBaseTrades()).then(() => {
+  ReactDOM.render(app, document.getElementById('app'))
+})
+

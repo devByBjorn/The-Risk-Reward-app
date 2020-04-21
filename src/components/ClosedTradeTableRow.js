@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { EditIcon, TrashIcon } from '../icons/IconsComponents'
-import { deleteTrade } from '../actions/tradeActions'
+import { deleteFirebaseTrade } from '../actions/tradeActions'
 
 
-
-
-const ClosedTradeTableRow = (
-  {
+const ClosedTradeTableRow = (props) => {
+  const {
     dispatch,
     market,
     direction,
@@ -18,7 +16,7 @@ const ClosedTradeTableRow = (
     status,
     outcome,
     rewardToRisk,
-    id }) => {
+    id } = props
 
   const [rowColor, setRowColor] = useState('')
 
@@ -59,10 +57,7 @@ const ClosedTradeTableRow = (
           </Link>
           <button
             className="btn-transparent"
-            onClick={() => {
-              alert('Do you want to delete this trade?')
-              dispatch(deleteTrade({ id }))
-            }}
+            onClick={() => dispatch(deleteFirebaseTrade({ id }))}
           ><TrashIcon
               className="trashcan-icon icon"
             />
