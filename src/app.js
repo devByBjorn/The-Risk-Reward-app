@@ -8,8 +8,6 @@ import configureStore from './store/store'
 import 'react-dates/initialize'
 import 'react-dates/lib/css/_datepicker.css'
 import { setFireBaseTrades } from './actions/tradeActions'
-import Table from './implementation_ideas/tableMUI/Table'
-import AppTable from './implementation_ideas/tables/tableRender'
 import './firebase/firebase'
 import CssBaseline from '@material-ui/core/CssBaseline';
 const store = configureStore()
@@ -18,9 +16,7 @@ const app = (
   <Provider store={store}>
     <Fragment>
       <CssBaseline />
-      {/*<Table />*/}
       <AppRouter />
-      {/*<AppTable />*/}
     </Fragment>
   </Provider>
 )

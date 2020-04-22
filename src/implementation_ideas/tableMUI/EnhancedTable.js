@@ -1,4 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react'
+import { connect } from 'react-redux'
+import { deleteFirebaseTrade } from '../../actions/tradeActions'
 
 import Checkbox from '@material-ui/core/Checkbox'
 import MaUTable from '@material-ui/core/Table'
@@ -98,6 +100,10 @@ const defaultColumn = {
 }
 
 const EnhancedTable = ({
+  trades,
+  filters,
+  searchByMarket,
+  deleteFirebaseTrade,
   columns,
   data,
   setData,
@@ -134,27 +140,20 @@ const EnhancedTable = ({
     useRowSelect,
     hooks => {
       hooks.allColumns.push(columns => [
-        // Let's make a column for selection
         {
           id: 'selection',
-          // The header can use the table's getToggleAllRowsSelectedProps method
-          // to render a checkbox.  Pagination is a problem since this will select all
-          // rows even though not all rows are on the current page.  The solution should
-          // be server side pagination.  For one, the clients should not download all
-          // rows in most cases.  The client should only download data for the current page.
-          // In that case, getToggleAllRowsSelectedProps works fine.
           Header: ({ getToggleAllRowsSelectedProps }) => (
             <div>
               <IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} />
             </div>
           ),
-          // The cell can use the individual row's getToggleRowSelectedProps method
-          // to the render a checkbox
-          Cell: ({ row }) => (
-            <div>
-              <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />
-            </div>
-          ),
+          Cell: ({ row, data, cell }) => {
+            return (
+              <div>
+                <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />
+              </div>
+            )
+          },
         },
         ...columns,
       ])
@@ -177,26 +176,33 @@ const EnhancedTable = ({
   const removeByIndexs = (array, indexs) =>
     array.filter((_, i) => !indexs.includes(i))
 
-  const deleteUserHandler = event => {
-    const newData = removeByIndexs(
+  const removeFirebaseByIndexs = (array, indexs) =>
+    array.filter((_, i) => indexs.includes(i))
+
+  const deleteTrades = event => {
+    const tradesToDelete = removeFirebaseByIndexs(
+      data,
+      Object.keys(selectedRowIds).map(x => parseInt(x, 10))
+    ).forEach((trade) =>
+      deleteFirebaseTrade({ id: trade.id }))
+
+    const tradesToKeep = removeByIndexs(
       data,
       Object.keys(selectedRowIds).map(x => parseInt(x, 10))
     )
-    setData(newData)
+
+    return tradesToDelete && setData(tradesToKeep)
   }
 
-  const addUserHandler = user => {
-    const newData = data.concat([user])
-    setData(newData)
-  }
 
   // Render the UI for your table
   return (
     <TableContainer>
       <TableToolbar
+        data={data}
+        setData={setData}
         numSelected={Object.keys(selectedRowIds).length}
-        deleteUserHandler={deleteUserHandler}
-        addUserHandler={addUserHandler}
+        deleteTrades={deleteTrades}
         preGlobalFilteredRows={preGlobalFilteredRows}
         setGlobalFilter={setGlobalFilter}
         globalFilter={globalFilter}
@@ -204,7 +210,8 @@ const EnhancedTable = ({
       <MaUTable {...getTableProps()}>
         <TableHead>
           {headerGroups.map(headerGroup => (
-            <TableRow {...headerGroup.getHeaderGroupProps()}>
+            <TableRow
+              {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
                 <TableCell
                   {...(column.id === 'selection'
@@ -224,8 +231,10 @@ const EnhancedTable = ({
             </TableRow>
           ))}
         </TableHead>
+
         <TableBody>
           {page.map((row, i) => {
+            console.log(row) // Filter out by status here?? 
             prepareRow(row)
             return (
               <TableRow {...row.getRowProps()}>
@@ -269,12 +278,19 @@ const EnhancedTable = ({
   )
 }
 
-EnhancedTable.propTypes = {
+/*EnhancedTable.propTypes = {
   columns: PropTypes.array.isRequired,
   data: PropTypes.array.isRequired,
   updateMyData: PropTypes.func.isRequired,
   setData: PropTypes.func.isRequired,
   skipPageReset: PropTypes.bool.isRequired,
-}
+}*/
 
-export default EnhancedTable
+
+
+const mapDispatchToProps = (dispatch) => ({
+  deleteFirebaseTrade: (id) => dispatch(deleteFirebaseTrade(id))
+})
+
+
+export default connect(null, mapDispatchToProps)(EnhancedTable)

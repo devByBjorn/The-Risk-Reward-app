@@ -1,5 +1,21 @@
 import moment from 'moment'
 
+export const closedTradeSearch = (trades, { searchText }) =>
+  trades
+    .filter((trade) => trade.status === 'closed'
+      && trade.market.toLowerCase().includes(searchText.toLowerCase()))
+
+export const activeTradeSearch = (trades, { searchText }) =>
+  trades
+    .filter((trade) => trade.status === 'active'
+      && trade.market.toLowerCase().includes(searchText.toLowerCase()))
+
+export const pendingTradeSearch = (trades, { searchText }) =>
+  trades
+    .filter((trade) => trade.status === 'pending'
+      && trade.market.toLowerCase().includes(searchText.toLowerCase()))
+
+
 const marketSearcher = (trades, { searchText, sortBy, sorted, startDate, endDate }) =>
   trades.filter((trade) => {
     const openDate = moment(trade.opened)

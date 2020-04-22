@@ -35,13 +35,13 @@ const StatsSetups = ({ trades }) => {
         </li>
         <li>
           <span className="stats-specific">Total R per Setup: </span>
-          <ul className="disc-list">
+          {/* <ul className="disc-list">
             {allSetups && averageRPerSetup.map((singleArr, i) =>
               <li
-                key={i}>{`${singleArr[i].setup}: ${getTotalR(singleArr).toFixed(2)}R`}
+                key={i}>{`${singleArr[i].setup}: ${getTotalR(singleArr)}R`}
               </li>
             )}
-          </ul>
+            </ul>*/}
         </li>
       </ul>
     </div>

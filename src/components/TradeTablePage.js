@@ -4,12 +4,16 @@ import ActiveTradeTable from './ActiveTradeTable'
 import PendingTradeTable from './PendingTradeTabel'
 import SetDateRange from './TradeTableDatePick'
 import AppTable from '../implementation_ideas/tables/tableRender'
-import Table from '../implementation_ideas/tableMUI/Table'
+import TableClosedTrades from '../implementation_ideas/tableMUI/TableClosedTrades'
+import TableActiveTrades from '../implementation_ideas/tableMUI/TableActiveTrades'
+import TablePendingTrades from '../implementation_ideas/tableMUI/TablePendingTrades'
 
 const TradeTablePage = () => (
   <React.Fragment>
     <h1>Trade Table Page</h1>
-    <Table />
+    <TablePendingTrades />
+    <TableActiveTrades />
+    <TableClosedTrades />
     { /*  
       <AppTable />
       <ClosedTradeTable />

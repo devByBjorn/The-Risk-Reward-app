@@ -65,8 +65,8 @@ module.exports = (env) => {
         'process.env.FIREBASE_MESSAGING_SENDER_ID': JSON.stringify(process.env.FIREBASE_MESSAGING_SENDER_ID),
       })
     ],
-    // devtool: 'eval-cheap-module-source-map',
-    devtool: inProduction ? 'source-map' : 'inline-source-map',
+    devtool: 'eval-cheap-module-source-map',
+    //devtool: inProduction ? 'source-map' : 'inline-source-map',
     devServer: {
       contentBase: path.join(__dirname, 'public'),
       // gör så att vi kan köra react-router

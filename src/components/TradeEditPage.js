@@ -11,7 +11,7 @@ class TradeEditPage extends React.Component {
     this.props.history.push('/trades')
   }
   handleDeleteOnTrash = () => {
-    this.props.deleteTrade({ id: this.props.trade.id })
+    this.props.deleteFirebaseTrade({ id: this.props.trade.id })
     this.props.history.push('/trades')
   }
   render() {
@@ -39,7 +39,7 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = (dispatch) => ({
   editFirebaseTrade: (id, trade) => dispatch(editFirebaseTrade(id, trade)),
-  deleteTrade: (id) => dispatch(deleteTrade(id))
+  deleteFirebaseTrade: (id) => dispatch(deleteFirebaseTrade(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(TradeEditPage)

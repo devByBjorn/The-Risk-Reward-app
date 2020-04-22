@@ -26,7 +26,7 @@ const filterReducer = (state = initFilterState, action) => {
     case 'SEARCH_BY_MARKET':
       return {
         ...state,
-        searchText: action.searchText
+        searchText
       }
     case 'SORT_BY_MARKET':
       return {

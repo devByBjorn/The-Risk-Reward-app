@@ -1,5 +1,5 @@
 // COUNT LISTS
-export const getObjectCountList = (array) =>
+const getObjectCountList = (array) =>
   array.length > 0
     ? array.reduce((acc, item) => {
       const count = acc[item] || 0
@@ -12,22 +12,29 @@ export const getObjectCountList = (array) =>
     }, {})
     : false
 
-export const getMostOcurredKey = (list) =>
+
+const getMostOcurredKey = (list) =>
   !list
     ? false
     : Object.keys(list).
       reduce((a, b) => list[a] > list[b] ? a : b)
 
-export const getLeastOcurredKey = (list) =>
+
+const getLeastOcurredKey = (list) =>
   !list
     ? false
     : Object.keys(list).
       reduce((a, b) => list[a] < list[b] ? a : b)
 
-export const objListToArr = (listAllSetups) => {
+
+const objListToArr = (listAllSetups) => {
   const arr = []
+
   for (let [key, value] of Object.entries(listAllSetups)) {
     arr.push([key, value].join(' : '));
   }
+
   return arr
 }
+
+export { getObjectCountList, getMostOcurredKey, getLeastOcurredKey, objListToArr }

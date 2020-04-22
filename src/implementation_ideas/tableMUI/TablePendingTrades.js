@@ -1,16 +1,14 @@
 import React, { useEffect, useState, useRef, Fragment, useMemo, useCallback } from 'react'
 import { connect } from 'react-redux'
-import { setFireBaseTrades } from '../../actions/tradeActions'
+import { pendingTradeSearch } from '../../market-searcher/marketSearcher'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import EnhancedTable from './EnhancedTable'
-import makeData from './makeData'
 
-const Table = ({ trades }) => {
 
+const TablePendingTrades = ({ trades }) => {
   const [data, setData] = useState([])
   const [skipPageReset, setSkipPageReset] = useState(false)
   const fetchIdRef = useRef(0)
-
 
   const columns = useMemo(
     () => [
@@ -27,20 +25,16 @@ const Table = ({ trades }) => {
         accessor: 'setup',
       },
       {
+        Header: 'Status',
+        accessor: 'status',
+      },
+      {
+        Header: '-R',
+        accessor: 'negativeR'
+      },
+      {
         Header: 'R',
-        accessor: 'rewardToRisk'
-      },
-      {
-        Header: 'Opened',
-        accessor: 'opened',
-      },
-      {
-        Header: 'Closed',
-        accessor: 'closed'
-      },
-      {
-        Header: 'Outcome',
-        accessor: 'outcome',
+        accessor: 'positiveR'
       },
     ],
     []
@@ -76,6 +70,7 @@ const Table = ({ trades }) => {
   return (
     <div>
       <CssBaseline />
+      <h2>Pending Trades</h2>
       <EnhancedTable
         columns={columns}
         data={data}
@@ -88,10 +83,8 @@ const Table = ({ trades }) => {
   )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    trades: state.trades,
-  }
-}
+const mapStateToProps = (state) => ({
+  trades: pendingTradeSearch(state.trades, state.filters)
+})
 
-export default connect(mapStateToProps)(Table)
+export default connect(mapStateToProps)(TablePendingTrades)
