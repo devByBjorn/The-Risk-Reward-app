@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef, Fragment, useMemo, useCallback } from 'react'
 import { connect } from 'react-redux'
 import { activeTradeSearch } from '../../market-searcher/marketSearcher'
-import CssBaseline from '@material-ui/core/CssBaseline'
 import EnhancedTable from './EnhancedTable'
 
 
@@ -9,6 +8,8 @@ const TableActiveTrades = ({ trades }) => {
   const [data, setData] = useState([])
   const [skipPageReset, setSkipPageReset] = useState(false)
   const fetchIdRef = useRef(0)
+
+  const tableName = 'Active Trades'
 
   const columns = useMemo(
     () => [
@@ -72,10 +73,9 @@ const TableActiveTrades = ({ trades }) => {
   }
 
   return (
-    <div>
-      <CssBaseline />
-      <h2>Active Trades</h2>
+    <div style={{ maxWidth: '100rem', margin: `5rem auto` }} >
       <EnhancedTable
+        tableName={tableName}
         columns={columns}
         data={data}
         fetchData={fetchData}
@@ -83,7 +83,7 @@ const TableActiveTrades = ({ trades }) => {
         updateMyData={updateMyData}
         skipPageReset={skipPageReset}
       />
-    </div>
+    </div >
   )
 }
 

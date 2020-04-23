@@ -1,15 +1,14 @@
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { deleteFirebaseTrade } from '../../actions/tradeActions'
-
-import Checkbox from '@material-ui/core/Checkbox'
 import MaUTable from '@material-ui/core/Table'
-import PropTypes from 'prop-types'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
-import TableContainer from '@material-ui/core/TableContainer'
+import TableContainer from '../../components_style/TableContainerStyled'
 import TableFooter from '@material-ui/core/TableFooter'
+
 import TableHead from '@material-ui/core/TableHead'
+//import TableHead from '../../components_style/TableHeadStyled'
+
 import TablePagination from '@material-ui/core/TablePagination'
 import TablePaginationActions from './TablePaginationActions'
 import TableRow from '@material-ui/core/TableRow'
@@ -22,87 +21,18 @@ import {
   useSortBy,
   useTable,
 } from 'react-table'
+//import EditableCell from './EditableCell'
+import IndeterminateCheckbox from './IndeterminateCheckbox'
+import { deleteFirebaseTrade, editFirebaseTrade } from '../../actions/tradeActions'
 
-const IndeterminateCheckbox = React.forwardRef(
-  ({ indeterminate, ...rest }, ref) => {
-    const defaultRef = React.useRef()
-    const resolvedRef = ref || defaultRef
-
-    React.useEffect(() => {
-      resolvedRef.current.indeterminate = indeterminate
-    }, [resolvedRef, indeterminate])
-
-    return (
-      <Fragment>
-        <Checkbox ref={resolvedRef} {...rest} />
-      </Fragment>
-    )
-  }
-)
-
-const inputStyle = {
-  padding: 0,
-  margin: 0,
-  border: 0,
-  background: 'transparent',
-}
-
-// Create an editable cell renderer
-const EditableCell = ({
-  value: initialValue,
-  row: { index },
-  column: { id },
-  updateMyData, // This is a custom function that we supplied to our table instance
-}) => {
-  // We need to keep and update the state of the cell normally
-  const [value, setValue] = React.useState(initialValue)
-
-  const onChange = e => {
-    setValue(e.target.value)
-  }
-
-  // We'll only update the external data when the input is blurred
-  const onBlur = () => {
-    updateMyData(index, id, value)
-  }
-
-  // If the initialValue is changed externall, sync it up with our state
-  React.useEffect(() => {
-    setValue(initialValue)
-  }, [initialValue])
-
-  return (
-    <input
-      style={inputStyle}
-      value={value}
-      onChange={onChange}
-      onBlur={onBlur}
-    />
-  )
-}
-
-EditableCell.propTypes = {
-  cell: PropTypes.shape({
-    value: PropTypes.any.isRequired,
-  }),
-  row: PropTypes.shape({
-    index: PropTypes.number.isRequired,
-  }),
-  column: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-  }),
-  updateMyData: PropTypes.func.isRequired,
-}
 
 // Set our editable cell renderer as the default Cell renderer
-const defaultColumn = {
-  Cell: EditableCell,
-}
+// const defaultColumn = {
+//   Cell: EditableCell,
+// }
 
 const EnhancedTable = ({
-  trades,
-  filters,
-  searchByMarket,
+  tableName,
   deleteFirebaseTrade,
   columns,
   data,
@@ -125,7 +55,7 @@ const EnhancedTable = ({
     {
       columns,
       data,
-      defaultColumn,
+      //defaultColumn,
       autoResetPage: !skipPageReset,
       // updateMyData isn't part of the API, but
       // anything we put into these options will
@@ -159,26 +89,25 @@ const EnhancedTable = ({
       ])
     }
   )
-
+  //
   useEffect(() => {
     fetchData()
   }, [fetchData])
-
-
+  //
   const handleChangePage = (event, newPage) => {
     gotoPage(newPage)
   }
-
+  //
   const handleChangeRowsPerPage = event => {
     setPageSize(Number(event.target.value))
   }
-
+  //
   const removeByIndexs = (array, indexs) =>
     array.filter((_, i) => !indexs.includes(i))
-
+  //
   const removeFirebaseByIndexs = (array, indexs) =>
     array.filter((_, i) => indexs.includes(i))
-
+  //
   const deleteTrades = event => {
     const tradesToDelete = removeFirebaseByIndexs(
       data,
@@ -190,17 +119,24 @@ const EnhancedTable = ({
       data,
       Object.keys(selectedRowIds).map(x => parseInt(x, 10))
     )
-
     return tradesToDelete && setData(tradesToKeep)
   }
+  //
 
+  const styles = {
+    root: {
+      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+      boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+    },
+  };
 
-  // Render the UI for your table
   return (
     <TableContainer>
       <TableToolbar
+        tableName={tableName}
         data={data}
         setData={setData}
+        rowId={Object.keys(selectedRowIds).join('')}
         numSelected={Object.keys(selectedRowIds).length}
         deleteTrades={deleteTrades}
         preGlobalFilteredRows={preGlobalFilteredRows}
@@ -234,13 +170,15 @@ const EnhancedTable = ({
 
         <TableBody>
           {page.map((row, i) => {
-            console.log(row) // Filter out by status here?? 
             prepareRow(row)
             return (
               <TableRow {...row.getRowProps()}>
                 {row.cells.map(cell => {
                   return (
-                    <TableCell {...cell.getCellProps()}>
+                    // dela upp editable och icke edit able här
+                    <TableCell
+                      onChange={(e) => console.log(e.target.value)}
+                      {...cell.getCellProps()}>
                       {cell.render('Cell')}
                     </TableCell>
                   )
@@ -278,19 +216,9 @@ const EnhancedTable = ({
   )
 }
 
-/*EnhancedTable.propTypes = {
-  columns: PropTypes.array.isRequired,
-  data: PropTypes.array.isRequired,
-  updateMyData: PropTypes.func.isRequired,
-  setData: PropTypes.func.isRequired,
-  skipPageReset: PropTypes.bool.isRequired,
-}*/
-
-
-
 const mapDispatchToProps = (dispatch) => ({
-  deleteFirebaseTrade: (id) => dispatch(deleteFirebaseTrade(id))
+  deleteFirebaseTrade: (id) => dispatch(deleteFirebaseTrade(id)),
+  editFirebaseTrade: (id, trade) => dispatch(editFirebaseTrade(id, trade))
 })
-
 
 export default connect(null, mapDispatchToProps)(EnhancedTable)

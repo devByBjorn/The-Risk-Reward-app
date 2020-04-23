@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef, Fragment, useMemo, useCallback } from 'react'
 import { connect } from 'react-redux'
 import { closedTradeSearch } from '../../market-searcher/marketSearcher'
-import CssBaseline from '@material-ui/core/CssBaseline'
 import EnhancedTable from './EnhancedTable'
 
 
@@ -11,8 +10,7 @@ const TableClosedTrades = ({ trades }) => {
   const [skipPageReset, setSkipPageReset] = useState(false)
   const fetchIdRef = useRef(0)
 
-  console.log('ALL', trades)
-  console.log('CLOSED', trades.filter((trade) => trade.status === 'closed'))
+  const tableName = 'Closed Trades'
 
   const columns = useMemo(
     () => [
@@ -80,10 +78,9 @@ const TableClosedTrades = ({ trades }) => {
   }
 
   return (
-    <div>
-      <CssBaseline />
-      <h2>Closed Trades</h2>
+    <div style={{ maxWidth: '100rem', margin: `5rem auto` }} >
       <EnhancedTable
+        tableName={tableName}
         columns={columns}
         data={data}
         fetchData={fetchData}

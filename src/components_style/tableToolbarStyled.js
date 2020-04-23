@@ -1,10 +1,13 @@
 
 import { lighten, makeStyles } from '@material-ui/core/styles'
 
-export default makeStyles(theme => ({
+const tableToolBarStyled = makeStyles(theme => ({
   root: {
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(1),
+    padding: '2rem 1rem',
+    background: '#fafafa',
+    borderBottom: '1px solid #e0e0e0'
   },
   highlight:
     theme.palette.type === 'light'
@@ -20,3 +23,5 @@ export default makeStyles(theme => ({
     flex: '1 1 100%',
   },
 }))
+
+export default tableToolBarStyled

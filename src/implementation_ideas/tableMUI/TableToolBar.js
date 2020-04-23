@@ -1,32 +1,32 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import React, { Fragment, useState } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import AddIcon from '@material-ui/icons/Add'
 import clsx from 'clsx'
 import DeleteIcon from '@material-ui/icons/Delete'
+import EditIcon from '@material-ui/icons/Edit'
 import GlobalFilter from './GlobalFilter'
 import IconButton from '@material-ui/core/IconButton'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Tooltip from '@material-ui/core/Tooltip'
-import tableToolbarStyle from './TableToolBarStyle'
+import tableToolbarStyled from '../../components_style/tableToolbarStyled'
 
 const TableToolbar = props => {
-  const classes = tableToolbarStyle()
+  const classes = tableToolbarStyled()
   const {
+    tableName,
     data,
     setData,
-    filters,
     numSelected,
+    rowId,
     deleteTrades,
     preGlobalFilteredRows,
     setGlobalFilter,
+    globalFilter
   } = props
 
   return (
-
     <Toolbar
-      style={{ backgroundColor: '#eee' }}
       className={clsx(classes.root, {
         [classes.highlight]: numSelected > 0,
       })}
@@ -60,41 +60,50 @@ const TableToolbar = props => {
         className={classes.title}
         variant="h5"
         id="tableMainTitle"
-      >{data.length > 1 || data.length === 0
-        ? `${data.length} trades`
-        : `${data.length} trade`}
+      >{tableName}
       </Typography>
 
-      {numSelected > 0 ? (
+      {numSelected === 0 && (
+        <GlobalFilter
+          data={data}
+          setData={setData}
+          preGlobalFilteredRows={preGlobalFilteredRows}
+          globalFilter={globalFilter}
+          setGlobalFilter={setGlobalFilter}
+        />
+      )}
+
+      {numSelected > 0 && numSelected < 2 && (
+        <Fragment>
+          <Tooltip title="Delete">
+            <IconButton
+              aria-label="delete"
+              onClick={deleteTrades}>
+              <DeleteIcon />
+            </IconButton>
+          </Tooltip>
+          <Tooltip
+            title="Edit">
+            <IconButton
+              aria-label="edit">
+              <NavLink to={`/edit-trade/${data[rowId].id}`}>
+                <EditIcon />
+              </NavLink>
+            </IconButton>
+          </Tooltip>
+        </Fragment>
+      )}
+      {numSelected > 1 && (
         <Tooltip title="Delete">
-          <IconButton aria-label="delete" onClick={deleteTrades}>
+          <IconButton
+            aria-label="delete"
+            onClick={deleteTrades}>
             <DeleteIcon />
           </IconButton>
         </Tooltip>
-      ) : (
-          <GlobalFilter
-            data={data}
-            setData={setData}
-            preGlobalFilteredRows={preGlobalFilteredRows}
-            globalFilter={filters}
-            setGlobalFilter={setGlobalFilter}
-          />
-        )}
+      )}
     </Toolbar>
   )
 }
 
-/*TableToolbar.propTypes = {
-  numSelected: PropTypes.number.isRequired,
-  addUserHandler: PropTypes.func.isRequired,
-  deleteUserHandler: PropTypes.func.isRequired,
-  setGlobalFilter: PropTypes.func.isRequired,
-  preGlobalFilteredRows: PropTypes.array.isRequired,
-  globalFilter: PropTypes.string.isRequired,
-}*/
-
-const mapStateToProps = (state) => ({
-  filter: state.filters
-})
-
-export default connect(mapStateToProps)(TableToolbar)
+export default TableToolbar
