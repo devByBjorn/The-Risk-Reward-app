@@ -2,7 +2,10 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import MaUTable from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
+
 import TableCell from '@material-ui/core/TableCell'
+import TableCellHead from '../../components_style/TableHeadStyled'
+
 import TableContainer from '../../components_style/TableContainerStyled'
 import TableFooter from '@material-ui/core/TableFooter'
 
@@ -10,6 +13,7 @@ import TableHead from '@material-ui/core/TableHead'
 //import TableHead from '../../components_style/TableHeadStyled'
 
 import TablePagination from '@material-ui/core/TablePagination'
+
 import TablePaginationActions from './TablePaginationActions'
 import TableRow from '@material-ui/core/TableRow'
 import TableSortLabel from '@material-ui/core/TableSortLabel'
@@ -122,14 +126,6 @@ const EnhancedTable = ({
     return tradesToDelete && setData(tradesToKeep)
   }
   //
-
-  const styles = {
-    root: {
-      background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-      boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-    },
-  };
-
   return (
     <TableContainer>
       <TableToolbar
@@ -143,13 +139,13 @@ const EnhancedTable = ({
         setGlobalFilter={setGlobalFilter}
         globalFilter={globalFilter}
       />
-      <MaUTable {...getTableProps()}>
+      <MaUTable {...getTableProps()} stickyHeader aria-label="sticky table">
         <TableHead>
           {headerGroups.map(headerGroup => (
             <TableRow
               {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
-                <TableCell
+                <TableCellHead
                   {...(column.id === 'selection'
                     ? column.getHeaderProps()
                     : column.getHeaderProps(column.getSortByToggleProps()))}
@@ -162,7 +158,7 @@ const EnhancedTable = ({
                       direction={column.isSortedDesc ? 'desc' : 'asc'}
                     />
                   ) : null}
-                </TableCell>
+                </TableCellHead>
               ))}
             </TableRow>
           ))}
@@ -189,8 +185,10 @@ const EnhancedTable = ({
         </TableBody>
 
         <TableFooter>
-          <TableRow>
+          <TableRow
+          >
             <TablePagination
+              colspan={999}
               rowsPerPageOptions={[
                 5,
                 10,

@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import CheckBoxStyled from '../../components_style/CheckBoxStyled'
 import Checkbox from '@material-ui/core/Checkbox'
 
 
@@ -11,7 +12,7 @@ const IndeterminateCheckbox = React.forwardRef(
     }, [resolvedRef, indeterminate])
     return (
       <Fragment>
-        <Checkbox ref={resolvedRef} {...rest} />
+        <CheckBoxStyled ref={resolvedRef} {...rest} />
       </Fragment>
     )
   }

@@ -4,9 +4,9 @@ export default makeStyles(theme => ({
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, .75),
+    backgroundColor: '#fff',
     '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 1),
+      backgroundColor: fade('#fafafa'),
     },
     marginRight: theme.spacing(2),
     marginLeft: 0,
@@ -15,6 +15,7 @@ export default makeStyles(theme => ({
       marginLeft: theme.spacing(3),
       width: 'auto',
     },
+    borderBottom: '5px solid #d93025',
   },
   searchIcon: {
     width: theme.spacing(7),

@@ -9,8 +9,8 @@ import 'react-dates/initialize'
 import 'react-dates/lib/css/_datepicker.css'
 import { setFireBaseTrades } from './actions/tradeActions'
 import './firebase/firebase'
-import BaseGlobalStyle from './components_style/BaseGlobalStyle'
-import CssBaseline from '@material-ui/core/CssBaseline';
+import CssBaseline from './components_style/BaseGlobalStyle'
+//import CssBaseline from '@material-ui/core/CssBaseline';
 const store = configureStore()
 
 const app = (

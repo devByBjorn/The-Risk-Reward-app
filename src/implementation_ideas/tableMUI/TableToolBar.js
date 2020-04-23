@@ -5,7 +5,8 @@ import clsx from 'clsx'
 import DeleteIcon from '@material-ui/icons/Delete'
 import EditIcon from '@material-ui/icons/Edit'
 import GlobalFilter from './GlobalFilter'
-import IconButton from '@material-ui/core/IconButton'
+//import IconButton from '@material-ui/core/IconButton'
+import IconButton from '../../components_style/IconButtonStyled'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import Tooltip from '@material-ui/core/Tooltip'
@@ -57,7 +58,7 @@ const TableToolbar = props => {
         )}
 
       <Typography
-        className={classes.title}
+        className={classes.tableTitle}
         variant="h5"
         id="tableMainTitle"
       >{tableName}

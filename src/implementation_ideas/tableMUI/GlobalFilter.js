@@ -1,5 +1,5 @@
 import React from 'react'
-import searchFieldStyle from './GlobalFilterStyle'
+import searchFieldStyle from '../../components_style/TableSearchFieldStyled'
 import InputBase from '@material-ui/core/InputBase'
 import SearchIcon from '@material-ui/icons/Search'
 
@@ -21,7 +21,7 @@ const GlobalFilter = ({
         onChange={e => {
           setGlobalFilter(e.target.value || undefined)
         }}
-        placeholder={count > 1 || count === 0 ? `${count} trades...` : `${count} trade`}
+        placeholder={count > 1 || count === 0 ? `${count} trades...` : `${count} trade...`}
         classes={{
           root: classes.inputRoot,
           input: classes.inputInput,
