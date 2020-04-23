@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import MaUTable from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
@@ -93,6 +93,23 @@ const EnhancedTable = ({
       ])
     }
   )
+
+  const getOutcome = (value) => {
+
+    let backgroundColor
+
+    switch (value) {
+      case 'win':
+        return backgroundColor = '#d1eec1'
+      case 'loss':
+        return backgroundColor = '#fda3a3'
+      case 'scratch':
+        return backgroundColor = '#ffdb99'
+      default:
+        return backgroundColor = '#fff'
+    }
+  }
+
   //
   useEffect(() => {
     fetchData()
@@ -170,12 +187,14 @@ const EnhancedTable = ({
             return (
               <TableRow {...row.getRowProps()}>
                 {row.cells.map(cell => {
+                  const color = getOutcome(cell.value)
+
                   return (
-                    // dela upp editable och icke edit able här
                     <TableCell
-                      onChange={(e) => console.log(e.target.value)}
+                      style={{ backgroundColor: color }}
                       {...cell.getCellProps()}>
                       {cell.render('Cell')}
+                      {console.log(cell.value)}
                     </TableCell>
                   )
                 })}
