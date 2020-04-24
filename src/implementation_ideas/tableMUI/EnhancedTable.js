@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import MaUTable from '@material-ui/core/Table'
+import TableStyled from '../../components_style/TableStyled'
 import TableBody from '@material-ui/core/TableBody'
+import TableCellStyled from '../../components_style/TableCellStyled'
 
-import TableCell from '@material-ui/core/TableCell'
-import TableCellHead from '../../components_style/TableHeadStyled'
-
-import TableContainer from '../../components_style/TableContainerStyled'
+import TableContainer from '@material-ui/core/TableContainer'
+import TableContainerStyled from '../../components_style/TableContainerStyled'
 import TableFooter from '@material-ui/core/TableFooter'
 
 import TableHead from '@material-ui/core/TableHead'
 //import TableHead from '../../components_style/TableHeadStyled'
 
 import TablePagination from '@material-ui/core/TablePagination'
+import TablePaginationStyled from '../../components_style/TablePaginationStyled'
 
 import TablePaginationActions from './TablePaginationActions'
 import TableRow from '@material-ui/core/TableRow'
@@ -94,19 +95,19 @@ const EnhancedTable = ({
     }
   )
 
-  const getOutcome = (value) => {
+  const getOutcomeBorder = (value) => {
 
-    let backgroundColor
+    let border
 
     switch (value) {
       case 'win':
-        return backgroundColor = '#d1eec1'
+        return border = '8px solid #d1eec1'
       case 'loss':
-        return backgroundColor = '#fda3a3'
+        return border = '8px solid #fda3a3'
       case 'scratch':
-        return backgroundColor = '#ffdb99'
+        return border = '8px solid #ffdb99'
       default:
-        return backgroundColor = '#fff'
+        return border = 'none'
     }
   }
 
@@ -144,7 +145,7 @@ const EnhancedTable = ({
   }
   //
   return (
-    <TableContainer>
+    <TableContainerStyled>
       <TableToolbar
         tableName={tableName}
         data={data}
@@ -156,13 +157,13 @@ const EnhancedTable = ({
         setGlobalFilter={setGlobalFilter}
         globalFilter={globalFilter}
       />
-      <MaUTable {...getTableProps()} stickyHeader aria-label="sticky table">
+      <TableStyled {...getTableProps()} stickyHeader aria-label="sticky table">
         <TableHead>
           {headerGroups.map(headerGroup => (
             <TableRow
               {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
-                <TableCellHead
+                <TableCellStyled
                   {...(column.id === 'selection'
                     ? column.getHeaderProps()
                     : column.getHeaderProps(column.getSortByToggleProps()))}
@@ -175,7 +176,7 @@ const EnhancedTable = ({
                       direction={column.isSortedDesc ? 'desc' : 'asc'}
                     />
                   ) : null}
-                </TableCellHead>
+                </TableCellStyled>
               ))}
             </TableRow>
           ))}
@@ -187,15 +188,14 @@ const EnhancedTable = ({
             return (
               <TableRow {...row.getRowProps()}>
                 {row.cells.map(cell => {
-                  const color = getOutcome(cell.value)
+                  const border = getOutcomeBorder(cell.value)
 
                   return (
-                    <TableCell
-                      style={{ backgroundColor: color }}
+                    <TableCellStyled
+                      style={{ borderLeft: border }}
                       {...cell.getCellProps()}>
                       {cell.render('Cell')}
-                      {console.log(cell.value)}
-                    </TableCell>
+                    </TableCellStyled>
                   )
                 })}
               </TableRow>
@@ -206,8 +206,9 @@ const EnhancedTable = ({
         <TableFooter>
           <TableRow
           >
-            <TablePagination
+            <TablePaginationStyled
               colspan={999}
+              style={{ fontSize: '1.2rem' }}
               rowsPerPageOptions={[
                 5,
                 10,
@@ -228,8 +229,8 @@ const EnhancedTable = ({
             />
           </TableRow>
         </TableFooter>
-      </MaUTable>
-    </TableContainer>
+      </TableStyled>
+    </TableContainerStyled>
   )
 }
 

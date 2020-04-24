@@ -1,15 +1,17 @@
-
-import React from 'react'
-import clsx from 'clsx'
 import { withStyles } from '@material-ui/core/styles'
 import TableCell from '@material-ui/core/TableCell'
 
-const TableCellHead = withStyles({
+const TableCellStyled = withStyles({
   head: {
     background: '#fafafa',
-    fontSize: '1.2rem',
+    fontSize: '1.6rem',
     fontWeight: '600',
+    whiteSpace: 'nowrap'
+  },
+  body: {
+    background: '#fff',
+    fontSize: '1.6rem',
   },
 })(TableCell);
 
-export default TableCellHead
+export default TableCellStyled

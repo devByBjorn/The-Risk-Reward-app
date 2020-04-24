@@ -21,12 +21,13 @@ const tableToolBarStyled = makeStyles(theme => ({
       },
   title: {
     color: '#d93025',
-    flex: '1 1 100%',
+    flex: '1',
   },
   tableTitle: {
     position: 'absolute',
     left: '40%',
     fontWeight: '600',
+    padding: '0 2rem',
   }
 }))
 

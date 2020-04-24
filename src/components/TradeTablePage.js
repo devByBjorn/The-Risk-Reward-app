@@ -7,13 +7,16 @@ import AppTable from '../implementation_ideas/tables/tableRender'
 import TableClosedTrades from '../implementation_ideas/tableMUI/TableClosedTrades'
 import TableActiveTrades from '../implementation_ideas/tableMUI/TableActiveTrades'
 import TablePendingTrades from '../implementation_ideas/tableMUI/TablePendingTrades'
-
+import TableTabs from '../implementation_ideas/tableMUI/TableTabs'
+import PageContainer from '../components_style/PageContainerStyled'
+import Container from '@material-ui/core/Container';
 const TradeTablePage = () => (
-  <React.Fragment>
+  <PageContainer>
     <h1>Trade Table Page</h1>
-    <TablePendingTrades />
+    <TableTabs />
+    {/*<TablePendingTrades />
     <TableActiveTrades />
-    <TableClosedTrades />
+    <TableClosedTrades />*/}
     { /*  
       <AppTable />
       <ClosedTradeTable />
@@ -22,7 +25,7 @@ const TradeTablePage = () => (
     <br />
     <PendingTradeTable />
  <br />*/}
-  </React.Fragment>
+  </PageContainer>
 )
 
 export default TradeTablePage

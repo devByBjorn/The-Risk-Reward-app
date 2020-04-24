@@ -10,17 +10,15 @@ export const body = (theme) => ({
 
 export const styles = (theme) => ({
   '@global': {
+    html: {
+      fontSize: '62.5%'
+    },
     body: {
-      margin: 0, // Remove the margin in all browsers.
-      ...body(theme),
-      // Add support for document.body.requestFullScreen().
-      // Other elements, if background transparent, are not supported.
-      '&::backdrop': {
-        backgroundColor: theme.palette.background.default,
-      },
+      padding: 0,
+      fontSize: '1.6rem',
     },
   },
-})
+});
 
 /**
  * Kickstart an elegant, consistent, and simple baseline to build upon.

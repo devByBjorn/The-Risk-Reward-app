@@ -4,32 +4,33 @@ export default makeStyles(theme => ({
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: '#fff',
-    '&:hover': {
-      backgroundColor: fade('#fafafa'),
-    },
+    background: '#fff',
+    borderBottom: '5px solid #d93025',
     marginRight: theme.spacing(2),
-    marginLeft: 0,
-    width: '100%',
+    marginLeft: theme.spacing(2),
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(3),
       width: 'auto',
     },
-    borderBottom: '5px solid #d93025',
+    transition: 'background 0.3s ease',
+    '&:hover': {
+      background: '#eee',
+    },
   },
   searchIcon: {
-    width: theme.spacing(7),
-    height: '100%',
     position: 'absolute',
-    pointerEvents: 'none',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    width: theme.spacing(7),
+    height: '100%',
+    pointerEvents: 'none',
   },
   inputRoot: {
     color: 'inherit',
   },
   inputInput: {
+    fontSize: '1.6rem',
     padding: theme.spacing(1, 1, 1, 7),
     transition: theme.transitions.create('width'),
     width: '100%',

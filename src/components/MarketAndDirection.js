@@ -2,14 +2,15 @@ import React, { useState } from 'react'
 import { RadioBtn, TextInput } from './inputs'
 import Btn from './Btn'
 import { FormTextField } from './styles/styledInputs'
-
+import FormContainer from '../components_style/FormContainerStyled'
+import FormLabelAndInputPair from './FormLabelAndInputPair'
 const MarketAndDirection = ({ values, nextStep, onChangeByInput }) => {
   const [errorMsg, setErrorMessage] = useState('')
 
   const next = e => {
     e.preventDefault()
     if (!values.direction) {
-      setErrorMessage('Make sure to chose a direction of trade')
+      setErrorMessage('Make sure to chose direction')
     } else {
       setErrorMessage('')
       nextStep()
@@ -17,31 +18,32 @@ const MarketAndDirection = ({ values, nextStep, onChangeByInput }) => {
   }
 
   return (
-    <div>
+    <FormContainer>
       <FormTextField
         name='market'
         value={values.market}
         onChange={onChangeByInput}
         placeholder="Market"
       />
-      <br />
       <label>Direction</label>
-      <br />
-      <RadioBtn
+
+      <FormLabelAndInputPair
+        label="Long"
         name="direction"
         value="long"
+        type="radio"
         checked={values.direction === 'long' ? true : false}
         onChange={onChangeByInput}
       />
-      <label>Long</label>
-
-      <RadioBtn
+      <FormLabelAndInputPair
+        label="Short"
         name="direction"
         value="short"
-        checked={values.direction === 'short' ? true : false}
+        type="radio"
+        checked={values.direction === 'long' ? true : false}
         onChange={onChangeByInput}
       />
-      <label>Short</label>
+
       <div className="trade-form-error-message">
         {errorMsg && <p>{errorMsg}</p>}
       </div>
@@ -49,8 +51,7 @@ const MarketAndDirection = ({ values, nextStep, onChangeByInput }) => {
         text="Next"
         onClick={next}
       />
-      <br />
-    </div >
+    </FormContainer>
   )
 }
 

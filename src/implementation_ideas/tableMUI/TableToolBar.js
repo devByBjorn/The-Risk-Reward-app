@@ -8,7 +8,10 @@ import GlobalFilter from './GlobalFilter'
 //import IconButton from '@material-ui/core/IconButton'
 import IconButton from '../../components_style/IconButtonStyled'
 import Toolbar from '@material-ui/core/Toolbar'
+
 import Typography from '@material-ui/core/Typography'
+import TypographyStyled from '../../components_style/TypogrophyStyled'
+
 import Tooltip from '@material-ui/core/Tooltip'
 import tableToolbarStyled from '../../components_style/tableToolbarStyled'
 
@@ -35,31 +38,31 @@ const TableToolbar = props => {
       <Tooltip title="Add">
         <Link to="/add-trade">
           <IconButton aria-label="add">
-            <AddIcon />
+            <AddIcon
+              fontSize="large"
+            />
           </IconButton>
         </Link>
       </Tooltip>
 
       {numSelected > 0 ? (
-        <Typography
+        <TypographyStyled
           className={classes.title}
           color="inherit"
-          variant="subtitle1"
         >
           {numSelected} selected
-        </Typography>
+        </TypographyStyled>
       ) : (
-          <Typography
+          <TypographyStyled
             className={classes.title}
-            variant="h6"
             id="tableTitle">
             Add trade
-          </Typography>
+          </TypographyStyled>
         )}
 
       <Typography
         className={classes.tableTitle}
-        variant="h5"
+        variant="h4"
         id="tableMainTitle"
       >{tableName}
       </Typography>
@@ -80,15 +83,20 @@ const TableToolbar = props => {
             <IconButton
               aria-label="delete"
               onClick={deleteTrades}>
-              <DeleteIcon />
+              <DeleteIcon
+                fontSize="large"
+              />
             </IconButton>
           </Tooltip>
           <Tooltip
             title="Edit">
             <IconButton
-              aria-label="edit">
+              aria-label="edit"
+            >
               <NavLink to={`/edit-trade/${data[rowId].id}`}>
-                <EditIcon />
+                <EditIcon
+                  fontSize="large"
+                />
               </NavLink>
             </IconButton>
           </Tooltip>
@@ -99,7 +107,9 @@ const TableToolbar = props => {
           <IconButton
             aria-label="delete"
             onClick={deleteTrades}>
-            <DeleteIcon />
+            <DeleteIcon
+              fontSize="large"
+            />
           </IconButton>
         </Tooltip>
       )}

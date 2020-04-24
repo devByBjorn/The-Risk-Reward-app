@@ -11,6 +11,7 @@ import PropTypes from 'prop-types'
 const useStyles = makeStyles(theme => ({
   root: {
     flexShrink: 0,
+    fontSize: '1.6rem',
     marginLeft: theme.spacing(2.5),
   }
 }))

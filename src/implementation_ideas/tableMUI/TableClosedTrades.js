@@ -78,7 +78,7 @@ const TableClosedTrades = ({ trades }) => {
   }
 
   return (
-    <div style={{ maxWidth: '100rem', margin: `5rem auto` }} >
+    <div>
       <EnhancedTable
         tableName={tableName}
         columns={columns}
