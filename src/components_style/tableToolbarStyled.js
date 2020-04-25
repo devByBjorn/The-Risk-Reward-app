@@ -1,11 +1,12 @@
 
-import { lighten, makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 
 const tableToolBarStyled = makeStyles(theme => ({
   root: {
     background: '#fff',
     borderBottom: '1px solid #e0e0e0',
     minHeight: '8rem',
+    fontSize: '1.6rem',
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(2),
   },
@@ -19,16 +20,20 @@ const tableToolBarStyled = makeStyles(theme => ({
         color: theme.palette.text.primary,
         backgroundColor: theme.palette.secondary.dark,
       },
-  title: {
-    color: '#d93025',
-    flex: '1',
+  link: {
+    color: '#202124',
   },
   tableTitle: {
     position: 'absolute',
     left: '40%',
-    fontWeight: '600',
+    fontWeight: 600,
     padding: '0 2rem',
-  }
+  },
+  title: {
+    color: '#d93025',
+    flex: '1',
+    fontSize: '1.6rem',
+  },
 }))
 
 export default tableToolBarStyled

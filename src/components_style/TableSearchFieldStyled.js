@@ -14,7 +14,7 @@ export default makeStyles(theme => ({
     },
     transition: 'background 0.3s ease',
     '&:hover': {
-      background: '#eee',
+      background: '#fafafa',
     },
   },
   searchIcon: {

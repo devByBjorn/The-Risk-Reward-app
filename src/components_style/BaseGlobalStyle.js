@@ -14,8 +14,9 @@ export const styles = (theme) => ({
       fontSize: '62.5%'
     },
     body: {
-      padding: 0,
       fontSize: '1.6rem',
+      margin: '5rem',
+      padding: 0,
     },
   },
 });
