@@ -10,7 +10,6 @@ import clsx from 'clsx'
 import DeleteIcon from '@material-ui/icons/Delete'
 import EditIcon from '@material-ui/icons/Edit'
 import GlobalFilter from './TableSearchField'
-//import IconButton from '@material-ui/core/IconButton'
 import IconButton from '../../components_style/IconButtonStyled'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
@@ -23,6 +22,11 @@ const theme = createMuiTheme({
     MuiTooltip: {
       tooltip: {
         fontSize: '1.2rem',
+      }
+    },
+    MuiTypography: {
+      typography: {
+        fontFamily: 'Century Gothic, Futura, sans-serif',
       }
     }
   }
@@ -109,7 +113,7 @@ const TableToolbar = props => {
               <IconButton
                 aria-label="edit"
               >
-                <NavLink className={classes.link} to={`/edit-trade/${data[rowId].id}`}>
+                <NavLink className={classes.link} to={`/edit-trade/${data[rowId].id}` || '/trades'}>
                   <EditIcon
                     fontSize="large"
                   />

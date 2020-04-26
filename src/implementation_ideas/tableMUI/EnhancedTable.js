@@ -26,15 +26,8 @@ import {
   useSortBy,
   useTable,
 } from 'react-table'
-//import EditableCell from './EditableCell'
 import IndeterminateCheckbox from './IndeterminateCheckbox'
 import { deleteFirebaseTrade, editFirebaseTrade } from '../../actions/tradeActions'
-
-
-// Set our editable cell renderer as the default Cell renderer
-// const defaultColumn = {
-//   Cell: EditableCell,
-// }
 
 const EnhancedTable = ({
   tableName,
@@ -60,13 +53,7 @@ const EnhancedTable = ({
     {
       columns,
       data,
-      //defaultColumn,
       autoResetPage: !skipPageReset,
-      // updateMyData isn't part of the API, but
-      // anything we put into these options will
-      // automatically be available on the instance.
-      // That way we can call this function from our
-      // cell renderer!
       updateMyData,
     },
     useGlobalFilter,
@@ -94,9 +81,8 @@ const EnhancedTable = ({
       ])
     }
   )
-
+  //
   const getOutcomeBorder = (value) => {
-
     let border
 
     switch (value) {

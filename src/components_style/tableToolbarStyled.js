@@ -26,12 +26,14 @@ const tableToolBarStyled = makeStyles(theme => ({
   tableTitle: {
     position: 'absolute',
     left: '40%',
+    fontFamily: 'Century Gothic, Futura, sans-serif',
     fontWeight: 600,
     padding: '0 2rem',
   },
   title: {
     color: '#d93025',
     flex: '1',
+    fontFamily: 'Century Gothic, Futura, sans-serif',
     fontSize: '1.6rem',
   },
 }))

@@ -1,18 +1,47 @@
+import React, { useState } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+import FormPageContainer from '../components_style/FormPageContainerStyled'
+import FormContainer from '../components_style/FormContainerStyled'
 
-import React, { useState, useRef } from 'react'
-import { TextInput } from './inputs'
-import Btn from './Btn'
-import { FormTextField } from './styles/styledInputs'
+const useStyles = makeStyles((theme) => ({
+  buttonContainer: {
+    display: 'flex',
+    width: '100%',
+  },
+  button: {
+    background: '#f50057',
+    color: '#fff',
+    margin: theme.spacing(1, 1, 0, 0),
+    width: '50%'
+  },
+  formControl: {
+    margin: theme.spacing(3),
+  },
+  formLabel: {
+    marginBottom: '1rem',
+  }
+}))
 
-const StopEntryTarget = ({ values, nextStep, prevStep, onChangeValue, onChangeByInput }) => {
-  const [errorMsg, setErrorMessage] = useState('')
+const StopEntryTarget = ({
+  values,
+  nextStep,
+  prevStep,
+  onChangeValue,
+}) => {
+
+  const classes = useStyles()
+  const { entry, stop, target } = values
+
+  const [error, setError] = useState(false)
 
   const next = e => {
     e.preventDefault()
-    if (!values.entry || !values.stop || !values.target) {
-      setErrorMessage('Make sure to give entry, stop and target a value')
+    if (!entry || !stop || !target) {
+      setError(true)
     } else {
-      setErrorMessage('')
+      setError(false)
       nextStep()
     }
   }
@@ -23,46 +52,47 @@ const StopEntryTarget = ({ values, nextStep, prevStep, onChangeValue, onChangeBy
   }
 
   return (
-    <div>
+    <FormPageContainer>
+      <FormContainer>
+        <TextField
+          error={!entry && error}
+          label="Entry"
+          name="entry"
+          value={entry}
+          onChange={onChangeValue}
+          placeholder="Entry"
+        />
 
-      <FormTextField
-        name="setup"
-        value={values.setup}
-        onChange={onChangeByInput}
-        placeholder="Setup"
-      />
-      <br />
-      <FormTextField
-        name="entry"
-        value={values.entry}
-        onChange={onChangeValue}
-        placeholder="Entry"
-      />
-      <br />
-      <FormTextField
-        name="stop"
-        value={values.stop}
-        onChange={onChangeValue}
-        placeholder="Stop"
-      />
-      <br />
-      <FormTextField
-        name="target"
-        value={values.target}
-        onChange={onChangeValue}
-        placeholder="Target"
-      />
-      <br />
-      {errorMsg && <p>{errorMsg}</p>}
-      <Btn
-        text="Back"
-        onClick={back}
-      />
-      <Btn
-        text="Next"
-        onClick={next}
-      />
-    </div>
+        <TextField
+          error={!stop && error}
+          label="Stop"
+          name="stop"
+          value={stop}
+          onChange={onChangeValue}
+          placeholder="Stop"
+        />
+
+        <TextField
+          error={!target && error}
+          label="Target"
+          name="target"
+          value={target}
+          onChange={onChangeValue}
+          placeholder="Target"
+        />
+
+        <div className={classes.buttonContainer}>
+          <Button
+            className={classes.button}
+            onClick={back}
+          >Back</Button>
+          <Button
+            className={classes.button}
+            onClick={next}
+          >Next</Button>
+        </div>
+      </FormContainer>
+    </FormPageContainer>
   )
 }
 
@@ -109,7 +139,7 @@ const StopEntryTarget = ({ values, nextStep, prevStep, onChangeValue, onChangeBy
 //           value={values.target}
 //           onChange={onChangeValue}
 //         />
-//         <br />
+//       
 //         {this.state.errorMsg && <p>{this.state.errorMsg}</p>}
 //         <Btn
 //           text="Back"

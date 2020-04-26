@@ -7,7 +7,11 @@
       Gör en navbar för vardera steg,så att man på edit kan 
       hoppa och även se vilka steg som är gjorda - DONE
 
-  6. Bygg WatchList, använd Hooks API   
-  7. Bygg Weekly Scenario
-  8. Implementera Material UI för forms
+2020-04-26
+1. Byt ut DateRangePicker till React DateTimePicker 
+2. Material UI för form steps
+3. Main Nav
+4. calculateRiskReward - ta höjd för NaN
+5. Total table row för R och antal trades
+6. Nivo för stats visual
   
