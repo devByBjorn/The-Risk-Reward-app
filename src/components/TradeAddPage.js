@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addFirebaseTrade } from '../actions/tradeActions'
-import TradeParentForm from './TradeParentForm'
+import FormParent from './FormParent'
 
 const TradeAddPage = ({ addFirebaseTrade, history }) => {
   const handleAddTrade = (trade) => {
@@ -11,7 +11,7 @@ const TradeAddPage = ({ addFirebaseTrade, history }) => {
 
   return (
     <div>
-      <TradeParentForm
+      <FormParent
         handleSubmit={handleAddTrade}
       />
     </div>

@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import moment from 'moment'
-import { isInclusivelyBeforeDay, DateRangePicker } from 'react-dates'
 import { makeStyles } from '@material-ui/core/styles'
 import TextField from '@material-ui/core/TextField'
 import Radio from '@material-ui/core/Radio'
@@ -13,43 +11,46 @@ import Button from '@material-ui/core/Button'
 import FormPageContainer from '../components_style/FormPageContainerStyled'
 import FormContainer from '../components_style/FormContainerStyled'
 
+import FormStepThreeClosed from './FormStepThreeClosed'
+import FormStepThreeActive from './FormStepThreeActive'
+
 const useStyles = makeStyles((theme) => ({
-  buttonWrapper: {
+  buttonContainer: {
     display: 'flex',
     width: '100%',
   },
   button: {
+    background: '#f50057',
+    color: '#fff',
     margin: theme.spacing(1, 1, 0, 0),
     width: '50%'
-  },
-  dateWrapper: {
-    display: 'flex',
-    flexDirection: 'column',
   },
   formControl: {
     margin: theme.spacing(3),
   },
   formLabel: {
     marginBottom: '1rem',
-  }
+  },
 }))
 
-
-const OutcomeAndDates = ({
+const FormStepThree = ({
   values,
   nextStep,
   prevStep,
+  onChangeValue,
   onChangeByInput,
-  onDatesChange }) => {
+  onCloseDateChange,
+  onOpenDateChange
+}) => {
+
   const classes = useStyles()
-  const { outcome, opened, closed } = values
+  const { entry, stop, target, status } = values
 
   const [error, setError] = useState(false)
-  const [focused, setFocused] = useState(null)
 
   const next = e => {
     e.preventDefault()
-    if (!outcome || !opened || !closed) {
+    if (!entry || !stop || !target) {
       setError(true)
     } else {
       setError(false)
@@ -67,70 +68,61 @@ const OutcomeAndDates = ({
       <FormContainer>
         <FormControl
           component="fieldset"
-          error={!outcome && error}
-          className={classes.formControl}>
+          error={!status && error}
+          className={classes.formControl}
+        //onChange={onStatusChange}
+        >
           <FormLabel
             className={classes.formLabel}
-            component="legend">outcome</FormLabel>
-          <RadioGroup aria-label="outcome" name="outcome">
+            component="legend">Status</FormLabel>
+          <RadioGroup aria-label="status" name="status">
             <FormControlLabel
-              value="win"
+              value="closed"
               control={<Radio />}
-              label="win"
-              checked={outcome === 'win' ? true : false}
+              label="Closed"
+              checked={status === 'closed' ? true : false}
               onChange={onChangeByInput}
             />
             <FormControlLabel
-              value="loss"
+              value="active"
               control={<Radio />}
-              label="loss"
-              checked={outcome === 'loss' ? true : false}
+              label="Active"
+              checked={status === 'active' ? true : false}
               onChange={onChangeByInput}
             />
             <FormControlLabel
-              value="scratch"
+              value="pending"
               control={<Radio />}
-              label="scratch"
-              checked={outcome === 'scratch' ? true : false}
+              label="Pending"
+              checked={status === 'pending' ? true : false}
               onChange={onChangeByInput}
             />
           </RadioGroup>
         </FormControl>
 
-
-
-        <div className={classes.dateWrapper}>
-          <label
-            error={!opened || !closed & error}
-          >Opened & Closed</label>
-          <DateRangePicker
-            startDate={opened}
-            startDateId="startDateId"
-            endDate={closed}
-            endDateId="endDateId"
-            onDatesChange={onDatesChange}
-            focusedInput={focused}
-            onFocusChange={(focused) => setFocused(focused)}
-            numberOfMonths={1}
-            isOutsideRange={day => !isInclusivelyBeforeDay(day, moment())}
-            showClearDates={true}
-            minimumNights={0}
+        {status === 'closed' &&
+          <FormStepThreeClosed
+            values={values}
+            onChangeByInput={onChangeByInput}
+            onClosedDateChange={onCloseDateChange}
+            onOpenDateChange={onOpenDateChange}
           />
-        </div>
+        }
+        {status === 'active' &&
+          <FormStepThreeActive
+            values={values}
+            onOpenDateChange={onOpenDateChange}
+          />
+        }
 
-
-        <div className={classes.buttonWrapper}>
+        <div className={classes.buttonContainer}>
           <Button
             className={classes.button}
             onClick={back}
-            variant="outlined"
-            color="primary"
           >Back</Button>
           <Button
             className={classes.button}
             onClick={next}
-            variant="outlined"
-            color="primary"
           >Next</Button>
         </div>
       </FormContainer>
@@ -138,4 +130,4 @@ const OutcomeAndDates = ({
   )
 }
 
-export default OutcomeAndDates
+export default FormStepThree

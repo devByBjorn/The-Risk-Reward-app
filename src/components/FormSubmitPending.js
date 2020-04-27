@@ -1,7 +1,7 @@
 import React from 'react'
 import { Btn, SubmitBtn } from './Btn'
 
-const InspectAndSubmitPending = ({ values, prevStep, handleSubmit }) => {
+const FormSubmitPending = ({ values, prevStep, handleSubmit }) => {
   const back = e => {
     e.preventDefault()
     prevStep()
@@ -30,4 +30,4 @@ const InspectAndSubmitPending = ({ values, prevStep, handleSubmit }) => {
   )
 }
 
-export default InspectAndSubmitPending
+export default FormSubmitPending

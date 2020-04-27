@@ -13,6 +13,8 @@ import './firebase/firebase'
 import CssBaseline from './components_style/BaseGlobalStyle'
 import typoTheme from './components_style/TypographStyled'
 
+import "react-datepicker/dist/react-datepicker.css"
+
 const store = configureStore()
 
 const app = (

@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { editFirebaseTrade, deleteFirebaseTrade } from '../actions/tradeActions'
-import TradeParentForm from './TradeParentForm'
+import FormParent from './FormParent'
 import Btn from './Btn'
 import { TrashIcon } from '../icons/IconsComponents'
 
@@ -17,7 +17,7 @@ class TradeEditPage extends React.Component {
   render() {
     return (
       <div>
-        <TradeParentForm
+        <FormParent
           pathname={this.props.location.pathname}
           trade={this.props.trade}
           handleSubmit={this.handleEditOnAdd}

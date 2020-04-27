@@ -8,10 +8,16 @@
       hoppa och även se vilka steg som är gjorda - DONE
 
 2020-04-26
+3. Main Nav - DONE
+
 1. Byt ut DateRangePicker till React DateTimePicker 
 2. Material UI för form steps
-3. Main Nav
+ a) Upplägg - hur många steg?
+
 4. calculateRiskReward - ta höjd för NaN
 5. Total table row för R och antal trades
-6. Nivo för stats visual
+6. Stats Page
+  a) strike rate / market
+  b) strike rate / setup
+7. Nivo för stats visual
   

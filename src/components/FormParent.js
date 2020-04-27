@@ -1,19 +1,20 @@
 import React from 'react'
 import moment from 'moment'
 import { calculatePositiveR, calculateNegativeR } from '../calculations/riskRewardCalculation'
-import MarketAndDirection from './MarketAndDirection'
-import StopEntryTarget from './StopEntryTarget'
+import FormStepOne from './FormStepOne'
+import FormStepTwo from './FormStepTwo'
 import TradeStatus from './TradeStatus'
-import OutComeAndDates from './OutcomeAndDates'
-import Execution from './Execution'
-import Management from './Management'
-import InspectAndSubmitClosed from './InscpectAndSubmitClosed'
-import SetOpenDate from './SetOpenDate'
-import InspectAndSubmitActive from './InspectAndSubmitAcitve'
-import InspectAndSubmitPending from './InspectAndSubmitPending'
-import TradeParentFormNav from './TradeParentFormNav'
+import FormStepThreeClosed from './FormStepThreeClosed'
+import FormStepExecution from './FormStepExecution'
+import FormStepManagement from './FormStepManagement'
+import FormSubmitClosed from './FormSubmitClosed'
+import FormStepThreeActive from './FormStepThreeActive'
+import FormSubmitActive from './FormSubmitAcitve'
+import FormSubmitPending from './FormSubmitPending'
+import FormNav from './FormNav'
+import FormStepThree from './FormStepThree'
 
-class MainParentForm extends React.Component {
+class FormParent extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -29,8 +30,10 @@ class MainParentForm extends React.Component {
       status: props.trade ? props.trade.status : '',
       setup: props.trade ? props.trade.setup : '',
       outcome: props.trade ? props.trade.outcome : '',
-      opened: props.trade ? moment(props.trade.opened) : moment(),
-      closed: props.trade ? moment(props.trade.closed) : moment(),
+      //opened: props.trade ? moment(props.trade.opened) : moment(),
+      //closed: props.trade ? moment(props.trade.closed) : moment(),
+      opened: props.trade ? new Date(props.trade.opened) : new Date(),
+      closed: props.trade ? new Date(props.trade.closed) : new Date(),
       conclusion: props.trade
         ? ({
           execution: props.trade.conclusion.execution,
@@ -112,6 +115,7 @@ class MainParentForm extends React.Component {
   }))
 
   onOpenDateChange = (opened) => this.setState(() => ({ opened }))
+  onClosedDateChange = (closed) => this.setState(() => ({ closed }))
 
   onConclusionChange = (e) => {
     const { name, value } = e.target
@@ -137,9 +141,12 @@ class MainParentForm extends React.Component {
       status: status,
       outcome: outcome,
       setup: setup,
-      opened: opened ? opened.valueOf() : '',
-      closed: closed ? closed.valueOf() : '',
-      period: closed && opened ? (closed - opened).valueOf() : '',
+      //opened: opened ? opened.valueOf() : '',
+      //closed: closed ? closed.valueOf() : '',
+      //period: closed && opened ? (closed - opened).valueOf() : '',
+      opened: opened ? opened.getTime() : '',
+      closed: closed ? closed.getTime() : '',
+      period: closed && opened ? closed - opened : '',
       rewardToRisk: outcome && parseFloat(this.calculateRewardToRisk()),
       negativeR: !outcome && calculateNegativeR(entry, stop, target, direction),
       positiveR: !outcome && calculatePositiveR(entry, stop, target, direction),
@@ -175,16 +182,17 @@ class MainParentForm extends React.Component {
         return (
           <div>
             {editMode &&
-              <TradeParentFormNav
+              <FormNav
                 values={values}
                 prevStep={this.prevStep}
                 navigateByStepValue={this.navigateByStepValue}
               />
             }
-            <MarketAndDirection
+            <FormStepOne
               values={values}
               nextStep={this.nextStep}
               onChangeByInput={this.onChangeByInput}
+              onChangeValue={this.onChangeValue}
             />
           </div>
         )
@@ -192,13 +200,13 @@ class MainParentForm extends React.Component {
         return (
           <div>
             {editMode &&
-              <TradeParentFormNav
+              <FormNav
                 values={values}
                 prevStep={this.prevStep}
                 navigateByStepValue={this.navigateByStepValue}
               />
             }
-            <StopEntryTarget
+            <FormStepTwo
               values={values}
               prevStep={this.prevStep}
               nextStep={this.nextStep}
@@ -207,58 +215,60 @@ class MainParentForm extends React.Component {
             />
           </div>
         )
-
       case 3:
         return (
           <div>
             {editMode &&
-              <TradeParentFormNav
+              <FormNav
                 values={values}
                 prevStep={this.prevStep}
                 navigateByStepValue={this.navigateByStepValue}
               />
             }
-            <TradeStatus
+            <FormStepThree
               values={values}
               prevStep={this.prevStep}
               nextStep={this.nextStep}
               onChangeByInput={this.onChangeByInput}
-              handleSubmit={this.handleSubmit}
+              onOpenDateChange={this.onOpenDateChange}
+              onClosedDateChange={this.onClosedDateChange}
             />
           </div>
         )
     }
 
-    if (step === 4 && status === 'closed') {
+    {/*if (step === 3 && status === 'closed') {
       return (
         <div>
           {editMode &&
-            <TradeParentFormNav
+            <FormNav
               values={values}
               prevStep={this.prevStep}
               navigateByStepValue={this.navigateByStepValue}
             />
           }
-          <OutComeAndDates
+          <FormStepThreeClosed
             values={values}
             prevStep={this.prevStep}
             nextStep={this.nextStep}
             onChangeByInput={this.onChangeByInput}
             onDatesChange={this.onDatesChange}
+            onOpenDateChange={this.onOpenDateChange}
+            onClosedDateChange={this.onClosedDateChange}
           />
         </div>
       )
-    } else if (step === 4 && status === 'active') {
+    } else if (step === 3 && status === 'active') {
       return (
         <div>
           {editMode &&
-            <TradeParentFormNav
+            <FormNav
               values={values}
               prevStep={this.prevStep}
               navigateByStepValue={this.navigateByStepValue}
             />
           }
-          <SetOpenDate
+          <FormStepThreeActive
             values={values}
             nextStep={this.nextStep}
             prevStep={this.prevStep}
@@ -273,13 +283,68 @@ class MainParentForm extends React.Component {
         <div>
 
           {editMode &&
-            <TradeParentFormNav
+            <FormNav
               values={values}
               prevStep={this.prevStep}
               navigateByStepValue={this.navigateByStepValue}
             />
           }
-          <InspectAndSubmitPending
+          <FormSubmitPending
+            values={values}
+            prevStep={this.prevStep}
+            handleSubmit={this.handleSubmit}
+          />
+        </div>
+      )
+    }
+  */}
+    if (step === 4 && status === 'closed') {
+      return (
+        <div>
+          {editMode &&
+            <FormNav
+              values={values}
+              prevStep={this.prevStep}
+              navigateByStepValue={this.navigateByStepValue}
+            />
+          }
+          <FormStepExecution
+            values={values}
+            prevStep={this.prevStep}
+            nextStep={this.nextStep}
+            onConclusionChange={this.onConclusionChange}
+          />
+        </div>
+      )
+    } else if (step === 4 && status === 'active') {
+      return (
+        <div>
+          {editMode &&
+            <FormNav
+              values={values}
+              prevStep={this.prevStep}
+              navigateByStepValue={this.navigateByStepValue}
+            />
+          }
+          <FormSubmitActive
+            values={values}
+            prevStep={this.prevStep}
+            handleSubmit={this.handleSubmit}
+          />
+        </div>
+      )
+    } else if (step === 4 && status === 'pending') {
+      return (
+        <div>
+
+          {editMode &&
+            <FormNav
+              values={values}
+              prevStep={this.prevStep}
+              navigateByStepValue={this.navigateByStepValue}
+            />
+          }
+          <FormSubmitPending
             values={values}
             prevStep={this.prevStep}
             handleSubmit={this.handleSubmit}
@@ -292,34 +357,17 @@ class MainParentForm extends React.Component {
       return (
         <div>
           {editMode &&
-            <TradeParentFormNav
+            <FormNav
               values={values}
               prevStep={this.prevStep}
               navigateByStepValue={this.navigateByStepValue}
             />
           }
-          <Execution
+          <FormStepManagement
             values={values}
             prevStep={this.prevStep}
             nextStep={this.nextStep}
             onConclusionChange={this.onConclusionChange}
-          />
-        </div>
-      )
-    } else if (step === 5 && status === 'active') {
-      return (
-        <div>
-          {editMode &&
-            <TradeParentFormNav
-              values={values}
-              prevStep={this.prevStep}
-              navigateByStepValue={this.navigateByStepValue}
-            />
-          }
-          <InspectAndSubmitActive
-            values={values}
-            prevStep={this.prevStep}
-            handleSubmit={this.handleSubmit}
           />
         </div>
       )
@@ -329,33 +377,13 @@ class MainParentForm extends React.Component {
       return (
         <div>
           {editMode &&
-            <TradeParentFormNav
+            <FormNav
               values={values}
               prevStep={this.prevStep}
               navigateByStepValue={this.navigateByStepValue}
             />
           }
-          <Management
-            values={values}
-            prevStep={this.prevStep}
-            nextStep={this.nextStep}
-            onConclusionChange={this.onConclusionChange}
-          />
-        </div>
-      )
-    }
-
-    if (step === 7 && status === 'closed') {
-      return (
-        <div>
-          {editMode &&
-            <TradeParentFormNav
-              values={values}
-              prevStep={this.prevStep}
-              navigateByStepValue={this.navigateByStepValue}
-            />
-          }
-          <InspectAndSubmitClosed
+          <FormSubmitClosed
             values={values}
             prevStep={this.prevStep}
             handleSubmit={this.handleSubmit}
@@ -366,4 +394,4 @@ class MainParentForm extends React.Component {
   }
 }
 
-export default MainParentForm
+export default FormParent

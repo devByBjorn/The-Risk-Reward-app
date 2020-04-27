@@ -39,9 +39,10 @@ const useStyles = makeStyles((theme) => ({
 const MarketAndDirection = ({
   values,
   nextStep,
+  onChangeValue,
   onChangeByInput
 }) => {
-  const { market, direction, setup } = values
+  const { market, direction, setup, entry, stop, target, status } = values
   const classes = useStyles()
   const [error, setError] = useState(false)
 
@@ -94,7 +95,6 @@ const MarketAndDirection = ({
             />
           </RadioGroup>
         </FormControl>
-
         <TextField
           error={!setup && error}
           label="Setup"

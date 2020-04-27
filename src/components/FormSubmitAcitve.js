@@ -2,7 +2,7 @@ import React from 'react'
 import moment from 'moment'
 import { Btn, SubmitBtn } from './Btn'
 
-const InspectAndSubmitActive = ({ values, prevStep, handleSubmit }) => {
+const FormSubmitActive = ({ values, prevStep, handleSubmit }) => {
   const back = e => {
     e.preventDefault()
     prevStep()
@@ -32,4 +32,4 @@ const InspectAndSubmitActive = ({ values, prevStep, handleSubmit }) => {
   )
 }
 
-export default InspectAndSubmitActive
+export default FormSubmitActive

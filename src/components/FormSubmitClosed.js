@@ -2,7 +2,7 @@ import React from 'react'
 import moment from 'moment'
 import { Btn, SubmitBtn } from './Btn'
 
-const InspectAndSubmitClosed = ({ values, prevStep, handleSubmit }) => {
+const FormSubmitClosed = ({ values, prevStep, handleSubmit }) => {
   const back = e => {
     e.preventDefault()
     prevStep()
@@ -46,4 +46,4 @@ const InspectAndSubmitClosed = ({ values, prevStep, handleSubmit }) => {
   )
 }
 
-export default InspectAndSubmitClosed
+export default FormSubmitClosed
