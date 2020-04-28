@@ -74,22 +74,8 @@ const EnhancedTable = ({
           },
         },
         ...columns,
-        /* {
-           id: 'handle',
-           Header: () => (
-             <div
-               style={{ textAlign: 'right'}
-             >Handle</div>
-           ),
-           Cell: ({ row, data, cell }) => {
-             return (
-               <div>
-                 <EditIcon {...row.getToggleRowSelectedProps()} />
-               </div>
-             )
-           },
-         },*/
       ])
+      console.log(columns)
     }
   )
   //

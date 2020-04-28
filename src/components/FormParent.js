@@ -105,17 +105,6 @@ class FormParent extends React.Component {
     }
   }
 
-  formDate = (openedOrClose) => {
-    const milliSeconds = openedOrClose.getTime()
-    const date = new Date(milliSeconds)
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    const fullYear = date.getFullYear()
-    const month = months[date.getMonth()]
-    const dayDate = date.getDate()
-
-    return `${dayDate} ${month}, ${fullYear}`
-  }
-
   onOpenDateChange = (opened) => {
     this.setState(() => ({ opened }))
     console.log('OPENED:', opened)
@@ -152,8 +141,8 @@ class FormParent extends React.Component {
       //opened: opened ? opened.valueOf() : '',
       //closed: closed ? closed.valueOf() : '',
       //period: closed && opened ? (closed - opened).valueOf() : '',
-      opened: opened ? this.formDate(opened) : '',
-      closed: closed ? this.formDate(closed) : '',
+      opened: opened ? opened.getTime() : '',
+      closed: closed ? closed.getTime() : '',
       //period: closed && opened ? (closed - opened).getTime() : '',
       rewardToRisk: outcome && parseFloat(this.calculateRewardToRisk()),
       negativeR: !outcome && calculateNegativeR(entry, stop, target, direction),

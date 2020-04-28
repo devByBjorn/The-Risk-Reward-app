@@ -40,6 +40,13 @@ const TableActiveTrades = ({ trades }) => {
       {
         Header: 'Opened',
         accessor: 'opened',
+        Cell: (props) => {
+          const customDate = formDate(props.value)
+          console.log(props.value)
+          return (
+            <span>{customDate}</span>
+          )
+        }
       },
     ],
     []
