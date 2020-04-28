@@ -1,13 +1,13 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect, useRef, forwardRef } from 'react'
 import CheckBoxStyled from '../../components_style/CheckBoxStyled'
 import Checkbox from '@material-ui/core/Checkbox'
 
 
-const IndeterminateCheckbox = React.forwardRef(
+const IndeterminateCheckbox = forwardRef(
   ({ indeterminate, ...rest }, ref) => {
-    const defaultRef = React.useRef()
+    const defaultRef = useRef()
     const resolvedRef = ref || defaultRef
-    React.useEffect(() => {
+    useEffect(() => {
       resolvedRef.current.indeterminate = indeterminate
     }, [resolvedRef, indeterminate])
     return (

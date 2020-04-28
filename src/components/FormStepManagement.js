@@ -1,22 +1,49 @@
-import React, { useState } from 'react'
-import Btn from './Btn'
-import { RadioBtn, Textarea } from './inputs'
+import React, { Fragment, useState } from 'react'
+import { makeStyles } from '@material-ui/core/styles'
+import TextareaAutosize from '@material-ui/core/TextareaAutosize'
+import Radio from '@material-ui/core/Radio'
+import RadioGroup from '@material-ui/core/RadioGroup'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import FormControl from '@material-ui/core/FormControl'
+import FormHelperText from '@material-ui/core/FormHelperText'
+import FormLabel from '@material-ui/core/FormLabel'
+import Button from '@material-ui/core/Button'
+import FormPageContainer from '../components_style/FormPageContainerStyled'
+import FormContainer from '../components_style/FormContainerStyled'
+import formElementsStyled from '../components_style/formElementsStyled'
 
-const ManagementAndSubmit = ({ values, nextStep, prevStep, onConclusionChange }) => {
-  const [errorMsg, setErrorMsg] = useState('')
+const FormStepManagement = ({ values, nextStep, prevStep, onConclusionChange }) => {
+  const { management, whyManagement, improveManagement } = values
+  const classes = formElementsStyled()
+
+  const [helperTextWhy, setHelperTextWhy] = useState(' ')
+  const [helperTextImprove, setHelperTextImprove] = useState(' ')
+  const [error, setError] = useState(false)
 
   const next = e => {
     e.preventDefault()
-    if (!values.management) {
-      setErrorMsg('Make sure to chose an outcome')
-    } else if (!values.whyManagement) {
-      setErrorMsg('This is your chance to really improve your edge. Take it!')
-    } else if (!values.improveManagement) {
-      setErrorMsg('For fuck sake, don\'t be a cunt. Fill out the damn field')
+    if (!management) {
+      setError(true)
+    } else if (!whyManagement) {
+      setHelperTextWhy('This is you chance to really find your edge. There is no need to rush through this, what you need to do is to really think about why you acted like you did and write it down.')
+    } else if (whyManagement.length < 20) {
+      setHelperTextWhy('Come on! Do it properly.')
+    } else if (!improveManagement) {
+      setHelperTextImprove('If you want to improve you need to write down your thoughts and ideas about how to improve. Otherwise you will go around in circles, never improve, and in the end you will not make it in this business.')
+    } else if (improveManagement.length < 20) {
+      setHelperTextWhy('Come on! Do it properly.')
     } else {
-      setErrorMsg('')
+      setError(false)
+      setHelperTextImprove(' ')
+      setHelperTextWhy(' ')
       nextStep()
     }
+  }
+
+
+  const onTextAreaChange = (e) => {
+    const { value } = e.target
+    if (value.length > 20) setHelperTextWhy(' ')
   }
 
   const back = e => {
@@ -25,54 +52,91 @@ const ManagementAndSubmit = ({ values, nextStep, prevStep, onConclusionChange })
   }
 
   return (
-    <React.Fragment>
-      <h4>Conclusion 2/2: Management</h4>
-      {errorMsg && <p>{errorMsg}</p>}
-      <label>Good</label>
-      <RadioBtn
-        name="management"
-        value="good"
-        checked={values.management === 'good' ? true : false}
-        onChange={onConclusionChange}
-      />
-      <label>Poor</label>
-      <RadioBtn
-        name="management"
-        value="poor"
-        checked={values.management === 'poor' ? true : false}
-        onChange={onConclusionChange}
-      />
-      <label>Both</label>
-      <RadioBtn
-        name="management"
-        value="both"
-        checked={values.management === 'both' ? true : false}
-        onChange={onConclusionChange}
-      />
+    <FormPageContainer>
+      <FormContainer>
+        <FormControl
+          component="fieldset"
+          error={!management && error}
+          className={classes.formControl}>
+          <FormLabel
+            className={classes.formLabel}
+            component="legend">Management</FormLabel>
+          <RadioGroup aria-label="management" name="management">
+            <FormControlLabel
+              value="good"
+              control={<Radio />}
+              label="good"
+              checked={management === 'good' ? true : false}
+              onChange={onConclusionChange}
+            />
+            <FormControlLabel
+              value="poor"
+              control={<Radio />}
+              label="poor"
+              checked={management === 'poor' ? true : false}
+              onChange={onConclusionChange}
+            />
+            <FormControlLabel
+              value="both"
+              control={<Radio />}
+              label="both"
+              checked={management === 'both' ? true : false}
+              onChange={onConclusionChange}
+            />
+          </RadioGroup>
+        </FormControl>
 
-      <Textarea
-        placeholder="Why?"
-        name="whyManagement"
-        value={values.whyManagement}
-        onChange={onConclusionChange}
-      />
-      <Textarea
-        placeholder="How to improve?"
-        name="improveManagement"
-        value={values.improveManagement}
-        onChange={onConclusionChange}
-      />
-      <Btn
-        text="Back"
-        onClick={back}
-      />
-      <Btn
-        text="Next"
-        onClick={next}
-      />
-    </React.Fragment>
+        {management &&
+          <Fragment>
+            <FormLabel
+              className={classes.formLabel}
+              component="legend">Develop</FormLabel>
+            <TextareaAutosize
+              onChange={onTextAreaChange}
+              className={classes.textArea}
+              error={!whyManagement && error}
+              aria-label="minimum height"
+              rowsMin={8}
+              placeholder="What made you manage your trade in this manner?"
+              name="whyManagement"
+              value={whyManagement}
+              onChange={onConclusionChange}
+            />
+            <FormHelperText
+              className={classes.helperText}
+              children={helperTextWhy}
+            />
+            <TextareaAutosize
+              className={classes.textArea}
+              error={!improveManagement && error}
+              aria-label="minimum height"
+              rowsMin={8}
+              placeholder="How can you improve your management?"
+              name="improveManagement"
+              value={improveManagement}
+              onChange={onConclusionChange}
+            />
+            <FormHelperText
+              className={classes.helperText}
+              children={helperTextImprove}
+            />
+          </Fragment>
+        }
+        <div className={classes.buttonContainer}>
+          <Button
+            className={classes.button}
+            onClick={back}
+          >Back</Button>
+          <Button
+            className={classes.button}
+            onClick={next}
+          >Next</Button>
+        </div>
+      </FormContainer>
+    </FormPageContainer>
   )
 }
 
 
-export default ManagementAndSubmit
+
+export default FormStepManagement

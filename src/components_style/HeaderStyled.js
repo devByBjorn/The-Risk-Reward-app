@@ -8,6 +8,7 @@ const headerStyled = makeStyles(theme => ({
     background: '#fff',
     borderBottom: '1px solid #e0e0e0',
     padding: '2rem 5rem',
+    zIndex: '999'
   },
   link: {
     borderTop: '5px solid transparent',

@@ -13,44 +13,27 @@ import FormContainer from '../components_style/FormContainerStyled'
 
 import FormStepThreeClosed from './FormStepThreeClosed'
 import FormStepThreeActive from './FormStepThreeActive'
-
-const useStyles = makeStyles((theme) => ({
-  buttonContainer: {
-    display: 'flex',
-    width: '100%',
-  },
-  button: {
-    background: '#f50057',
-    color: '#fff',
-    margin: theme.spacing(1, 1, 0, 0),
-    width: '50%'
-  },
-  formControl: {
-    margin: theme.spacing(3),
-  },
-  formLabel: {
-    marginBottom: '1rem',
-  },
-}))
+import formElementsStyled from '../components_style/formElementsStyled'
 
 const FormStepThree = ({
   values,
   nextStep,
   prevStep,
-  onChangeValue,
   onChangeByInput,
-  onCloseDateChange,
+  onClosedDateChange,
   onOpenDateChange
 }) => {
 
-  const classes = useStyles()
-  const { entry, stop, target, status } = values
+  const classes = formElementsStyled()
+  const { status, outcome, } = values
 
   const [error, setError] = useState(false)
 
   const next = e => {
     e.preventDefault()
-    if (!entry || !stop || !target) {
+    if (!status) {
+      setError(true)
+    } else if (status === 'closed' && !outcome) {
       setError(true)
     } else {
       setError(false)
@@ -70,7 +53,6 @@ const FormStepThree = ({
           component="fieldset"
           error={!status && error}
           className={classes.formControl}
-        //onChange={onStatusChange}
         >
           <FormLabel
             className={classes.formLabel}
@@ -102,9 +84,10 @@ const FormStepThree = ({
 
         {status === 'closed' &&
           <FormStepThreeClosed
+            error={error}
             values={values}
             onChangeByInput={onChangeByInput}
-            onClosedDateChange={onCloseDateChange}
+            onClosedDateChange={onClosedDateChange}
             onOpenDateChange={onOpenDateChange}
           />
         }

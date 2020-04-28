@@ -1,11 +1,15 @@
 import styled from 'styled-components'
 
 const FormPageContainer = styled.div`
+background: #fff;
+border-left: 1px solid #eee;
+border-right: 1px solid #eee;
+max-width: 100vw;
+min-height: 100vh;
+width: 150rem;
+margin: 0 auto;
 display: flex;
-align-items: center;
 justify-content: center;
-margin: 2.5rem 0;
-min-height: 90vh;
 `
 
 export default FormPageContainer

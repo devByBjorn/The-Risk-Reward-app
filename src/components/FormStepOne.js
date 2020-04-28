@@ -10,46 +10,19 @@ import FormLabel from '@material-ui/core/FormLabel'
 import Button from '@material-ui/core/Button'
 import FormPageContainer from '../components_style/FormPageContainerStyled'
 import FormContainer from '../components_style/FormContainerStyled'
+import formElementsStyled from '../components_style/formElementsStyled'
 
-
-const useStyles = makeStyles((theme) => ({
-  buttonContainer: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    width: '100%',
-  },
-  button: {
-    background: '#f50057',
-    color: '#fff',
-    margin: theme.spacing(1, 1, 0, 0),
-    width: '50%',
-    '&:hover': {
-      background: '#3f51b5'
-    }
-  },
-  formControl: {
-    margin: theme.spacing(3),
-  },
-  formLabel: {
-    marginBottom: '1rem',
-  }
-}))
-
-
-const MarketAndDirection = ({
+const FormStepOne = ({
   values,
   nextStep,
-  onChangeValue,
   onChangeByInput
 }) => {
-  const { market, direction, setup, entry, stop, target, status } = values
-  const classes = useStyles()
+  const { market, direction, setup } = values
+  const classes = formElementsStyled()
   const [error, setError] = useState(false)
-
 
   const next = e => {
     e.preventDefault()
-
     if (!market || !direction || !setup) {
       setError(true)
     } else {
@@ -61,8 +34,9 @@ const MarketAndDirection = ({
   return (
     <FormPageContainer>
       <FormContainer>
+
         <TextField
-          className={classes.inline}
+          className={classes.textField}
           error={!market && error}
           label="Market"
           name='market'
@@ -70,7 +44,7 @@ const MarketAndDirection = ({
           onChange={onChangeByInput}
           placeholder="Market"
         />
-
+        <div className={classes.lineBreak} />
         <FormControl
           component="fieldset"
           error={!direction && error}
@@ -86,6 +60,7 @@ const MarketAndDirection = ({
               checked={direction === 'long' ? true : false}
               onChange={onChangeByInput}
             />
+            <br />
             <FormControlLabel
               value="short"
               control={<Radio />}
@@ -96,6 +71,7 @@ const MarketAndDirection = ({
           </RadioGroup>
         </FormControl>
         <TextField
+          className={classes.textField}
           error={!setup && error}
           label="Setup"
           name="setup"
@@ -115,4 +91,4 @@ const MarketAndDirection = ({
   )
 }
 
-export default MarketAndDirection
+export default FormStepOne

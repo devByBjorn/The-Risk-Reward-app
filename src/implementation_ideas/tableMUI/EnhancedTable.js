@@ -4,21 +4,17 @@ import MaUTable from '@material-ui/core/Table'
 import TableStyled from '../../components_style/TableStyled'
 import TableBody from '@material-ui/core/TableBody'
 import TableCellStyled from '../../components_style/TableCellStyled'
-
 import TableContainer from '@material-ui/core/TableContainer'
 import TableContainerStyled from '../../components_style/TableContainerStyled'
 import TableFooter from '@material-ui/core/TableFooter'
-
 import TableHead from '@material-ui/core/TableHead'
-//import TableHead from '../../components_style/TableHeadStyled'
-
 import TablePagination from '@material-ui/core/TablePagination'
 import TablePaginationStyled from '../../components_style/TablePaginationStyled'
-
 import TablePaginationActions from './TablePaginationActions'
 import TableRow from '@material-ui/core/TableRow'
 import TableSortLabel from '@material-ui/core/TableSortLabel'
 import TableToolbar from './TableToolbar'
+import EditIcon from '@material-ui/icons/Edit'
 import {
   useGlobalFilter,
   usePagination,
@@ -78,6 +74,21 @@ const EnhancedTable = ({
           },
         },
         ...columns,
+        /* {
+           id: 'handle',
+           Header: () => (
+             <div
+               style={{ textAlign: 'right'}
+             >Handle</div>
+           ),
+           Cell: ({ row, data, cell }) => {
+             return (
+               <div>
+                 <EditIcon {...row.getToggleRowSelectedProps()} />
+               </div>
+             )
+           },
+         },*/
       ])
     }
   )
@@ -129,6 +140,7 @@ const EnhancedTable = ({
     )
     return tradesToDelete && setData(tradesToKeep)
   }
+
   //
   return (
     <TableContainerStyled>
@@ -175,7 +187,6 @@ const EnhancedTable = ({
               <TableRow {...row.getRowProps()}>
                 {row.cells.map(cell => {
                   const border = getOutcomeBorder(cell.value)
-
                   return (
                     <TableCellStyled
                       style={{ borderLeft: border }}

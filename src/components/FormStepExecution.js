@@ -1,25 +1,41 @@
-import React, { useState } from 'react'
-import Btn from './Btn'
-import { TextareaAutosize } from '@material-ui/core'
+import React, { Fragment, useState } from 'react'
+import TextareaAutosize from '@material-ui/core/TextareaAutosize'
+import TextField from '@material-ui/core/TextField'
+import Radio from '@material-ui/core/Radio'
+import RadioGroup from '@material-ui/core/RadioGroup'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import FormControl from '@material-ui/core/FormControl'
+import FormLabel from '@material-ui/core/FormLabel'
+import FormHelperText from '@material-ui/core/FormHelperText'
+import Button from '@material-ui/core/Button'
+import FormPageContainer from '../components_style/FormPageContainerStyled'
+import FormContainer from '../components_style/FormContainerStyled'
+import formElementsStyled from '../components_style/formElementsStyled'
 
-import {
-  RadioBtn,
-} from './inputs'
-
-const ClosedTradeForm = ({ values, nextStep, prevStep, onConclusionChange }) => {
-  const [errorMsg, setErrorMsg] = useState('')
+const FormStepExecution = ({ values, nextStep, prevStep, onConclusionChange }) => {
+  const { execution, whyExecution, improveExecution } = values
+  const classes = formElementsStyled()
+  const [error, setError] = useState(false)
+  const [helperTextWhy, setHelperTextWhy] = useState(' ')
+  const [helperTextImprove, setHelperTextImprove] = useState(' ')
 
   //Create function for error message and set validation length on text area
   const next = e => {
     e.preventDefault()
-    if (!values.execution) {
-      setErrorMsg('Make sure to rate your execution')
-    } else if (!values.whyExecution) {
-      setErrorMsg('This is your chance to really improve your edge. Take it!')
-    } else if (!values.improveExecution) {
-      setErrorMsg('For fuck sake, don\'t be a cunt. Fill out the damn field')
+    if (!execution) {
+      setError(true)
+    } else if (!whyExecution) {
+      setHelperTextWhy('This is you chance to really find your edge. There is no need to rush through this, what you need to do is to really think about why you acted like you did and write it down.')
+    } else if (whyExecution.length < 10) {
+      setHelperTextWhy('Come on! Do it properly.')
+    } else if (!improveExecution) {
+      setHelperTextImprove('If you want to improve you need to write down your thoughts and ideas about how to improve. Otherwise you will go around in circles, never improve, and in the end you will not make it in this business.')
+    } else if (improveExecution.length < 10) {
+      setHelperTextImprove('Come on! Do it properly.')
     } else {
-      setErrorMsg('')
+      setError(false)
+      setHelperTextImprove(' ')
+      setHelperTextWhy(' ')
       nextStep()
     }
   }
@@ -29,119 +45,90 @@ const ClosedTradeForm = ({ values, nextStep, prevStep, onConclusionChange }) => 
   }
 
   return (
-    <React.Fragment>
-      <h4>Conclusion 1/2: Execution</h4>
-      <label>Good</label>
-      <RadioBtn
-        name="execution"
-        value="good"
-        checked={values.execution === 'good' ? true : false}
-        onChange={onConclusionChange}
-      />
-      <label>Poor</label>
-      <RadioBtn
-        name="execution"
-        value="poor"
-        checked={values.execution === 'poor' ? true : false}
-        onChange={onConclusionChange}
-      />
-      <label>Both</label>
-      <RadioBtn
-        name="execution"
-        value="both"
-        checked={values.execution === 'both' ? true : false}
-        onChange={onConclusionChange}
-      />
-      <TextareaAutosize
-        aria-label="minimum height"
-        rowsMin={8}
-        placeholder="Why?"
-        name="whyExecution"
-        value={values.whyExecution}
-        onChange={onConclusionChange}
-      />
-      <TextareaAutosize
-        aria-label="minimum height"
-        rowsMin={8}
-        placeholder="How to improve?"
-        name="improveExecution"
-        value={values.improveExecution}
-        onChange={onConclusionChange}
-      />
-      {errorMsg && <p>{errorMsg}</p>}
-      <Btn
-        text="Back"
-        onClick={back}
-      />
-      <Btn
-        text="Next"
-        onClick={next}
-      />
-    </React.Fragment>
+    <FormPageContainer>
+      <FormContainer>
+        <FormControl
+          component="fieldset"
+          error={!execution && error}
+          className={classes.formControl}>
+          <FormLabel
+            className={classes.formLabel}
+            component="legend">Execution</FormLabel>
+          <RadioGroup aria-label="execution" name="execution">
+            <FormControlLabel
+              value="good"
+              control={<Radio />}
+              label="good"
+              checked={execution === 'good' ? true : false}
+              onChange={onConclusionChange}
+            />
+            <FormControlLabel
+              value="poor"
+              control={<Radio />}
+              label="poor"
+              checked={execution === 'poor' ? true : false}
+              onChange={onConclusionChange}
+            />
+            <FormControlLabel
+              value="both"
+              control={<Radio />}
+              label="both"
+              checked={execution === 'both' ? true : false}
+              onChange={onConclusionChange}
+            />
+          </RadioGroup>
+        </FormControl>
+
+        {execution &&
+          <Fragment>
+            <FormLabel
+              className={classes.formLabel}
+              component="legend">Develop</FormLabel>
+            <TextareaAutosize
+              type="textarea"
+              className={classes.textArea}
+              aria-label="minimum height"
+              rowsMin={8}
+              placeholder="What made you execute in this manner?"
+              name="whyExecution"
+              value={whyExecution}
+              onChange={onConclusionChange}
+            />
+            <FormHelperText
+              className={classes.helperText}
+              children={helperTextWhy}
+            />
+            <TextareaAutosize
+              type="textarea"
+              className={classes.textArea}
+              aria-label="minimum height"
+              rowsMin={8}
+              placeholder="How can you improve your execution?"
+              name="improveExecution"
+              value={improveExecution}
+              onChange={onConclusionChange}
+            />
+            <FormHelperText
+              className={classes.helperText}
+              children={helperTextImprove}
+            />
+          </Fragment>
+        }
+        <div className={classes.buttonContainer}>
+          <Button
+            className={classes.button}
+            onClick={back}
+          >Back</Button>
+          <Button
+            className={classes.button}
+            onClick={next}
+          >Next</Button>
+        </div>
+      </FormContainer>
+    </FormPageContainer>
   )
-
-
 }
 
-// class ClosedTradeForm extends React.Component {
-//   continue = e => {
-//     e.preventDefault()
-//     this.props.nextStep()
-//   }
-//   back = e => {
-//     e.preventDefault();
-//     this.props.prevStep();
-//   };
-//   render() {
-//     const { values, onConclusionChange } = this.props
 
-//     return (
-//       <React.Fragment>
-//         <h4>Conclusion 1/2: Execution</h4>
-//         <label>Good</label>
-//         <RadioBtn
-//           name="execution"
-//           value="good"
-//           checked={values.execution === 'good' ? true : false}
-//           onClick={onConclusionChange}
-//         />
-//         <label>Poor</label>
-//         <RadioBtn
-//           name="execution"
-//           value="poor"
-//           checked={values.execution === 'poor' ? true : false}
-//           onClick={onConclusionChange}
-//         />
-//         <label>Both</label>
-//         <RadioBtn
-//           name="execution"
-//           value="both"
-//           checked={values.execution === 'both' ? true : false}
-//           onClick={onConclusionChange}
-//         />
-//         <Textarea
-//           placeholder="Why?"
-//           name="whyExecution"
-//           value={values.whyExecution}
-//           onChange={onConclusionChange}
-//         />
-//         <Textarea
-//           placeholder="How to improve?"
-//           name="improveExecution"
-//           value={values.improveExecution}
-//           onChange={onConclusionChange}
-//         />
-//         <Btn
-//           text="Back"
-//           onClick={this.back}
-//         />
-//         <Btn
-//           text="Next"
-//           onClick={this.continue}
-//         />
-//       </React.Fragment>
-//     )
-//   }
-// }
 
-export default ClosedTradeForm
+export default FormStepExecution

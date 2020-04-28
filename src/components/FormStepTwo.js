@@ -14,32 +14,41 @@ import FormContainer from '../components_style/FormContainerStyled'
 const useStyles = makeStyles((theme) => ({
   buttonContainer: {
     display: 'flex',
+    justifyContent: 'flex-end',
+    margin: theme.spacing(5, 0, 0, 0),
     width: '100%',
   },
   button: {
     background: '#f50057',
     color: '#fff',
     margin: theme.spacing(1, 1, 0, 0),
-    width: '50%'
+    width: '50%',
+    '&:hover': {
+      background: '#3f51b5'
+    }
   },
   formControl: {
-    margin: theme.spacing(3),
+    margin: theme.spacing(7),
   },
   formLabel: {
-    marginBottom: '1rem',
+    fontWeight: 600,
+    margin: theme.spacing(0, 0, 1, 0),
+  },
+  textField: {
+    margin: theme.spacing(5, 0),
   }
 }))
 
-const StopEntryTarget = ({
+
+const FormStepTwo = ({
   values,
   nextStep,
   prevStep,
   onChangeValue,
-  onChangeByInput
 }) => {
 
   const classes = useStyles()
-  const { entry, stop, target, status } = values
+  const { entry, stop, target, } = values
 
   const [error, setError] = useState(false)
 
@@ -62,6 +71,7 @@ const StopEntryTarget = ({
     <FormPageContainer>
       <FormContainer>
         <TextField
+          className={classes.textField}
           error={!entry && error}
           label="Entry"
           name="entry"
@@ -71,6 +81,7 @@ const StopEntryTarget = ({
         />
 
         <TextField
+          className={classes.textField}
           error={!stop && error}
           label="Stop"
           name="stop"
@@ -80,6 +91,7 @@ const StopEntryTarget = ({
         />
 
         <TextField
+          className={classes.textField}
           error={!target && error}
           label="Target"
           name="target"
@@ -87,38 +99,6 @@ const StopEntryTarget = ({
           onChange={onChangeValue}
           placeholder="Target"
         />
-
-        {/*<FormControl
-          component="fieldset"
-          error={!status && error}
-          className={classes.formControl}>
-          <FormLabel
-            className={classes.formLabel}
-            component="legend">Status</FormLabel>
-          <RadioGroup aria-label="status" name="status">
-            <FormControlLabel
-              value="closed"
-              control={<Radio />}
-              label="Closed"
-              checked={status === 'closed' ? true : false}
-              onChange={onChangeByInput}
-            />
-            <FormControlLabel
-              value="active"
-              control={<Radio />}
-              label="Active"
-              checked={status === 'active' ? true : false}
-              onChange={onChangeByInput}
-            />
-            <FormControlLabel
-              value="pending"
-              control={<Radio />}
-              label="Pending"
-              checked={status === 'pending' ? true : false}
-              onChange={onChangeByInput}
-            />
-          </RadioGroup>
-        </FormControl>*/}
 
         <div className={classes.buttonContainer}>
           <Button
@@ -135,62 +115,4 @@ const StopEntryTarget = ({
   )
 }
 
-// class StopEntryTarget extends React.Component {
-//   state = {
-//     errorMsg: ''
-//   }
-//   continue = e => {
-//     const { values } = this.props
-//     e.preventDefault()
-
-//     if (!values.entry || !values.stop || !values.target) {
-//       this.setState(() => ({ errorMsg: 'Make sure to give entry, stop and target a value' }))
-//     } else {
-//       this.setState(() => ({ errorMsg: '' }))
-//       this.props.nextStep()
-//     }
-//   }
-//   back = e => {
-//     e.preventDefault();
-//     this.props.prevStep();
-//   };
-//   render() {
-//     const { values, onChangeValue } = this.props
-//     return (
-//       <React.Fragment>
-//         <label>Entry</label>
-//         <TextInput
-//           name="entry"
-//           value={values.entry}
-//           onChange={onChangeValue}
-//         />
-
-//         <label>Stop</label>
-//         <TextInput
-//           name="stop"
-//           value={values.stop}
-//           onChange={onChangeValue}
-//         />
-
-//         <label>Target</label>
-//         <TextInput
-//           name="target"
-//           value={values.target}
-//           onChange={onChangeValue}
-//         />
-//       
-//         {this.state.errorMsg && <p>{this.state.errorMsg}</p>}
-//         <Btn
-//           text="Back"
-//           onClick={this.back}
-//         />
-//         <Btn
-//           text="Next"
-//           onClick={this.continue}
-//         />
-//       </React.Fragment>
-//     )
-//   }
-// }
-
-export default StopEntryTarget
+export default FormStepTwo

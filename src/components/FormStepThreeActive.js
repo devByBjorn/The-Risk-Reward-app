@@ -1,17 +1,16 @@
 import React, { useState } from 'react'
 import DatePicker from 'react-datepicker'
-import { SingleDatePicker, isInclusivelyBeforeDay } from 'react-dates'
-import moment from 'moment'
-import Btn from './Btn'
-
+import { makeStyles } from '@material-ui/core/styles'
+import formElementsStyled from '../components_style/formElementsStyled'
 
 const FormStepThreeActive = ({ values, onOpenDateChange }) => {
-  const [error, setError] = useState(false)
+
+  const classes = formElementsStyled()
+
 
   return (
-    <React.Fragment>
+    <div className={classes.date}>
       <label
-        error={!values.opened && error}
       >Opened</label>
       <DatePicker
         dateFormat="MMM d, yyyy hh:mm"
@@ -22,7 +21,7 @@ const FormStepThreeActive = ({ values, onOpenDateChange }) => {
         timeFormat="HH:mm"
         timeIntervals={15}
       />
-    </React.Fragment>
+    </div>
   )
 }
 

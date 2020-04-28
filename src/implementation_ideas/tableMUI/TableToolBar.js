@@ -1,5 +1,5 @@
-import React, { Fragment, useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import React, { Fragment } from 'react'
+import { NavLink } from 'react-router-dom'
 import {
   createMuiTheme,
   MuiThemeProvider,
@@ -54,13 +54,13 @@ const TableToolbar = props => {
         })}
       >
         <Tooltip title="Add">
-          <Link to="/add-trade">
+          <NavLink to="/add-trade">
             <IconButton aria-label="add">
               <AddIcon
                 fontSize="large"
               />
             </IconButton>
-          </Link>
+          </NavLink>
         </Tooltip>
 
         {numSelected > 0 ? (
@@ -113,7 +113,7 @@ const TableToolbar = props => {
               <IconButton
                 aria-label="edit"
               >
-                <NavLink className={classes.link} to={`/edit-trade/${data[rowId].id}` || '/trades'}>
+                <NavLink className={classes.link} to={data && data[rowId] ? `/edit-trade/${data[rowId].id}` : '/trades'}>
                   <EditIcon
                     fontSize="large"
                   />

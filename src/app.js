@@ -15,6 +15,7 @@ import typoTheme from './components_style/TypographStyled'
 
 import "react-datepicker/dist/react-datepicker.css"
 
+
 const store = configureStore()
 
 const app = (

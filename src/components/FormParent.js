@@ -3,12 +3,9 @@ import moment from 'moment'
 import { calculatePositiveR, calculateNegativeR } from '../calculations/riskRewardCalculation'
 import FormStepOne from './FormStepOne'
 import FormStepTwo from './FormStepTwo'
-import TradeStatus from './TradeStatus'
-import FormStepThreeClosed from './FormStepThreeClosed'
 import FormStepExecution from './FormStepExecution'
 import FormStepManagement from './FormStepManagement'
 import FormSubmitClosed from './FormSubmitClosed'
-import FormStepThreeActive from './FormStepThreeActive'
 import FormSubmitActive from './FormSubmitAcitve'
 import FormSubmitPending from './FormSubmitPending'
 import FormNav from './FormNav'
@@ -19,7 +16,6 @@ class FormParent extends React.Component {
     super(props)
     this.state = {
       step: 1,
-      errorMsg: '',
       editMode: false,
       pathname: props.pathname ? props.pathname : '',
       direction: props.trade ? props.trade.direction : '',
@@ -109,13 +105,25 @@ class FormParent extends React.Component {
     }
   }
 
-  onDatesChange = ({ startDate, endDate }) => this.setState(() => ({
-    opened: startDate,
-    closed: endDate
-  }))
+  formDate = (openedOrClose) => {
+    const milliSeconds = openedOrClose.getTime()
+    const date = new Date(milliSeconds)
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    const fullYear = date.getFullYear()
+    const month = months[date.getMonth()]
+    const dayDate = date.getDate()
 
-  onOpenDateChange = (opened) => this.setState(() => ({ opened }))
-  onClosedDateChange = (closed) => this.setState(() => ({ closed }))
+    return `${dayDate} ${month}, ${fullYear}`
+  }
+
+  onOpenDateChange = (opened) => {
+    this.setState(() => ({ opened }))
+    console.log('OPENED:', opened)
+  }
+  onClosedDateChange = (closed) => {
+    this.setState(() => ({ closed }))
+    console.log('CLOSED:', closed)
+  }
 
   onConclusionChange = (e) => {
     const { name, value } = e.target
@@ -139,14 +147,14 @@ class FormParent extends React.Component {
       stop: stop,
       target: target,
       status: status,
-      outcome: outcome,
+      outcome: status === 'closed' ? outcome : '',
       setup: setup,
       //opened: opened ? opened.valueOf() : '',
       //closed: closed ? closed.valueOf() : '',
       //period: closed && opened ? (closed - opened).valueOf() : '',
-      opened: opened ? opened.getTime() : '',
-      closed: closed ? closed.getTime() : '',
-      period: closed && opened ? closed - opened : '',
+      opened: opened ? this.formDate(opened) : '',
+      closed: closed ? this.formDate(closed) : '',
+      //period: closed && opened ? (closed - opened).getTime() : '',
       rewardToRisk: outcome && parseFloat(this.calculateRewardToRisk()),
       negativeR: !outcome && calculateNegativeR(entry, stop, target, direction),
       positiveR: !outcome && calculatePositiveR(entry, stop, target, direction),
@@ -237,67 +245,6 @@ class FormParent extends React.Component {
         )
     }
 
-    {/*if (step === 3 && status === 'closed') {
-      return (
-        <div>
-          {editMode &&
-            <FormNav
-              values={values}
-              prevStep={this.prevStep}
-              navigateByStepValue={this.navigateByStepValue}
-            />
-          }
-          <FormStepThreeClosed
-            values={values}
-            prevStep={this.prevStep}
-            nextStep={this.nextStep}
-            onChangeByInput={this.onChangeByInput}
-            onDatesChange={this.onDatesChange}
-            onOpenDateChange={this.onOpenDateChange}
-            onClosedDateChange={this.onClosedDateChange}
-          />
-        </div>
-      )
-    } else if (step === 3 && status === 'active') {
-      return (
-        <div>
-          {editMode &&
-            <FormNav
-              values={values}
-              prevStep={this.prevStep}
-              navigateByStepValue={this.navigateByStepValue}
-            />
-          }
-          <FormStepThreeActive
-            values={values}
-            nextStep={this.nextStep}
-            prevStep={this.prevStep}
-            onOpenDateChange={this.onOpenDateChange}
-            handleSubmit={this.handleSubmit}
-          />
-        </div>
-
-      )
-    } else if (step === 4 && status === 'pending') {
-      return (
-        <div>
-
-          {editMode &&
-            <FormNav
-              values={values}
-              prevStep={this.prevStep}
-              navigateByStepValue={this.navigateByStepValue}
-            />
-          }
-          <FormSubmitPending
-            values={values}
-            prevStep={this.prevStep}
-            handleSubmit={this.handleSubmit}
-          />
-        </div>
-      )
-    }
-  */}
     if (step === 4 && status === 'closed') {
       return (
         <div>
