@@ -1,5 +1,4 @@
 import React from 'react'
-import { Btn, SubmitBtn } from './Btn'
 
 const FormSubmitPending = ({ values, prevStep, handleSubmit }) => {
   const back = e => {
@@ -19,10 +18,9 @@ const FormSubmitPending = ({ values, prevStep, handleSubmit }) => {
           <li>Status: {values.status}</li>
         </ul>
       </div>
-      <Btn
-        text="Back"
+      <button
         onClick={back}
-      />
+      >Back</button>
       <button
         onClick={handleSubmit}
       >Add</button>

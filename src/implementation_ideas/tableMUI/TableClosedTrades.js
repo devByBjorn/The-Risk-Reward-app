@@ -3,9 +3,7 @@ import { connect } from 'react-redux'
 import { closedTradeSearch } from '../../market-searcher/marketSearcher'
 import EnhancedTable from './EnhancedTable'
 
-
 const TableClosedTrades = ({ trades }) => {
-
   const [data, setData] = useState([])
   const [skipPageReset, setSkipPageReset] = useState(false)
   const fetchIdRef = useRef(0)
@@ -14,27 +12,13 @@ const TableClosedTrades = ({ trades }) => {
 
   const formDate = (milliSeconds) => {
     const date = new Date(milliSeconds)
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May',
+      'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     const fullYear = date.getFullYear()
     const month = months[date.getMonth()]
     const dayDate = date.getDate()
 
     return `${dayDate} ${month}, ${fullYear}`
-  }
-
-  const getOutcomeBorder = (value) => {
-    let border
-
-    switch (value) {
-      case 'win':
-        return border = '8px solid #d1eec1'
-      case 'loss':
-        return border = '8px solid #fda3a3'
-      case 'scratch':
-        return border = '8px solid #ffdb99'
-      default:
-        return border = 'none'
-    }
   }
 
   const columns = useMemo(
@@ -59,7 +43,6 @@ const TableClosedTrades = ({ trades }) => {
         accessor: 'opened',
         Cell: (props) => {
           const customDate = formDate(props.value)
-          console.log(props.value)
           return (
             <span>{customDate}</span>
           )
@@ -70,7 +53,6 @@ const TableClosedTrades = ({ trades }) => {
         accessor: 'closed',
         Cell: (props) => {
           const customDate = formDate(props.value)
-          console.log(props.value)
           return (
             <span>{customDate}</span>
           )

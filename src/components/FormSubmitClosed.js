@@ -1,6 +1,5 @@
 import React from 'react'
 import moment from 'moment'
-import { Btn, SubmitBtn } from './Btn'
 
 const FormSubmitClosed = ({ values, prevStep, handleSubmit }) => {
   const back = e => {
@@ -35,10 +34,10 @@ const FormSubmitClosed = ({ values, prevStep, handleSubmit }) => {
           </li>
         </ul>
       </div>
-      <Btn
-        text="Back"
+      <button
         onClick={back}
-      />
+      >Back</button>
+
       <button
         onClick={handleSubmit}
       >Add</button>

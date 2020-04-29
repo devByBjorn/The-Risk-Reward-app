@@ -11,9 +11,11 @@ import Button from '@material-ui/core/Button'
 import FormPageContainer from '../components_style/FormPageContainerStyled'
 import FormContainer from '../components_style/FormContainerStyled'
 import formElementsStyled from '../components_style/formElementsStyled'
+import FormNav from './FormNav'
 
 const FormStepOne = ({
   values,
+  navigateByStepValue,
   nextStep,
   onChangeByInput
 }) => {
@@ -33,8 +35,11 @@ const FormStepOne = ({
 
   return (
     <FormPageContainer>
+      <FormNav
+        values={values}
+        navigateByStepValue={navigateByStepValue}
+      />
       <FormContainer>
-
         <TextField
           className={classes.textField}
           error={!market && error}

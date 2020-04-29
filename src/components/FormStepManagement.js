@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
 import TextareaAutosize from '@material-ui/core/TextareaAutosize'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
@@ -11,8 +10,14 @@ import Button from '@material-ui/core/Button'
 import FormPageContainer from '../components_style/FormPageContainerStyled'
 import FormContainer from '../components_style/FormContainerStyled'
 import formElementsStyled from '../components_style/formElementsStyled'
+import FormNav from './FormNav'
 
-const FormStepManagement = ({ values, nextStep, prevStep, onConclusionChange }) => {
+const FormStepManagement = ({
+  values,
+  navigateByStepValue,
+  nextStep,
+  prevStep,
+  onConclusionChange }) => {
   const { management, whyManagement, improveManagement } = values
   const classes = formElementsStyled()
 
@@ -31,19 +36,13 @@ const FormStepManagement = ({ values, nextStep, prevStep, onConclusionChange }) 
     } else if (!improveManagement) {
       setHelperTextImprove('If you want to improve you need to write down your thoughts and ideas about how to improve. Otherwise you will go around in circles, never improve, and in the end you will not make it in this business.')
     } else if (improveManagement.length < 20) {
-      setHelperTextWhy('Come on! Do it properly.')
+      setHelperTextImprove('Come on! Do it properly.')
     } else {
       setError(false)
       setHelperTextImprove(' ')
       setHelperTextWhy(' ')
       nextStep()
     }
-  }
-
-
-  const onTextAreaChange = (e) => {
-    const { value } = e.target
-    if (value.length > 20) setHelperTextWhy(' ')
   }
 
   const back = e => {
@@ -53,6 +52,10 @@ const FormStepManagement = ({ values, nextStep, prevStep, onConclusionChange }) 
 
   return (
     <FormPageContainer>
+      <FormNav
+        values={values}
+        navigateByStepValue={navigateByStepValue}
+      />
       <FormContainer>
         <FormControl
           component="fieldset"
@@ -92,7 +95,6 @@ const FormStepManagement = ({ values, nextStep, prevStep, onConclusionChange }) 
               className={classes.formLabel}
               component="legend">Develop</FormLabel>
             <TextareaAutosize
-              onChange={onTextAreaChange}
               className={classes.textArea}
               error={!whyManagement && error}
               aria-label="minimum height"
@@ -111,7 +113,7 @@ const FormStepManagement = ({ values, nextStep, prevStep, onConclusionChange }) 
               error={!improveManagement && error}
               aria-label="minimum height"
               rowsMin={8}
-              placeholder="How can you improve your management?"
+              placeholder="How can you improve your trade management?"
               name="improveManagement"
               value={improveManagement}
               onChange={onConclusionChange}

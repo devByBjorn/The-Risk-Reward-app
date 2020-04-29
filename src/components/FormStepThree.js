@@ -14,14 +14,16 @@ import FormContainer from '../components_style/FormContainerStyled'
 import FormStepThreeClosed from './FormStepThreeClosed'
 import FormStepThreeActive from './FormStepThreeActive'
 import formElementsStyled from '../components_style/formElementsStyled'
+import FormNav from './FormNav'
 
 const FormStepThree = ({
   values,
-  nextStep,
-  prevStep,
   onChangeByInput,
   onClosedDateChange,
-  onOpenDateChange
+  onOpenDateChange,
+  navigateByStepValue,
+  nextStep,
+  prevStep,
 }) => {
 
   const classes = formElementsStyled()
@@ -48,6 +50,10 @@ const FormStepThree = ({
 
   return (
     <FormPageContainer>
+      <FormNav
+        values={values}
+        navigateByStepValue={navigateByStepValue}
+      />
       <FormContainer>
         <FormControl
           component="fieldset"

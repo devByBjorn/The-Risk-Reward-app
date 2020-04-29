@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from 'react'
 import TextareaAutosize from '@material-ui/core/TextareaAutosize'
-import TextField from '@material-ui/core/TextField'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
@@ -11,8 +10,15 @@ import Button from '@material-ui/core/Button'
 import FormPageContainer from '../components_style/FormPageContainerStyled'
 import FormContainer from '../components_style/FormContainerStyled'
 import formElementsStyled from '../components_style/formElementsStyled'
+import FormNav from './FormNav'
 
-const FormStepExecution = ({ values, nextStep, prevStep, onConclusionChange }) => {
+const FormStepExecution = ({
+  values,
+  navigateByStepValue,
+  nextStep,
+  prevStep,
+  onConclusionChange }) => {
+
   const { execution, whyExecution, improveExecution } = values
   const classes = formElementsStyled()
   const [error, setError] = useState(false)
@@ -46,6 +52,10 @@ const FormStepExecution = ({ values, nextStep, prevStep, onConclusionChange }) =
 
   return (
     <FormPageContainer>
+      <FormNav
+        values={values}
+        navigateByStepValue={navigateByStepValue}
+      />
       <FormContainer>
         <FormControl
           component="fieldset"

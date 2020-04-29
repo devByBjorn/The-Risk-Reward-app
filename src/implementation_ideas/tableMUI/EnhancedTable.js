@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import MaUTable from '@material-ui/core/Table'
 import TableStyled from '../../components_style/TableStyled'
 import TableBody from '@material-ui/core/TableBody'
 import TableCellStyled from '../../components_style/TableCellStyled'
-import TableContainer from '@material-ui/core/TableContainer'
 import TableContainerStyled from '../../components_style/TableContainerStyled'
 import TableFooter from '@material-ui/core/TableFooter'
 import TableHead from '@material-ui/core/TableHead'
-import TablePagination from '@material-ui/core/TablePagination'
 import TablePaginationStyled from '../../components_style/TablePaginationStyled'
 import TablePaginationActions from './TablePaginationActions'
 import TableRow from '@material-ui/core/TableRow'
@@ -75,7 +72,6 @@ const EnhancedTable = ({
         },
         ...columns,
       ])
-      console.log(columns)
     }
   )
   //
@@ -172,10 +168,10 @@ const EnhancedTable = ({
             return (
               <TableRow {...row.getRowProps()}>
                 {row.cells.map(cell => {
-                  const border = getOutcomeBorder(cell.value)
+                  const borderLeft = getOutcomeBorder(cell.value)
                   return (
                     <TableCellStyled
-                      style={{ borderLeft: border }}
+                      style={{ borderLeft }}
                       {...cell.getCellProps()}>
                       {cell.render('Cell')}
                     </TableCellStyled>

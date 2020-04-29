@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { editFirebaseTrade, deleteFirebaseTrade } from '../actions/tradeActions'
 import FormParent from './FormParent'
-import Btn from './Btn'
 import { TrashIcon } from '../icons/IconsComponents'
 
 class TradeEditPage extends React.Component {
@@ -22,10 +21,11 @@ class TradeEditPage extends React.Component {
           trade={this.props.trade}
           handleSubmit={this.handleEditOnAdd}
         />
-        <Btn
-          text={<TrashIcon />}
+        <button
           onClick={this.handleDeleteOnTrash}
-        />
+        >text={<TrashIcon />}
+        </button>
+
       </div>
     )
   }

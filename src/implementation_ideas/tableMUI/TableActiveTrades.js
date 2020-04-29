@@ -3,13 +3,23 @@ import { connect } from 'react-redux'
 import { activeTradeSearch } from '../../market-searcher/marketSearcher'
 import EnhancedTable from './EnhancedTable'
 
-
 const TableActiveTrades = ({ trades }) => {
   const [data, setData] = useState([])
   const [skipPageReset, setSkipPageReset] = useState(false)
   const fetchIdRef = useRef(0)
 
   const tableName = 'Active Trades'
+
+  const formDate = (milliSeconds) => {
+    const date = new Date(milliSeconds)
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May',
+      'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    const fullYear = date.getFullYear()
+    const month = months[date.getMonth()]
+    const dayDate = date.getDate()
+
+    return `${dayDate} ${month}, ${fullYear}`
+  }
 
   const columns = useMemo(
     () => [
@@ -42,7 +52,6 @@ const TableActiveTrades = ({ trades }) => {
         accessor: 'opened',
         Cell: (props) => {
           const customDate = formDate(props.value)
-          console.log(props.value)
           return (
             <span>{customDate}</span>
           )

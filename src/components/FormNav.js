@@ -1,90 +1,106 @@
 import React, { Fragment } from 'react'
-import Btn from './Btn'
+import FormNavBtn from '../components_style/FormNavBtn'
+import formNavStyle from '../components_style/formNavStyled'
 
-const TradeParentFormNav = ({ values, navigateByStepValue }) => {
+const FormNav = ({ values, navigateByStepValue, }) => {
+  const { direction, market, entry, stop, target, setup, status,
+    outcome, execution, management, whyExecution, improveExecution,
+    whyManagement, improveManagement, step } = values
+
+  const classes = formNavStyle()
+
+  const closedSubmitValues = [market, direction, setup, entry, stop,
+    target, status, execution, management, whyExecution, improveExecution,
+    whyManagement, improveManagement]
+
+  const activePendingSubmitValues = [market, direction, setup, entry, stop,
+    target, status]
+
+  const ableSubmitStep = (submitValues) =>
+    submitValues.filter((value) =>
+      value === '' || value === 0).length !== 0
+
   return (
-    <nav className="edit-trade-nav">
-      <ul>
-        <Fragment>
-          <li>
-            <Btn
-              value={1}
-              text="Market & Direction"
-              onClick={navigateByStepValue}
-            />
-          </li>
-          <li>
-            <Btn
-              value={2}
-              text="Entry, Stop, Target"
-              onClick={navigateByStepValue}
-            />
-          </li>
-          <li>
-            <Btn
-              value={3}
-              text="Trade Status"
-              onClick={navigateByStepValue}
-            />
-          </li>
-          {values.status === 'pending' &&
-            <Fragment>
-              <li>
-                <Btn
-                  value={4}
-                  text="Inspect & Submit"
-                  onClick={navigateByStepValue}
-                />
-              </li>
-            </Fragment>
-          }
-          {values.status === 'active' &&
-            <Fragment>
-              <li>
-                <Btn
-                  value={4}
-                  text="Opening date"
-                  onClick={navigateByStepValue}
-                />
-              </li>
-              <li>
-                <Btn
-                  value={5}
-                  text="Inspect & Submit"
-                  onClick={navigateByStepValue}
-                />
-              </li>
-            </Fragment>
-          }
-        </Fragment>
-
-        {values.status === 'closed' &&
+    <nav className={classes.nav}>
+      <ul className={classes.list}>
+        <li className={classes.listItem}>
+          <FormNavBtn
+            value={1}
+            onClick={navigateByStepValue}
+            text="Market, direction & setup"
+            spanText="Step 1:"
+          />
+        </li>
+        <li className={classes.listItem}>
+          <FormNavBtn
+            disabled={step < 2 && !entry && true}
+            value={2}
+            onClick={navigateByStepValue}
+            text="Entry, stop & target"
+            spanText="Step 2:"
+          />
+        </li>
+        <li className={classes.listItem}>
+          <FormNavBtn
+            disabled={step < 3 && !status && true}
+            value={3}
+            onClick={navigateByStepValue}
+            text="Trade status"
+            spanText="Step 3:"
+          />
+        </li>
+        {status === 'closed' && outcome &&
           <Fragment>
-            <li>
-              <Btn
+            <li className={classes.listItem}>
+              <FormNavBtn
+                disabled={step < 4 && !execution && true}
                 value={4}
-                text="Outcome & Dates"
+                text="Execution"
+                spanText="Step 4:"
                 onClick={navigateByStepValue}
               />
             </li>
-            <li>
-              <Btn
+            <li className={classes.listItem}>
+              <FormNavBtn
+                disabled={step < 5 && !management && true}
                 value={5}
-                text="Conclusion: Execution"
+                text="Managemnet"
+                spanText="Step 5:"
                 onClick={navigateByStepValue}
               />
             </li>
-            <li>
-              <Btn
+            <li className={classes.listItem}>
+              <FormNavBtn
+                disabled={ableSubmitStep(closedSubmitValues) && true}
                 value={6}
-                text="Conclusion: Managemnet"
+                text="Inspect & Submit"
+                spanText="Step 6:"
                 onClick={navigateByStepValue}
               />
             </li>
-            <li>
-              <Btn
-                value={7}
+          </Fragment>
+        }
+        {status === 'active' &&
+          <Fragment>
+            <li className={classes.listItem}>
+              <FormNavBtn
+                disabled={ableSubmitStep(activePendingSubmitValues) && true}
+                value={4}
                 text="Inspect & Submit"
+                spanText="Step 4:"
+                onClick={navigateByStepValue}
+              />
+            </li>
+          </Fragment>
+        }
+        {status === 'pending' &&
+          <Fragment>
+            <li className={classes.listItem}>
+              <FormNavBtn
+                disabled={ableSubmitStep(activePendingSubmitValues) && true}
+                value={4}
+                text="Inspect & Submit"
+                spanText="Step 4:"
                 onClick={navigateByStepValue}
               />
             </li>
@@ -95,4 +111,4 @@ const TradeParentFormNav = ({ values, navigateByStepValue }) => {
   )
 }
 
-export default TradeParentFormNav
+export default FormNav

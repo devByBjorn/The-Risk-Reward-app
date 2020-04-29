@@ -3,6 +3,10 @@ import { withStyles } from '@material-ui/core/styles'
 
 export const styles = (theme) => ({
   '@global': {
+    '*': {
+      margin: 0,
+      padding: 0,
+    },
     html: {
       fontSize: '62.5%'
     },

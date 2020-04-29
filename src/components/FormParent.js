@@ -171,160 +171,103 @@ class FormParent extends React.Component {
       direction, market, entry, stop, target, setup, status,
       outcome, rewardToRisk, opened, closed, period, inputError,
       execution, management, whyExecution, improveExecution,
-      whyManagement, improveManagement,
+      whyManagement, improveManagement, step
     }
 
     switch (step) {
       case 1:
         return (
-          <div>
-            {editMode &&
-              <FormNav
-                values={values}
-                prevStep={this.prevStep}
-                navigateByStepValue={this.navigateByStepValue}
-              />
-            }
-            <FormStepOne
-              values={values}
-              nextStep={this.nextStep}
-              onChangeByInput={this.onChangeByInput}
-              onChangeValue={this.onChangeValue}
-            />
-          </div>
+          <FormStepOne
+            values={values}
+            navigateByStepValue={this.navigateByStepValue}
+            nextStep={this.nextStep}
+            onChangeByInput={this.onChangeByInput}
+            onChangeValue={this.onChangeValue}
+          />
         )
       case 2:
         return (
-          <div>
-            {editMode &&
-              <FormNav
-                values={values}
-                prevStep={this.prevStep}
-                navigateByStepValue={this.navigateByStepValue}
-              />
-            }
-            <FormStepTwo
-              values={values}
-              prevStep={this.prevStep}
-              nextStep={this.nextStep}
-              onChangeValue={this.onChangeValue}
-              onChangeByInput={this.onChangeByInput}
-            />
-          </div>
+          <FormStepTwo
+            values={values}
+            prevStep={this.prevStep}
+            navigateByStepValue={this.navigateByStepValue}
+            nextStep={this.nextStep}
+            onChangeValue={this.onChangeValue}
+            onChangeByInput={this.onChangeByInput}
+          />
         )
       case 3:
         return (
-          <div>
-            {editMode &&
-              <FormNav
-                values={values}
-                prevStep={this.prevStep}
-                navigateByStepValue={this.navigateByStepValue}
-              />
-            }
-            <FormStepThree
-              values={values}
-              prevStep={this.prevStep}
-              nextStep={this.nextStep}
-              onChangeByInput={this.onChangeByInput}
-              onOpenDateChange={this.onOpenDateChange}
-              onClosedDateChange={this.onClosedDateChange}
-            />
-          </div>
+          <FormStepThree
+            values={values}
+            prevStep={this.prevStep}
+            navigateByStepValue={this.navigateByStepValue}
+            nextStep={this.nextStep}
+            onChangeByInput={this.onChangeByInput}
+            onOpenDateChange={this.onOpenDateChange}
+            onClosedDateChange={this.onClosedDateChange}
+          />
         )
     }
 
     if (step === 4 && status === 'closed') {
       return (
-        <div>
-          {editMode &&
-            <FormNav
-              values={values}
-              prevStep={this.prevStep}
-              navigateByStepValue={this.navigateByStepValue}
-            />
-          }
-          <FormStepExecution
-            values={values}
-            prevStep={this.prevStep}
-            nextStep={this.nextStep}
-            onConclusionChange={this.onConclusionChange}
-          />
-        </div>
+
+        <FormStepExecution
+          values={values}
+          prevStep={this.prevStep}
+          navigateByStepValue={this.navigateByStepValue}
+          nextStep={this.nextStep}
+          onConclusionChange={this.onConclusionChange}
+        />
+
       )
     } else if (step === 4 && status === 'active') {
       return (
-        <div>
-          {editMode &&
-            <FormNav
-              values={values}
-              prevStep={this.prevStep}
-              navigateByStepValue={this.navigateByStepValue}
-            />
-          }
-          <FormSubmitActive
-            values={values}
-            prevStep={this.prevStep}
-            handleSubmit={this.handleSubmit}
-          />
-        </div>
+
+
+        <FormSubmitActive
+          values={values}
+          prevStep={this.prevStep}
+          navigateByStepValue={this.navigateByStepValue}
+          handleSubmit={this.handleSubmit}
+        />
+
       )
     } else if (step === 4 && status === 'pending') {
       return (
-        <div>
 
-          {editMode &&
-            <FormNav
-              values={values}
-              prevStep={this.prevStep}
-              navigateByStepValue={this.navigateByStepValue}
-            />
-          }
-          <FormSubmitPending
-            values={values}
-            prevStep={this.prevStep}
-            handleSubmit={this.handleSubmit}
-          />
-        </div>
+        <FormSubmitPending
+          values={values}
+          prevStep={this.prevStep}
+          navigateByStepValue={this.navigateByStepValue}
+          handleSubmit={this.handleSubmit}
+        />
       )
     }
 
     if (step === 5 && status === 'closed') {
       return (
-        <div>
-          {editMode &&
-            <FormNav
-              values={values}
-              prevStep={this.prevStep}
-              navigateByStepValue={this.navigateByStepValue}
-            />
-          }
-          <FormStepManagement
-            values={values}
-            prevStep={this.prevStep}
-            nextStep={this.nextStep}
-            onConclusionChange={this.onConclusionChange}
-          />
-        </div>
+
+        <FormStepManagement
+          values={values}
+          prevStep={this.prevStep}
+          nextStep={this.nextStep}
+          navigateByStepValue={this.navigateByStepValue}
+          onConclusionChange={this.onConclusionChange}
+        />
+
       )
     }
 
     if (step === 6 && status === 'closed') {
       return (
-        <div>
-          {editMode &&
-            <FormNav
-              values={values}
-              prevStep={this.prevStep}
-              navigateByStepValue={this.navigateByStepValue}
-            />
-          }
-          <FormSubmitClosed
-            values={values}
-            prevStep={this.prevStep}
-            handleSubmit={this.handleSubmit}
-          />
-        </div>
+        <FormSubmitClosed
+          values={values}
+          prevStep={this.prevStep}
+          navigateByStepValue={this.navigateByStepValue}
+          handleSubmit={this.handleSubmit}
+        />
       )
     }
   }

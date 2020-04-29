@@ -10,44 +10,18 @@ import FormLabel from '@material-ui/core/FormLabel'
 import Button from '@material-ui/core/Button'
 import FormPageContainer from '../components_style/FormPageContainerStyled'
 import FormContainer from '../components_style/FormContainerStyled'
-
-const useStyles = makeStyles((theme) => ({
-  buttonContainer: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    margin: theme.spacing(5, 0, 0, 0),
-    width: '100%',
-  },
-  button: {
-    background: '#f50057',
-    color: '#fff',
-    margin: theme.spacing(1, 1, 0, 0),
-    width: '50%',
-    '&:hover': {
-      background: '#3f51b5'
-    }
-  },
-  formControl: {
-    margin: theme.spacing(7),
-  },
-  formLabel: {
-    fontWeight: 600,
-    margin: theme.spacing(0, 0, 1, 0),
-  },
-  textField: {
-    margin: theme.spacing(5, 0),
-  }
-}))
-
+import FormNav from './FormNav'
+import formElementsStyled from '../components_style/formElementsStyled'
 
 const FormStepTwo = ({
   values,
   nextStep,
+  navigateByStepValue,
   prevStep,
   onChangeValue,
 }) => {
 
-  const classes = useStyles()
+  const classes = formElementsStyled()
   const { entry, stop, target, } = values
 
   const [error, setError] = useState(false)
@@ -69,6 +43,10 @@ const FormStepTwo = ({
 
   return (
     <FormPageContainer>
+      <FormNav
+        values={values}
+        navigateByStepValue={navigateByStepValue}
+      />
       <FormContainer>
         <TextField
           className={classes.textField}

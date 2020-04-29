@@ -54,13 +54,14 @@ const TableToolbar = props => {
         })}
       >
         <Tooltip title="Add">
-          <NavLink to="/add-trade">
-            <IconButton aria-label="add">
-              <AddIcon
-                fontSize="large"
-              />
-            </IconButton>
-          </NavLink>
+          <IconButton
+            aria-label="add"
+            href="/add-trade">
+            <AddIcon
+              fontSize="large"
+            />
+          </IconButton>
+
         </Tooltip>
 
         {numSelected > 0 ? (
@@ -101,9 +102,7 @@ const TableToolbar = props => {
               <IconButton
                 aria-label="delete"
                 onClick={deleteTrades}>
-                <DeleteIcon
-                  fontSize="large"
-                />
+                <DeleteIcon fontSize="large" />
               </IconButton>
             </Tooltip>
             <Tooltip
@@ -112,12 +111,9 @@ const TableToolbar = props => {
             >
               <IconButton
                 aria-label="edit"
+                href={`/edit-trade/${data[rowId].id}`}
               >
-                <NavLink className={classes.link} to={data && data[rowId] ? `/edit-trade/${data[rowId].id}` : '/trades'}>
-                  <EditIcon
-                    fontSize="large"
-                  />
-                </NavLink>
+                <EditIcon fontSize="large" />
               </IconButton>
             </Tooltip>
           </Fragment>
