@@ -1,5 +1,5 @@
 import React from 'react'
-import searchFieldStyle from '../../components_style/TableSearchFieldStyled'
+import searchFieldStyle from '../components_style/TableSearchFieldStyled'
 import InputBase from '@material-ui/core/InputBase'
 import SearchIcon from '@material-ui/icons/Search'
 

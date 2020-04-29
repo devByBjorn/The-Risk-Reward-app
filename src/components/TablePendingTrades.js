@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef, Fragment, useMemo, useCallback } from 'react'
 import { connect } from 'react-redux'
-import { pendingTradeSearch } from '../../market-searcher/marketSearcher'
-import EnhancedTable from './EnhancedTable'
+import { pendingTradeSearch } from '../market-searcher/marketSearcher'
+import TableEnhanced from './TableEnhanced'
 
 
 const TablePendingTrades = ({ trades }) => {
@@ -70,7 +70,7 @@ const TablePendingTrades = ({ trades }) => {
 
   return (
     <div>
-      <EnhancedTable
+      <TableEnhanced
         tableName={tableName}
         columns={columns}
         data={data}

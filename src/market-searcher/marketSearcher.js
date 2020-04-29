@@ -16,6 +16,8 @@ export const pendingTradeSearch = (trades, { searchText }) =>
       && trade.market.toLowerCase().includes(searchText.toLowerCase()))
 
 
+
+
 const marketSearcher = (trades, { searchText, sortBy, sorted, startDate, endDate }) =>
   trades.filter((trade) => {
     const openDate = moment(trade.opened)

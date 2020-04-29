@@ -1,14 +1,14 @@
 import React, { useEffect, useState, useRef, Fragment, useMemo, useCallback } from 'react'
 import { connect } from 'react-redux'
-import { activeTradeSearch } from '../../market-searcher/marketSearcher'
-import EnhancedTable from './EnhancedTable'
+import { closedTradeSearch } from '../market-searcher/marketSearcher'
+import TableEnhanced from './TableEnhanced'
 
-const TableActiveTrades = ({ trades }) => {
+const TableClosedTrades = ({ trades }) => {
   const [data, setData] = useState([])
   const [skipPageReset, setSkipPageReset] = useState(false)
   const fetchIdRef = useRef(0)
 
-  const tableName = 'Active Trades'
+  const tableName = 'Closed Trades'
 
   const formDate = (milliSeconds) => {
     const date = new Date(milliSeconds)
@@ -26,7 +26,6 @@ const TableActiveTrades = ({ trades }) => {
       {
         Header: 'Market',
         accessor: 'market',
-        className: 'market-td'
       }, {
         Header: 'Direction',
         accessor: 'direction'
@@ -36,16 +35,8 @@ const TableActiveTrades = ({ trades }) => {
         accessor: 'setup',
       },
       {
-        Header: 'Status',
-        accessor: 'status',
-      },
-      {
-        Header: '-R',
-        accessor: 'negativeR'
-      },
-      {
         Header: 'R',
-        accessor: 'positiveR'
+        accessor: 'rewardToRisk'
       },
       {
         Header: 'Opened',
@@ -56,6 +47,20 @@ const TableActiveTrades = ({ trades }) => {
             <span>{customDate}</span>
           )
         }
+      },
+      {
+        Header: 'Closed',
+        accessor: 'closed',
+        Cell: (props) => {
+          const customDate = formDate(props.value)
+          return (
+            <span>{customDate}</span>
+          )
+        }
+      },
+      {
+        Header: 'Outcome',
+        accessor: 'outcome',
       },
     ],
     []
@@ -90,7 +95,7 @@ const TableActiveTrades = ({ trades }) => {
 
   return (
     <div>
-      <EnhancedTable
+      <TableEnhanced
         tableName={tableName}
         columns={columns}
         data={data}
@@ -99,12 +104,12 @@ const TableActiveTrades = ({ trades }) => {
         updateMyData={updateMyData}
         skipPageReset={skipPageReset}
       />
-    </div >
+    </div>
   )
 }
 
 const mapStateToProps = (state) => ({
-  trades: activeTradeSearch(state.trades, state.filters)
+  trades: closedTradeSearch(state.trades, state.filters)
 })
 
-export default connect(mapStateToProps)(TableActiveTrades)
+export default connect(mapStateToProps)(TableClosedTrades)

@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import TableStyled from '../../components_style/TableStyled'
+import TableStyled from '../components_style/TableStyled'
 import TableBody from '@material-ui/core/TableBody'
-import TableCellStyled from '../../components_style/TableCellStyled'
-import TableContainerStyled from '../../components_style/TableContainerStyled'
+import TableCellStyled from '../components_style/TableCellStyled'
+import TableContainerStyled from '../components_style/TableContainerStyled'
 import TableFooter from '@material-ui/core/TableFooter'
 import TableHead from '@material-ui/core/TableHead'
-import TablePaginationStyled from '../../components_style/TablePaginationStyled'
+import TablePaginationStyled from '../components_style/TablePaginationStyled'
 import TablePaginationActions from './TablePaginationActions'
 import TableRow from '@material-ui/core/TableRow'
 import TableSortLabel from '@material-ui/core/TableSortLabel'
@@ -19,8 +19,8 @@ import {
   useSortBy,
   useTable,
 } from 'react-table'
-import IndeterminateCheckbox from './IndeterminateCheckbox'
-import { deleteFirebaseTrade, editFirebaseTrade } from '../../actions/tradeActions'
+import TableCheckBox from './TableCheckbox'
+import { deleteFirebaseTrade, editFirebaseTrade } from '../actions/tradeActions'
 
 const EnhancedTable = ({
   tableName,
@@ -59,13 +59,13 @@ const EnhancedTable = ({
           id: 'selection',
           Header: ({ getToggleAllRowsSelectedProps }) => (
             <div>
-              <IndeterminateCheckbox {...getToggleAllRowsSelectedProps()} />
+              <TableCheckBox {...getToggleAllRowsSelectedProps()} />
             </div>
           ),
           Cell: ({ row, data, cell }) => {
             return (
               <div>
-                <IndeterminateCheckbox {...row.getToggleRowSelectedProps()} />
+                <TableCheckBox {...row.getToggleRowSelectedProps()} />
               </div>
             )
           },
