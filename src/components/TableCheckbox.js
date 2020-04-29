@@ -1,8 +1,9 @@
 import React, { Fragment, useEffect, useRef, forwardRef } from 'react'
-import CheckBoxStyled from '../components_style/CheckBoxStyled'
+//import CheckBoxStyled from '../../components_style/CheckBoxStyled'
 import Checkbox from '@material-ui/core/Checkbox'
 
-const TableCheckBox = forwardRef(
+
+const TableCheckbox = forwardRef(
   ({ indeterminate, ...rest }, ref) => {
     const defaultRef = useRef()
     const resolvedRef = ref || defaultRef
@@ -11,10 +12,10 @@ const TableCheckBox = forwardRef(
     }, [resolvedRef, indeterminate])
     return (
       <Fragment>
-        <CheckBoxStyled ref={resolvedRef} {...rest} />
+        <Checkbox ref={resolvedRef} {...rest} />
       </Fragment>
     )
   }
 )
 
-export default TableCheckBox
+export default TableCheckbox

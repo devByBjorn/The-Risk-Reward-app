@@ -1,9 +1,7 @@
 import React, { Fragment } from 'react'
-import { NavLink } from 'react-router-dom'
 import {
   createMuiTheme,
   MuiThemeProvider,
-  withStyles
 } from "@material-ui/core/styles"
 import AddIcon from '@material-ui/icons/Add'
 import clsx from 'clsx'
@@ -13,7 +11,6 @@ import GlobalFilter from './TableSearchField'
 import IconButton from '../components_style/IconButtonStyled'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
-
 import Tooltip from '@material-ui/core/Tooltip'
 import tableToolbarStyled from '../components_style/tableToolbarStyled'
 

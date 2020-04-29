@@ -44,31 +44,3 @@ const mapDispatchToProps = (dispatch) => ({
 
 export default connect(mapStateToProps, mapDispatchToProps)(TradeEditPage)
 
-
-// const TradeEditPage = (props) => {
-//   const { trade, location, editFirebaseTrade, deleteFirebaseTrade } = props
-
-//   const handleEditOnAdd = (trade) => {
-//     editFirebaseTrade(trade.id, trade)
-//     history.push('/trades')
-//   }
-
-//   const handleDeleteOnTrash = () => {
-//     deleteFirebaseTrade({ id: trade.id })
-//     history.push('/trades')
-//   }
-
-//   return (
-//     <div>
-//       <TradeParentForm
-//         pathname={location.pathname}
-//         trade={trade}
-//         handleSubmit={handleEditOnAdd}
-//       />
-//       <Btn
-//         text={<TrashIcon />}
-//         onClick={handleDeleteOnTrash}
-//       />
-//     </div>
-//   )
-// }

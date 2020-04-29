@@ -1,5 +1,5 @@
 import { withStyles } from '@material-ui/core/styles'
-import CheckBox from '@material-ui/core/CheckBox'
+import Checkbox from '@material-ui/core/Checkbox'
 
 const CheckBoxStyled = withStyles({
   root: {
@@ -14,6 +14,6 @@ const CheckBoxStyled = withStyles({
       color: '#202124'
     }
   },
-})(CheckBox);
+})(Checkbox);
 
 export default CheckBoxStyled
