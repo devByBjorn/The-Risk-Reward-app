@@ -22,11 +22,6 @@ const theme = createMuiTheme({
         fontSize: '1.2rem',
       }
     },
-    MuiTypography: {
-      typography: {
-        fontFamily: 'Century Gothic, Futura, sans-serif',
-      }
-    }
   }
 })
 

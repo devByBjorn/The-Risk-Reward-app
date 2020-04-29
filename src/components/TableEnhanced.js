@@ -10,7 +10,7 @@ import TableCellStyled from '../components_style/TableCellStyled'
 import TableContainerStyled from '../components_style/TableContainerStyled'
 import TableStyled from '../components_style/TableStyled'
 import TablePaginationActions from './TablePaginationActions'
-import TableToolbar from './TableToolbar'
+import TableToolbar from './TableToolBar'
 import TableCheckBox from './TableCheckbox'
 //import EditIcon from '@material-ui/icons/Edit'
 import {
