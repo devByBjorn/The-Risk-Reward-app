@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import TableStyled from '../components_style/TableStyled'
 import TableBody from '@material-ui/core/TableBody'
-import TableCellStyled from '../components_style/TableCellStyled'
-import TableContainerStyled from '../components_style/TableContainerStyled'
 import TableFooter from '@material-ui/core/TableFooter'
 import TableHead from '@material-ui/core/TableHead'
-import TablePaginationStyled from '../components_style/TablePaginationStyled'
-import TablePaginationActions from './TablePaginationActions'
-import TableRow from '@material-ui/core/TableRow'
 import TableSortLabel from '@material-ui/core/TableSortLabel'
+import TableRow from '@material-ui/core/TableRow'
+import TablePaginationStyled from '../components_style/TablePaginationStyled'
+import TableCellStyled from '../components_style/TableCellStyled'
+import TableContainerStyled from '../components_style/TableContainerStyled'
+import TableStyled from '../components_style/TableStyled'
+import TablePaginationActions from './TablePaginationActions'
 import TableToolbar from './TableToolbar'
+import TableCheckBox from './TableCheckbox'
 //import EditIcon from '@material-ui/icons/Edit'
 import {
   useGlobalFilter,
@@ -19,7 +20,6 @@ import {
   useSortBy,
   useTable,
 } from 'react-table'
-import TableCheckBox from './TableCheckbox'
 import { deleteFirebaseTrade, editFirebaseTrade } from '../actions/tradeActions'
 
 const EnhancedTable = ({

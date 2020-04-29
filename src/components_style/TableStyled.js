@@ -1,7 +1,4 @@
 
-
-import React from 'react'
-import clsx from 'clsx'
 import { withStyles } from '@material-ui/core/styles'
 import MaUTable from '@material-ui/core/Table'
 

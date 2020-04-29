@@ -1,9 +1,9 @@
-import React from "react";
+import React from "react"
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-} from "react-router-dom";
+} from "react-router-dom"
 import Header from '../components/Header'
 import IndexPage from '../components/IndexPage'
 
