@@ -2,8 +2,6 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import headerStyled from '../components_style/HeaderStyled'
 
-
-
 const Header = () => {
   const classes = headerStyled()
   return (

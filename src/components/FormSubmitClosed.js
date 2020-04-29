@@ -1,5 +1,4 @@
 import React from 'react'
-import moment from 'moment'
 
 const FormSubmitClosed = ({ values, prevStep, handleSubmit }) => {
   const back = e => {
@@ -18,8 +17,8 @@ const FormSubmitClosed = ({ values, prevStep, handleSubmit }) => {
           <li>Stop: {values.stop}</li>
           <li>Target: {values.target}</li>
           <li>Status: {values.status}</li>
-          <li>Opened:{moment(values.opened).format('MM/DD/YY')}</li>
-          <li>Closed:{moment(values.closed).format('MM/DD/YY')}</li>
+          <li>Opened:{new Date(values.opened)}</li>
+          <li>Closed:{new Date(values.closed)}</li>
           <li>Execution: {values.execution}
             <ul>
               <li>Why:{values.whyExecution}</li>

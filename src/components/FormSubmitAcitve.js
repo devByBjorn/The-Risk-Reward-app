@@ -1,5 +1,4 @@
 import React from 'react'
-import moment from 'moment'
 
 const FormSubmitActive = ({ values, prevStep, handleSubmit }) => {
   const back = e => {
@@ -17,7 +16,7 @@ const FormSubmitActive = ({ values, prevStep, handleSubmit }) => {
           <li>Stop: {values.stop}</li>
           <li>Target: {values.target}</li>
           <li>Status: {values.status}</li>
-          <li>Status:{moment(values.opened).format('MM/DD/YY')}</li>
+          <li>{new Date(values.opened)}</li>
         </ul>
       </div>
       <button

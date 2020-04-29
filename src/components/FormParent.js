@@ -1,5 +1,4 @@
 import React from 'react'
-import moment from 'moment'
 import { calculatePositiveR, calculateNegativeR } from '../calculations/riskRewardCalculation'
 import FormStepOne from './FormStepOne'
 import FormStepTwo from './FormStepTwo'
@@ -8,7 +7,6 @@ import FormStepManagement from './FormStepManagement'
 import FormSubmitClosed from './FormSubmitClosed'
 import FormSubmitActive from './FormSubmitAcitve'
 import FormSubmitPending from './FormSubmitPending'
-import FormNav from './FormNav'
 import FormStepThree from './FormStepThree'
 
 class FormParent extends React.Component {

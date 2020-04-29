@@ -35,11 +35,19 @@ span {
 }
 
 &:disabled {
-  border: 1px solid #eee;
-  color: #eee;
+  border: 1px solid #bdbdbd;
+  color: #bdbdbd;
   &:hover {
     cursor: default;
     background: transparent;
+  }
+
+  &:nth-child(even) {
+    border-right: none;
+  }
+  
+  &:nth-child(odd) {
+    border-left: none;
   }
 }
 `
