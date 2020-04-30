@@ -17,6 +17,7 @@ const FormStepOne = ({
   values,
   navigateByStepValue,
   nextStep,
+  prevStep,
   onChangeByInput
 }) => {
   const { market, direction, setup } = values
@@ -31,6 +32,11 @@ const FormStepOne = ({
       setError(false)
       nextStep()
     }
+  }
+
+  const back = e => {
+    e.preventDefault()
+    prevStep()
   }
 
   return (
@@ -86,6 +92,10 @@ const FormStepOne = ({
         />
 
         <div className={classes.buttonContainer}>
+          <Button
+            className={classes.button}
+            onClick={back}
+          >Back</Button>
           <Button
             className={classes.button}
             onClick={next}

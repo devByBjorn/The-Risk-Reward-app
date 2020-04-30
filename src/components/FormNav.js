@@ -1,13 +1,12 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState, useRef } from 'react'
 import FormNavBtn from '../components_style/FormNavBtn'
-import formNavStyle from '../components_style/formNavStyled'
+import formNavStyle, { Nav, Ul, Li, Button } from '../components_style/formNavStyled'
 
-const FormNav = ({ values, navigateByStepValue, }) => {
+
+const FormNav = ({ values, navigateByStepValue }) => {
   const { direction, market, entry, stop, target, setup, status,
     outcome, execution, management, whyExecution, improveExecution,
     whyManagement, improveManagement, step } = values
-
-  const classes = formNavStyle()
 
   const closedSubmitValues = [market, direction, setup, entry, stop,
     target, status, execution, management, whyExecution, improveExecution,
@@ -21,93 +20,121 @@ const FormNav = ({ values, navigateByStepValue, }) => {
       value === '' || value === 0).length !== 0
 
   return (
-    <nav className={classes.nav}>
-      <ul className={classes.list}>
-        <li className={classes.listItem}>
-          <FormNavBtn
-            value={1}
-            onClick={navigateByStepValue}
-            text="Market, direction & setup"
-            spanText="Step 1:"
-          />
-        </li>
-        <li className={classes.listItem}>
-          <FormNavBtn
-            disabled={step < 2 && !entry && true}
-            value={2}
-            onClick={navigateByStepValue}
-            text="Entry, stop & target"
-            spanText="Step 2:"
-          />
-        </li>
-        <li className={classes.listItem}>
-          <FormNavBtn
-            disabled={step < 3 && !status && true}
-            value={3}
-            onClick={navigateByStepValue}
-            text="Trade status"
-            spanText="Step 3:"
-          />
-        </li>
-        {status === 'closed' && outcome &&
+    <Nav>
+      <Ul>
+        <Li>
+          <Button
+            type="button"
+            onClick={() => navigateByStepValue(1)}
+          ><span>Step 1:</span>
+            Trade status
+            {status === 'closed' && ', dates & outcome'}
+            {status === 'active' && ' & open date'}
+          </Button>
+        </Li>
+
+
+        {status &&
           <Fragment>
-            <li className={classes.listItem}>
-              <FormNavBtn
+            <Li>
+              <Button
+                type="button"
+                disabled={step < 2 && !market && true}
+                onClick={() => navigateByStepValue(2)}
+              ><span>Step 2:</span>
+                Market, direction & setup
+                </Button>
+            </Li>
+            <Li>
+              <Button
+                disabled={step < 3 && !entry && true}
+                onClick={() => navigateByStepValue(3)}
+              ><span>Step 3:</span>
+              Entry, stop & target
+            </Button>
+            </Li>
+          </Fragment>
+        }
+        {step <= 3 && !status &&
+          <Fragment>
+            <Li>
+              <Button
+                disabled={true}
+                text=""
+                spanText=""
+              />
+            </Li>
+            <Li>
+              <Button
+                disabled={true}
+                text=""
+                spanText=""
+              />
+            </Li>
+            <Li>
+              <Button
+                disabled={true}
+                text=""
+                spanText=""
+              />
+            </Li>
+          </Fragment>
+
+        }
+        {status === 'closed' &&
+          <Fragment>
+            <Li>
+              <Button
                 disabled={step < 4 && !execution && true}
-                value={4}
-                text="Execution"
-                spanText="Step 4:"
-                onClick={navigateByStepValue}
-              />
-            </li>
-            <li className={classes.listItem}>
-              <FormNavBtn
+                onClick={() => navigateByStepValue(4)}
+              ><span>Step 4:</span>
+                Execution
+              </Button>
+            </Li>
+            <Li>
+              <Button
                 disabled={step < 5 && !management && true}
-                value={5}
-                text="Managemnet"
-                spanText="Step 5:"
-                onClick={navigateByStepValue}
-              />
-            </li>
-            <li className={classes.listItem}>
-              <FormNavBtn
+                onClick={() => navigateByStepValue(5)}
+              ><span>Step 5:</span>
+                Management
+              </Button>
+            </Li>
+            <Li>
+              <Button
                 disabled={ableSubmitStep(closedSubmitValues) && true}
-                value={6}
-                text="Inspect & Submit"
-                spanText="Step 6:"
-                onClick={navigateByStepValue}
-              />
-            </li>
+                onClick={() => navigateByStepValue(6)}
+              ><span>Step 6:</span>
+                Inspect & Submit
+              </Button>
+            </Li>
           </Fragment>
         }
         {status === 'active' &&
           <Fragment>
-            <li className={classes.listItem}>
-              <FormNavBtn
+            <Li>
+              <Button
                 disabled={ableSubmitStep(activePendingSubmitValues) && true}
-                value={4}
-                text="Inspect & Submit"
-                spanText="Step 4:"
-                onClick={navigateByStepValue}
-              />
-            </li>
+                onClick={() => navigateByStepValue(4)}
+              ><span>Step 4:</span>
+                Inspect & Submit
+              </Button>
+            </Li>
           </Fragment>
         }
         {status === 'pending' &&
           <Fragment>
-            <li className={classes.listItem}>
-              <FormNavBtn
+            <Li>
+              <Button
                 disabled={ableSubmitStep(activePendingSubmitValues) && true}
-                value={4}
-                text="Inspect & Submit"
-                spanText="Step 4:"
-                onClick={navigateByStepValue}
-              />
-            </li>
+                onClick={() => navigateByStepValue(4)}
+              ><span>Step 4:</span>
+                Inspect & Submit
+              </Button>
+            </Li>
           </Fragment>
         }
-      </ul>
-    </nav>
+      </Ul>
+    </Nav>
   )
 }
 

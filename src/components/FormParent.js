@@ -15,7 +15,6 @@ class FormParent extends React.Component {
     this.state = {
       step: 1,
       editMode: false,
-      pathname: props.pathname ? props.pathname : '',
       direction: props.trade ? props.trade.direction : '',
       market: props.trade ? props.trade.market : '',
       entry: props.trade ? props.trade.entry : '',
@@ -24,8 +23,6 @@ class FormParent extends React.Component {
       status: props.trade ? props.trade.status : '',
       setup: props.trade ? props.trade.setup : '',
       outcome: props.trade ? props.trade.outcome : '',
-      //opened: props.trade ? moment(props.trade.opened) : moment(),
-      //closed: props.trade ? moment(props.trade.closed) : moment(),
       opened: props.trade ? new Date(props.trade.opened) : new Date(),
       closed: props.trade ? new Date(props.trade.closed) : new Date(),
       conclusion: props.trade
@@ -48,23 +45,6 @@ class FormParent extends React.Component {
     }
   }
 
-  componentDidMount = () => {
-    const { pathname } = this.state
-    pathname.includes('edit')
-      ? this.isEditMode()
-      : false
-  }
-
-  isEditMode = () => {
-    const editMode = !this.state.editMode
-    this.setState(() => ({ editMode }))
-  }
-
-  navigateByStepValue = (e) => {
-    const step = parseInt(e.target.value, 10)
-    this.setState(() => ({ step }))
-  }
-
   nextStep = () => {
     const { step } = this.state
     this.setState(() => ({ step: step + 1 }))
@@ -75,9 +55,31 @@ class FormParent extends React.Component {
     this.setState(() => ({ step: step - 1 }))
   }
 
+  navigateByStepValue = (stepValue) => {
+    this.setState(() => ({ step: stepValue }))
+  }
+
   onChangeByInput = (e) => {
     const value = e.target.value
     const name = e.target.name
+
+    if (name === 'status' && value !== 'closed') {
+      this.setState(() => ({
+        outcome: '',
+        closed: new Date,
+        opened: new Date(),
+        conclusion: {
+          execution: '',
+          closed: '',
+          improveExecution: '',
+          whyExecution: '',
+          management: '',
+          improveManagement: '',
+          whyManagement: '',
+        }
+      }))
+    }
+
     this.setState(() => ({ [name]: value }))
   }
 
@@ -91,7 +93,6 @@ class FormParent extends React.Component {
 
   calculateRewardToRisk = () => {
     const { entry, stop, target, outcome, direction } = this.state
-
     let rewardToRisk
     switch (outcome) {
       case 'win':
@@ -105,11 +106,9 @@ class FormParent extends React.Component {
 
   onOpenDateChange = (opened) => {
     this.setState(() => ({ opened }))
-    console.log('OPENED:', opened)
   }
   onClosedDateChange = (closed) => {
     this.setState(() => ({ closed }))
-    console.log('CLOSED:', closed)
   }
 
   onConclusionChange = (e) => {
@@ -136,9 +135,6 @@ class FormParent extends React.Component {
       status: status,
       outcome: status === 'closed' ? outcome : '',
       setup: setup,
-      //opened: opened ? opened.valueOf() : '',
-      //closed: closed ? closed.valueOf() : '',
-      //period: closed && opened ? (closed - opened).valueOf() : '',
       opened: opened ? opened.getTime() : '',
       closed: closed ? closed.getTime() : '',
       //period: closed && opened ? (closed - opened).getTime() : '',
@@ -166,24 +162,36 @@ class FormParent extends React.Component {
       whyManagement, improveManagement } = this.state.conclusion
 
     const values = {
-      direction, market, entry, stop, target, setup, status,
+      step, direction, market, entry, stop, target, setup, status,
       outcome, rewardToRisk, opened, closed, period, inputError,
       execution, management, whyExecution, improveExecution,
-      whyManagement, improveManagement, step
+      whyManagement, improveManagement,
     }
 
     switch (step) {
       case 1:
         return (
-          <FormStepOne
+          <FormStepThree
             values={values}
             navigateByStepValue={this.navigateByStepValue}
             nextStep={this.nextStep}
             onChangeByInput={this.onChangeByInput}
-            onChangeValue={this.onChangeValue}
+            onOpenDateChange={this.onOpenDateChange}
+            onClosedDateChange={this.onClosedDateChange}
           />
         )
       case 2:
+        return (
+          <FormStepOne
+            values={values}
+            navigateByStepValue={this.navigateByStepValue}
+            nextStep={this.nextStep}
+            prevStep={this.prevStep}
+            onChangeByInput={this.onChangeByInput}
+            onChangeValue={this.onChangeValue}
+          />
+        )
+      case 3:
         return (
           <FormStepTwo
             values={values}
@@ -192,18 +200,6 @@ class FormParent extends React.Component {
             nextStep={this.nextStep}
             onChangeValue={this.onChangeValue}
             onChangeByInput={this.onChangeByInput}
-          />
-        )
-      case 3:
-        return (
-          <FormStepThree
-            values={values}
-            prevStep={this.prevStep}
-            navigateByStepValue={this.navigateByStepValue}
-            nextStep={this.nextStep}
-            onChangeByInput={this.onChangeByInput}
-            onOpenDateChange={this.onOpenDateChange}
-            onClosedDateChange={this.onClosedDateChange}
           />
         )
     }

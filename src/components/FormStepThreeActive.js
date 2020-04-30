@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import DatePicker from 'react-datepicker'
-import { makeStyles } from '@material-ui/core/styles'
+import FormLabel from '@material-ui/core/FormLabel'
 import formElementsStyled from '../components_style/formElementsStyled'
 
 const FormStepThreeActive = ({ values, onOpenDateChange }) => {
@@ -10,8 +10,8 @@ const FormStepThreeActive = ({ values, onOpenDateChange }) => {
 
   return (
     <div className={classes.date}>
-      <label
-      >Opened</label>
+      <FormLabel className={classes.formLabel}
+      >Opened</FormLabel>
       <DatePicker
         dateFormat="MMM d, yyyy hh:mm"
         maxDate={new Date()}

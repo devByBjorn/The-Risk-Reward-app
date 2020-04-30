@@ -23,7 +23,6 @@ const FormStepThree = ({
   onOpenDateChange,
   navigateByStepValue,
   nextStep,
-  prevStep,
 }) => {
 
   const classes = formElementsStyled()
@@ -106,13 +105,14 @@ const FormStepThree = ({
 
         <div className={classes.buttonContainer}>
           <Button
-            className={classes.button}
-            onClick={back}
+            disabled={true}
+            className={classes.buttonInactive}
           >Back</Button>
           <Button
             className={classes.button}
             onClick={next}
           >Next</Button>
+
         </div>
       </FormContainer>
     </FormPageContainer>
