@@ -19,6 +19,7 @@ const FormNav = ({ values, navigateByStepValue }) => {
     submitValues.filter((value) =>
       value === '' || value === 0).length !== 0
 
+
   return (
     <Nav>
       <Ul>
@@ -26,6 +27,7 @@ const FormNav = ({ values, navigateByStepValue }) => {
           <Button
             type="button"
             onClick={() => navigateByStepValue(1)}
+            style={step === 1 ? { fontWeight: 'bold' } : {}}
           ><span>Step 1:</span>
             Trade status
             {status === 'closed' && ', dates & outcome'}
@@ -41,6 +43,7 @@ const FormNav = ({ values, navigateByStepValue }) => {
                 type="button"
                 disabled={step < 2 && !market && true}
                 onClick={() => navigateByStepValue(2)}
+                style={step === 2 ? { fontWeight: 'bold' } : {}}
               ><span>Step 2:</span>
                 Market, direction & setup
                 </Button>
@@ -49,6 +52,7 @@ const FormNav = ({ values, navigateByStepValue }) => {
               <Button
                 disabled={step < 3 && !entry && true}
                 onClick={() => navigateByStepValue(3)}
+                style={step === 3 ? { fontWeight: 'bold' } : {}}
               ><span>Step 3:</span>
               Entry, stop & target
             </Button>
@@ -87,6 +91,7 @@ const FormNav = ({ values, navigateByStepValue }) => {
               <Button
                 disabled={step < 4 && !execution && true}
                 onClick={() => navigateByStepValue(4)}
+                style={step === 4 ? { fontWeight: 'bold' } : {}}
               ><span>Step 4:</span>
                 Execution
               </Button>
@@ -95,6 +100,7 @@ const FormNav = ({ values, navigateByStepValue }) => {
               <Button
                 disabled={step < 5 && !management && true}
                 onClick={() => navigateByStepValue(5)}
+                style={step === 5 ? { fontWeight: 'bold' } : {}}
               ><span>Step 5:</span>
                 Management
               </Button>
@@ -103,6 +109,7 @@ const FormNav = ({ values, navigateByStepValue }) => {
               <Button
                 disabled={ableSubmitStep(closedSubmitValues) && true}
                 onClick={() => navigateByStepValue(6)}
+                style={step === 6 ? { fontWeight: 'bold' } : {}}
               ><span>Step 6:</span>
                 Inspect & Submit
               </Button>
@@ -115,6 +122,7 @@ const FormNav = ({ values, navigateByStepValue }) => {
               <Button
                 disabled={ableSubmitStep(activePendingSubmitValues) && true}
                 onClick={() => navigateByStepValue(4)}
+                style={step === 4 ? { fontWeight: 'bold' } : {}}
               ><span>Step 4:</span>
                 Inspect & Submit
               </Button>
@@ -127,6 +135,7 @@ const FormNav = ({ values, navigateByStepValue }) => {
               <Button
                 disabled={ableSubmitStep(activePendingSubmitValues) && true}
                 onClick={() => navigateByStepValue(4)}
+                style={step === 4 ? { fontWeight: 'bold' } : {}}
               ><span>Step 4:</span>
                 Inspect & Submit
               </Button>

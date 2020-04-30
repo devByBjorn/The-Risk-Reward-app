@@ -9,18 +9,20 @@ const FormStepThreeActive = ({ values, onOpenDateChange }) => {
 
 
   return (
-    <div className={classes.date}>
-      <FormLabel className={classes.formLabel}
-      >Opened</FormLabel>
-      <DatePicker
-        dateFormat="MMM d, yyyy hh:mm"
-        maxDate={new Date()}
-        onChange={onOpenDateChange}
-        selected={values.opened}
-        showTimeSelect
-        timeFormat="HH:mm"
-        timeIntervals={15}
-      />
+    <div className={classes.dateWrapperSingle}>
+      <div className={classes.date}>
+        <FormLabel className={classes.formLabel}
+        >Opened</FormLabel>
+        <DatePicker
+          dateFormat="MMM d, yyyy hh:mm"
+          maxDate={new Date()}
+          onChange={onOpenDateChange}
+          selected={values.opened}
+          showTimeSelect
+          timeFormat="HH:mm"
+          timeIntervals={15}
+        />
+      </div>
     </div>
   )
 }

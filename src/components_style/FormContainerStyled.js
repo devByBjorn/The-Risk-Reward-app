@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const FormContainer = styled.div`
 display: flex;
 flex-direction: column;
-margin-top: 10rem;
+margin-top: 20rem;
 max-width: 90vw;
 width: 50rem;
 `

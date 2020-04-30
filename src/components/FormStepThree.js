@@ -26,8 +26,7 @@ const FormStepThree = ({
 }) => {
 
   const classes = formElementsStyled()
-  const { status, outcome, } = values
-
+  const { status, outcome, step } = values
   const [error, setError] = useState(false)
 
   const next = e => {
@@ -42,17 +41,13 @@ const FormStepThree = ({
     }
   }
 
-  const back = e => {
-    e.preventDefault()
-    prevStep()
-  }
-
   return (
     <FormPageContainer>
       <FormNav
         values={values}
         navigateByStepValue={navigateByStepValue}
       />
+      <h3>{`Step ${step}.`}</h3>
       <FormContainer>
         <FormControl
           component="fieldset"

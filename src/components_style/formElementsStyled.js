@@ -32,6 +32,11 @@ const formElementsStyled = makeStyles((theme) => ({
     borderBottom: '1px solid #eee',
     padding: theme.spacing(2, 0)
   },
+  dateWrapperSingle: {
+    borderTop: '1px solid #eee',
+    borderBottom: '1px solid #eee',
+    padding: theme.spacing(2, 0, 2, 5.4)
+  },
   formControl: {
     margin: theme.spacing(7),
   },
