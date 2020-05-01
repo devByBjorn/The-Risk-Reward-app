@@ -22,22 +22,26 @@ const Li = styled.li`
   display: inline-block;
   position: relative;
   width: 250px;
-  height: 100px;
+  min-height: 100px;
  
 
   &:last-child: {
     background: #fafafa;
     clip-path: none;
-  }
+  };
+
+  @media(max-width: 850px) {
+    width: 150px;
+  };
 `
 // clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+//  width:249px;
 const Button = styled.button`
   display: inline-block;
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
-  width:249px;
   width: 100%;
 
   background: #fff;
@@ -46,7 +50,7 @@ const Button = styled.button`
   color: #1b3a57;
   font-size: 1.4rem;
   margin-bottom: -1px;
-  padding-left: 2rem;
+  padding: 0 1.5rem;
   text-align: left;
 
   span {
@@ -73,32 +77,11 @@ const Button = styled.button`
   &:focused {
     outline: none;
   }
+
+  @media(max-width: 850px) {
+    font-size: 1.2rem;
+    padding: 5px;
+    width: 140px;
+  };
 `
-//clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
-
-const formNavStyled = makeStyles((theme) => ({
-  nav: {
-    position: 'absolute',
-    display: 'flex',
-    width: '100%',
-    background: '#fafafa',
-  },
-  list: {
-    display: 'flex',
-    alignItems: 'strech',
-    // color: '#3f51b5',
-    listStyleType: 'none',
-  },
-  listItem: {
-    position: 'relative',
-    width: '25rem',
-    height: '100%',
-
-    '&:first-child': {
-      borderLeft: '1px solid #f50057'
-    }
-  }
-}))
-
-export default formNavStyled
 export { Nav, Ul, Li, Button }

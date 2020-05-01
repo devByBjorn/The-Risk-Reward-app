@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const FlexContainer = styled.div.attrs(props => ({
   direction: props.direction || 'row',
   justifyContent: props.justifyContent || 'center',
-  alignItems: props.alignItems || 'center',
+  alignItems: props.alignItems || 'start',
   border: props.border || 'none',
   borderBottom: props.borderBottom || 'none',
   borderTop: props.borderTop || 'none',

@@ -1,15 +1,23 @@
 import styled from 'styled-components'
 import { makeStyles } from '@material-ui/core/styles'
 
+export const NavMain = styled.nav.attrs(props => ({
+  padding: props.padding || '2rem 5rem'
+}))`
+display: flex;
+justify-content: flex-end;
+background: #fff;
+border-bottom: 1px solid #e0e0e0;
+padding: ${props => props.padding};
+z-index: 999;
+
+@media(max-width: 850px) {
+  font-size: 1.2rem;
+  padding: 1rem;
+}
+`
+
 const headerStyled = makeStyles(theme => ({
-  nav: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    background: '#fff',
-    borderBottom: '1px solid #e0e0e0',
-    padding: '2rem 5rem',
-    zIndex: '999'
-  },
   link: {
     borderTop: '5px solid transparent',
     color: '#031525',

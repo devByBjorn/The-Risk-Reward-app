@@ -21,6 +21,21 @@ const TableClosedTrades = ({ trades }) => {
     return `${dayDate} ${month}, ${fullYear}`
   }
 
+  const getOutcomeBorder = (value) => {
+    let border
+
+    switch (value) {
+      case 'win':
+        return border = '8px solid #d1eec1'
+      case 'loss':
+        return border = '8px solid #fda3a3'
+      case 'scratch':
+        return border = '8px solid #ffdb99'
+      default:
+        return border = 'none'
+    }
+  }
+
   const columns = useMemo(
     () => [
       {
@@ -61,6 +76,15 @@ const TableClosedTrades = ({ trades }) => {
       {
         Header: 'Outcome',
         accessor: 'outcome',
+        /*getProps: (state, rowInfo, column) => {
+          alert(rowInfo)
+          const borderLeft = getOutcomeBorder(rowInfo.row.outcome)
+          return {
+            style: {
+              borderLeft
+            }
+          }
+        }*/
       },
     ],
     []

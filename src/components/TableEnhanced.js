@@ -12,7 +12,11 @@ import TableStyled from '../components_style/TableStyled'
 import TablePaginationActions from './TablePaginationActions'
 import TableToolbar from './TableToolBar'
 import TableCheckBox from './TableCheckbox'
+
+//import DeleteIcon from '@material-ui/icons/Delete'
 //import EditIcon from '@material-ui/icons/Edit'
+//import IconButton from '../components_style/IconButtonStyled'
+
 import {
   useGlobalFilter,
   usePagination,
@@ -70,6 +74,25 @@ const EnhancedTable = ({
             )
           },
         },
+        /*{
+          id: 'handle',
+          Cell: ({ row, data, cell }) => {
+            return (
+              <div>
+                <IconButton
+                  aria-label="delete">
+                  <DeleteIcon fontSize="small" />
+                </IconButton>
+                <IconButton
+                  aria-label="edit"
+                //href={`/edit-trade/${data[rowId].id}`}
+                >
+                  <EditIcon fontSize="small" />
+                </IconButton>
+              </div>
+            )
+          },
+        },*/
         ...columns,
       ])
     }
@@ -168,10 +191,11 @@ const EnhancedTable = ({
             return (
               <TableRow {...row.getRowProps()}>
                 {row.cells.map(cell => {
+                  // can't get getProps to work in header/accesor
                   const borderLeft = getOutcomeBorder(cell.value)
                   return (
                     <TableCellStyled
-                      style={{ borderLeft }}
+                      style={cell.column.Header === 'Outcome' ? { borderLeft } : {}}
                       {...cell.getCellProps()}>
                       {cell.render('Cell')}
                     </TableCellStyled>

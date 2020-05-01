@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Nav, Ul, Li, Button } from '../components_style/formNavStyled'
+import { Nav, Ul, Li, Button } from '../components_style/FormNavStyles'
 
 const FormNav = ({ values, navigateByStepValue }) => {
   const { direction, market, entry, stop, target, setup, status,

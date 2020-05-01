@@ -1,32 +1,22 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import { editFirebaseTrade, deleteFirebaseTrade } from '../actions/tradeActions'
 import FormParent from './FormParent'
-import { TrashIcon } from '../icons/IconsComponents'
 
 class TradeEditPage extends React.Component {
   handleEditOnAdd = (trade) => {
     this.props.editFirebaseTrade(this.props.trade.id, trade)
     this.props.history.push('/trades')
   }
-  handleDeleteOnTrash = () => {
-    this.props.deleteFirebaseTrade({ id: this.props.trade.id })
-    this.props.history.push('/trades')
-  }
   render() {
     return (
-      <div>
+      <Fragment>
         <FormParent
           pathname={this.props.location.pathname}
           trade={this.props.trade}
           handleSubmit={this.handleEditOnAdd}
         />
-        <button
-          onClick={this.handleDeleteOnTrash}
-        >text={<TrashIcon />}
-        </button>
-
-      </div>
+      </Fragment>
     )
   }
 }
