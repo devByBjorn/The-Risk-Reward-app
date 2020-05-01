@@ -1,30 +1,40 @@
 import React from 'react'
+import FormPageContainer from '../components_style/FormPageContainerStyled'
+import FormContainer from '../components_style/FormContainerStyled'
+import Button from '@material-ui/core/Button'
+import FormNav from './FormNav'
+import OverviewPendingTrade from './OverviewPendingTrade'
+import formElementsStyled from '../components_style/formElementsStyled'
 
-const FormSubmitPending = ({ values, prevStep, handleSubmit }) => {
+const FormSubmitPending = ({ values, prevStep, handleSubmit, navigateByStepValue }) => {
+
+  const classes = formElementsStyled()
+
   const back = e => {
     e.preventDefault()
     prevStep()
   }
   return (
-    <React.Fragment>
-      <div className="history">
-        <ul>
-          <li>Market: {values.market}</li>
-          <li>Direction: {values.direction}</li>
-          <li>Setup: {values.setup}</li>
-          <li>Entry: {values.entry}</li>
-          <li>Stop: {values.stop}</li>
-          <li>Target: {values.target}</li>
-          <li>Status: {values.status}</li>
-        </ul>
-      </div>
-      <button
-        onClick={back}
-      >Back</button>
-      <button
-        onClick={handleSubmit}
-      >Add</button>
-    </React.Fragment>
+    <FormPageContainer>
+      <FormNav
+        values={values}
+        navigateByStepValue={navigateByStepValue}
+      />
+      <FormContainer width="70rem">
+        <OverviewPendingTrade
+          values={values}
+        />
+        <div className={classes.buttonContainer}>
+          <Button className={classes.button}
+            onClick={back}
+          >Back</Button>
+
+          <Button className={classes.button}
+            onClick={handleSubmit}
+          >Add</Button>
+        </div>
+      </FormContainer>
+    </FormPageContainer>
   )
 }
 

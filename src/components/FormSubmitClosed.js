@@ -1,11 +1,14 @@
 import React from 'react'
-import { formDate } from '../helpers/formDate'
+import FormPageContainer from '../components_style/FormPageContainerStyled'
+import formElementsStyled from '../components_style/formElementsStyled'
+import Button from '@material-ui/core/Button'
+import FormNav from './FormNav'
+import OverViewClosedTrade from './OverviewClosedTrade'
+import FormContainer from '../components_style/FormContainerStyled'
 
-const FormSubmitClosed = ({ values, prevStep, handleSubmit }) => {
+const FormSubmitClosed = ({ values, prevStep, handleSubmit, navigateByStepValue }) => {
 
-  const { market, direction, setup, entry, stop, target, status, opened,
-    closed, execution, whyExecution, improveExecution,
-    management, whyManagement, improveManagement } = values
+  const classes = formElementsStyled()
 
   const back = e => {
     e.preventDefault()
@@ -13,40 +16,27 @@ const FormSubmitClosed = ({ values, prevStep, handleSubmit }) => {
   }
 
   return (
-    <React.Fragment>
-      <div>
-        <ul>
-          <li>Market: {market}</li>
-          <li>Direction: {direction}</li>
-          <li>Setup: {setup}</li>
-          <li>Entry: {entry}</li>
-          <li>Stop: {stop}</li>
-          <li>Target: {target}</li>
-          <li>Status: {status}</li>
-          {<li>{formDate(opened)}</li>}
-          {<li>{formDate(closed)}</li>}
-          <li>Execution: {execution}
-            <ul>
-              <li>Why:{whyExecution}</li>
-              <li>Improve: {improveExecution}</li>
-            </ul>
-          </li>
-          <li>Management: {management}
-            <ul>
-              <li>Why: {whyManagement}</li>
-              <li>Improve: {improveManagement}</li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-      <button
-        onClick={back}
-      >Back</button>
+    <FormPageContainer>
+      <FormNav
+        values={values}
+        navigateByStepValue={navigateByStepValue}
+      />
 
-      <button
-        onClick={handleSubmit}
-      >Add</button>
-    </React.Fragment>
+      <FormContainer width="100rem">
+        <OverViewClosedTrade
+          values={values}
+        />
+        <div className={classes.buttonContainer}>
+          <Button className={classes.button}
+            onClick={back}
+          >Back</Button>
+
+          <Button className={classes.button}
+            onClick={handleSubmit}
+          >Add</Button>
+        </div>
+      </FormContainer>
+    </FormPageContainer>
   )
 }
 

@@ -1,35 +1,41 @@
 import React from 'react'
-import { formDate } from '../helpers/formDate'
+import FormPageContainer from '../components_style/FormPageContainerStyled'
+import FormContainer from '../components_style/FormContainerStyled'
+import Button from '@material-ui/core/Button'
+import FormNav from './FormNav'
+import OverviewActiveTrade from './OverviewActiveTrade'
+import formElementsStyled from '../components_style/formElementsStyled'
 
-const FormSubmitActive = ({ values, prevStep, handleSubmit }) => {
+const FormSubmitActive = ({ values, prevStep, handleSubmit, navigateByStepValue }) => {
 
-  const { market, direction, setup, entry, stop, target, status, opened } = values
+  const classes = formElementsStyled()
 
   const back = e => {
     e.preventDefault()
     prevStep()
   }
   return (
-    <React.Fragment>
-      <div>
-        <ul>
-          <li>Market: {market}</li>
-          <li>Direction: {direction}</li>
-          <li>Setup: {setup}</li>
-          <li>Entry: {entry}</li>
-          <li>Stop: {stop}</li>
-          <li>Target: {target}</li>
-          <li>Status: {status}</li>
-          {<li>{formDate(opened)}</li>}
-        </ul>
-      </div>
-      <button
-        onClick={back}
-      >Back</button>
-      <button
-        onClick={handleSubmit}
-      >Add</button>
-    </React.Fragment>
+    <FormPageContainer>
+      <FormNav
+        values={values}
+        navigateByStepValue={navigateByStepValue}
+      />
+
+      <FormContainer padding="8rem 0" width="70rem">
+        <OverviewActiveTrade
+          values={values}
+        />
+        <div className={classes.buttonContainer}>
+          <Button className={classes.button}
+            onClick={back}
+          >Back</Button>
+
+          <Button className={classes.button}
+            onClick={handleSubmit}
+          >Add</Button>
+        </div>
+      </FormContainer>
+    </FormPageContainer>
   )
 }
 

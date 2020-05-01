@@ -13,9 +13,9 @@ const Ul = styled.ul`
   display: flex;
   align-items: stretch;
   list-style-type: none;
-
   border:none;
   border-bottom: 1px solid #eee;
+  width: 100%;
 `
 
 const Li = styled.li`
@@ -62,7 +62,7 @@ const Button = styled.button`
 
   &:disabled {
     background: #fafafa;
-    border-bottom:transparent;
+    border-bottom: 1px solid #eee;
     color: #bdbdbd;
 
     &:hover {

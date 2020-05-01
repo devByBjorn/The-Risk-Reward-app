@@ -1,7 +1,5 @@
-import React, { Fragment, useState, useRef } from 'react'
-import FormNavBtn from '../components_style/FormNavBtn'
-import formNavStyle, { Nav, Ul, Li, Button } from '../components_style/formNavStyled'
-
+import React, { Fragment } from 'react'
+import { Nav, Ul, Li, Button } from '../components_style/formNavStyled'
 
 const FormNav = ({ values, navigateByStepValue }) => {
   const { direction, market, entry, stop, target, setup, status,
@@ -19,7 +17,6 @@ const FormNav = ({ values, navigateByStepValue }) => {
     submitValues.filter((value) =>
       value === '' || value === 0).length !== 0
 
-
   return (
     <Nav>
       <Ul>
@@ -34,7 +31,6 @@ const FormNav = ({ values, navigateByStepValue }) => {
             {status === 'active' && ' & open date'}
           </Button>
         </Li>
-
 
         {status &&
           <Fragment>
@@ -59,32 +55,7 @@ const FormNav = ({ values, navigateByStepValue }) => {
             </Li>
           </Fragment>
         }
-        {step <= 3 && !status &&
-          <Fragment>
-            <Li>
-              <Button
-                disabled={true}
-                text=""
-                spanText=""
-              />
-            </Li>
-            <Li>
-              <Button
-                disabled={true}
-                text=""
-                spanText=""
-              />
-            </Li>
-            <Li>
-              <Button
-                disabled={true}
-                text=""
-                spanText=""
-              />
-            </Li>
-          </Fragment>
 
-        }
         {status === 'closed' &&
           <Fragment>
             <Li>
@@ -116,6 +87,7 @@ const FormNav = ({ values, navigateByStepValue }) => {
             </Li>
           </Fragment>
         }
+
         {status === 'active' &&
           <Fragment>
             <Li>
@@ -127,8 +99,23 @@ const FormNav = ({ values, navigateByStepValue }) => {
                 Inspect & Submit
               </Button>
             </Li>
+            <Li>
+              <Button
+                disabled={true}
+                text=""
+                spanText=""
+              />
+            </Li>
+            <Li>
+              <Button
+                disabled={true}
+                text=""
+                spanText=""
+              />
+            </Li>
           </Fragment>
         }
+
         {status === 'pending' &&
           <Fragment>
             <Li>
@@ -139,6 +126,20 @@ const FormNav = ({ values, navigateByStepValue }) => {
               ><span>Step 4:</span>
                 Inspect & Submit
               </Button>
+            </Li>
+            <Li>
+              <Button
+                disabled={true}
+                text=""
+                spanText=""
+              />
+            </Li>
+            <Li>
+              <Button
+                disabled={true}
+                text=""
+                spanText=""
+              />
             </Li>
           </Fragment>
         }

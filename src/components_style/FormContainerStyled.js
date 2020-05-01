@@ -1,19 +1,14 @@
 import styled from 'styled-components'
 
-const FormContainer = styled.div`
+const FormContainer = styled.div.attrs(props => ({
+  width: props.width || '50rem',
+}))`
 display: flex;
 flex-direction: column;
-margin-top: 20rem;
+margin: 15rem 0;
 max-width: 90vw;
-width: 50rem;
+width: ${props => props.width};
 `
 
 export default FormContainer
 
-/*
-
-background-color: #fff;
-border-radius: 5px;
-box-shadow: 0 2px 10px rgba(0,0,0,.3);
-padding: 5rem;
-*/

@@ -47,7 +47,6 @@ const FormStepThree = ({
         values={values}
         navigateByStepValue={navigateByStepValue}
       />
-      <h3>{`Step ${step}.`}</h3>
       <FormContainer>
         <FormControl
           component="fieldset"
