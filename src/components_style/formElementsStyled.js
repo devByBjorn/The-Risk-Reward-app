@@ -1,9 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles'
 
 const formElementsStyled = makeStyles((theme) => ({
-  arrow: {
-    alignSelf: 'flex-end',
-  },
   buttonContainer: {
     display: 'flex',
     justifyContent: 'flex-end',
@@ -18,24 +15,6 @@ const formElementsStyled = makeStyles((theme) => ({
     '&:hover': {
       background: '#3f51b5'
     }
-  },
-  date: {
-    display: 'flex',
-    flexDirection: 'column',
-    padding: '0 1rem'
-  },
-  dateWrapper: {
-    display: 'flex',
-    justifyContent: 'center',
-    width: '100%',
-    borderTop: '1px solid #eee',
-    borderBottom: '1px solid #eee',
-    padding: theme.spacing(2, 0)
-  },
-  dateWrapperSingle: {
-    borderTop: '1px solid #eee',
-    borderBottom: '1px solid #eee',
-    padding: theme.spacing(2, 0, 2, 5.4)
   },
   formControl: {
     margin: theme.spacing(7),

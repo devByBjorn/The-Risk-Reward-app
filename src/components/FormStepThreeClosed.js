@@ -1,14 +1,12 @@
 import React, { Fragment, useState } from 'react'
 import DatePicker from 'react-datepicker'
-import { makeStyles } from '@material-ui/core/styles'
-import TextField from '@material-ui/core/TextField'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormControl from '@material-ui/core/FormControl'
 import FormLabel from '@material-ui/core/FormLabel'
-import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt'
 import formElementsStyled from '../components_style/formElementsStyled'
+import { DateContainer, DateWrapper } from './FormDatesStyled'
 
 const FormStepThreeClosed = ({
   values,
@@ -16,13 +14,14 @@ const FormStepThreeClosed = ({
   onClosedDateChange,
   onOpenDateChange,
   error }) => {
+
   const classes = formElementsStyled()
   const { outcome, opened, closed } = values
 
   return (
     <Fragment>
-      <div className={classes.dateWrapper}>
-        <div className={classes.date}>
+      <DateContainer>
+        <DateWrapper>
           <FormLabel
             className={classes.formLabel}
           >Opened</FormLabel>
@@ -35,9 +34,8 @@ const FormStepThreeClosed = ({
             timeFormat="HH:mm"
             timeIntervals={15}
           />
-        </div>
-        <ArrowRightAltIcon className={classes.arrow} />
-        <div className={classes.date}>
+        </DateWrapper>
+        <DateWrapper >
           <FormLabel
             className={classes.formLabel}
           >Closed</FormLabel>
@@ -51,8 +49,8 @@ const FormStepThreeClosed = ({
             timeFormat="HH:mm"
             timeIntervals={15}
           />
-        </div>
-      </div>
+        </DateWrapper>
+      </DateContainer>
 
       <FormControl
         component="fieldset"

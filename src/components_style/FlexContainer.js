@@ -24,6 +24,9 @@ const FlexContainer = styled.div.attrs(props => ({
   width: ${props => props.width};
   max-width: ${props => props.maxWidth};
   padding: ${props => props.padding};
+  @media(max-width: 850px) {
+    flex-direction:column;
+  }
 `
 
 export default FlexContainer

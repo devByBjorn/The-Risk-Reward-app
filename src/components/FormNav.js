@@ -20,24 +20,24 @@ const FormNav = ({ values, navigateByStepValue }) => {
   return (
     <Nav>
       <Ul>
-        <Li>
-          <Button
-            type="button"
-            onClick={() => navigateByStepValue(1)}
-            style={step === 1 ? { fontWeight: 'bold' } : {}}
-          ><span>Step 1:</span>
-            Trade status
-            {status === 'closed' && ', dates & outcome'}
-            {status === 'active' && ' & open date'}
-          </Button>
-        </Li>
 
         {status &&
           <Fragment>
             <Li>
               <Button
                 type="button"
-                disabled={step < 2 && !market && true}
+                onClick={() => navigateByStepValue(1)}
+                style={step === 1 ? { fontWeight: 'bold' } : {}}
+              ><span>Step 1:</span>
+            Status
+            {status === 'closed' && ', dates & outcome'}
+                {status === 'active' && ' & open date'}
+              </Button>
+            </Li>
+            <Li>
+              <Button
+                type="button"
+                disabled={step < 2 && !market ? true : false}
                 onClick={() => navigateByStepValue(2)}
                 style={step === 2 ? { fontWeight: 'bold' } : {}}
               ><span>Step 2:</span>
@@ -46,7 +46,7 @@ const FormNav = ({ values, navigateByStepValue }) => {
             </Li>
             <Li>
               <Button
-                disabled={step < 3 && !entry && true}
+                disabled={step < 3 && !entry ? true : false}
                 onClick={() => navigateByStepValue(3)}
                 style={step === 3 ? { fontWeight: 'bold' } : {}}
               ><span>Step 3:</span>
@@ -60,7 +60,7 @@ const FormNav = ({ values, navigateByStepValue }) => {
           <Fragment>
             <Li>
               <Button
-                disabled={step < 4 && !execution && true}
+                disabled={step < 4 && !execution ? true : false}
                 onClick={() => navigateByStepValue(4)}
                 style={step === 4 ? { fontWeight: 'bold' } : {}}
               ><span>Step 4:</span>
@@ -69,7 +69,7 @@ const FormNav = ({ values, navigateByStepValue }) => {
             </Li>
             <Li>
               <Button
-                disabled={step < 5 && !management && true}
+                disabled={step < 5 && !management ? true : false}
                 onClick={() => navigateByStepValue(5)}
                 style={step === 5 ? { fontWeight: 'bold' } : {}}
               ><span>Step 5:</span>
@@ -78,7 +78,7 @@ const FormNav = ({ values, navigateByStepValue }) => {
             </Li>
             <Li>
               <Button
-                disabled={ableSubmitStep(closedSubmitValues) && true}
+                disabled={ableSubmitStep(closedSubmitValues) ? true : false}
                 onClick={() => navigateByStepValue(6)}
                 style={step === 6 ? { fontWeight: 'bold' } : {}}
               ><span>Step 6:</span>
@@ -92,14 +92,14 @@ const FormNav = ({ values, navigateByStepValue }) => {
           <Fragment>
             <Li>
               <Button
-                disabled={ableSubmitStep(activePendingSubmitValues) && true}
+                disabled={ableSubmitStep(activePendingSubmitValues) ? true : false}
                 onClick={() => navigateByStepValue(4)}
                 style={step === 4 ? { fontWeight: 'bold' } : {}}
               ><span>Step 4:</span>
                 Inspect & Submit
               </Button>
             </Li>
-            <Li>
+            {/* <Li>
               <Button
                 disabled={true}
                 text=""
@@ -112,7 +112,7 @@ const FormNav = ({ values, navigateByStepValue }) => {
                 text=""
                 spanText=""
               />
-            </Li>
+           </Li>*/}
           </Fragment>
         }
 
@@ -120,14 +120,14 @@ const FormNav = ({ values, navigateByStepValue }) => {
           <Fragment>
             <Li>
               <Button
-                disabled={ableSubmitStep(activePendingSubmitValues) && true}
+                disabled={ableSubmitStep(activePendingSubmitValues) ? true : false}
                 onClick={() => navigateByStepValue(4)}
                 style={step === 4 ? { fontWeight: 'bold' } : {}}
               ><span>Step 4:</span>
                 Inspect & Submit
               </Button>
             </Li>
-            <Li>
+            {/*<Li>
               <Button
                 disabled={true}
                 text=""
@@ -140,7 +140,7 @@ const FormNav = ({ values, navigateByStepValue }) => {
                 text=""
                 spanText=""
               />
-            </Li>
+            </Li>*/}
           </Fragment>
         }
       </Ul>

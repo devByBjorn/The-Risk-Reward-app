@@ -1,4 +1,3 @@
-import { makeStyles } from '@material-ui/core/styles'
 import styled from 'styled-components'
 
 const Nav = styled.nav`
@@ -7,32 +6,30 @@ display: flex;
 top: 0;
 width: 100%;
 background: #fafafa;
+z-index: 999;
+  
+@media(max-width: 850px) {
+  overflow: auto;
+}
 `
 
 const Ul = styled.ul`
   display: flex;
-  align-items: stretch;
   list-style-type: none;
   border:none;
-  border-bottom: 1px solid #eee;
   width: 100%;
 `
 
 const Li = styled.li`
   display: inline-block;
   position: relative;
-  width: 250px;
+  flex: 1;
   min-height: 100px;
- 
-
-  &:last-child: {
-    background: #fafafa;
-    clip-path: none;
-  };
+  min-width: 125px;
 
   @media(max-width: 850px) {
-    width: 150px;
-  };
+    white-space: wrap;
+  }
 `
 // clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
 //  width:249px;
@@ -67,7 +64,9 @@ const Button = styled.button`
   &:disabled {
     background: #fafafa;
     border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee;
     color: #bdbdbd;
+    padding: 0 1.5rem;
 
     &:hover {
       background: #fafafa;
@@ -81,7 +80,6 @@ const Button = styled.button`
   @media(max-width: 850px) {
     font-size: 1.2rem;
     padding: 5px;
-    width: 140px;
   };
 `
 export { Nav, Ul, Li, Button }
