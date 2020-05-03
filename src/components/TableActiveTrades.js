@@ -41,11 +41,17 @@ const TableActiveTrades = ({ trades }) => {
       },
       {
         Header: '-R',
-        accessor: 'negativeR'
+        accessor: 'negativeR',
+        Footer: 'Potential Risk: '
       },
       {
         Header: 'R',
-        accessor: 'positiveR'
+        Footer: (props) => {
+          return (
+            <span>Footer</span>
+          )
+        },
+        accessor: 'positiveR',
       },
       {
         Header: 'Opened',

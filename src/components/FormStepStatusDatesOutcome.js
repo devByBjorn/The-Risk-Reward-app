@@ -7,7 +7,6 @@ import FormLabel from '@material-ui/core/FormLabel'
 import Button from '@material-ui/core/Button'
 import FormPageContainer from '../components_style/FormPageContainerStyled'
 import FormContainer from '../components_style/FormContainerStyled'
-
 import FormStepDatesClosed from './FormStepDatesClosed'
 import FormStepDateActive from './FormStepDateActive'
 import formElementsStyled from '../components_style/formElementsStyled'

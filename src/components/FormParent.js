@@ -1,7 +1,7 @@
 import React from 'react'
 import { calculatePositiveR, calculateNegativeR } from '../calculations/riskRewardCalculation'
 import FormStepMarketDirectionSetup from './FormStepMarketDirectionSetup'
-import FormStepTwo from './FormStepTwo'
+import FormStepEntryStopTarget from './FormStepEntryStopTarget'
 import FormStepExecution from './FormStepExecution'
 import FormStepManagement from './FormStepManagement'
 import FormSubmitClosed from './FormSubmitClosed'
@@ -193,7 +193,7 @@ class FormParent extends React.Component {
         )
       case 3:
         return (
-          <FormStepTwo
+          <FormStepEntryStopTarget
             values={values}
             prevStep={this.prevStep}
             navigateByStepValue={this.navigateByStepValue}

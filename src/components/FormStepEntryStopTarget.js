@@ -7,7 +7,7 @@ import FormContainer from '../components_style/FormContainerStyled'
 import FormNav from './FormNav'
 import formElementsStyled from '../components_style/formElementsStyled'
 
-const FormStepTwo = ({
+const FormStepEntryStopTarget = ({
   values,
   nextStep,
   navigateByStepValue,
@@ -110,4 +110,4 @@ const FormStepTwo = ({
   )
 }
 
-export default FormStepTwo
+export default FormStepEntryStopTarget

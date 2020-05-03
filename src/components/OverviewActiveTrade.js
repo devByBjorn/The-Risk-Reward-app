@@ -5,8 +5,6 @@ import ListU from '../components_style/ListU'
 import ListItem from '../components_style/ListItem'
 import Span from '../components_style/Span'
 
-
-
 const OverviewActiveTrade = ({ values }) => {
   const { market, direction, setup, entry, stop, target, status, opened } = values
 

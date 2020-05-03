@@ -34,8 +34,8 @@ const StatsSetups = ({ trades }) => {
           </ul>
         </li>
         <li>
-          <span className="stats-specific">Total R per Setup: </span>
-          {/* <ul className="disc-list">
+          {/* <span className="stats-specific">Total R per Setup: </span>
+          <ul className="disc-list">
             {allSetups && averageRPerSetup.map((singleArr, i) =>
               <li
                 key={i}>{`${singleArr[i].setup}: ${getTotalR(singleArr)}R`}
@@ -50,7 +50,7 @@ const StatsSetups = ({ trades }) => {
 
 const mapStateToProps = (state) => {
   return {
-    trades: state.trades
+    trades: state.trades.filter((trade) => trade.status === 'closed')
   }
 }
 

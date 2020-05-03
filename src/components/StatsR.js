@@ -18,7 +18,7 @@ const StatsR = ({ trades }) => {
         </li>
         <li>
           <span className="stats-specific">Avarage: </span>
-          {trades.length > 1 ? `${getAvarageR(trades)}R` : 0}
+          {trades.length > 1 ? `${getAvarageR(trades)}R` : 'No count'}
         </li>
         <li>
           <span className="stats-specific">Highest: </span>{trades.length ? `${highestR}R` : 0}

@@ -6,7 +6,6 @@ import ListItem from '../components_style/ListItem'
 import Span from '../components_style/Span'
 import { SubHeading } from '../components_style/Headings'
 
-
 const OverviewClosedTrade = ({ values }) => {
   const { market, direction, setup, entry, stop, target, status, opened,
     closed, execution, whyExecution, improveExecution,
