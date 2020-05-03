@@ -6,14 +6,11 @@ import { MuiThemeProvider } from "@material-ui/core/styles"
 import AppRouter from './router/AppRouter'
 import configureStore from './store/store'
 import './style/style.scss'
-//import 'react-dates/initialize'
-//import 'react-dates/lib/css/_datepicker.css'
 import { setFireBaseTrades } from './actions/tradeActions'
 import './firebase/firebase'
 import CssBaseline from './components_style/BaseGlobalStyle'
-import typoTheme from './components_style/TypographStyled'
-
-//import "react-datepicker/dist/react-datepicker.css"
+import typoTheme from './components_style/typoTheme'
+import CircularLoader from './components_style/LoaderCircular'
 
 
 const store = configureStore()
@@ -27,7 +24,7 @@ const app = (
   </MuiThemeProvider>
 )
 
-ReactDOM.render(<p>Loading...</p>, document.getElementById('app'))
+ReactDOM.render(<CircularLoader />, document.getElementById('app'))
 
 store.dispatch(setFireBaseTrades()).then(() => {
   ReactDOM.render(app, document.getElementById('app'))
