@@ -26,12 +26,16 @@ const TablePendingTrades = ({ trades }) => {
         accessor: 'setup',
       },
       {
-        Header: 'Status',
-        accessor: 'status',
-      },
-      {
         Header: '-R',
-        accessor: 'negativeR'
+        accessor: 'negativeR',
+        footer: () => {
+          let negativeRSum = 0
+          for (let i = 0; i < data.length; i++) {
+            negativeRSum += [i].negativeR
+          }
+
+          return `Total: ${negativeRSum}`
+        }
       },
       {
         Header: 'R',

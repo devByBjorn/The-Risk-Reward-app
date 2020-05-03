@@ -8,7 +8,7 @@ import FormLabel from '@material-ui/core/FormLabel'
 import formElementsStyled from '../components_style/formElementsStyled'
 import { DateContainer, DateWrapper } from './FormDatesStyled'
 
-const FormStepThreeClosed = ({
+const FormStepDatesClosed = ({
   values,
   onChangeByInput,
   onClosedDateChange,
@@ -87,4 +87,4 @@ const FormStepThreeClosed = ({
   )
 }
 
-export default FormStepThreeClosed
+export default FormStepDatesClosed

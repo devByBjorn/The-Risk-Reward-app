@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import DatePicker from 'react-datepicker'
 import FormLabel from '@material-ui/core/FormLabel'
 import formElementsStyled from '../components_style/formElementsStyled'
 import { DateContainer, DateSingleWrapper } from './FormDatesStyled'
 
-const FormStepThreeActive = ({ values, onOpenDateChange }) => {
+const FormStepDateActive = ({ values, onOpenDateChange }) => {
 
   const classes = formElementsStyled()
 
@@ -27,4 +27,4 @@ const FormStepThreeActive = ({ values, onOpenDateChange }) => {
   )
 }
 
-export default FormStepThreeActive
+export default FormStepDateActive

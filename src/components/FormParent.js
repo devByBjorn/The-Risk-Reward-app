@@ -1,13 +1,13 @@
 import React from 'react'
 import { calculatePositiveR, calculateNegativeR } from '../calculations/riskRewardCalculation'
-import FormStepOne from './FormStepOne'
+import FormStepMarketDirectionSetup from './FormStepMarketDirectionSetup'
 import FormStepTwo from './FormStepTwo'
 import FormStepExecution from './FormStepExecution'
 import FormStepManagement from './FormStepManagement'
 import FormSubmitClosed from './FormSubmitClosed'
 import FormSubmitActive from './FormSubmitAcitve'
 import FormSubmitPending from './FormSubmitPending'
-import FormStepThree from './FormStepThree'
+import FormStepStatusDatesOutcome from './FormStepStatusDatesOutcome'
 
 class FormParent extends React.Component {
   constructor(props) {
@@ -171,7 +171,7 @@ class FormParent extends React.Component {
     switch (step) {
       case 1:
         return (
-          <FormStepThree
+          <FormStepStatusDatesOutcome
             values={values}
             navigateByStepValue={this.navigateByStepValue}
             nextStep={this.nextStep}
@@ -182,7 +182,7 @@ class FormParent extends React.Component {
         )
       case 2:
         return (
-          <FormStepOne
+          <FormStepMarketDirectionSetup
             values={values}
             navigateByStepValue={this.navigateByStepValue}
             nextStep={this.nextStep}

@@ -104,7 +104,7 @@ const TableToolbar = props => {
             >
               <IconButton
                 aria-label="edit"
-                href={`/edit-trade/${data[rowId].id}`}
+                href={data[rowId] !== undefined ? `/edit-trade/${data[rowId].id}` : '/trades'}
               >
                 <EditIcon fontSize="large" />
               </IconButton>

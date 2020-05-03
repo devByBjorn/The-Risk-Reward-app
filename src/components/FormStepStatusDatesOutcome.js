@@ -1,42 +1,41 @@
 import React, { useState } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import TextField from '@material-ui/core/TextField'
 import Radio from '@material-ui/core/Radio'
 import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormControl from '@material-ui/core/FormControl'
-import FormHelperText from '@material-ui/core/FormHelperText'
 import FormLabel from '@material-ui/core/FormLabel'
 import Button from '@material-ui/core/Button'
 import FormPageContainer from '../components_style/FormPageContainerStyled'
 import FormContainer from '../components_style/FormContainerStyled'
+
+import FormStepDatesClosed from './FormStepDatesClosed'
+import FormStepDateActive from './FormStepDateActive'
 import formElementsStyled from '../components_style/formElementsStyled'
 import FormNav from './FormNav'
 
-const FormStepOne = ({
+const FormStepStatusDatesOutcome = ({
   values,
+  onChangeByInput,
+  onClosedDateChange,
+  onOpenDateChange,
   navigateByStepValue,
   nextStep,
-  prevStep,
-  onChangeByInput
 }) => {
-  const { market, direction, setup } = values
+
   const classes = formElementsStyled()
+  const { status, outcome, step } = values
   const [error, setError] = useState(false)
 
   const next = e => {
     e.preventDefault()
-    if (!market || !direction || !setup) {
+    if (!status) {
+      setError(true)
+    } else if (status === 'closed' && !outcome) {
       setError(true)
     } else {
       setError(false)
       nextStep()
     }
-  }
-
-  const back = e => {
-    e.preventDefault()
-    prevStep()
   }
 
   return (
@@ -46,64 +45,69 @@ const FormStepOne = ({
         navigateByStepValue={navigateByStepValue}
       />
       <FormContainer>
-        <TextField
-          className={classes.textField}
-          error={!market && error}
-          label="Market"
-          name='market'
-          value={market}
-          onChange={onChangeByInput}
-          placeholder="Market"
-        />
-        <div className={classes.lineBreak} />
         <FormControl
           component="fieldset"
-          error={!direction && error}
-          className={classes.formControl}>
+          error={!status && error}
+          className={classes.formControl}
+        >
           <FormLabel
             className={classes.formLabel}
-            component="legend">Direction</FormLabel>
-          <RadioGroup aria-label="direction" name="direction">
+            component="legend">Status</FormLabel>
+          <RadioGroup aria-label="status" name="status">
             <FormControlLabel
-              value="long"
+              value="closed"
               control={<Radio />}
-              label="Long"
-              checked={direction === 'long' ? true : false}
+              label="Closed"
+              checked={status === 'closed' ? true : false}
               onChange={onChangeByInput}
             />
-            <br />
             <FormControlLabel
-              value="short"
+              value="active"
               control={<Radio />}
-              label="Short"
-              checked={direction === 'short' ? true : false}
+              label="Active"
+              checked={status === 'active' ? true : false}
+              onChange={onChangeByInput}
+            />
+            <FormControlLabel
+              value="pending"
+              control={<Radio />}
+              label="Pending"
+              checked={status === 'pending' ? true : false}
               onChange={onChangeByInput}
             />
           </RadioGroup>
         </FormControl>
-        <TextField
-          className={classes.textField}
-          error={!setup && error}
-          label="Setup"
-          name="setup"
-          value={setup}
-          onChange={onChangeByInput}
-          placeholder="Setup"
-        />
+
+        {status === 'closed' &&
+          <FormStepDatesClosed
+            error={error}
+            values={values}
+            onChangeByInput={onChangeByInput}
+            onClosedDateChange={onClosedDateChange}
+            onOpenDateChange={onOpenDateChange}
+          />
+        }
+        {status === 'active' &&
+          <FormStepDateActive
+            values={values}
+            onOpenDateChange={onOpenDateChange}
+          />
+        }
 
         <div className={classes.buttonContainer}>
           <Button
-            className={classes.button}
-            onClick={back}
+            disabled={true}
+            className={classes.buttonInactive}
           >Back</Button>
           <Button
             className={classes.button}
             onClick={next}
           >Next</Button>
+
         </div>
       </FormContainer>
     </FormPageContainer>
   )
 }
 
-export default FormStepOne
+export default FormStepStatusDatesOutcome
