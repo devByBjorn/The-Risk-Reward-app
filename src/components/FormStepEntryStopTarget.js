@@ -22,10 +22,10 @@ const FormStepEntryStopTarget = ({
   const [stopInfo, setStopInfo] = useState(' ')
   const [targetInfo, setTargetInfo] = useState(' ')
 
-  const stopLogicLong = parseFloat(stop) < parseFloat(entry)
-  const stopLogicShort = parseFloat(stop) > parseFloat(entry)
-  const targetLogicLong = parseFloat(entry) < parseFloat(target)
-  const targetLogicShort = parseFloat(entry) > parseFloat(target)
+  const stopLogicLong = parseFloat(stop) <= parseFloat(entry)
+  const stopLogicShort = parseFloat(stop) >= parseFloat(entry)
+  const targetLogicLong = parseFloat(entry) <= parseFloat(target)
+  const targetLogicShort = parseFloat(entry) >= parseFloat(target)
 
   const next = e => {
     e.preventDefault()

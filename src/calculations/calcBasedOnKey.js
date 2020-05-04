@@ -2,8 +2,8 @@ import { getOutcome } from './calcOutcomes'
 import { getObjectCountList, getMostOcurredKey } from './objLists'
 
 // SET UPS
-const getSetupsArray = (trades) =>
-  trades.map((trade) => trade.setup)
+const getKeysArr = (trades, key) =>
+  trades.map((trade) => trade[key])
 
 const outcomePerSetup = (trades, outcome) => {
   const tradesByOutcom = getOutcome(trades, outcome)
@@ -20,15 +20,15 @@ const outcomePerSetup = (trades, outcome) => {
   }
 }
 
-function getAverageRPerSetup(trades, allSetups) {
-  const noDuplicateSetupName = [...new Set(allSetups)]
+function getArrOfArrsTrades(trades, ArrKeys, key) {
+  const trimDuplicates = [...new Set(ArrKeys)]
   const arrayOfArrays = []
 
-  for (let i = 0; i < noDuplicateSetupName.length; i++) {
+  for (let i = 0; i < trimDuplicates.length; i++) {
     arrayOfArrays.push(trades.filter((trade) =>
-      trade.setup === noDuplicateSetupName[i] && trade))
+      trade[key] === trimDuplicates[i] && trade))
   }
   return arrayOfArrays
 }
 
-export { getSetupsArray, outcomePerSetup, getAverageRPerSetup }
+export { getKeysArr, outcomePerSetup, getArrOfArrsTrades }

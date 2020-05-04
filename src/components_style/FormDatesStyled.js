@@ -6,7 +6,7 @@ const DateContainer = styled.div`
   width: 100%;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
-  padding: 1.5rem 0;
+  padding: 2rem 0;
   @media(max-width: 850px) {
       flex-direction: column;
     };
@@ -14,7 +14,7 @@ const DateContainer = styled.div`
 const DateWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 0 1rem;
+  padding: 0 2rem;
   @media(max-width: 850px) {
     padding: 1rem 5rem;
   }

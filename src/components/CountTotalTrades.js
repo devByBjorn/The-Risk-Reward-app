@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 const ClosedTradesTotal = ({ trades }) => (
-  <h2>Total Closed Trades: {trades.length}</h2>
+  <h2>Total Trades: {trades.length}</h2>
 )
 
 const mapStateToProps = (state) => {

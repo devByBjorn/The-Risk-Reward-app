@@ -1,10 +1,5 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
-//import { getObjectCountList, objListToArr } from '../calculations/objLists'
-import { getKeysArr, outcomePerSetup, getArrOfArrsTrades } from '../calculations/calcBaseOnKey'
-import { getAvarageR, getTotalR } from '../calculations/calcR'
-import { getHitRatio } from '../calculations/calcOutcomes'
-import { makeStyles } from '@material-ui/core/styles'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
@@ -12,28 +7,32 @@ import TableContainer from '@material-ui/core/TableContainer'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
-
+import { makeStyles } from '@material-ui/core/styles'
+//import { getObjectCountList, objListToArr } from '../calculations/objLists'
+import { getKeysArr, outcomePerSetup, getArrOfArrsTrades } from '../calculations/calcBasedOnKey'
+import { getAvarageR, getTotalR } from '../calculations/calcR'
+import { getHitRatio } from '../calculations/calcOutcomes'
+import { capitalize } from '../helpers/capitalize'
 
 const useStyles = makeStyles({
   tableContainer: {
     background: '#fff',
     borderCollapse: 'collapse',
-    boxShadow: '1px 1px 3px',
-    width: '100%'
-  },
-  table: {
-    minWidth: 700,
+    //boxShadow: '1px 1px 3px',
+    border: '1px solid #eee',
+    margin: '2rem',
+    width: '100%',
+    '@media(max-width: 850px)': {
+      margin: '1rem 0',
+    }
   },
   mainHeading: {
-    fontSize: '2rem',
+    color: '#d93025',
     fontWeight: 'bold',
   },
   heading: {
     fontWeight: 'bold',
   },
-  row: {
-    padding: '1rem 2rem',
-  }
 })
 
 //const bestSetup = outcomePerSetup(trades, 'win').mostCountedSetup
@@ -43,7 +42,7 @@ const useStyles = makeStyles({
 //const listAllSetups = getObjectCountList(allSetups)
 // const setupsListArr = objListToArr(listAllSetups)
 
-const StatsSetups = ({ trades, useKey }) => {
+const StatsTable = ({ trades, useKey }) => {
   const classes = useStyles()
   const allSetups = getKeysArr(trades, useKey)
   const arrOfArrsSetups = getArrOfArrsTrades(trades, allSetups, useKey)
@@ -53,7 +52,7 @@ const StatsSetups = ({ trades, useKey }) => {
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell className={classes.mainHeading}>Setup</TableCell>
+            <TableCell className={classes.mainHeading}>{capitalize(useKey)}</TableCell>
             <TableCell className={classes.heading} align="right">WinRate</TableCell>
             <TableCell className={classes.heading} align="right">R</TableCell>
             <TableCell className={classes.heading} align="right">Trades</TableCell>
@@ -62,7 +61,7 @@ const StatsSetups = ({ trades, useKey }) => {
         <TableBody>
           {allSetups && arrOfArrsSetups.map((singleArr, i) => (
             <TableRow key={i}>
-              <TableCell component="th" scope="row">
+              <TableCell className={classes.heading} component="th" scope="row">
                 {`${singleArr[0][useKey].toUpperCase()}`}
               </TableCell>
               <TableCell align="right">{`${getHitRatio(singleArr)}%`}</TableCell>
@@ -82,4 +81,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(StatsSetups)
+export default connect(mapStateToProps)(StatsTable)

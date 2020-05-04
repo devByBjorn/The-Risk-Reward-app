@@ -1,8 +1,8 @@
 const getTotalR = (trades) =>
-  trades.reduce((total, trade) => total + trade.rewardToRisk, 0)
+  trades.reduce((total, trade) => total + trade.rewardToRisk, 0).toFixed(2)
 
 const getAvarageR = (trades) =>
-  (getTotalR(trades) / tradess.length).toFixed(2)
+  (getTotalR(trades) / trades.length).toFixed(2)
 
 const sortByR = (trades) =>
   trades.sort((a, b) => a.rewardToRisk > b.rewardToRisk ? 1 : -1)

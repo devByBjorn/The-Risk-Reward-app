@@ -210,7 +210,7 @@ const EnhancedTable = ({
           <TableRow
           >
             <TablePaginationStyled
-              colspan={999}
+              colSpan={999}
               style={{ fontSize: '1.2rem' }}
               rowsPerPageOptions={[
                 5,
@@ -218,7 +218,6 @@ const EnhancedTable = ({
                 25,
                 { label: 'All', value: data.length },
               ]}
-              colSpan={3}
               count={data.length}
               rowsPerPage={pageSize}
               page={pageIndex}

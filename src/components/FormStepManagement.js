@@ -59,7 +59,7 @@ const FormStepManagement = ({
       <FormContainer>
         <FormControl
           component="fieldset"
-          error={!management && error}
+          error={!management ? error : undefined}
           className={classes.formControl}>
           <FormLabel
             className={classes.formLabel}
@@ -96,7 +96,7 @@ const FormStepManagement = ({
               component="legend">Develop</FormLabel>
             <TextareaAutosize
               className={classes.textArea}
-              error={!whyManagement ? error : false}
+              error={!whyManagement ? error : undefined}
               aria-label="minimum height"
               rowsMin={8}
               placeholder="What made you manage your trade in this manner?"
@@ -110,7 +110,7 @@ const FormStepManagement = ({
             />
             <TextareaAutosize
               className={classes.textArea}
-              error={!improveManagement ? error : false}
+              error={!improveManagement ? error : undefined}
               aria-label="minimum height"
               rowsMin={8}
               placeholder="How can you improve your trade management?"
