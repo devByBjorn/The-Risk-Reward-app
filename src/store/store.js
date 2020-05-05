@@ -4,9 +4,11 @@ import {
   applyMiddleware,
   compose
 } from 'redux'
+import thunk from 'redux-thunk'
 import filters from '../reducers/filterReducer'
 import trades from '../reducers/tradeReducer'
-import thunk from 'redux-thunk'
+import auth from '../reducers/authFirebaseReducer'
+
 
 const composeEnhencers = window.__REDUX_DEVTOOLS_EXTENSIONS_COMPOSE__ || compose
 
@@ -14,7 +16,8 @@ export default () => {
   const store = createStore(
     combineReducers({
       trades,
-      filters
+      filters,
+      auth
     }),
     composeEnhencers(applyMiddleware(thunk))
   )

@@ -22,23 +22,23 @@ const StatsListOutcome = ({ trades }) => {
       <ListU background="#eee" padding="0">
         <ListItem>
           <Span fontWeight="bold">Total</Span>
-          {trades.length}
+          {trades.length > 0 ? trades.length : '-'}
         </ListItem>
         <ListItem>
           <Span fontWeight="bold">Wins</Span>
-          {trades.length ? wins : 0}
+          {trades.length ? wins : '-'}
         </ListItem>
         <ListItem>
           <Span fontWeight="bold">Losses</Span>
-          {trades.length ? losses : 0}
+          {trades.length ? losses : '-'}
         </ListItem>
         <ListItem>
           <Span fontWeight="bold">Scratched</Span>
-          {trades.length ? scratched : 0}
+          {trades.length ? scratched : '-'}
         </ListItem>
         <ListItem>
           <Span fontWeight="bold">WinRatio</Span>
-          {`${winRatio}%`}
+          {trades.length ? `${winRatio}%` : '-'}
         </ListItem>
       </ListU>
     </FlexContainer>

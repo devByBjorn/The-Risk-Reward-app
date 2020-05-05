@@ -1,4 +1,5 @@
 import React from 'react'
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos'
 import StatsListOutcome from './StatsListOutcome'
 import StatsListR from './StatsListR'
 import StatsTable from './StatsTable'
@@ -29,7 +30,12 @@ const TradeStatsPage = () => (
         padding="1rem 1rem 2rem 1rem"
       >
         <SubHeading>Know our edge and push it</SubHeading>
-        <Paragraph lineHeight={2}><strong>As a trader it is crucial to identify where in the market your edge lies.</strong> By comparing the stats below, you can concentrate on only trading your highest probablity setups in your best performing market, and really push those trade. It can especially be a good strategy if you are in the beginning of your career and you are trying to grow a small amount of money and do not have the luxury of risking only 0.5% - 1% of your account.</Paragraph>
+        <Paragraph lineHeight={1.5}><strong>As a trader it is crucial to identify where in the market your edge lies.</strong> Below you will find two tables; one shows specific stats based on setups and the other shows the same stats based on markets. By looking at the tables below you can easily see which setups that are delivering your highest winrate and which market that is your best performing one.
+        </Paragraph>
+
+        <Paragraph lineHeight={1.5}>
+          With this knowledge you can focus on only trading your highest probablity setups in your best performing market, and really push those trades. This can especially be a good strategy if you are trying to grow a small amount of money and do not have the luxury of risking only 0.5% - 1%, or even 2%, of your account.
+        </Paragraph>
       </FlexContainer>
     </FlexContainer>
     <FlexContainer

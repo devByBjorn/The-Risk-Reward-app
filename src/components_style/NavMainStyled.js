@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { makeStyles } from '@material-ui/core/styles'
 
-export const NavMain = styled.nav.attrs(props => ({
+const NavMainStyled = styled.nav.attrs(props => ({
   padding: props.padding || '2rem 5rem'
 }))`
 display: flex;
@@ -17,7 +17,7 @@ z-index: 999;
 }
 `
 
-const headerStyled = makeStyles(theme => ({
+const linkStyled = makeStyles(theme => ({
   link: {
     borderTop: '5px solid transparent',
     color: '#031525',
@@ -40,5 +40,7 @@ const headerStyled = makeStyles(theme => ({
   }
 }))
 
-export default headerStyled
+export { linkStyled, NavMainStyled as default }
+
+
 

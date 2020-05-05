@@ -5,52 +5,55 @@ const addTrade = (trade) => ({
   trade
 })
 
-const addFirebaseTrade = (tradeData = {}) => dispatch => {
-  const {
-    direction = '',
-    market = '',
-    entry = 0,
-    stop = 0,
-    target = 0,
-    status = '',
-    setup = '',
-    opened = 0,
-    closed = 0,
-    period = '',
-    outcome = '',
-    rewardToRisk = '',
-    negativeR = '',
-    positiveR = '',
-    conclusion = {}
-  } = tradeData
+const addFirebaseTrade = (tradeData = {}) =>
+  (dispatch, getState) => {
+    const {
+      direction = '',
+      market = '',
+      entry = 0,
+      stop = 0,
+      target = 0,
+      status = '',
+      setup = '',
+      opened = 0,
+      closed = 0,
+      period = '',
+      outcome = '',
+      rewardToRisk = '',
+      negativeR = '',
+      positiveR = '',
+      conclusion = {}
+    } = tradeData
 
-  const trade = {
-    direction,
-    market,
-    entry,
-    stop,
-    target,
-    status,
-    setup,
-    opened,
-    closed,
-    period,
-    outcome,
-    rewardToRisk,
-    negativeR,
-    positiveR,
-    conclusion
+    const trade = {
+      direction,
+      market,
+      entry,
+      stop,
+      target,
+      status,
+      setup,
+      opened,
+      closed,
+      period,
+      outcome,
+      rewardToRisk,
+      negativeR,
+      positiveR,
+      conclusion
+    }
+
+    const uid = getState().auth.uid
+
+    return database.ref(`users/${uid}/trades`)
+      .push(trade)
+      .then((ref) => {
+        dispatch(addTrade({
+          id: ref.key,
+          ...trade
+        }))
+      })
   }
-
-  return database.ref('trades')
-    .push(trade)
-    .then((ref) => {
-      dispatch(addTrade({
-        id: ref.key,
-        ...trade
-      }))
-    })
-}
 
 
 const setTrades = (trades) => ({
@@ -58,22 +61,26 @@ const setTrades = (trades) => ({
   trades
 })
 
-const setFireBaseTrades = () => dispatch =>
-  database
-    .ref('trades')
-    .once('value')
-    .then((snapshot) => {
-      const trades = []
+const setFireBaseTrades = () =>
+  (dispatch, getState) => {
+    const uid = getState().auth.uid
 
-      snapshot.forEach((childSnapshot) => {
-        trades.push({
-          id: childSnapshot.key,
-          ...childSnapshot.val()
+    return database
+      .ref(`users/${uid}/trades`)
+      .once('value')
+      .then((snapshot) => {
+        const trades = []
+
+        snapshot.forEach((childSnapshot) => {
+          trades.push({
+            id: childSnapshot.key,
+            ...childSnapshot.val()
+          })
         })
+        dispatch(setTrades(trades))
       })
 
-      dispatch(setTrades(trades))
-    })
+  }
 
 
 const editTrade = (id, updates) => ({
@@ -82,13 +89,17 @@ const editTrade = (id, updates) => ({
   updates
 })
 
-const editFirebaseTrade = (id, updates) => dispatch =>
-  database
-    .ref(`trades/${id}`)
-    .update(updates)
-    .then(() => {
-      dispatch(editTrade(id, updates))
-    })
+const editFirebaseTrade = (id, updates) =>
+  (dispatch, getState) => {
+    const uid = getState().auth.uid
+
+    return database
+      .ref(`users/${uid}/trades/${id}`)
+      .update(updates)
+      .then(() => {
+        dispatch(editTrade(id, updates))
+      })
+  }
 
 
 
@@ -97,15 +108,17 @@ const deleteTrade = ({ id }) => ({
   id
 })
 
-const deleteFirebaseTrade = ({ id }) => dispatch =>
-  database
-    .ref(`trades/${id}`)
-    .remove()
-    .then(() => {
-      dispatch(deleteTrade({ id }))
-    })
+const deleteFirebaseTrade = ({ id }) =>
+  (dispatch, getState) => {
+    const uid = getState().auth.uid
 
-
+    return database
+      .ref(`users/${uid}/trades/${id}`)
+      .remove()
+      .then(() => {
+        dispatch(deleteTrade({ id }))
+      })
+  }
 
 export {
   addTrade, editTrade, deleteTrade, setTrades,

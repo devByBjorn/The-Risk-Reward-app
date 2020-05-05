@@ -1,34 +1,36 @@
-import React from "react"
+import React, { Fragment } from "react"
 import {
-  BrowserRouter as Router,
+  Router,
   Switch,
   Route,
 } from "react-router-dom"
-import Header from '../components/Header'
-import IndexPage from '../components/IndexPage'
+import createHistory from 'history/createBrowserHistory'
+import LogedInRoute from './LogedInRoute'
+import LogedOutRoute from './LogedOutRoute'
 
+
+import LoginPage from '../components/LoginPage'
 import TradeAddPage from '../components/TradeAddPage'
 import TradeEditPage from '../components/TradeEditPage'
 import TradeTablePage from '../components/TradeTablePage'
 import TradeStatsPage from '../components/TradeStatsPage'
-
 import Page404 from '../components/Page404'
-import WhatIsR from '../components/WhatIsRPage'
+
+
+export const history = createHistory()
 
 const AppRouter = () => (
-  <Router>
-    <div>
-      <Header />
+  <Router history={history}>
+    <Fragment>
       <Switch>
-        <Route exact path="/" component={IndexPage} />
-        <Route path="/trades" component={TradeTablePage} />
-        <Route path="/add-trade" component={TradeAddPage} />
-        <Route path="/edit-trade/:id" component={TradeEditPage} />
-        <Route path="/trade-stats" component={TradeStatsPage} />
-        <Route path="/what" component={WhatIsR} />
+        <LogedOutRoute path="/" component={LoginPage} exact={true} />
+        <LogedInRoute path="/trades" component={TradeTablePage} exact={true} />
+        <LogedInRoute path="/add-trade" component={TradeAddPage} />
+        <LogedInRoute path="/edit-trade/:id" component={TradeEditPage} />
+        <LogedInRoute path="/trade-stats" component={TradeStatsPage} />
         <Route component={Page404} />
       </Switch>
-    </div>
+    </Fragment>
   </Router>
 )
 

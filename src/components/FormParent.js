@@ -129,9 +129,9 @@ class FormParent extends React.Component {
     this.props.handleSubmit({
       direction: direction,
       market: market.toUpperCase(),
-      entry: entry,
-      stop: stop,
-      target: target,
+      entry: parseFloat(entry),
+      stop: parseFloat(stop),
+      target: parseFloat(target),
       status: status,
       outcome: status === 'closed' ? outcome : '',
       setup: setup,
@@ -139,8 +139,8 @@ class FormParent extends React.Component {
       closed: closed ? closed.getTime() : '',
       //period: closed && opened ? (closed - opened).getTime() : '',
       rewardToRisk: outcome && parseFloat(this.calculateRewardToRisk()),
-      negativeR: !outcome && calculateNegativeR(entry, stop, target, direction),
-      positiveR: !outcome && calculatePositiveR(entry, stop, target, direction),
+      negativeR: !outcome && parseFloat(calculateNegativeR(entry, stop, target, direction)),
+      positiveR: !outcome && parseFloat(calculatePositiveR(entry, stop, target, direction)),
       conclusion: conclusion && {
         execution: conclusion.execution,
         whyExecution: conclusion.whyExecution,

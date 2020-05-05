@@ -21,18 +21,18 @@ const StatsListR = ({ trades }) => {
       <ListU background="#eee" padding="0">
         <ListItem>
           <Span fontWeight="bold">Total</Span>
-          {`${totalR}R`}
+          {trades.length ? `${totalR}R` : '-'}
         </ListItem>
         <ListItem>
           <Span fontWeight="bold">Highest</Span>
-          {trades.length ? `${highestR}R` : 0}
+          {trades.length ? `${highestR}R` : '-'}
         </ListItem>
         <ListItem>
           <Span fontWeight="bold">Lowest</Span>
-          {trades.length ? `${lowestR}R` : 0}</ListItem>
+          {trades.length ? `${lowestR}R` : '-'}</ListItem>
         <ListItem>
           <Span fontWeight="bold">Average</Span>
-          {trades.length > 1 ? `${averageR}R` : 'No count'}
+          {trades.length > 1 ? `${averageR}R` : '-'}
         </ListItem>
       </ListU>
     </FlexContainer>
