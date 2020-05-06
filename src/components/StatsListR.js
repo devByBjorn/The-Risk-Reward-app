@@ -6,7 +6,7 @@ import ListU from '../components_style/ListU'
 import ListItem from '../components_style/ListItem'
 import Span from '../components_style/Span'
 import { SubHeading } from '../components_style/Headings'
-import { HorizontalLine } from '../components_style/LineBreak'
+import { StatsListWrapper } from '../components_style/StatsListWrapperStyled'
 
 const StatsListR = ({ trades }) => {
   const lowestR = getLowestR(trades)
@@ -15,27 +15,26 @@ const StatsListR = ({ trades }) => {
   const averageR = getAvarageR(trades)
 
   return (
-    <FlexContainer direction="column" padding="0 2rem">
+    <StatsListWrapper flexDirection="column">
       <SubHeading margin><Span color="#1d3adf" display="inline">|</Span>R</SubHeading>
-      <HorizontalLine />
       <ListU background="#eee" padding="0">
         <ListItem>
           <Span fontWeight="bold">Total</Span>
-          {trades.length ? `${totalR}R` : '-'}
+          {trades.length ? `${totalR}` : '-'}
         </ListItem>
         <ListItem>
           <Span fontWeight="bold">Highest</Span>
-          {trades.length ? `${highestR}R` : '-'}
+          {trades.length ? `${highestR}` : '-'}
         </ListItem>
         <ListItem>
           <Span fontWeight="bold">Lowest</Span>
-          {trades.length ? `${lowestR}R` : '-'}</ListItem>
+          {trades.length ? `${lowestR}` : '-'}</ListItem>
         <ListItem>
           <Span fontWeight="bold">Average</Span>
-          {trades.length > 1 ? `${averageR}R` : '-'}
+          {trades.length > 1 ? `${averageR}` : '-'}
         </ListItem>
       </ListU>
-    </FlexContainer>
+    </StatsListWrapper>
   )
 }
 

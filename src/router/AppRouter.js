@@ -8,8 +8,9 @@ import createHistory from 'history/createBrowserHistory'
 import LogedInRoute from './LogedInRoute'
 import LogedOutRoute from './LogedOutRoute'
 
-
+import LandingPage from '../components/LandingPage'
 import LoginPage from '../components/LoginPage'
+import EdgePusherPage from '../components/EdgePusherPage'
 import TradeAddPage from '../components/TradeAddPage'
 import TradeEditPage from '../components/TradeEditPage'
 import TradeTablePage from '../components/TradeTablePage'
@@ -23,7 +24,9 @@ const AppRouter = () => (
   <Router history={history}>
     <Fragment>
       <Switch>
-        <LogedOutRoute path="/" component={LoginPage} exact={true} />
+        <LogedOutRoute path="/" component={LandingPage} exact={true} />
+        <LogedOutRoute path="/login" component={LoginPage} exact={true} />
+        <LogedInRoute path="/home" component={EdgePusherPage} />
         <LogedInRoute path="/trades" component={TradeTablePage} exact={true} />
         <LogedInRoute path="/add-trade" component={TradeAddPage} />
         <LogedInRoute path="/edit-trade/:id" component={TradeEditPage} />

@@ -1,24 +1,21 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { getOutcomeCount, getHitRatio } from '../calculations/calcOutcomes'
-import FlexContainer from '../components_style/FlexContainer'
 import ListU from '../components_style/ListU'
 import ListItem from '../components_style/ListItem'
 import Span from '../components_style/Span'
 import { SubHeading } from '../components_style/Headings'
-import { HorizontalLine } from '../components_style/LineBreak'
+import { StatsListWrapper } from '../components_style/StatsListWrapperStyled'
 
-
-const StatsListOutcome = ({ trades }) => {
+const StatsListTrades = ({ trades }) => {
   const winRatio = getHitRatio(trades)
   const losses = getOutcomeCount(trades, 'loss')
   const wins = getOutcomeCount(trades, 'wins')
   const scratched = getOutcomeCount(trades, 'scratch')
 
   return (
-    <FlexContainer direction="column" padding="0 2rem">
+    <StatsListWrapper flexDirection="column">
       <SubHeading><Span color="#1d3adf" display="inline">|</Span>Trades</SubHeading>
-      <HorizontalLine />
       <ListU background="#eee" padding="0">
         <ListItem>
           <Span fontWeight="bold">Total</Span>
@@ -37,11 +34,11 @@ const StatsListOutcome = ({ trades }) => {
           {trades.length ? scratched : '-'}
         </ListItem>
         <ListItem>
-          <Span fontWeight="bold">WinRatio</Span>
+          <Span fontWeight="bold">WinRate</Span>
           {trades.length ? `${winRatio}%` : '-'}
         </ListItem>
       </ListU>
-    </FlexContainer>
+    </StatsListWrapper>
   )
 }
 
@@ -49,4 +46,4 @@ const mapStateToProps = (state) => ({
   trades: state.trades.filter((trade) => trade.status === 'closed')
 })
 
-export default connect(mapStateToProps)(StatsListOutcome)
+export default connect(mapStateToProps)(StatsListTrades)

@@ -17,11 +17,11 @@ const addFirebaseTrade = (tradeData = {}) =>
       setup = '',
       opened = 0,
       closed = 0,
-      period = '',
+      period = 0,
       outcome = '',
-      rewardToRisk = '',
-      negativeR = '',
-      positiveR = '',
+      rewardToRisk = 0,
+      negativeR = 0,
+      positiveR = 0,
       conclusion = {}
     } = tradeData
 

@@ -3,11 +3,18 @@ import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { startLogout } from '../actions/authFirebase'
 import NavMainStyled, { linkStyled } from '../components_style/NavMainStyled'
+import LogoutButton from '../components_style/LogoutButtonStyled'
 
 const NavMain = ({ startLogout }) => {
   const classes = linkStyled()
   return (
     <NavMainStyled>
+      <NavLink
+        to="/home"
+        activeClassName={classes.current}
+        className={classes.link}
+      >Home
+  </NavLink>
       <NavLink
         to="/trades"
         activeClassName={classes.current}
@@ -21,7 +28,9 @@ const NavMain = ({ startLogout }) => {
       >Stats
       </NavLink>
 
-      <button onClick={startLogout}>Logout</button>
+      <LogoutButton className={classes.logout} onClick={startLogout}>Logout</LogoutButton>
+
+
 
 
       {/*<NavLink to="/add-trade" activeClassName={classes.current} className={classes.link}>Add<span className={classes.noShow}>-</span>Trade</NavLink>*/}

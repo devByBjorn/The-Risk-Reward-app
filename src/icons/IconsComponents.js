@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { trashcanIcon, editIcon, questionIcon } from './iconsCreate'
+import { trashcanIcon, editIcon, questionIcon, googleIcon } from './iconsCreate'
 
 export const TrashIcon = (props) => (
   <div>
@@ -25,5 +25,14 @@ export const QuestionIcon = (props) => (
       icon={questionIcon} />
   </div>
 )
+export const GoogleIcon = (props) => (
+  <div>
+    <FontAwesomeIcon
+      {...props}
+      icon={googleIcon} />
+  </div>
+)
+
+
 
 

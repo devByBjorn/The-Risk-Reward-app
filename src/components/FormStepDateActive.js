@@ -2,7 +2,7 @@ import React from 'react'
 import DatePicker from 'react-datepicker'
 import FormLabel from '@material-ui/core/FormLabel'
 import formElementsStyled from '../components_style/formElementsStyled'
-import { DateContainer, DateSingleWrapper } from '../components_style/FormDatesStyled'
+import { DateContainer, DateWrapper } from '../components_style/FormDatesStyled'
 
 const FormStepDateActive = ({ values, onOpenDateChange }) => {
 
@@ -10,7 +10,7 @@ const FormStepDateActive = ({ values, onOpenDateChange }) => {
 
   return (
     <DateContainer>
-      <DateSingleWrapper>
+      <DateWrapper>
         <FormLabel className={classes.formLabel}
         >Opened</FormLabel>
         <DatePicker
@@ -22,7 +22,7 @@ const FormStepDateActive = ({ values, onOpenDateChange }) => {
           timeFormat="HH:mm"
           timeIntervals={15}
         />
-      </DateSingleWrapper>
+      </DateWrapper>
     </DateContainer>
   )
 }

@@ -11,7 +11,7 @@ export const LogedOutRoute = ({
       {...rest}
       component={(props) => (
         isAuth ? (
-          <Redirect to="/trades" />
+          <Redirect to="/home" />
         ) : (
             <Component {...props} />
           )

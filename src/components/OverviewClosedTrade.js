@@ -23,9 +23,9 @@ const OverviewClosedTrade = ({ values }) => {
           <ListItem><Span fontWeight="bold">Direction</Span> {direction.toUpperCase()}</ListItem>
           <ListItem><Span fontWeight="bold">Setup</Span> {setup.toUpperCase()}</ListItem>
 
-          <ListItem><Span fontWeight="bold">Entry</Span> {entry.toUpperCase()}</ListItem>
-          <ListItem><Span fontWeight="bold">Stop</Span> {stop.toUpperCase()}</ListItem>
-          <ListItem><Span fontWeight="bold">Target</Span> {target.toUpperCase()}</ListItem>
+          <ListItem><Span fontWeight="bold">Entry</Span> {entry}</ListItem>
+          <ListItem><Span fontWeight="bold">Stop</Span> {stop}</ListItem>
+          <ListItem><Span fontWeight="bold">Target</Span> {target}</ListItem>
         </ListU>
       </FlexContainer>
 

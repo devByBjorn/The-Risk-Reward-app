@@ -17,6 +17,9 @@ export const styles = (theme) => ({
       fontSize: '1.6rem',
       margin: 0,
       padding: 0,
+      '@media(max-width: 850px)': {
+        overflowX: 'hidden'
+      },
     },
   },
 });
