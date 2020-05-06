@@ -11,9 +11,9 @@ const EdgePusherPage = () => (
     <FlexContainer alignItems="center" flexDirection="column" justifyContent="center">
       <ContentWrapper>
         <SubHeading fontSize="5rem">Welcome.</SubHeading>
-        <Paragraph lineHeight={1.5}><Span display="inline" fontWeight="bold">The market is tuff for a trader just starting out</Span>. One of the biggest issues for many new trades is undercapitalization. A small account size can make it hard to take the game serious, and it can lead you to blidly take way too high risk. Which often leads to another blown trading account.
+        <Paragraph lineHeight={1.5}><Span display="inline" fontWeight="bold">The market is a tuff place for a trader just starting out</Span>. One of the biggest issues for many new trades is undercapitalization. A small account size can make it hard to take the game serious, and lack of seriousness can easily lead you to blidly take too much risk. This often leads to another blown trading account.
         </Paragraph>
-        <Paragraph lineHeight={1.5}>This can be avoided if you follow the process presented below. The process is especially suitable if you are trying to grow a small amount of money and do not have the luxury of risking only 0.5% - 1%, or even 2%, of your account. The two keystones of the process is; logging trades and comparing stats.</Paragraph>
+        <Paragraph lineHeight={1.5}>This can be avoided if you follow the process presented below. The process is especially suitable if you are trying to grow a small amount of money and do not have the luxury of risking only 0.5% - 1%, or even 2%, of your account. The two keystones of the process is; logging trades and comparing stats (a great deal of patience is needed too).</Paragraph>
       </ContentWrapper>
 
       <ContentWrapper>

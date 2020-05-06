@@ -10,7 +10,7 @@ import { StatsListWrapper } from '../components_style/StatsListWrapperStyled'
 const StatsListTrades = ({ trades }) => {
   const winRatio = getHitRatio(trades)
   const losses = getOutcomeCount(trades, 'loss')
-  const wins = getOutcomeCount(trades, 'wins')
+  const wins = getOutcomeCount(trades, 'win')
   const scratched = getOutcomeCount(trades, 'scratch')
 
   return (
@@ -19,7 +19,7 @@ const StatsListTrades = ({ trades }) => {
       <ListU background="#eee" padding="0">
         <ListItem>
           <Span fontWeight="bold">Total</Span>
-          {trades.length > 0 ? trades.length : '-'}
+          {trades.length ? trades.length : '-'}
         </ListItem>
         <ListItem>
           <Span fontWeight="bold">Wins</Span>

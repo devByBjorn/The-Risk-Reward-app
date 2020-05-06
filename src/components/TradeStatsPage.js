@@ -4,10 +4,9 @@ import StatsListR from './StatsListR'
 import StatsTable from './StatsTable'
 import PageMainContainter from '../components_style/PageMainContainer'
 import FlexContainer from '../components_style/FlexContainer'
-import { SubHeading } from '../components_style/Headings'
 
 const TradeStatsPage = () => (
-  <PageMainContainter>
+  <PageMainContainter mobileMargin="10% 1.5rem">
     <FlexContainer mobileDirection="column" justifyContent="space-around">
       <StatsListTrades />
       <StatsListR />

@@ -7,3 +7,4 @@ export const ContentWrapper = styled(FlexContainer)`
   max-width: 70rem;
   padding: 2rem 0;
 `
+export default ContentWrapper

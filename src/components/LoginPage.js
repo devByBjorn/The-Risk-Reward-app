@@ -9,7 +9,7 @@ import TwitterButton from '../components_style/ButtonTwitterStyled'
 import GoogleButton from '../components_style/ButtonGoogleStyled'
 
 const LoginPage = ({ googleLogin, twitterLogin }) => (
-  <PageMainContainer>
+  <PageMainContainer mobileMargin="40% 1.5rem">
     <FlexContainer justifyContent="center">
       <ContentWrapper alignItems="center" flexDirection="column">
         <Paragraph>No registration. Just log in. Simple.</Paragraph>

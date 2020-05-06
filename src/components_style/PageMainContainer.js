@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 const PageMainContainer = styled.div.attrs(props => ({
   margin: props.margin || '10rem',
+  mobileMargin: props.mobileMargin || '2rem 1.5rem',
   width: props.width || 'auto',
 }))`
   margin: ${props => props.margin};
@@ -11,7 +12,7 @@ const PageMainContainer = styled.div.attrs(props => ({
     margin: 10rem 1.5rem;
   };
   @media(max-width: 850px) {
-    margin: 2rem 1.5rem;
+    margin: ${props => props.mobileMargin};
   };
   @media(max-height: 500px) {
     margin: 5rem 3rem;

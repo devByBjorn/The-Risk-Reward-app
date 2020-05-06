@@ -8,11 +8,11 @@ import Span from '../components_style/Span'
 import LinkAsButton from '../components_style/LinkAsButtonStyled'
 
 const LandingPage = () => (
-  <PageMainContainer>
+  <PageMainContainer mobileMargin="30% 1.5rem">
     <FlexContainer justifyContent="center">
       <ContentWrapper>
         <SubHeading fontSize="5rem">Know our edge and push it.</SubHeading>
-        <Paragraph lineHeight={1.5}>Welcome to <Span display="inline" fontWeight="bold">EdgePusher</Span>. Our purpose is to help you as a trader identify your best performing markets and setups, so you can push risk where it is due, without blowing up your account.
+        <Paragraph lineHeight={1.5}>Welcome to <Span display="inline" fontWeight="bold">EdgePusher</Span>. We help you as trader to identify your best performing markets and setups, so you can push risk where it is due, without blowing up your account.
       </Paragraph>
         <Paragraph>
           <LinkAsButton

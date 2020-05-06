@@ -36,8 +36,14 @@ const TableActiveTrades = ({ trades }) => {
         accessor: 'setup',
       },
       {
-        Header: 'Status',
-        accessor: 'status',
+        Header: 'Entry',
+        accessor: 'entry',
+      }, {
+        Header: 'Stop',
+        accessor: 'stop',
+      }, {
+        Header: 'Target',
+        accessor: 'target',
       },
       {
         Header: '-R',
@@ -46,11 +52,6 @@ const TableActiveTrades = ({ trades }) => {
       },
       {
         Header: 'R',
-        Footer: (props) => {
-          return (
-            <span>Footer</span>
-          )
-        },
         accessor: 'positiveR',
       },
       {
