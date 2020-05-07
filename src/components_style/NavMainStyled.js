@@ -4,11 +4,14 @@ import { makeStyles } from '@material-ui/core/styles'
 const NavMainStyled = styled.nav.attrs(props => ({
   padding: props.padding || '2rem 5rem'
 }))`
+position: -webkit-sticky; /* Safari */
+position: sticky;
+top: 0;
 display: flex;
 alignItems: center;
 justify-content: center;
 background: #fff;
-border-bottom: 1px solid #e0e0e0;
+border-bottom: 1px solid ${props => props.theme.colors.general.lightDarker};;
 padding: ${props => props.padding};
 z-index: 999;
 
@@ -32,8 +35,11 @@ const linkStyled = makeStyles(theme => ({
     }
   },
   current: {
-    borderTop: '5px solid #eee',
+    borderTop: '5px solid #f50057',
     fontWeight: 600,
+    '&:hover': {
+      borderTop: '5px solid #f50057',
+    }
   },
   noShow: {
     color: 'transparent',
