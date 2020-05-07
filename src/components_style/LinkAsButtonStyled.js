@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const LinkAsButton = styled(Link)`
-  background: #f50057;
+  background: ${props => props.theme.colors.standOut.blue};
   border: 1px solid; 
   border-radius: 5px;
-  color: #fff;
+  color: ${props => props.theme.colors.general.light};
   cursor: pointer;
   font-weight: 600;
   padding: 5px 10px;
   text-decoration: none;
 
   &:hover {
-    background: #3f51b5
+    background: ${props => props.theme.colors.standOut.pink};
   }
 `
 export default (props) => <LinkAsButton {...props} />

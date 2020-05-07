@@ -34,7 +34,7 @@ const tableToolBarStyled = makeStyles(theme => ({
     },
   },
   title: {
-    color: '#d93025',
+    color: '#f50057',
     flex: '1',
     fontFamily: 'Century Gothic, Futura, sans-serif',
     fontSize: '1.6rem',

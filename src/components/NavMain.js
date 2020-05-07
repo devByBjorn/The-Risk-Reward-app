@@ -27,7 +27,6 @@ const NavMain = ({ startLogout }) => {
         className={classes.link}
       >Stats
       </NavLink>
-
       <LogoutButton className={classes.logout} onClick={startLogout}>Logout</LogoutButton>
 
 

@@ -27,7 +27,7 @@ const useStyles = makeStyles({
     }
   },
   mainHeading: {
-    color: '#d93025',
+    color: '#f50057',
     fontWeight: 'bold',
   },
   heading: {

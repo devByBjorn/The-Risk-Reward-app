@@ -4,7 +4,7 @@ const Span = styled.span.attrs(props => ({
   color: props.color || 'inherit',
   display: props.display || 'block',
   fontSize: props.fontSize || 'inherit',
-  fontWeight: props.fontWeight || 'normal',
+  fontWeight: props.fontWeight || 'bold',
   textTransform: props.textTransform || 'none'
 }))`
   color: ${props => props.color};

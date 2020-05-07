@@ -5,6 +5,7 @@ const NavMainStyled = styled.nav.attrs(props => ({
   padding: props.padding || '2rem 5rem'
 }))`
 display: flex;
+alignItems: center;
 justify-content: center;
 background: #fff;
 border-bottom: 1px solid #e0e0e0;
@@ -39,6 +40,9 @@ const linkStyled = makeStyles(theme => ({
   },
   logout: {
     marginLeft: 'auto',
+  },
+  logo: {
+    padding: '0',
   }
 }))
 

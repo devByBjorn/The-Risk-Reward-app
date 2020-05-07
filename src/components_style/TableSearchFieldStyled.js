@@ -1,11 +1,11 @@
-import { fade, makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 
-export default makeStyles(theme => ({
+const TableSearchFieldStyled = makeStyles(theme => ({
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
     background: '#fff',
-    borderBottom: '5px solid #d93025',
+    borderBottom: '5px solid #f50057',
     marginRight: theme.spacing(2),
     marginLeft: theme.spacing(2),
     [theme.breakpoints.up('sm')]: {
@@ -39,3 +39,5 @@ export default makeStyles(theme => ({
     },
   },
 }))
+
+export default TableSearchFieldStyled

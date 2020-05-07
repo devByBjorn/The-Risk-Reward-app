@@ -17,33 +17,33 @@ const OverviewClosedTrade = ({ values }) => {
     <FlexContainer flexDirection="column">
       <ContentContainer justifyContent="start">
         <ListU>
-          <ListItem><Span fontWeight="bold">Status</Span> {status.toUpperCase()}</ListItem>
-          <ListItem><Span fontWeight="bold">Opened</Span> {formDate(opened)}</ListItem>
-          <ListItem><Span fontWeight="bold">Closed</Span> {formDate(closed)}</ListItem>
+          <ListItem><Span>Status</Span> {status.toUpperCase()}</ListItem>
+          <ListItem><Span>Opened</Span> {formDate(opened)}</ListItem>
+          <ListItem><Span>Closed</Span> {formDate(closed)}</ListItem>
 
-          <ListItem><Span fontWeight="bold">Market</Span> {market.toUpperCase()}</ListItem>
-          <ListItem><Span fontWeight="bold">Direction</Span> {direction.toUpperCase()}</ListItem>
-          <ListItem><Span fontWeight="bold">Setup</Span> {setup.toUpperCase()}</ListItem>
+          <ListItem><Span>Market</Span> {market.toUpperCase()}</ListItem>
+          <ListItem><Span>Direction</Span> {direction.toUpperCase()}</ListItem>
+          <ListItem><Span>Setup</Span> {setup.toUpperCase()}</ListItem>
 
-          <ListItem><Span fontWeight="bold">Entry</Span> {entry}</ListItem>
-          <ListItem><Span fontWeight="bold">Stop</Span> {stop}</ListItem>
-          <ListItem><Span fontWeight="bold">Target</Span> {target}</ListItem>
+          <ListItem><Span>Entry</Span> {entry}</ListItem>
+          <ListItem><Span>Stop</Span> {stop}</ListItem>
+          <ListItem><Span>Target</Span> {target}</ListItem>
         </ListU>
       </ContentContainer>
       <HorizontalLine />
       <ContentContainer flexDirection="column" borderTop="1px solid #eee" padding="5rem 0">
-        <SubHeading>Execution : {execution.toUpperCase()}</SubHeading>
+        <SubHeading padding="2rem 0 0 1rem">Execution : {execution.toUpperCase()}</SubHeading>
         <ListU direction="column">
-          <ListItem><Span fontSize="2rem" fontWeight="bold">Why</Span>{whyExecution}</ListItem>
-          <ListItem><Span fontSize="2rem" fontWeight="bold">Improve</Span>{improveExecution}</ListItem>
+          <ListItem><Span fontSize="2rem">Why</Span>{whyExecution}</ListItem>
+          <ListItem><Span fontSize="2rem">Improve</Span>{improveExecution}</ListItem>
         </ListU>
       </ContentContainer>
       <HorizontalLine />
       <ContentContainer flexDirection="column" borderTop="1px solid #eee">
-        <SubHeading>Management : {management.toUpperCase()}</SubHeading>
+        <SubHeading padding="2rem 0 0 1rem">Management : {management.toUpperCase()}</SubHeading>
         <ListU direction="column">
-          <ListItem><Span fontSize="2rem" fontWeight="bold">Why</Span>{whyManagement}</ListItem>
-          <ListItem><Span fontSize="2rem" fontWeight="bold">Improve</Span>{improveManagement}</ListItem>
+          <ListItem><Span fontSize="2rem">Why</Span>{whyManagement}</ListItem>
+          <ListItem><Span fontSize="2rem">Improve</Span>{improveManagement}</ListItem>
         </ListU>
       </ContentContainer>
     </FlexContainer>

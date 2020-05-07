@@ -15,7 +15,7 @@ const StatsListTrades = ({ trades }) => {
 
   return (
     <StatsListWrapper flexDirection="column">
-      <SubHeading><Span color="#1d3adf" display="inline">|</Span>Trades</SubHeading>
+      <SubHeading><Span color="#3f51b5" display="inline">|</Span>Trades</SubHeading>
       <ListU background="#eee" padding="0">
         <ListItem>
           <Span fontWeight="bold">Total</Span>

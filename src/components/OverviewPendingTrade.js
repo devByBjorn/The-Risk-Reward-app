@@ -13,19 +13,19 @@ const OverviewPendingTrade = ({ values }) => {
     <FlexContainer alignItems="start" justifyContent="space-around" height="auto" padding="8rem 0" >
 
       <ListU>
-        <ListItem><Span fontWeight="bold">Status</Span>{status.toUpperCase()}</ListItem>
-        <ListItem><Span fontWeight="bold">Market</Span>{market.toUpperCase()}</ListItem>
+        <ListItem><Span>Status</Span>{status.toUpperCase()}</ListItem>
+        <ListItem><Span>Market</Span>{market.toUpperCase()}</ListItem>
       </ListU>
 
       <ListU>
-        <ListItem><Span fontWeight="bold">Direction</Span>{direction.toUpperCase()}</ListItem>
-        <ListItem><Span fontWeight="bold">Setup</Span>{setup.toUpperCase()}</ListItem>
+        <ListItem><Span>Direction</Span>{direction.toUpperCase()}</ListItem>
+        <ListItem><Span>Setup</Span>{setup.toUpperCase()}</ListItem>
       </ListU>
 
       <ListU>
-        <ListItem><Span fontWeight="bold">Entry</Span>{entry}</ListItem>
-        <ListItem><Span fontWeight="bold">Stop</Span>{stop}</ListItem>
-        <ListItem><Span fontWeight="bold">Target</Span>{target}</ListItem>
+        <ListItem><Span>Entry</Span>{entry}</ListItem>
+        <ListItem><Span>Stop</Span>{stop}</ListItem>
+        <ListItem><Span>Target</Span>{target}</ListItem>
       </ListU>
 
     </FlexContainer>

@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { getTotalR, getAvarageR, getLowestR, getHighestR } from '../calculations/calcR'
-import FlexContainer from '../components_style/FlexContainer'
 import ListU from '../components_style/ListU'
 import ListItem from '../components_style/ListItem'
 import Span from '../components_style/Span'
@@ -16,7 +15,7 @@ const StatsListR = ({ trades }) => {
 
   return (
     <StatsListWrapper flexDirection="column">
-      <SubHeading margin><Span color="#1d3adf" display="inline">|</Span>R</SubHeading>
+      <SubHeading margin><Span color="#3f51b5" display="inline">|</Span>R</SubHeading>
       <ListU background="#eee" padding="0">
         <ListItem>
           <Span fontWeight="bold">Total</Span>
