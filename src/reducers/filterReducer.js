@@ -1,4 +1,4 @@
-import moment from 'moment'
+//import moment from 'moment'
 
 // Make sortNum, sortString a part on initialState to be able to toogle in trade table
 // Why do that? To be able to use commmented out actions instead of the monster of a class
@@ -7,8 +7,8 @@ const initFilterState = {
   searchText: '',
   sortBy: 'date',
   sorted: false,
-  startDate: moment().startOf('year'),
-  endDate: moment()
+  //startDate: moment().startOf('year'),
+  //endDate: moment()
 }
 
 const filterReducer = (state = initFilterState, action) => {

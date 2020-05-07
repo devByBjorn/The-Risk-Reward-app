@@ -19,9 +19,9 @@ const LandingPage = () => (
       <ContentWrapper>
         <SubHeading
           fontSize="5rem"
-          padding="0 0 1rem 0"
+          padding="2rem 0"
         >Know your edge and push it.</SubHeading>
-        <Paragraph>Identify your best performing markets and setups, and push risk where it is due, without blowing up another account.
+        <Paragraph>Don't blow up another trading account. Start logging your trades today and we will help you identify your best performing markets and setups.
     </Paragraph>
         <Paragraph>
           <LinkAsButton
