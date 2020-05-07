@@ -15,26 +15,26 @@ const StatsListTrades = ({ trades }) => {
 
   return (
     <StatsListWrapper flexDirection="column">
-      <SubHeading><Span color="#3f51b5" display="inline">|</Span>Trades</SubHeading>
-      <ListU background="#eee" padding="0">
+      <SubHeading>Trades</SubHeading>
+      <ListU>
         <ListItem>
-          <Span fontWeight="bold">Total</Span>
+          <Span>Total</Span>
           {trades.length ? trades.length : '-'}
         </ListItem>
         <ListItem>
-          <Span fontWeight="bold">Wins</Span>
+          <Span>Wins</Span>
           {trades.length ? wins : '-'}
         </ListItem>
         <ListItem>
-          <Span fontWeight="bold">Losses</Span>
+          <Span>Losses</Span>
           {trades.length ? losses : '-'}
         </ListItem>
         <ListItem>
-          <Span fontWeight="bold">Scratched</Span>
+          <Span>Scratched</Span>
           {trades.length ? scratched : '-'}
         </ListItem>
         <ListItem>
-          <Span fontWeight="bold">WinRate</Span>
+          <Span>WinRate</Span>
           {trades.length ? `${winRatio}%` : '-'}
         </ListItem>
       </ListU>

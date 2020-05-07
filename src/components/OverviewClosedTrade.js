@@ -6,7 +6,6 @@ import ListU from '../components_style/ListU'
 import ListItem from '../components_style/ListItem'
 import Span from '../components_style/Span'
 import { SubHeading } from '../components_style/Headings'
-import { HorizontalLine } from '../components_style/LineBreak'
 
 const OverviewClosedTrade = ({ values }) => {
   const { market, direction, setup, entry, stop, target, status, opened,
@@ -30,17 +29,17 @@ const OverviewClosedTrade = ({ values }) => {
           <ListItem><Span>Target</Span> {target}</ListItem>
         </ListU>
       </ContentContainer>
-      <HorizontalLine />
-      <ContentContainer flexDirection="column" borderTop="1px solid #eee" padding="5rem 0">
-        <SubHeading padding="2rem 0 0 1rem">Execution : {execution.toUpperCase()}</SubHeading>
+
+      <ContentContainer flexDirection="column">
+        <SubHeading padding="3rem 0 0 0">Execution : {execution.toUpperCase()}</SubHeading>
         <ListU direction="column">
           <ListItem><Span fontSize="2rem">Why</Span>{whyExecution}</ListItem>
           <ListItem><Span fontSize="2rem">Improve</Span>{improveExecution}</ListItem>
         </ListU>
       </ContentContainer>
-      <HorizontalLine />
-      <ContentContainer flexDirection="column" borderTop="1px solid #eee">
-        <SubHeading padding="2rem 0 0 1rem">Management : {management.toUpperCase()}</SubHeading>
+
+      <ContentContainer flexDirection="column">
+        <SubHeading padding="3rem 0 0 0">Management : {management.toUpperCase()}</SubHeading>
         <ListU direction="column">
           <ListItem><Span fontSize="2rem">Why</Span>{whyManagement}</ListItem>
           <ListItem><Span fontSize="2rem">Improve</Span>{improveManagement}</ListItem>

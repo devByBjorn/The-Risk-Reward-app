@@ -80,10 +80,10 @@ const FormStepExecution = ({
               onChange={onConclusionChange}
             />
             <FormControlLabel
-              value="both"
+              value="mixed"
               control={<Radio />}
-              label="both"
-              checked={execution === 'both' ? true : false}
+              label="mixed"
+              checked={execution === 'mixed' ? true : false}
               onChange={onConclusionChange}
             />
           </RadioGroup>
