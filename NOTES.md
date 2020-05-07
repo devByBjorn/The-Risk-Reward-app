@@ -13,11 +13,12 @@
  a) Upplägg - hur många steg? 
 3. Main Nav - DONE
 
-4. calculateRiskReward - ta höjd för NaN
-5. Total table row för R och antal trades 
 
-6. Stats Page
-  a) strike rate / market
-  b) strike rate / setup
-7. Nivo för stats visual
+Development
+- Mixed istället för Both - Execution/management
+- Nivo för stats visual
+- Add + add new trade för submit
+- Error Trades Table (ta bort active och pending)
+- Trade Journal
+- 
   
