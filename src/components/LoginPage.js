@@ -14,8 +14,11 @@ import Logo from './Logo'
 
 const LoginPage = ({ googleLogin, twitterLogin }) => (
   <PageMainContainer
+    height="auto"
     margin="20rem 10rem"
-    mobileMargin="40% 1.5rem">
+    mobileMargin="40% 1.5rem"
+    overflowY="hidden"
+  >
     <TopLeftCorner>
       <Logo />
     </TopLeftCorner>

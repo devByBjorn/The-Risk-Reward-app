@@ -10,8 +10,11 @@ import Logo from './Logo'
 
 const LandingPage = () => (
   <PageMainContainer
+    height="auto"
     margin="20rem 10rem"
-    mobileMargin="25% 1.5rem">
+    mobileMargin="25% 1.5rem"
+    overflowY="hidden"
+  >
     <TopLeftCorner>
       <Logo />
     </TopLeftCorner>
