@@ -4,12 +4,10 @@ import { googleLogin, twitterLogin } from '../actions/authFirebase'
 import PageMainContainer from '../components_style/PageMainContainer'
 import FlexContainer from '../components_style/FlexContainer'
 import { ContentWrapper } from '../components_style/ContentWrapperStyled'
-import { SubHeading } from '../components_style/Headings'
 import Paragraph from '../components_style/Paragraph'
 import TwitterButton from '../components_style/ButtonTwitterStyled'
 import GoogleButton from '../components_style/ButtonGoogleStyled'
 import TopLeftCorner from '../components_style/TopLeftCornerWrap'
-import Span from '../components_style/Span'
 import Logo from './Logo'
 
 const LoginPage = ({ googleLogin, twitterLogin }) => (
