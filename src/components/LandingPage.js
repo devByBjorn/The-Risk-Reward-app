@@ -24,7 +24,7 @@ const LandingPage = () => (
           fontSize="5rem"
           padding="2rem 0"
         >Know your edge and push it.</SubHeading>
-        <Paragraph>Don't blow up another trading account. Start logging your trades today and we will help you identify your best performing markets and setups.
+        <Paragraph>Start logging your trades today and identify your true edge in the market with EdgePusher.
     </Paragraph>
         <div>
           <LinkAsButton

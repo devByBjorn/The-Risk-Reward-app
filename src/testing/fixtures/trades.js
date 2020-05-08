@@ -1,3 +1,5 @@
+const now = new Date('2020-03-22')
+
 export const tradeDefault = {
   direction: '',
   market: '',

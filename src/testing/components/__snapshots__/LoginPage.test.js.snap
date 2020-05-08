@@ -16,3 +16,30 @@ exports[`should render LoginPage 1`] = `
   twitterLogin={[Function]}
 />
 `;
+
+exports[`should render LoginPage with components 1`] = `
+<PageMainContainer
+  height="auto"
+  margin="20rem 10rem"
+  mobileMargin="40% 1.5rem"
+  overflowY="hidden"
+>
+  <TopLeftCornerWrap__TopLeftCorner>
+    <Logo />
+  </TopLeftCornerWrap__TopLeftCorner>
+  <FlexContainer
+    justifyContent="center"
+  >
+    <ContentWrapperStyled__ContentWrapper
+      alignItems="center"
+      flexDirection="column"
+    >
+      <Paragraph>
+        No registration. Just log in. Simple.
+      </Paragraph>
+      <LoginTwitterButton />
+      <LoginGoogleButton />
+    </ContentWrapperStyled__ContentWrapper>
+  </FlexContainer>
+</PageMainContainer>
+`;

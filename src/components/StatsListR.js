@@ -15,21 +15,21 @@ const StatsListR = ({ trades }) => {
 
   return (
     <StatsListWrapper flexDirection="column">
-      <SubHeading>R</SubHeading>
+      <SubHeading>R/R</SubHeading>
       <ListU>
         <ListItem>
           <Span>Total</Span>
           {trades.length ? `${totalR}` : '-'}
         </ListItem>
         <ListItem>
-          <Span>Highest</Span>
+          <Span>Best</Span>
           {trades.length ? `${highestR}` : '-'}
         </ListItem>
         <ListItem>
-          <Span>Lowest</Span>
+          <Span>Worst</Span>
           {trades.length ? `${lowestR}` : '-'}</ListItem>
         <ListItem>
-          <Span>Average</Span>
+          <Span>R/R ratio</Span>
           {trades.length > 1 ? `${averageR}` : '-'}
         </ListItem>
       </ListU>

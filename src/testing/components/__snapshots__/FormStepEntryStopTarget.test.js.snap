@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render FormParent 1`] = `
+<FormPageContainerStyled__FormPageContainer>
+  <FormNav
+    values={
+      Object {
+        "direction": "long",
+        "entry": "",
+        "market": "dax",
+        "setup": "ibl",
+        "status": "closed",
+        "stop": "",
+        "target": "",
+      }
+    }
+  />
+  <FormContainerStyled__FormContainer>
+    <WithStyles(ForwardRef(TextField))
+      className="makeStyles-textField-9"
+      error={false}
+      label="Entry"
+      name="entry"
+      placeholder="Entry"
+      value=""
+    />
+    <WithStyles(ForwardRef(TextField))
+      className="makeStyles-textField-9"
+      error={false}
+      label="Stop"
+      name="stop"
+      placeholder="Stop"
+      value=""
+    />
+    <WithStyles(ForwardRef(FormHelperText))
+      className="makeStyles-helperText-6"
+      error={false}
+    >
+       
+    </WithStyles(ForwardRef(FormHelperText))>
+    <WithStyles(ForwardRef(TextField))
+      className="makeStyles-textField-9"
+      error={false}
+      label="Target"
+      name="target"
+      placeholder="Target"
+      value=""
+    />
+    <WithStyles(ForwardRef(FormHelperText))
+      className="makeStyles-helperText-6"
+    >
+       
+    </WithStyles(ForwardRef(FormHelperText))>
+    <div
+      className="makeStyles-buttonContainer-1"
+    >
+      <WithStyles(ForwardRef(Button))
+        className="makeStyles-button-2"
+        onClick={[Function]}
+      >
+        Back
+      </WithStyles(ForwardRef(Button))>
+      <WithStyles(ForwardRef(Button))
+        className="makeStyles-button-2"
+        onClick={[Function]}
+      >
+        Next
+      </WithStyles(ForwardRef(Button))>
+    </div>
+  </FormContainerStyled__FormContainer>
+</FormPageContainerStyled__FormPageContainer>
+`;

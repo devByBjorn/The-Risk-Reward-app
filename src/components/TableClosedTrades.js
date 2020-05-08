@@ -50,7 +50,7 @@ const TableClosedTrades = ({ trades }) => {
         accessor: 'setup',
       },
       {
-        Header: 'R',
+        Header: 'R/R',
         accessor: 'rewardToRisk'
       },
       {

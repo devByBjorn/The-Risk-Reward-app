@@ -10,7 +10,7 @@ import FlexContainer from '../components_style/FlexContainer'
 import { ContentWrapper } from '../components_style/ContentWrapperStyled'
 import TopLeftCorner from '../components_style/TopLeftCornerWrap'
 
-const LoginPage = ({ googleLogin, twitterLogin }) => (
+export const LoginPage = ({ googleLogin, twitterLogin }) => (
   <PageMainContainer
     height="auto"
     margin="20rem 10rem"

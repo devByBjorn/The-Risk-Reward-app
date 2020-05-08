@@ -46,12 +46,12 @@ const TableActiveTrades = ({ trades }) => {
         accessor: 'target',
       },
       {
-        Header: '-R',
+        Header: 'Risk',
         accessor: 'negativeR',
         Footer: 'Potential Risk: '
       },
       {
-        Header: 'R',
+        Header: 'Reward',
         accessor: 'positiveR',
       },
       {

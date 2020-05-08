@@ -22,7 +22,7 @@ const FormStepStatusDatesOutcome = ({
 }) => {
 
   const classes = formElementsStyled()
-  const { status, outcome, step } = values
+  const { status, outcome } = values
   const [error, setError] = useState(false)
 
   const next = e => {

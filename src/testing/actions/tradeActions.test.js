@@ -12,6 +12,9 @@ const uid = 'ksjgksjgasdfsdf-a535a356'
 const defaultAuthState = { auth: { uid } }
 const createMockStore = configureMockStore([thunk])
 
+const now = new Date('2020-03-22')
+const then = new Date('2020-04-02')
+
 beforeEach((done) => {
   const tradesData = {}
 
