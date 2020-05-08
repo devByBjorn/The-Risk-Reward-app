@@ -32,7 +32,7 @@ const EdgePusherPage = () => (
 
         <SubHeading><Span color="#f50057" display="inline">Stats</Span></SubHeading>
         <Paragraph >
-          Under the Stats page you have two lists and two tables. The first lists give you an overview of stats related to total trades, such as wins, losses and win ratio. The second list is focused on stats related to Risk-reward; best Reward, worst Risk, and Risk-Reward ratio.
+          Under the Stats page you have two lists and two tables. The first list gives you an overview of stats related to total trades, such as wins, losses and win ratio. The second list is focused on stats related to Risk-reward; best Reward, worst Risk, and Risk-Reward ratio.
         </Paragraph>
         <Paragraph>
           Then you have the tables, and here is where the magic lies. One table shows specific stats based on setups and the other shows the same stats based on markets. The idea is that you should compare the tables and identify your setups with the highest win rate and your best performing market. With this knowledge you can focus on your highest probability setups in your best performing market, and really push those trades.
