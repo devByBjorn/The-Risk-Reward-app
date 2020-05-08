@@ -9,7 +9,7 @@ import database from '../../firebase/firebase'
 import { trades, tradeDefault } from '../fixtures/trades'
 
 const uid = 'ksjgksjgasdfsdf-a535a356'
-const defautlAuthState = { auth: { uid } }
+const defaultAuthState = { auth: { uid } }
 const createMockStore = configureMockStore([thunk])
 
 beforeEach((done) => {
@@ -68,7 +68,7 @@ test('should setup deleteTrade object', () => {
 })
 
 test('should delete trade from firebase', (done) => {
-  const store = createMockStore(defautlAuthState)
+  const store = createMockStore(defaultAuthState)
   const id = trades[2].id
   store.dispatch(deleteFirebaseTrade({ id }))
     .then(() => {
@@ -94,7 +94,7 @@ test('should setup edit trade', () => {
 })
 
 test('should setup edit trade from firebase', (done) => {
-  const store = createMockStore(defautlAuthState)
+  const store = createMockStore(defaultAuthState)
   const id = trades[0].id
   const updates = { closed: 55 }
 
@@ -126,7 +126,7 @@ test('should set up add trade with provided values', () => {
 })
 
 test('should set up add trade to firebase', (done) => {
-  const store = createMockStore(defautlAuthState)
+  const store = createMockStore(defaultAuthState)
   const tradeData = {
     direction: 'short',
     market: 'dax',
@@ -173,7 +173,7 @@ test('should set up add trade to firebase', (done) => {
 })
 
 test('should add trade defaults to firebase', (done) => {
-  const store = createMockStore(defautlAuthState)
+  const store = createMockStore(defaultAuthState)
   const defaultData = tradeDefault
 
   store.dispatch(addFirebaseTrade(defaultData)).then(() => {
@@ -206,7 +206,7 @@ test('should setup set trades action object with data', () => {
 })
 
 test('should fetch trades form firebase', (done) => {
-  const store = createMockStore(defautlAuthState)
+  const store = createMockStore(defaultAuthState)
   store.dispatch(setFireBaseTrades())
     .then(() => {
       const actions = store.getActions()

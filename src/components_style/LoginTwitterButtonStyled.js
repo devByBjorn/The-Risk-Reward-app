@@ -29,4 +29,4 @@ const TwitterButton = ({ onClick }) => {
   )
 }
 
-export default TwitterButton
+export default TwitterButtonStyled

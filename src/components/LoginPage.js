@@ -1,14 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { googleLogin, twitterLogin } from '../actions/authFirebase'
+import Paragraph from '../components_style/Paragraph'
+import LoginTwitterButton from './LoginTwitterButton'
+import LoginGoogleButton from './LoginGoogleButton'
+import Logo from './Logo'
 import PageMainContainer from '../components_style/PageMainContainer'
 import FlexContainer from '../components_style/FlexContainer'
 import { ContentWrapper } from '../components_style/ContentWrapperStyled'
-import Paragraph from '../components_style/Paragraph'
-import TwitterButton from '../components_style/ButtonTwitterStyled'
-import GoogleButton from '../components_style/ButtonGoogleStyled'
 import TopLeftCorner from '../components_style/TopLeftCornerWrap'
-import Logo from './Logo'
 
 const LoginPage = ({ googleLogin, twitterLogin }) => (
   <PageMainContainer
@@ -23,8 +23,8 @@ const LoginPage = ({ googleLogin, twitterLogin }) => (
     <FlexContainer justifyContent="center">
       <ContentWrapper alignItems="center" flexDirection="column">
         <Paragraph>No registration. Just log in. Simple.</Paragraph>
-        <TwitterButton onClick={twitterLogin} />
-        <GoogleButton onClick={googleLogin}>Google account</GoogleButton>
+        <LoginTwitterButton onClick={twitterLogin} />
+        <LoginGoogleButton onClick={googleLogin} />
       </ContentWrapper>
     </FlexContainer>
   </PageMainContainer>

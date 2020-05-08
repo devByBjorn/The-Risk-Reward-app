@@ -1,0 +1,201 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render FormNav for Active status 1`] = `
+<FormNavStyles__Nav>
+  <FormNavStyles__Ul>
+    <FormNavStyles__Li>
+      <FormNavStyles__Button
+        onClick={[Function]}
+        style={Object {}}
+        type="button"
+      >
+        <span>
+          Step 1:
+        </span>
+        Status
+         & open date
+      </FormNavStyles__Button>
+    </FormNavStyles__Li>
+    <FormNavStyles__Li>
+      <FormNavStyles__Button
+        disabled={false}
+        onClick={[Function]}
+        style={Object {}}
+        type="button"
+      >
+        <span>
+          Step 2:
+        </span>
+        Market, direction & setup
+      </FormNavStyles__Button>
+    </FormNavStyles__Li>
+    <FormNavStyles__Li>
+      <FormNavStyles__Button
+        disabled={false}
+        onClick={[Function]}
+        style={Object {}}
+      >
+        <span>
+          Step 3:
+        </span>
+        Entry, stop & target
+      </FormNavStyles__Button>
+    </FormNavStyles__Li>
+    <FormNavStyles__Li>
+      <FormNavStyles__Button
+        disabled={false}
+        onClick={[Function]}
+        style={Object {}}
+      >
+        <span>
+          Step 4:
+        </span>
+        Inspect & Submit
+      </FormNavStyles__Button>
+    </FormNavStyles__Li>
+  </FormNavStyles__Ul>
+</FormNavStyles__Nav>
+`;
+
+exports[`should render FormNav for Pending status 1`] = `
+<FormNavStyles__Nav>
+  <FormNavStyles__Ul>
+    <FormNavStyles__Li>
+      <FormNavStyles__Button
+        onClick={[Function]}
+        style={Object {}}
+        type="button"
+      >
+        <span>
+          Step 1:
+        </span>
+        Status
+      </FormNavStyles__Button>
+    </FormNavStyles__Li>
+    <FormNavStyles__Li>
+      <FormNavStyles__Button
+        disabled={false}
+        onClick={[Function]}
+        style={Object {}}
+        type="button"
+      >
+        <span>
+          Step 2:
+        </span>
+        Market, direction & setup
+      </FormNavStyles__Button>
+    </FormNavStyles__Li>
+    <FormNavStyles__Li>
+      <FormNavStyles__Button
+        disabled={false}
+        onClick={[Function]}
+        style={Object {}}
+      >
+        <span>
+          Step 3:
+        </span>
+        Entry, stop & target
+      </FormNavStyles__Button>
+    </FormNavStyles__Li>
+    <FormNavStyles__Li>
+      <FormNavStyles__Button
+        disabled={false}
+        onClick={[Function]}
+        style={Object {}}
+      >
+        <span>
+          Step 4:
+        </span>
+        Inspect & Submit
+      </FormNavStyles__Button>
+    </FormNavStyles__Li>
+  </FormNavStyles__Ul>
+</FormNavStyles__Nav>
+`;
+
+exports[`should render FormNav for closed status 1`] = `
+<FormNavStyles__Nav>
+  <FormNavStyles__Ul>
+    <FormNavStyles__Li>
+      <FormNavStyles__Button
+        onClick={[Function]}
+        style={Object {}}
+        type="button"
+      >
+        <span>
+          Step 1:
+        </span>
+        Status
+        , dates & outcome
+      </FormNavStyles__Button>
+    </FormNavStyles__Li>
+    <FormNavStyles__Li>
+      <FormNavStyles__Button
+        disabled={false}
+        onClick={[Function]}
+        style={Object {}}
+        type="button"
+      >
+        <span>
+          Step 2:
+        </span>
+        Market, direction & setup
+      </FormNavStyles__Button>
+    </FormNavStyles__Li>
+    <FormNavStyles__Li>
+      <FormNavStyles__Button
+        disabled={false}
+        onClick={[Function]}
+        style={Object {}}
+      >
+        <span>
+          Step 3:
+        </span>
+        Entry, stop & target
+      </FormNavStyles__Button>
+    </FormNavStyles__Li>
+    <FormNavStyles__Li>
+      <FormNavStyles__Button
+        disabled={false}
+        onClick={[Function]}
+        style={Object {}}
+      >
+        <span>
+          Step 4:
+        </span>
+        Execution
+      </FormNavStyles__Button>
+    </FormNavStyles__Li>
+    <FormNavStyles__Li>
+      <FormNavStyles__Button
+        disabled={false}
+        onClick={[Function]}
+        style={Object {}}
+      >
+        <span>
+          Step 5:
+        </span>
+        Management
+      </FormNavStyles__Button>
+    </FormNavStyles__Li>
+    <FormNavStyles__Li>
+      <FormNavStyles__Button
+        disabled={false}
+        onClick={[Function]}
+        style={Object {}}
+      >
+        <span>
+          Step 6:
+        </span>
+        Inspect & Submit
+      </FormNavStyles__Button>
+    </FormNavStyles__Li>
+  </FormNavStyles__Ul>
+</FormNavStyles__Nav>
+`;
+
+exports[`should render FormNav without content 1`] = `
+<FormNavStyles__Nav>
+  <FormNavStyles__Ul />
+</FormNavStyles__Nav>
+`;

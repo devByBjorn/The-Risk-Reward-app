@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render LandingPage 1`] = `
+<PageMainContainer
+  height="auto"
+  margin="20rem 10rem"
+  mobileMargin="25% 1.5rem"
+  overflowY="hidden"
+>
+  <TopLeftCornerWrap__TopLeftCorner>
+    <Logo />
+  </TopLeftCornerWrap__TopLeftCorner>
+  <FlexContainer
+    justifyContent="center"
+  >
+    <ContentWrapperStyled__ContentWrapper>
+      <Headings__SubHeading
+        fontSize="5rem"
+        padding="2rem 0"
+      >
+        Know your edge and push it.
+      </Headings__SubHeading>
+      <Paragraph>
+        Don't blow up another trading account. Start logging your trades today and we will help you identify your best performing markets and setups.
+      </Paragraph>
+      <div>
+        <_default
+          to="/login"
+        >
+          Get started for free
+        </_default>
+      </div>
+    </ContentWrapperStyled__ContentWrapper>
+  </FlexContainer>
+</PageMainContainer>
+`;

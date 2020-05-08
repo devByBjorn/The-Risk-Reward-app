@@ -5,8 +5,6 @@ import Paragraph from '../components_style/Paragraph'
 import { SubHeading } from '../components_style/Headings'
 import { ContentWrapper } from '../components_style/ContentWrapperStyled'
 import Span from '../components_style/Span'
-import Theme from '../components_style/Theme'
-
 
 const EdgePusherPage = () => (
   <PageMainContainter>

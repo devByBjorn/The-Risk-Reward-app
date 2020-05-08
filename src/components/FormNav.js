@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
 import { Nav, Ul, Li, Button } from '../components_style/FormNavStyles'
 
-const FormNav = ({ values, navigateByStepValue }) => {
+export const FormNav = ({ values, navigateByStepValue }) => {
   const { direction, market, entry, stop, target, setup, status,
-    outcome, execution, management, whyExecution, improveExecution,
+    execution, management, whyExecution, improveExecution,
     whyManagement, improveManagement, step } = values
 
   const closedSubmitValues = [market, direction, setup, entry, stop,
@@ -99,20 +99,6 @@ const FormNav = ({ values, navigateByStepValue }) => {
                 Inspect & Submit
               </Button>
             </Li>
-            {/* <Li>
-              <Button
-                disabled={true}
-                text=""
-                spanText=""
-              />
-            </Li>
-            <Li>
-              <Button
-                disabled={true}
-                text=""
-                spanText=""
-              />
-           </Li>*/}
           </Fragment>
         }
 
@@ -127,20 +113,6 @@ const FormNav = ({ values, navigateByStepValue }) => {
                 Inspect & Submit
               </Button>
             </Li>
-            {/*<Li>
-              <Button
-                disabled={true}
-                text=""
-                spanText=""
-              />
-            </Li>
-            <Li>
-              <Button
-                disabled={true}
-                text=""
-                spanText=""
-              />
-            </Li>*/}
           </Fragment>
         }
       </Ul>

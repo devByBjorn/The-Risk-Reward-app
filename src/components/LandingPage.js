@@ -26,11 +26,11 @@ const LandingPage = () => (
         >Know your edge and push it.</SubHeading>
         <Paragraph>Don't blow up another trading account. Start logging your trades today and we will help you identify your best performing markets and setups.
     </Paragraph>
-        <Paragraph>
+        <div>
           <LinkAsButton
             to="/login"
           >Get started for free</LinkAsButton>
-        </Paragraph>
+        </div>
       </ContentWrapper>
     </FlexContainer>
   </PageMainContainer>
