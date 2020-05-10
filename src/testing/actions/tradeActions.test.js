@@ -32,8 +32,8 @@ beforeEach((done) => {
     period,
     outcome,
     rewardToRisk,
-    negativeR,
-    positiveR,
+    risk,
+    reward,
     conclusion,
   }) => {
     tradesData[id] = {
@@ -49,8 +49,8 @@ beforeEach((done) => {
       period,
       outcome,
       rewardToRisk,
-      negativeR,
-      positiveR,
+      risk,
+      reward,
       conclusion,
     }
   })
@@ -143,8 +143,8 @@ test('should set up add trade to firebase', (done) => {
     period: 1,
     outcome: 'win',
     rewardToRisk: 2,
-    negativeR: false,
-    positiveR: false,
+    risk: false,
+    reward: false,
     conclusion: {
       execution: 'sdg sdg sd',
       improveExecution: 'fh gjgfjj',

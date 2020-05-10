@@ -1,5 +1,5 @@
 import React from 'react'
-import { calculatePositiveR, calculateNegativeR } from '../calculations/riskRewardCalculation'
+import { calculateReward, calculateRisk } from '../calculations/rewardToRiskCalculation'
 import FormStepMarketDirectionSetup from './FormStepMarketDirectionSetup'
 import FormStepEntryStopTarget from './FormStepEntryStopTarget'
 import FormStepExecution from './FormStepExecution'
@@ -14,12 +14,13 @@ class FormParent extends React.Component {
     super(props)
     this.state = {
       step: 1,
-      editMode: false,
+      accordingToPlan: props.trade ? props.trade.accordingToPlan : '',
       direction: props.trade ? props.trade.direction : '',
       market: props.trade ? props.trade.market : '',
       entry: props.trade ? props.trade.entry : '',
       stop: props.trade ? props.trade.stop : '',
       target: props.trade ? props.trade.target : '',
+      exit: props.trade ? props.trade.exit : '',
       status: props.trade ? props.trade.status : '',
       setup: props.trade ? props.trade.setup : '',
       outcome: props.trade ? props.trade.outcome : '',
@@ -96,13 +97,15 @@ class FormParent extends React.Component {
     let rewardToRisk
     switch (outcome) {
       case 'win':
-        return rewardToRisk = calculatePositiveR(entry, stop, target, direction)
+        return rewardToRisk = calculateReward(entry, stop, target, direction)
       case 'loss':
-        return rewardToRisk = calculateNegativeR(entry, stop, target, direction)
+        return rewardToRisk = calculateRisk(entry, stop, target, direction)
       case 'scratch':
         return rewardToRisk = 0.00
     }
   }
+
+  calculateRMultiple = (entry, stop, exit) => (exit - entry) / (entry - stop)
 
   onOpenDateChange = (opened) => {
     this.setState(() => ({ opened }))
@@ -122,7 +125,7 @@ class FormParent extends React.Component {
   }
 
   handleSubmit = (e) => {
-    const { direction, market, entry, stop, target,
+    const { direction, market, entry, stop, target, exit,
       status, outcome, setup, opened, closed, conclusion } = this.state
 
     e.preventDefault()
@@ -131,16 +134,18 @@ class FormParent extends React.Component {
       market: market.toUpperCase(),
       entry: parseFloat(entry),
       stop: parseFloat(stop),
-      target: parseFloat(target),
+      target: target && parseFloat(target),
+      exit: exit && parseFloat(exit),
       status: status,
       outcome: status === 'closed' ? outcome : '',
       setup: setup,
       opened: opened ? opened.getTime() : '',
       closed: closed ? closed.getTime() : '',
-      //period: closed && opened ? (closed - opened).getTime() : '',
+      period: closed && opened ? (closed.getTime() - opened.getTime()) : '',
       rewardToRisk: outcome && parseFloat(this.calculateRewardToRisk()),
-      negativeR: !outcome && parseFloat(calculateNegativeR(entry, stop, target, direction)),
-      positiveR: !outcome && parseFloat(calculatePositiveR(entry, stop, target, direction)),
+      risk: parseFloat(calculateRisk(entry, stop, target, direction)),
+      reward: parseFloat(calculateReward(entry, stop, target, direction)),
+      rMultiple: this.calculateRMultiple(entry, stop, exit),
       conclusion: conclusion && {
         execution: conclusion.execution,
         whyExecution: conclusion.whyExecution,
@@ -154,15 +159,15 @@ class FormParent extends React.Component {
 
   render() {
     const { step, direction, market, entry, stop,
-      setup, target, status, outcome, rewardToRisk,
-      opened, closed, period, inputError, editMode } = this.state
+      setup, target, exit, status, outcome, rewardToRisk,
+      opened, closed, period, inputError } = this.state
 
     const { execution, management,
       whyExecution, improveExecution,
       whyManagement, improveManagement } = this.state.conclusion
 
     const values = {
-      step, direction, market, entry, stop, target, setup, status,
+      step, direction, market, entry, stop, target, exit, setup, status,
       outcome, rewardToRisk, opened, closed, period, inputError,
       execution, management, whyExecution, improveExecution,
       whyManagement, improveManagement,

@@ -12,6 +12,7 @@ const addFirebaseTrade = (tradeData = {}) =>
       market = '',
       entry = 0,
       stop = 0,
+      exit = 0,
       target = 0,
       status = '',
       setup = '',
@@ -20,8 +21,9 @@ const addFirebaseTrade = (tradeData = {}) =>
       period = 0,
       outcome = '',
       rewardToRisk = 0,
-      negativeR = 0,
-      positiveR = 0,
+      risk = 0,
+      reward = 0,
+      rMultiple = 0,
       conclusion = {}
     } = tradeData
 
@@ -31,6 +33,7 @@ const addFirebaseTrade = (tradeData = {}) =>
       entry,
       stop,
       target,
+      exit,
       status,
       setup,
       opened,
@@ -38,8 +41,9 @@ const addFirebaseTrade = (tradeData = {}) =>
       period,
       outcome,
       rewardToRisk,
-      negativeR,
-      positiveR,
+      risk,
+      reward,
+      rMultiple,
       conclusion
     }
 

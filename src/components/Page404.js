@@ -1,7 +1,6 @@
 import React from 'react'
-import PageMainContainer from '../components_style/PageMainContainer'
 import FormPageContainer from '../components_style/FormPageContainerStyled'
-import { SubHeading } from '../components_style/Headings'
+import SubHeading from '../components_style/SubHeadingStyled'
 const Page404 = () => (
   <FormPageContainer alignItems="center">
     <SubHeading>404: Page not found.</SubHeading>

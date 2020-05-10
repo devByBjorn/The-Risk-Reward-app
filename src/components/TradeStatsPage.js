@@ -4,6 +4,7 @@ import StatsListR from './StatsListR'
 import StatsTable from './StatsTable'
 import PageMainContainter from '../components_style/PageMainContainer'
 import FlexContainer from '../components_style/FlexContainer'
+import Paragrapgh from '../components_style/Paragraph'
 
 const TradeStatsPage = () => (
   <PageMainContainter mobileMargin="10% 1.5rem">
@@ -12,12 +13,9 @@ const TradeStatsPage = () => (
       <StatsListR />
     </FlexContainer>
     <FlexContainer
-      alignItems="center"
-      justifyContent="space-around"
-      mobileDirection="column"
-    >
-      <StatsTable useKey='setup' />
+      justifyContent="space-around" mobileDirection="column">
       <StatsTable useKey='market' />
+      <StatsTable useKey='setup' />
     </FlexContainer>
   </PageMainContainter>
 )

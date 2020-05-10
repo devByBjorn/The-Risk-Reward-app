@@ -14,13 +14,13 @@ const FormStepDateActive = ({ values, onOpenDateChange }) => {
         <FormLabel className={classes.formLabel}
         >Opened</FormLabel>
         <DatePicker
-          dateFormat="MMM d, yyyy hh:mm"
+          dateFormat="MMM d, yyyy HH:mm"
           maxDate={new Date()}
           onChange={onOpenDateChange}
           selected={values.opened}
           showTimeSelect
           timeFormat="HH:mm"
-          timeIntervals={15}
+          timeIntervals={1}
         />
       </DateWrapper>
     </DateContainer>

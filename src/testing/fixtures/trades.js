@@ -13,8 +13,8 @@ export const tradeDefault = {
   period: 0,
   outcome: '',
   rewardToRisk: 0,
-  negativeR: 0,
-  positiveR: 0,
+  risk: 0,
+  reward: 0,
   conclusion: {
     execution: '',
     improveExecution: '',
@@ -39,8 +39,8 @@ export const trades = [{
   period: 0,
   outcome: 'win',
   rewardToRisk: 2,
-  negativeR: false,
-  positiveR: false,
+  risk: false,
+  reward: false,
   conclusion: {
     execution: 'abc',
     improveExecution: 'def',
@@ -63,8 +63,8 @@ export const trades = [{
   period: 0,
   outcome: 'loss',
   rewardToRisk: 2,
-  negativeR: false,
-  positiveR: false,
+  risk: false,
+  reward: false,
   conclusion: {
     execution: 'sdgsdg',
     improveExecution: 'sdgsdg',
@@ -87,8 +87,8 @@ export const trades = [{
   period: 1,
   outcome: 'win',
   rewardToRisk: 2,
-  negativeR: false,
-  positiveR: false,
+  risk: false,
+  reward: false,
   conclusion: {
     execution: 'sdg sdg sd',
     improveExecution: 'fh gjgfjj',

@@ -15,8 +15,8 @@ const defaultValues = {
   closed: 0,
   period: 0,
   rewardToRisk: 0,
-  negativeR: 0,
-  positiveR: 0,
+  risk: 0,
+  reward: 0,
   conclusion: {
     execution: '',
     improveExecution: '',

@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addFirebaseTrade } from '../actions/tradeActions'
 import FormParent from './FormParent'
+//import FormParentTwo from './FormParentTwo'
 
 const TradeAddPage = ({ addFirebaseTrade, history }) => {
   const handleAddTrade = (trade) => {

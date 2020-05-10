@@ -5,6 +5,7 @@ import FormHelperText from '@material-ui/core/FormHelperText'
 import FormPageContainer from '../components_style/FormPageContainerStyled'
 import FormContainer from '../components_style/FormContainerStyled'
 import FormNav from './FormNav'
+//import FormNavTwo from './FormNavTwo'
 import formElementsStyled from '../components_style/formElementsStyled'
 
 const FormStepEntryStopTarget = ({
@@ -16,7 +17,7 @@ const FormStepEntryStopTarget = ({
 }) => {
 
   const classes = formElementsStyled()
-  const { entry, stop, target, direction } = values
+  const { entry, stop, target, exit, direction, status } = values
 
   const [error, setError] = useState(false)
   const [stopInfo, setStopInfo] = useState(' ')
@@ -29,7 +30,7 @@ const FormStepEntryStopTarget = ({
 
   const next = e => {
     e.preventDefault()
-    if (!entry || !stop || !target) {
+    if (!entry || !stop) {
       setError(true)
     } else if (stopLogicShort && direction === 'long') {
       setStopInfo('Stop must be below entry when trade direction is long')
@@ -70,11 +71,11 @@ const FormStepEntryStopTarget = ({
         <TextField
           className={classes.textField}
           error={!stop && error}
-          label="Stop"
+          label="Initial stop"
           name="stop"
           value={stop}
           onChange={onChangeValue}
-          placeholder="Stop"
+          placeholder="Initial stop"
         />
         <FormHelperText
           error={false}
@@ -84,17 +85,26 @@ const FormStepEntryStopTarget = ({
 
         <TextField
           className={classes.textField}
-          error={!target && error}
-          label="Target"
+          label="Initial target"
           name="target"
           value={target}
           onChange={onChangeValue}
-          placeholder="Target"
+          placeholder="Initial target"
         />
         <FormHelperText
           className={classes.helperText}
           children={targetInfo}
         />
+        {status === 'closed' &&
+          <TextField
+            className={classes.textField}
+            label="Actual exit"
+            name="exit"
+            value={exit}
+            onChange={onChangeValue}
+            placeholder="Actual exit"
+          />
+        }
         <div className={classes.buttonContainer}>
           <Button
             className={classes.button}

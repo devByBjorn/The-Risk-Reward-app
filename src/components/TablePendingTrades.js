@@ -37,11 +37,11 @@ const TablePendingTrades = ({ trades }) => {
       },
       {
         Header: 'Risk',
-        accessor: 'negativeR',
+        accessor: 'risk',
       },
       {
         Header: 'Reward',
-        accessor: 'positiveR'
+        accessor: 'reward'
       },
     ],
     []

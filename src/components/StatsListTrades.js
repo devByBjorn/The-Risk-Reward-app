@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { getOutcomeCount, getHitRatio } from '../calculations/calcOutcomes'
-import ListU from '../components_style/ListU'
+import HighlightedList from '../components_style/HighlightedList'
 import ListItem from '../components_style/ListItem'
 import Span from '../components_style/Span'
-import { SubHeading } from '../components_style/Headings'
+import SubHeading from '../components_style/SubHeadingStyled'
 import { StatsListWrapper } from '../components_style/StatsListWrapperStyled'
 
 const StatsListTrades = ({ trades }) => {
@@ -16,7 +16,7 @@ const StatsListTrades = ({ trades }) => {
   return (
     <StatsListWrapper flexDirection="column">
       <SubHeading>Trades</SubHeading>
-      <ListU>
+      <HighlightedList>
         <ListItem>
           <Span>Total</Span>
           {trades.length ? trades.length : '-'}
@@ -37,7 +37,7 @@ const StatsListTrades = ({ trades }) => {
           <Span>WinRate</Span>
           {trades.length ? `${winRatio}%` : '-'}
         </ListItem>
-      </ListU>
+      </HighlightedList>
     </StatsListWrapper>
   )
 }

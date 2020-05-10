@@ -10,7 +10,7 @@ import Paper from '@material-ui/core/Paper'
 import { makeStyles } from '@material-ui/core/styles'
 //import { getObjectCountList, objListToArr } from '../calculations/objLists'
 import { getKeysArr, outcomePerSetup, getArrOfArrsTrades } from '../calculations/calcBasedOnKey'
-import { getAvarageR, getTotalR } from '../calculations/calcR'
+import { getAvarage, getTotal } from '../calculations/calcR'
 import { getHitRatio } from '../calculations/calcOutcomes'
 import { capitalize } from '../helpers/capitalize'
 
@@ -18,13 +18,17 @@ const useStyles = makeStyles({
   tableContainer: {
     background: '#fff',
     borderCollapse: 'collapse',
-    //boxShadow: '1px 1px 3px',
-    border: '1px solid #eee',
+    boxShadow: '2px 2px 4px',
+    //border: '1px solid #eee',
     margin: '2rem',
     width: '100%',
     '@media(max-width: 850px)': {
       margin: '1rem 0',
     }
+  },
+  tableHead: {
+    background: '#eee',
+    fontWeight: 'bold',
   },
   mainHeading: {
     color: '#f50057',
@@ -50,12 +54,12 @@ const StatsTable = ({ trades, useKey }) => {
   return (
     <TableContainer className={classes.tableContainer} components={Paper}>
       <Table aria-label="simple table">
-        <TableHead>
+        <TableHead className={classes.tableHead}>
           <TableRow>
             <TableCell className={classes.mainHeading}>{capitalize(useKey)}</TableCell>
-            <TableCell className={classes.heading} align="right">WinRate</TableCell>
-            <TableCell className={classes.heading} align="right">R</TableCell>
-            <TableCell className={classes.heading} align="right">Trades</TableCell>
+            <TableCell className={classes.heading}>WinRate</TableCell>
+            <TableCell className={classes.heading}>R</TableCell>
+            <TableCell className={classes.heading}>Trades</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -64,9 +68,9 @@ const StatsTable = ({ trades, useKey }) => {
               <TableCell className={classes.heading} component="th" scope="row">
                 {`${singleArr[0][useKey].toUpperCase()}`}
               </TableCell>
-              <TableCell align="right">{`${getHitRatio(singleArr)}%`}</TableCell>
-              <TableCell align="right">{`${getTotalR(singleArr)}R`}</TableCell>
-              <TableCell align="right">{`${singleArr.length}`}</TableCell>
+              <TableCell>{`${getHitRatio(singleArr)}%`}</TableCell>
+              <TableCell>{`${getTotal(singleArr, 'rMultiple')}`}</TableCell>
+              <TableCell>{`${singleArr.length}`}</TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -75,10 +79,10 @@ const StatsTable = ({ trades, useKey }) => {
   )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    trades: state.trades.filter((trade) => trade.status === 'closed')
-  }
-}
+const mapStateToProps = (state) => ({
+  trades: state.trades.filter((trade) => trade.status === 'closed')
+})
+
+
 
 export default connect(mapStateToProps)(StatsTable)

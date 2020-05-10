@@ -1,5 +1,5 @@
 import React from 'react'
-import { SubHeading } from '../components_style/Headings'
+import SubHeading from '../components_style/SubHeadingStyled'
 import Span from '../components_style/Span'
 
 const Logo = () => (

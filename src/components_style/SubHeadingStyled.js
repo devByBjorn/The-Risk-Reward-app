@@ -9,4 +9,4 @@ const SubHeading = styled.h3.attrs(props => ({
   padding: ${props => props.padding};
 `
 
-export { SubHeading }
+export default SubHeading

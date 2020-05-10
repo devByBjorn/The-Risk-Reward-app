@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import { editFirebaseTrade, deleteFirebaseTrade } from '../actions/tradeActions'
 import FormParent from './FormParent'
+//import FormParentTwo from './FormParentTwo'
 
 class TradeEditPage extends React.Component {
   handleEditOnAdd = (trade) => {
@@ -12,7 +13,7 @@ class TradeEditPage extends React.Component {
     return (
       <Fragment>
         <FormParent
-          pathname={this.props.location.pathname}
+          //pathname={this.props.location.pathname}
           trade={this.props.trade}
           handleSubmit={this.handleEditOnAdd}
         />
@@ -21,11 +22,9 @@ class TradeEditPage extends React.Component {
   }
 }
 
-const mapStateToProps = (state, props) => {
-  return {
-    trade: state.trades.find((trade) => trade.id === props.match.params.id)
-  }
-}
+const mapStateToProps = (state, props) => ({
+  trade: state.trades.find((trade) => trade.id === props.match.params.id)
+})
 
 const mapDispatchToProps = (dispatch) => ({
   editFirebaseTrade: (id, trade) => dispatch(editFirebaseTrade(id, trade)),

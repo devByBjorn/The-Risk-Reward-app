@@ -26,13 +26,13 @@ const FormStepDatesClosed = ({
             className={classes.formLabel}
           >Opened</FormLabel>
           <DatePicker
-            dateFormat="MMM d, yyyy hh:mm"
+            dateFormat="MMM d, yyyy HH:mm"
             maxDate={new Date()}
             onChange={onOpenDateChange}
             selected={opened}
             showTimeSelect
             timeFormat="HH:mm"
-            timeIntervals={15}
+            timeIntervals={1}
           />
         </DateWrapper>
         <DateWrapper >
@@ -40,14 +40,14 @@ const FormStepDatesClosed = ({
             className={classes.formLabel}
           >Closed</FormLabel>
           <DatePicker
-            dateFormat="MMM d, yyyy hh:mm"
+            dateFormat="MMM d, yyyy HH:mm"
             maxDate={new Date()}
             minDate={opened}
             onChange={onClosedDateChange}
             selected={closed}
             showTimeSelect
             timeFormat="HH:mm"
-            timeIntervals={15}
+            timeIntervals={1}
           />
         </DateWrapper>
       </DateContainer>
