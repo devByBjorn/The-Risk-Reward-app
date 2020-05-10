@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
+import TableSortLabel from '@material-ui/core/TableSortLabel';
 import TableContainer from '@material-ui/core/TableContainer'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
@@ -27,7 +28,7 @@ const useStyles = makeStyles({
     }
   },
   tableHead: {
-    background: '#eee',
+    background: '#fafafa',
     fontWeight: 'bold',
   },
   mainHeading: {
@@ -36,6 +37,17 @@ const useStyles = makeStyles({
   },
   heading: {
     fontWeight: 'bold',
+  },
+  visuallyHidden: {
+    border: 0,
+    clip: 'rect(0 0 0 0)',
+    height: 1,
+    margin: -1,
+    overflow: 'hidden',
+    padding: 0,
+    position: 'absolute',
+    top: 20,
+    width: 1,
   },
 })
 
@@ -46,27 +58,34 @@ const useStyles = makeStyles({
 //const listAllSetups = getObjectCountList(allSetups)
 // const setupsListArr = objListToArr(listAllSetups)
 
-const StatsTable = ({ trades, useKey }) => {
+const StatsTable = ({ trades, keyOfUse }) => {
   const classes = useStyles()
-  const allSetups = getKeysArr(trades, useKey)
-  const arrOfArrsSetups = getArrOfArrsTrades(trades, allSetups, useKey)
+  const allKeyOfUse = getKeysArr(trades, keyOfUse)
+  const arrOfArrsKeyOfUse = getArrOfArrsTrades(trades, allKeyOfUse, keyOfUse)
+
+  const headCells = [
+    //{ id: `${keyOfUse}`, numeric: false, label: `${capitalize(keyOfUse)}` },
+    { id: 'winRate', numeric: false, label: 'WinRate' },
+    { id: 'r', numeric: false, label: 'R' },
+    { id: 'trades', numeric: false, label: 'Trades' },
+  ]
 
   return (
     <TableContainer className={classes.tableContainer} components={Paper}>
       <Table aria-label="simple table">
         <TableHead className={classes.tableHead}>
           <TableRow>
-            <TableCell className={classes.mainHeading}>{capitalize(useKey)}</TableCell>
-            <TableCell className={classes.heading}>WinRate</TableCell>
-            <TableCell className={classes.heading}>R</TableCell>
-            <TableCell className={classes.heading}>Trades</TableCell>
+            <TableCell className={classes.mainHeading}>{capitalize(keyOfUse)}</TableCell>
+            {headCells.map((headCell) => (
+              <TableCell className={classes.heading}>{headCell.label}</TableCell>
+            ))}
           </TableRow>
         </TableHead>
         <TableBody>
-          {allSetups && arrOfArrsSetups.map((singleArr, i) => (
+          {allKeyOfUse && arrOfArrsKeyOfUse.map((singleArr, i) => (
             <TableRow key={i}>
               <TableCell className={classes.heading} component="th" scope="row">
-                {`${singleArr[0][useKey].toUpperCase()}`}
+                {`${singleArr[0][keyOfUse].toUpperCase()}`}
               </TableCell>
               <TableCell>{`${getHitRatio(singleArr)}%`}</TableCell>
               <TableCell>{`${getTotal(singleArr, 'rMultiple')}`}</TableCell>

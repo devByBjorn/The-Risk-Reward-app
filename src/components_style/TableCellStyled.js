@@ -6,12 +6,9 @@ const TableCellStyled = withStyles({
     padding: '8px'
   },
   head: {
-    background: '#fafafa',
-    fontWeight: '600',
-    whiteSpace: 'nowrap'
-  },
-  body: {
     background: '#fff',
+    fontWeight: '600',
+    whiteSpace: 'nowrap',
   },
 })(TableCell);
 

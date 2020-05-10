@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
+import { makeStyles } from '@material-ui/core/styles'
 import TableBody from '@material-ui/core/TableBody'
 import TableFooter from '@material-ui/core/TableFooter'
 import TableHead from '@material-ui/core/TableHead'
@@ -16,6 +17,17 @@ import TableCheckBox from './TableCheckbox'
 //import DeleteIcon from '@material-ui/icons/Delete'
 //import EditIcon from '@material-ui/icons/Edit'
 //import IconButton from '../components_style/IconButtonStyled'
+
+const useStyles = makeStyles({
+  rowBody: {
+    transition: 'all 0.3s ease',
+    '&:hover': {
+      background: '#e0e0e0',
+      boxShadow: '1px 1px 4px 2px rgba(0,0,0,0.75)',
+    }
+  },
+})
+
 
 import {
   useGlobalFilter,
@@ -97,6 +109,7 @@ const EnhancedTable = ({
       ])
     }
   )
+  const classes = useStyles()
   //
   const getOutcomeBorder = (value) => {
     let border
@@ -175,7 +188,6 @@ const EnhancedTable = ({
                   {column.id !== 'selection' ? (
                     <TableSortLabel
                       active={column.isSorted}
-                      // react-table has a unsorted state which is not treated here
                       direction={column.isSortedDesc ? 'desc' : 'asc'}
                     />
                   ) : null}
@@ -189,7 +201,8 @@ const EnhancedTable = ({
           {page.map((row, i) => {
             prepareRow(row)
             return (
-              <TableRow {...row.getRowProps()}>
+              <TableRow className={classes.rowBody}
+                {...row.getRowProps()}>
                 {row.cells.map(cell => {
                   // can't get getProps to work in header/accesor
                   const borderLeft = getOutcomeBorder(cell.value)

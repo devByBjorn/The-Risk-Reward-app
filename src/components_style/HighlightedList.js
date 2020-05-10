@@ -6,9 +6,10 @@ const HighlightedList = styled.ul.attrs(props => ({
   flexWrap: props.flexWrap || 'wrap',
   textAlign: props.textAlign || 'left',
 }))`
-  background: #eee;
+  background: #fff;
   border: 1px solid #e0e0e0;
   border-bottom: 5px solid ${props => props.theme.colors.standOut.blue};
+  box-shadow: 1px px 2x;
   display: ${props => props.display};
   flex-direction: ${props => props.direction};
   flex-wrap: ${props => props.flexWrap};
