@@ -4,8 +4,7 @@ import StatsListR from './StatsListR'
 import StatsTable from './StatsTable'
 import PageMainContainter from '../components_style/PageMainContainer'
 import FlexContainer from '../components_style/FlexContainer'
-import Paragrapgh from '../components_style/Paragraph'
-import { HorizontalLine } from '../components_style/LineBreak'
+
 
 const TradeStatsPage = () => (
   <PageMainContainter mobileMargin="10% 1.5rem">

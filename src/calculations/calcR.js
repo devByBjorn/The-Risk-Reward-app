@@ -1,17 +1,17 @@
 const getTotal = (trades, key) =>
-  trades.reduce((total, trade) => total + trade[key], 0).toFixed(2)
+  parseFloat(trades.reduce((total, trade) => total + trade[key], 0).toFixed(2))
 
 const getAvarage = (trades, key) =>
-  (getTotal(trades, key) / trades.length).toFixed(2)
+  parseFloat((getTotal(trades, key) / trades.length).toFixed(2))
 
 const sortBy = (trades, key) =>
   trades.sort((a, b) => a[key] > b[key] ? 1 : -1)
 
 const getLowest = (trades, key) =>
-  trades.length && sortBy(trades, key)[0][key]
+  parseFloat(trades.length && sortBy(trades, key)[0][key].toFixed(2))
 
 const getHighest = (trades, key) =>
-  trades.length && sortBy(trades, key)[trades.length - 1][key]
+  parseFloat(trades.length && sortBy(trades, key)[trades.length - 1][key].toFixed(2))
 
 
 export { getAvarage, getTotal, getLowest, getHighest, sortBy }

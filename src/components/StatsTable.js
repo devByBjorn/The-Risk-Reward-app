@@ -12,7 +12,7 @@ import { makeStyles } from '@material-ui/core/styles'
 //import { getObjectCountList, objListToArr } from '../calculations/objLists'
 import { getKeysArr, outcomePerSetup, getArrOfArrsTrades } from '../calculations/calcBasedOnKey'
 import { getAvarage, getTotal } from '../calculations/calcR'
-import { getHitRatio } from '../calculations/calcOutcomes'
+import { getWinRatio } from '../calculations/calcOutcomes'
 import { capitalize } from '../helpers/capitalize'
 
 const useStyles = makeStyles({
@@ -75,23 +75,27 @@ const StatsTable = ({ trades, keyOfUse }) => {
       <Table aria-label="simple table">
         <TableHead className={classes.tableHead}>
           <TableRow>
-            <TableCell className={classes.mainHeading}>{capitalize(keyOfUse)}</TableCell>
+            <TableCell key={keyOfUse} className={classes.mainHeading}>{capitalize(keyOfUse)}</TableCell>
             {headCells.map((headCell) => (
-              <TableCell className={classes.heading}>{headCell.label}</TableCell>
+              <TableCell key={headCell.id} className={classes.heading}>{headCell.label}</TableCell>
             ))}
           </TableRow>
         </TableHead>
         <TableBody>
-          {allKeyOfUse && arrOfArrsKeyOfUse.map((singleArr, i) => (
-            <TableRow key={i}>
-              <TableCell className={classes.heading} component="th" scope="row">
-                {`${singleArr[0][keyOfUse].toUpperCase()}`}
-              </TableCell>
-              <TableCell>{`${getHitRatio(singleArr)}%`}</TableCell>
-              <TableCell>{`${getTotal(singleArr, 'rMultiple')}`}</TableCell>
-              <TableCell>{`${singleArr.length}`}</TableCell>
-            </TableRow>
-          ))}
+          {allKeyOfUse && arrOfArrsKeyOfUse.map((singleArr, i) => {
+            return (
+              <TableRow key={`${keyOfUse}-${i}`}>
+                <TableCell
+                  key={`${singleArr[0][keyOfUse]}`}
+                  className={classes.heading}
+                  component="th" scope="row">{`${singleArr[0][keyOfUse].toUpperCase()}`}
+                </TableCell>
+                <TableCell>{`${getWinRatio(singleArr)}%`}</TableCell>
+                <TableCell>{`${getTotal(singleArr, 'rMultiple')}`}</TableCell>
+                <TableCell>{`${singleArr.length}`}</TableCell>
+              </TableRow>
+            )
+          })}
         </TableBody>
       </Table>
     </TableContainer>

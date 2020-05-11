@@ -4,7 +4,7 @@ const getOutcome = (trades, outcome) =>
 const getOutcomeCount = (trades, outcome) =>
   getOutcome(trades, outcome).length
 
-const getHitRatio = (trades) =>
-  ((getOutcomeCount(trades, 'win') / trades.length) * 100).toFixed(2)
+const getWinRatio = (trades) =>
+  parseFloat(((getOutcomeCount(trades, 'win') / trades.length) * 100).toFixed(2))
 
-export { getOutcome, getOutcomeCount, getHitRatio }
+export { getOutcome, getOutcomeCount, getWinRatio }

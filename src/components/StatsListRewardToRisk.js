@@ -8,13 +8,13 @@ import SubHeading from '../components_style/SubHeadingStyled'
 import { StatsListWrapper } from '../components_style/StatsListWrapperStyled'
 
 const StatsListR = ({ trades }) => {
-  const worstR = getLowest(trades, 'rMultiple')
-  const bestR = getHighest(trades, 'rMultiple')
-  const totalR = getTotal(trades, 'rMultiple')
-  const averageR = getAvarage(trades, 'rMultiple')
+  const worstR = getLowest(trades, 'rewardToRisk')
+  const bestR = getHighest(trades, 'rewardToRisk')
+  const totalR = getTotal(trades, 'rewardToRisk')
+  const averageR = getAvarage(trades, 'rewardToRisk')
 
   const listItems = [totalR, bestR, worstR, averageR]
-  const itemsHeadings = ['Total', 'Best', 'Worst', 'Average']
+  const itemsHeading = ['Total', 'Best', 'Worst', 'Average']
 
   return (
     <StatsListWrapper flexDirection="column">
