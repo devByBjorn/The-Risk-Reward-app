@@ -3,15 +3,12 @@ const getObjectCountList = (array) =>
   array.length > 0
     ? array.reduce((acc, item) => {
       const count = acc[item] || 0
-
       return {
         ...acc,
         [item]: count + 1
       }
-
     }, {})
     : false
-
 
 const getMostOcurredKey = (list) =>
   !list
