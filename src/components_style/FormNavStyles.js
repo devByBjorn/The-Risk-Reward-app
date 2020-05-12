@@ -9,7 +9,7 @@ background: #fafafa;
 z-index: 999;
   
 @media(max-width: 850px) {
-  overflow: auto;
+  overflow-x: auto;
 }
 `
 
