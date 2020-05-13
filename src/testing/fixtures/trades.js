@@ -6,6 +6,7 @@ export const tradeDefault = {
   entry: 0,
   stop: 0,
   target: 0,
+  exit: 0,
   status: '',
   setup: '',
   opened: 0,
@@ -15,6 +16,7 @@ export const tradeDefault = {
   rewardToRisk: 0,
   risk: 0,
   reward: 0,
+  rMultiple: 0,
   conclusion: {
     execution: '',
     improveExecution: '',
@@ -32,6 +34,7 @@ export const trades = [{
   entry: 120,
   stop: 110,
   target: 140,
+  exit: 140,
   status: 'closed',
   setup: 'ibl tick under',
   opened: 1587031851000,
@@ -39,6 +42,7 @@ export const trades = [{
   period: 0,
   outcome: 'win',
   rewardToRisk: 2,
+  rMultiple: 2,
   risk: false,
   reward: false,
   conclusion: {
@@ -56,6 +60,7 @@ export const trades = [{
   entry: 1500,
   stop: 1600,
   target: 1400,
+  exit: 1600,
   status: 'closed',
   setup: 'ibh tick above',
   opened: 5,
@@ -63,6 +68,7 @@ export const trades = [{
   period: 0,
   outcome: 'loss',
   rewardToRisk: 2,
+  rMultiple: -1,
   risk: false,
   reward: false,
   conclusion: {
@@ -87,6 +93,7 @@ export const trades = [{
   period: 1,
   outcome: 'win',
   rewardToRisk: 2,
+  rMultiple: 2,
   risk: false,
   reward: false,
   conclusion: {

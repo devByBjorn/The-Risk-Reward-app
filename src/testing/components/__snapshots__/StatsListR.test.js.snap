@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render StatsListR 1`] = `
+<StatsListWrapperStyled__StatsListWrapper
+  flexDirection="column"
+>
+  <SubHeadingStyled__SubHeading>
+    R
+  </SubHeadingStyled__SubHeading>
+  <HighlightedList>
+    <ListItem
+      key="3"
+    >
+      <Span>
+        Total
+      </Span>
+      3
+    </ListItem>
+    <ListItem
+      key="2"
+    >
+      <Span>
+        Best
+      </Span>
+      2
+    </ListItem>
+    <ListItem
+      key="-1"
+    >
+      <Span>
+        Worst
+      </Span>
+      -1
+    </ListItem>
+    <ListItem
+      key="1"
+    >
+      <Span>
+        Average
+      </Span>
+      1
+    </ListItem>
+  </HighlightedList>
+</StatsListWrapperStyled__StatsListWrapper>
+`;

@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render TradeEditPage 1`] = `
+<Fragment>
+  <FormParent
+    handleSubmit={[Function]}
+    trade={
+      Object {
+        "closed": 1587115800000,
+        "conclusion": Object {
+          "execution": "abc",
+          "improveExecution": "def",
+          "improveManagement": "jkl",
+          "management": "ghi",
+          "whyExecution": "mno",
+          "whyManagement": "pqr",
+        },
+        "direction": "long",
+        "entry": 120,
+        "exit": 140,
+        "id": "123",
+        "market": "dax",
+        "opened": 1587031851000,
+        "outcome": "win",
+        "period": 0,
+        "rMultiple": 2,
+        "reward": false,
+        "rewardToRisk": 2,
+        "risk": false,
+        "setup": "ibl tick under",
+        "status": "closed",
+        "stop": 110,
+        "target": 140,
+      }
+    }
+  />
+</Fragment>
+`;

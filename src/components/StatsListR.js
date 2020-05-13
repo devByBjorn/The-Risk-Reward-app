@@ -7,7 +7,7 @@ import Span from '../components_style/Span'
 import SubHeading from '../components_style/SubHeadingStyled'
 import { StatsListWrapper } from '../components_style/StatsListWrapperStyled'
 
-const StatsListR = ({ trades }) => {
+export const StatsListR = ({ trades }) => {
   const worstR = getLowest(trades, 'rMultiple')
   const bestR = getHighest(trades, 'rMultiple')
   const totalR = getTotal(trades, 'rMultiple')

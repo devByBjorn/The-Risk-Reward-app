@@ -4,7 +4,7 @@ import { editFirebaseTrade, deleteFirebaseTrade } from '../actions/tradeActions'
 import FormParent from './FormParent'
 //import FormParentTwo from './FormParentTwo'
 
-class TradeEditPage extends React.Component {
+export class TradeEditPage extends React.Component {
   handleEditOnAdd = (trade) => {
     this.props.editFirebaseTrade(this.props.trade.id, trade)
     this.props.history.push('/trades')

@@ -27,9 +27,9 @@ exports[`should render FormParent 1`] = `
     <WithStyles(ForwardRef(TextField))
       className="makeStyles-textField-9"
       error={false}
-      label="Stop"
+      label="Initial stop"
       name="stop"
-      placeholder="Stop"
+      placeholder="Initial stop"
       value=""
     />
     <WithStyles(ForwardRef(FormHelperText))
@@ -40,10 +40,9 @@ exports[`should render FormParent 1`] = `
     </WithStyles(ForwardRef(FormHelperText))>
     <WithStyles(ForwardRef(TextField))
       className="makeStyles-textField-9"
-      error={false}
-      label="Target"
+      label="Initial target"
       name="target"
-      placeholder="Target"
+      placeholder="Initial target"
       value=""
     />
     <WithStyles(ForwardRef(FormHelperText))
@@ -51,6 +50,12 @@ exports[`should render FormParent 1`] = `
     >
        
     </WithStyles(ForwardRef(FormHelperText))>
+    <WithStyles(ForwardRef(TextField))
+      className="makeStyles-textField-9"
+      label="Actual exit"
+      name="exit"
+      placeholder="Actual exit"
+    />
     <div
       className="makeStyles-buttonContainer-1"
     >

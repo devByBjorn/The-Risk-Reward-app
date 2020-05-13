@@ -7,7 +7,7 @@ import Span from '../components_style/Span'
 import SubHeading from '../components_style/SubHeadingStyled'
 import { StatsListWrapper } from '../components_style/StatsListWrapperStyled'
 
-const StatsListTrades = ({ trades }) => {
+export const StatsListTrades = ({ trades }) => {
   const totalTrades = trades.length
   const winRatio = getWinRatio(trades)
   const losses = getOutcomeCount(trades, 'loss')

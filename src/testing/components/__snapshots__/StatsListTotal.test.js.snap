@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render StatsListTrades component 1`] = `
+<StatsListWrapperStyled__StatsListWrapper
+  flexDirection="column"
+>
+  <SubHeadingStyled__SubHeading>
+    Trades
+  </SubHeadingStyled__SubHeading>
+  <HighlightedList>
+    <ListItem
+      key="3"
+    >
+      <Span>
+        Total
+      </Span>
+      3
+    </ListItem>
+    <ListItem
+      key="2"
+    >
+      <Span>
+        Wins
+      </Span>
+      2
+    </ListItem>
+    <ListItem
+      key="1"
+    >
+      <Span>
+        Losses
+      </Span>
+      1
+    </ListItem>
+    <ListItem
+      key="0"
+    >
+      <Span>
+        Scratched
+      </Span>
+      0
+    </ListItem>
+    <ListItem
+      key="66.67%"
+    >
+      <Span>
+        WinRatio
+      </Span>
+      66.67%
+    </ListItem>
+  </HighlightedList>
+</StatsListWrapperStyled__StatsListWrapper>
+`;
