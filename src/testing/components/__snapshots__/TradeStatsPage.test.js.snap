@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render TradeStatsPage 1`] = `
+<PageMainContainer
+  mobileMargin="10% 1.5rem"
+>
+  <FlexContainer
+    justifyContent="space-around"
+    mobileDirection="column"
+  >
+    <Connect(StatsListTrades) />
+    <Connect(StatsListR) />
+  </FlexContainer>
+  <FlexContainer
+    justifyContent="space-around"
+    mobileDirection="column"
+  >
+    <Connect(StatsTable)
+      keyOfUse="market"
+    />
+    <Connect(StatsTable)
+      keyOfUse="setup"
+    />
+  </FlexContainer>
+</PageMainContainer>
+`;

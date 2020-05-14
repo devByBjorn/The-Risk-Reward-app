@@ -21,7 +21,7 @@ import useStyles from '../components_style/StatsTableStyle'
 //const listAllSetups = getObjectCountList(allSetups)
 // const setupsListArr = objListToArr(listAllSetups)
 
-const StatsTable = ({ trades, keyOfUse }) => {
+export const StatsTable = ({ trades, keyOfUse }) => {
   const classes = useStyles()
   const allKeyOfUse = getKeysArr(trades, keyOfUse)
   const arrOfArrsKeyOfUse = getArrOfArrsTrades(trades, allKeyOfUse, keyOfUse)

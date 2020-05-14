@@ -4,7 +4,7 @@ import { addFirebaseTrade } from '../actions/tradeActions'
 import FormParent from './FormParent'
 //import FormParentTwo from './FormParentTwo'
 
-const TradeAddPage = ({ addFirebaseTrade, history }) => {
+export const TradeAddPage = ({ addFirebaseTrade, history }) => {
   const handleAddTrade = (trade) => {
     addFirebaseTrade(trade)
     history.push('/trades')

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { closedTradeSearch } from '../market-searcher/marketSearcher'
 import TableEnhanced from './TableEnhanced'
 
-const TableClosedTrades = ({ trades }) => {
+export const TableClosedTrades = ({ trades }) => {
   const [data, setData] = useState([])
   const [skipPageReset, setSkipPageReset] = useState(false)
   const fetchIdRef = useRef(0)
