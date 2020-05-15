@@ -18,16 +18,6 @@ import TableCheckBox from './TableCheckbox'
 //import EditIcon from '@material-ui/icons/Edit'
 //import IconButton from '../components_style/IconButtonStyled'
 
-const useStyles = makeStyles({
-  rowBody: {
-    transition: 'all 0.3s ease',
-    '&:hover': {
-      background: '#e0e0e0',
-      boxShadow: '1px 1px 4px 2px rgba(0,0,0,0.75)',
-    }
-  },
-})
-
 
 import {
   useGlobalFilter,
@@ -38,7 +28,18 @@ import {
 } from 'react-table'
 import { deleteFirebaseTrade, editFirebaseTrade } from '../actions/tradeActions'
 
-const EnhancedTable = ({
+
+const useStyles = makeStyles({
+  rowBody: {
+    transition: 'all 0.3s ease',
+    '&:hover': {
+      background: '#e0e0e0',
+      boxShadow: '1px 1px 4px 2px rgba(0,0,0,0.75)',
+    }
+  },
+})
+
+export const EnhancedTable = ({
   tableName,
   deleteFirebaseTrade,
   columns,

@@ -143,8 +143,8 @@ class FormParent extends React.Component {
       closed: closed ? closed.getTime() : '',
       period: closed && opened ? (closed.getTime() - opened.getTime()) : '',
       rewardToRisk: outcome && parseFloat(this.calculateRewardToRisk()),
-      risk: parseFloat(calculateRisk(entry, stop, target, direction)),
-      reward: parseFloat(calculateReward(entry, stop, target, direction)),
+      risk: calculateRisk(entry, stop, target, direction),
+      reward: calculateReward(entry, stop, target, direction),
       rMultiple: this.calculateRMultiple(entry, stop, exit),
       conclusion: conclusion && {
         execution: conclusion.execution,

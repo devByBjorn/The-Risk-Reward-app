@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef, Fragment, useMemo, useCallback } from 'react'
 import { connect } from 'react-redux'
-import { closedTradeSearch } from '../market-searcher/marketSearcher'
 import TableEnhanced from './TableEnhanced'
 
 export const TableClosedTrades = ({ trades }) => {
@@ -108,7 +107,7 @@ export const TableClosedTrades = ({ trades }) => {
 }
 
 const mapStateToProps = (state) => ({
-  trades: closedTradeSearch(state.trades, state.filters)
+  trades: state.trades.filter((trade) => trade.status === 'closed')
 })
 
 export default connect(mapStateToProps)(TableClosedTrades)

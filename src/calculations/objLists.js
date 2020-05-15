@@ -24,10 +24,10 @@ const getLeastOcurredKey = (list) =>
       reduce((a, b) => list[a] < list[b] ? a : b)
 
 
-const objListToArr = (listAllSetups) => {
+const objListToArr = (objList) => {
   const arr = []
 
-  for (let [key, value] of Object.entries(listAllSetups)) {
+  for (let [key, value] of Object.entries(objList)) {
     arr.push([key, value].join(' : '));
   }
 

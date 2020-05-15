@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef, Fragment, useMemo, useCallback } from 'react'
 import { connect } from 'react-redux'
-import { pendingTradeSearch } from '../market-searcher/marketSearcher'
 import TableEnhanced from './TableEnhanced'
 
 
@@ -90,7 +89,7 @@ const TablePendingTrades = ({ trades }) => {
 }
 
 const mapStateToProps = (state) => ({
-  trades: pendingTradeSearch(state.trades, state.filters)
+  trades: state.trades.filter((trade) => trade.status === 'pending')
 })
 
 export default connect(mapStateToProps)(TablePendingTrades)
