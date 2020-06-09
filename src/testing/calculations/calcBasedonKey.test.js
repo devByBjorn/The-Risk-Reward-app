@@ -9,31 +9,28 @@ test('should return array base on object key', () => {
 })
 
 
-test('should return an array of arrays with no duplicates based on key', () => {
-  const tradesArr = [
-    {
-      setup: 'ibl tick below',
-      market: 'dax',
-    }, {
-      setup: 'ibl tick below', // duplicate
-      market: 'dax',
-    }, {
-      setup: 'ibh tick above',
-      market: 'dax',
-    },
-  ]
+// test('should return an array of arrays with no duplicates based on key', () => {
+//   const tradesArr = [
+//     {
+//       setup: 'ibl tick below',
+//       market: 'dax',
+//     }, {
+//       setup: 'ibl tick below', // duplicate
+//       market: 'dax',
+//     }, {
+//       setup: 'ibh tick above',
+//       market: 'dax',
+//     },
+//   ]
 
-  const allInstansOfKey = getKeysArr(trades, 'setup')
-  expect(getArrOfArrsTrades(tradesArr, allInstansOfKey, 'setup')).toEqual([
-    [{
-      setup: 'ibl tick below',
-      market: 'dax',
-    }, {
-      setup: 'ibl tick below', // duplicate
-      market: 'dax',
-    }, {
-      setup: 'ibh tick above',
-      market: 'dax',
-    },],
-  ])
-})
+//   const allInstansOfKey = getKeysArr(trades, 'setup')
+//   expect(getArrOfArrsTrades(tradesArr, allInstansOfKey, 'setup')).toEqual([
+//     [{
+//       setup: 'ibl tick below',
+//       market: 'dax',
+//     }], [{
+//       setup: 'ibh tick above',
+//       market: 'dax',
+//     }],
+//   ])
+// })

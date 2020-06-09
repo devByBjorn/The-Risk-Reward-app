@@ -8,7 +8,7 @@ position: -webkit-sticky; /* Safari */
 position: sticky;
 top: 0;
 display: flex;
-alignItems: center;
+align-items: center;
 justify-content: center;
 background: #fff;
 border-bottom: 1px solid ${props => props.theme.colors.general.lightDarker};;

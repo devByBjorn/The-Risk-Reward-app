@@ -6,7 +6,7 @@ display: flex;
 top: 0;
 width: 100%;
 background: #fafafa;
-z-index: 999;
+z-index: 99;
   
 @media(max-width: 850px) {
   overflow-x: auto;
@@ -34,52 +34,52 @@ const Li = styled.li`
 // clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
 //  width:249px;
 const Button = styled.button`
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+display: inline-block;
+position: absolute;
+top: 0;
+left: 0;
+bottom: 0;
+width: 100%;
 
-  background: #fff;
-  border: none;
-  border-bottom: 1px solid #f50057;
-  color: #1b3a57;
-  font-size: 1.4rem;
-  margin-bottom: -1px;
+background: #fff;
+border: none;
+border-bottom: 1px solid #f50057;
+color: #1b3a57;
+font-size: 1.4rem;
+margin-bottom: -1px;
+padding: 0 1.5rem;
+text-align: left;
+
+span {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+&:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
+&:disabled {
+  background: #fafafa;
+  border-bottom: 1px solid #eee;
+  border-top: 1px solid #eee;
+  color: #bdbdbd;
   padding: 0 1.5rem;
-  text-align: left;
-
-  span {
-    display: block;
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-  }
 
   &:hover {
-    background: #eee;
-    cursor: pointer;
-  }
-
-  &:disabled {
     background: #fafafa;
-    border-bottom: 1px solid #eee;
-    border-top: 1px solid #eee;
-    color: #bdbdbd;
-    padding: 0 1.5rem;
-
-    &:hover {
-      background: #fafafa;
-      cursor: default;
-    }
-
-  &:focused {
-    outline: none;
+    cursor: default;
   }
 
-  @media(max-width: 850px) {
-    font-size: 1.2rem;
-    padding: 5px;
-  };
+&:focused {
+  outline: none;
+}
+
+@media(max-width: 850px) {
+  font-size: 1.2rem;
+  padding: 5px;
+}
 `
 export { Nav, Ul, Li, Button }
