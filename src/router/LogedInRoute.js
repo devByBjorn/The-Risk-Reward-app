@@ -7,7 +7,9 @@ export const LogedInRoute = ({
   isAuth,
   component: Component,
   ...rest
-}) => (
+}) => {
+  console.log(isAuth)
+  return (
     <Route
       {...rest}
       component={(props) => (
@@ -25,6 +27,7 @@ export const LogedInRoute = ({
     />
   )
 
+}
 const mapStateToProps = (state) => ({
   isAuth: !!state.auth.uid
 })
